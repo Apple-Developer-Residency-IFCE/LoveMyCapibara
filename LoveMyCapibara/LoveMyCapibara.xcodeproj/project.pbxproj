@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		646D84422A20208000884CC2 /* PetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646D84412A20208000884CC2 /* PetCardView.swift */; };
 		64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */; };
 		64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDE2A20056B000F9AA0 /* ContentView.swift */; };
 		64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE02A20056C000F9AA0 /* Assets.xcassets */; };
 		64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */; };
 		64ED6EEC2A20094500E428F1 /* models.txt in Resources */ = {isa = PBXBuildFile; fileRef = 64ED6EEB2A20094500E428F1 /* models.txt */; };
-		64ED6EF12A200AE700E428F1 /* component.txt in Resources */ = {isa = PBXBuildFile; fileRef = 64ED6EF02A200AE700E428F1 /* component.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		646D84412A20208000884CC2 /* PetCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetCardView.swift; sourceTree = "<group>"; };
 		64A86CD92A20056B000F9AA0 /* LoveMyCapibara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMyCapibara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveMyCapibaraApp.swift; sourceTree = "<group>"; };
 		64A86CDE2A20056B000F9AA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		64A86CE02A20056C000F9AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		64ED6EEB2A20094500E428F1 /* models.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = models.txt; sourceTree = "<group>"; };
-		64ED6EF02A200AE700E428F1 /* component.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = component.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 		64ED6EEF2A200ABA00E428F1 /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
-				64ED6EF02A200AE700E428F1 /* component.txt */,
+				646D84412A20208000884CC2 /* PetCardView.swift */,
 			);
 			path = ReusableComponents;
 			sourceTree = "<group>";
@@ -173,7 +173,6 @@
 			files = (
 				64ED6EEC2A20094500E428F1 /* models.txt in Resources */,
 				64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */,
-				64ED6EF12A200AE700E428F1 /* component.txt in Resources */,
 				64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */,
+				646D84422A20208000884CC2 /* PetCardView.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

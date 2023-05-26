@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct PetCardView: View {
+    
+    var petName: String
+    var petSpecies: String
+    var petImage: String
+    
     var body: some View {
         HStack(){
-            Image(systemName: "star")
-                .padding(.horizontal,16)
+            Image(petImage)
+                .padding(.trailing,4)
+                .clipShape(Circle())
             VStack(alignment: .leading){
-                Text("Pet Name")
-                    .font(.title3)
-                Text("Pet species")
-                    .font(.subheadline)
+                Text(petName)
+                //.font(Font.custom("Poppins-Bold", size: 16))
+                    .font(FontManager.poppinsBold(size: 16))
+                Text(petSpecies)
+                //.font(Font.custom("Poppins-Regular", size: 13))
+                    .font(FontManager.poppinsRegular(size: 13))
             }
         }
         .frame(width: UIScreen.main.bounds.width * 0.8,alignment: .leading)
@@ -30,6 +38,6 @@ struct PetCardView: View {
 
 struct PetCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PetCardView()
+        PetCardView(petName: "Bud", petSpecies: "Husky Siberiano", petImage: "PetTestImage")
     }
 }

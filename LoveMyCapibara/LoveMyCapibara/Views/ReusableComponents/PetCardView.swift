@@ -16,8 +16,8 @@ struct PetCardView: View {
     var body: some View {
         HStack(){
             Image(petImage)
-                .padding(.trailing,4)
                 .clipShape(Circle())
+                .padding(.trailing,4)
             VStack(alignment: .leading){
                 Text(petName)
                 //.font(Font.custom("Poppins-Bold", size: 16))

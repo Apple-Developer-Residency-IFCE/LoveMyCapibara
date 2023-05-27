@@ -3,6 +3,16 @@
     {
       "filename" : "Icon Clock _ Filled.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Icon Clock _ Filled _ Dark Mode.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

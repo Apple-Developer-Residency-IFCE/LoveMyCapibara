@@ -3,6 +3,16 @@
     {
       "filename" : "Icon Alarm _ Filled.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Icon Alarm _ Filled _ Dark Mode.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

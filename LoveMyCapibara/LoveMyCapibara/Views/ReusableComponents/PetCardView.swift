@@ -20,10 +20,8 @@ struct PetCardView: View {
                 .padding(.trailing,4)
             VStack(alignment: .leading){
                 Text(petName)
-                //.font(Font.custom("Poppins-Bold", size: 16))
                     .font(FontManager.poppinsBold(size: 16))
                 Text(petSpecies)
-                //.font(Font.custom("Poppins-Regular", size: 13))
                     .font(FontManager.poppinsRegular(size: 13))
             }
         }

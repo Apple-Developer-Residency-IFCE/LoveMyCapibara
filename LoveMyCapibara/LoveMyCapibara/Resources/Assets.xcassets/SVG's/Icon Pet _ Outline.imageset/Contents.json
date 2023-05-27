@@ -3,6 +3,16 @@
     {
       "filename" : "Icon Pet _ Outline.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Icon Pet _ Outline _ Dark Mode.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

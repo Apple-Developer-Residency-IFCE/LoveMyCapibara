@@ -3,6 +3,16 @@
     {
       "filename" : "Icon Add.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Icon Add _ Dark Mode.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

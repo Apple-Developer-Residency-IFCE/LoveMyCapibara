@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum RaceModel : String, Codable {
-    case srd = "SRD"
-    case shihTzu = "Shih Tzu"
+protocol RaceModel {
+    func getRaces () -> [String]?
 }
+
 

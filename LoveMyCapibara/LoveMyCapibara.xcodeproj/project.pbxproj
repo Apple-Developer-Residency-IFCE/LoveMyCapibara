@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64473F372A218117000B5967 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F322A218117000B5967 /* GenderModel.swift */; };
+		64473F382A218117000B5967 /* SpicieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F332A218117000B5967 /* SpicieModel.swift */; };
+		64473F392A218117000B5967 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F342A218117000B5967 /* PetModel.swift */; };
+		64473F3B2A218117000B5967 /* RaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F362A218117000B5967 /* RaceModel.swift */; };
 		64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */; };
 		64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDE2A20056B000F9AA0 /* ContentView.swift */; };
 		64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE02A20056C000F9AA0 /* Assets.xcassets */; };
 		64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */; };
-		64ED6EEC2A20094500E428F1 /* models.txt in Resources */ = {isa = PBXBuildFile; fileRef = 64ED6EEB2A20094500E428F1 /* models.txt */; };
 		64ED6EF12A200AE700E428F1 /* component.txt in Resources */ = {isa = PBXBuildFile; fileRef = 64ED6EF02A200AE700E428F1 /* component.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64473F322A218117000B5967 /* GenderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderModel.swift; sourceTree = "<group>"; };
+		64473F332A218117000B5967 /* SpicieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpicieModel.swift; sourceTree = "<group>"; };
+		64473F342A218117000B5967 /* PetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
+		64473F362A218117000B5967 /* RaceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceModel.swift; sourceTree = "<group>"; };
 		64A86CD92A20056B000F9AA0 /* LoveMyCapibara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMyCapibara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveMyCapibaraApp.swift; sourceTree = "<group>"; };
 		64A86CDE2A20056B000F9AA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		64A86CE02A20056C000F9AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		64ED6EEB2A20094500E428F1 /* models.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = models.txt; sourceTree = "<group>"; };
 		64ED6EF02A200AE700E428F1 /* component.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = component.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +81,10 @@
 		64ED6EEA2A2008F100E428F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				64ED6EEB2A20094500E428F1 /* models.txt */,
+				64473F322A218117000B5967 /* GenderModel.swift */,
+				64473F342A218117000B5967 /* PetModel.swift */,
+				64473F362A218117000B5967 /* RaceModel.swift */,
+				64473F332A218117000B5967 /* SpicieModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,7 +180,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64ED6EEC2A20094500E428F1 /* models.txt in Resources */,
 				64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */,
 				64ED6EF12A200AE700E428F1 /* component.txt in Resources */,
 				64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */,
@@ -185,7 +193,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64473F3B2A218117000B5967 /* RaceModel.swift in Sources */,
+				64473F372A218117000B5967 /* GenderModel.swift in Sources */,
 				64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */,
+				64473F382A218117000B5967 /* SpicieModel.swift in Sources */,
+				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

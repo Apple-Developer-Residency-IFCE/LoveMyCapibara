@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PetCardView: View {
-    
     var petName: String
     var petSpecies: String
     var petImage: String
@@ -21,15 +20,21 @@ struct PetCardView: View {
             VStack(alignment: .leading){
                 Text(petName)
                     .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryText"))
                 Text(petSpecies)
                     .font(FontManager.poppinsRegular(size: 13))
+                    .foregroundColor(Color("PrimaryText"))
             }
         }
         .frame(width: UIScreen.main.bounds.width * 0.8,alignment: .leading)
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.gray, lineWidth: 1.4)
+                .stroke(Color("CardBorderColor"), lineWidth: 2)
+        )
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(Color("CardBackgroundColor"))
         )
     }
 }

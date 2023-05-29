@@ -12,13 +12,13 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Label("Home", systemImage: "pawprint")
+                    Label("Pets", systemImage: "pawprint")
                 }
                 .toolbarBackground(.visible, for: .tabBar)
 
             SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gearshape")
+                    Label("Configurações", systemImage: "gearshape")
                 }
                 .toolbarBackground(.visible, for: .tabBar)
         }

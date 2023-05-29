@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6418348D2A20385900825BA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348C2A20385900825BA8 /* HomeView.swift */; };
+		6418348F2A20387100825BA8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348E2A20387100825BA8 /* SettingsView.swift */; };
 		64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */; };
 		64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDE2A20056B000F9AA0 /* ContentView.swift */; };
 		64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE02A20056C000F9AA0 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6418348E2A20387100825BA8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		64A86CD92A20056B000F9AA0 /* LoveMyCapibara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMyCapibara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveMyCapibaraApp.swift; sourceTree = "<group>"; };
 		64A86CDE2A20056B000F9AA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
+				6418348C2A20385900825BA8 /* HomeView.swift */,
+				6418348E2A20387100825BA8 /* SettingsView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6418348D2A20385900825BA8 /* HomeView.swift in Sources */,
+				6418348F2A20387100825BA8 /* SettingsView.swift in Sources */,
 				64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,
 			);

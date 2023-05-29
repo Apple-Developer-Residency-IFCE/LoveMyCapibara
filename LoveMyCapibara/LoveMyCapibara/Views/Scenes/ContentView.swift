@@ -14,11 +14,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "pawprint")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
 
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
         }
     }
 }

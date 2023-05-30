@@ -18,7 +18,7 @@ struct PetModel: Codable, Identifiable, RaceModel {
     var id : Int
     var name : String
     var gender : GenderModel
-    var spicie : SpicieModel
+    var specie : SpecieModel
     var race : String = "SRD"
     var birthDate : Date
     var weigth : Double

@@ -1,5 +1,5 @@
 //
-//  Spicie.swift
+//  SpecieModel.swift
 //  LoveMyCapibara
 //
 //  Created by userext on 25/05/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SpicieModel : String, Codable {
+enum SpecieModel : String, Codable {
     
     case dog = "Cachorro"
     case cat = "Gato"

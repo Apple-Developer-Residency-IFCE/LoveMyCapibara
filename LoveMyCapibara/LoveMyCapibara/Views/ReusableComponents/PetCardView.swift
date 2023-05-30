@@ -27,12 +27,10 @@ struct PetCardView: View {
                         .foregroundColor(Color("PrimaryText"))
                 }
             }
-            .frame(width: geometry.size.width * 0.8,alignment: .leading)
+            .frame(width: geometry.size.width * 1,alignment: .leading)
             .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color("CardBorderColor"), lineWidth: 2)
-            )
+            .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color("CardBorderColor"), lineWidth: 2))
             .background(
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color("CardBackgroundColor"))

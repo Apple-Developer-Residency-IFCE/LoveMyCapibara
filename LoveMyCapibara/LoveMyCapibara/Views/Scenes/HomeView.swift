@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct HomeView: View {
+    var pets: [PetModel]
+
     var body: some View {
-        Text("Home View Stub")
+        if pets.isEmpty {
+            HomeViewWithoutPets()
+        }
     }
 }
 
+let emptyPetList: [PetModel] = []
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(pets: emptyPetList)
     }
 }

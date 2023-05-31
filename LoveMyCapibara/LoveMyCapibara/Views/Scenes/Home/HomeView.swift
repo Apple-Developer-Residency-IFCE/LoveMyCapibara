@@ -17,13 +17,24 @@ struct HomeView: View {
                 LazyVGrid(columns: columns, spacing: 10){
                     Group{
                         NavigationLink{
-                            Text("Tortinha")
+                            VStack(alignment: .center){
+                                Image("tortinhaImage")
+                                    .resizable()
+                                    .frame(width: 300, height: 300)
+                                    .clipShape(Circle())
+                                Text("Tortinha")
+                            }
                         }label: {
                             PetCardView(petName: "Tortinha", petSpecies: "Gato", petImage: "tortinhaImage")
                         }
                         
                         NavigationLink{
-                            Text("Bob")
+                            VStack(alignment: .center){
+                                Image("PetTestImage")
+                                    .resizable()
+                                    .frame(width: 300, height: 300)
+                                Text("Bob")
+                            }
                         }label: {
                             PetCardView(petName: "Bob", petSpecies: "Cachorro", petImage: "PetTestImage")
                         }
@@ -32,6 +43,7 @@ struct HomeView: View {
                     .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
                 }
             }
+            .padding(.top)
         }
         
     }

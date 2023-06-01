@@ -11,6 +11,8 @@
 		6418348F2A20387100825BA8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348E2A20387100825BA8 /* SettingsView.swift */; };
 		642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */; };
 		642442542A2952100052E0C8 /* SelectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442532A2952100052E0C8 /* SelectedRadioIcon.swift */; };
+		642442562A29541C0052E0C8 /* ThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442552A29541C0052E0C8 /* ThemeOption.swift */; };
+		642442582A2955630052E0C8 /* ThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442572A2955630052E0C8 /* ThemeSelector.swift */; };
 		64473F372A218117000B5967 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F322A218117000B5967 /* GenderModel.swift */; };
 		64473F382A218117000B5967 /* SpecieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F332A218117000B5967 /* SpecieModel.swift */; };
 		64473F392A218117000B5967 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F342A218117000B5967 /* PetModel.swift */; };
@@ -32,6 +34,8 @@
 		6418348E2A20387100825BA8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
 		642442532A2952100052E0C8 /* SelectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRadioIcon.swift; sourceTree = "<group>"; };
+		642442552A29541C0052E0C8 /* ThemeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeOption.swift; sourceTree = "<group>"; };
+		642442572A2955630052E0C8 /* ThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelector.swift; sourceTree = "<group>"; };
 		64473F322A218117000B5967 /* GenderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderModel.swift; sourceTree = "<group>"; };
 		64473F332A218117000B5967 /* SpecieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecieModel.swift; sourceTree = "<group>"; };
 		64473F342A218117000B5967 /* PetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 			children = (
 				642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */,
 				642442532A2952100052E0C8 /* SelectedRadioIcon.swift */,
+				642442552A29541C0052E0C8 /* ThemeOption.swift */,
+				642442572A2955630052E0C8 /* ThemeSelector.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				642442582A2955630052E0C8 /* ThemeSelector.swift in Sources */,
 				64473F3B2A218117000B5967 /* RaceModel.swift in Sources */,
 				642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */,
 				64473F372A218117000B5967 /* GenderModel.swift in Sources */,
@@ -254,6 +261,7 @@
 				6418348F2A20387100825BA8 /* SettingsView.swift in Sources */,
 				64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */,
 				646D84422A20208000884CC2 /* PetCardView.swift in Sources */,
+				642442562A29541C0052E0C8 /* ThemeOption.swift in Sources */,
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
 				64473F382A218117000B5967 /* SpecieModel.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,

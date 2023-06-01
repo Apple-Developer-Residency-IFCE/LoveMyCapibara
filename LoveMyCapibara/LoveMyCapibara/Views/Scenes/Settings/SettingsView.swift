@@ -64,24 +64,3 @@ struct ThemeOption: View {
         }
     }
 }
-
-struct UnselectedRadioIcon: View {
-    var body: some View {
-        Circle()
-            .frame(width: 20, height: 20)
-            .overlay(
-                Circle()
-                    .stroke(lineWidth: 1)
-                    .foregroundColor(Color("PrimaryColor"))
-            )
-            .foregroundColor(.clear)
-    }
-}
-
-struct SelectedRadioIcon: View {
-    var body: some View {
-        Image("Icon Select _ Selected")
-            .resizable()
-            .frame(width: 20, height: 20)
-    }
-}

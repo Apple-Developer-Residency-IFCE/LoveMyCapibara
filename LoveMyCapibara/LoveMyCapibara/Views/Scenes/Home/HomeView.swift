@@ -10,33 +10,25 @@ import SwiftUI
 struct HomeView: View {
     @State var homeViewModel = HomeViewModel()
     
-    let columns = [GridItem(.flexible())]
+    let columns = [GridItem()]
     var body: some View {
         NavigationView(){
             ScrollView{
                 LazyVGrid(columns: columns, spacing: 10){
                     Group{
-                        NavigationLink{
-                            VStack(alignment: .center){
-                                Image("tortinhaImage")
-                                    .resizable()
-                                    .frame(width: 300, height: 300)
-                                    .clipShape(Circle())
-                                Text("Tortinha")
+                        ForEach (homeViewModel.pets){
+                            pet in
+                            NavigationLink{
+                                VStack(alignment: .center){
+                                    Image(pet.imageName)
+                                        .resizable()
+                                        .frame(width: 300, height: 300)
+                                        .clipShape(Circle())
+                                    Text(pet.name)
+                                }
+                            }label: {
+                                PetCardView(petName: pet.name, petSpecies: pet.specie.rawValue, petImage: pet.imageName)
                             }
-                        }label: {
-                            PetCardView(petName: "Tortinha", petSpecies: "Gato", petImage: "tortinhaImage")
-                        }
-                        
-                        NavigationLink{
-                            VStack(alignment: .center){
-                                Image("PetTestImage")
-                                    .resizable()
-                                    .frame(width: 300, height: 300)
-                                Text("Bob")
-                            }
-                        }label: {
-                            PetCardView(petName: "Bob", petSpecies: "Cachorro", petImage: "PetTestImage")
                         }
                     }
                     .frame(height: 100)

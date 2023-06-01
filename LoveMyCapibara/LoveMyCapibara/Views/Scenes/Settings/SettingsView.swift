@@ -28,11 +28,13 @@ struct SettingsView_Previews: PreviewProvider {
 }
 
 struct ThemesSelector: View {
+    @State var selectedOption = 1
+    
     var body: some View {
         HStack(alignment: .center, spacing: 40) {
-            ThemeOption(imageName: "DefaultTheme", label: "Sistema", isSelected: true)
-            ThemeOption(imageName: "LightModeTheme", label: "Light", isSelected: false)
-            ThemeOption(imageName: "Dark mode", label: "Dark", isSelected: false)
+            ThemeOption(imageName: "DefaultTheme", label: "Sistema", selectedID: $selectedOption, id: 1)
+            ThemeOption(imageName: "LightModeTheme", label: "Light", selectedID: $selectedOption, id: 2)
+            ThemeOption(imageName: "Dark mode", label: "Dark", selectedID: $selectedOption, id: 3)
         }
     }
 }
@@ -40,8 +42,9 @@ struct ThemesSelector: View {
 struct ThemeOption: View {
     var imageName: String
     var label: String
-    @State var isSelected: Bool
-
+    @Binding var selectedID: Int
+    var id: Int
+    
     var body: some View {
         VStack {
             Image(imageName)
@@ -51,11 +54,11 @@ struct ThemeOption: View {
             Text(label)
                 .font(FontManager.poppinsRegular(size: 13))
                 .foregroundColor(Color("PrimaryText"))
-            if isSelected{
+            if selectedID == id {
                 Image("Icon Select _ Selected")
                     .resizable()
                     .frame(width: 20, height: 20)
-            }else{
+            } else {
                 Circle()
                     .frame(width: 20, height: 20)
                     .overlay(
@@ -66,7 +69,7 @@ struct ThemeOption: View {
                     .foregroundColor(.clear)
             }
         }.onTapGesture {
-            isSelected.toggle()
+            selectedID = id
         }
     }
 }

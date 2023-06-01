@@ -32,9 +32,9 @@ struct ThemesSelector: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 40) {
-            ThemeOption(imageName: "DefaultTheme", label: "Sistema", selectedID: $selectedOption, id: 1)
-            ThemeOption(imageName: "LightModeTheme", label: "Light", selectedID: $selectedOption, id: 2)
-            ThemeOption(imageName: "Dark mode", label: "Dark", selectedID: $selectedOption, id: 3)
+            ThemeOption(imageName: "DefaultTheme", label: "Sistema", id: 1, selectedID: $selectedOption)
+            ThemeOption(imageName: "LightModeTheme", label: "Light", id: 2, selectedID: $selectedOption)
+            ThemeOption(imageName: "Dark mode", label: "Dark", id: 3, selectedID: $selectedOption)
         }
     }
 }
@@ -42,8 +42,8 @@ struct ThemesSelector: View {
 struct ThemeOption: View {
     var imageName: String
     var label: String
-    @Binding var selectedID: Int
     var id: Int
+    @Binding var selectedID: Int
     
     var body: some View {
         VStack {
@@ -55,21 +55,33 @@ struct ThemeOption: View {
                 .font(FontManager.poppinsRegular(size: 13))
                 .foregroundColor(Color("PrimaryText"))
             if selectedID == id {
-                Image("Icon Select _ Selected")
-                    .resizable()
-                    .frame(width: 20, height: 20)
+                SelectedRadioIcon()
             } else {
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .overlay(
-                        Circle()
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(Color("PrimaryColor"))
-                    )
-                    .foregroundColor(.clear)
+                UnselectedRadioIcon()
             }
         }.onTapGesture {
             selectedID = id
         }
+    }
+}
+
+struct UnselectedRadioIcon: View {
+    var body: some View {
+        Circle()
+            .frame(width: 20, height: 20)
+            .overlay(
+                Circle()
+                    .stroke(lineWidth: 1)
+                    .foregroundColor(Color("PrimaryColor"))
+            )
+            .foregroundColor(.clear)
+    }
+}
+
+struct SelectedRadioIcon: View {
+    var body: some View {
+        Image("Icon Select _ Selected")
+            .resizable()
+            .frame(width: 20, height: 20)
     }
 }

@@ -63,19 +63,19 @@
 		64397C572A28113400991539 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				64397C582A2811F400991539 /* Subview */,
+				64397C582A2811F400991539 /* Subviews */,
 				6418348E2A20387100825BA8 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		64397C582A2811F400991539 /* Subview */ = {
+		64397C582A2811F400991539 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */,
 				642442532A2952100052E0C8 /* SelectedRadioIcon.swift */,
 			);
-			path = Subview;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		646D84442A202EFF00884CC2 /* Fonts */ = {

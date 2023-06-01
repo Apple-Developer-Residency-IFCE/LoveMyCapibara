@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var homeViewModel = HomeViewModel()
+    @StateObject var homeViewModel = HomeViewModel()
     
     let columns = [GridItem()]
     var body: some View {
@@ -19,6 +19,7 @@ struct HomeView: View {
                         ForEach (homeViewModel.pets){
                             pet in
                             NavigationLink{
+                                // This VStack should be remove by Pet View
                                 VStack(alignment: .center){
                                     Image(pet.imageName)
                                         .resizable()
@@ -36,6 +37,7 @@ struct HomeView: View {
                 }
             }
             .padding(.top)
+            .background(Color("BackgroundColor"))
         }
         
     }

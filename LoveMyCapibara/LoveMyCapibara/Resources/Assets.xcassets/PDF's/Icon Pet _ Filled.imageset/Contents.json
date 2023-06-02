@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "Icon Pet _ Filled.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Icon Pet _ Filled _ Dark Mode.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

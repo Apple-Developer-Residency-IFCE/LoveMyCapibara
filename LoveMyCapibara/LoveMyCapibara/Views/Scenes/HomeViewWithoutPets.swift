@@ -14,12 +14,13 @@ struct HomeViewWithoutPets: View {
                 .padding()
 
             Text("Você não possui nenhum pet cadastrado :(")
-                .font(.title2)
+                .font(FontManager.poppinsMedium(size: 18))
                 .multilineTextAlignment(.center)
+                .frame(width: 328)
 
             Spacer()
         }
-        .foregroundColor(.gray)
+        .foregroundColor(Color("SecondaryText"))
     }
 }
 

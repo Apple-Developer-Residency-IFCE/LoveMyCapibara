@@ -17,8 +17,9 @@ struct HomeView: View {
     }
 }
 
-let emptyPetList: [PetModel] = []
 struct HomeView_Previews: PreviewProvider {
+    static let emptyPetList: [PetModel] = []
+
     static var previews: some View {
         HomeView(pets: emptyPetList)
     }

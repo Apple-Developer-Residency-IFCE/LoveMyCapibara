@@ -2,13 +2,6 @@ import SwiftUI
 
 struct PetDetailsView: View {
     var pet: PetModel
-    var isCastreted: String{
-        if pet.castrated == true{
-            return "Sim"
-        }else{
-            return "Não"
-        }
-    }
     
     var body: some View {
         VStack{
@@ -22,7 +15,8 @@ struct PetDetailsView: View {
                 Spacer()
                 PetAttributes(pet: pet)
             }
-            AdicionalInfo(pet: pet, isCastreted: isCastreted)
+            AdicionalInfo(pet: pet)
+            Spacer()
         }
     }
 }

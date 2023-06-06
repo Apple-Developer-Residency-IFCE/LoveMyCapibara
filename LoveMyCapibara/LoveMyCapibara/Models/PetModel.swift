@@ -22,7 +22,7 @@ struct PetModel: Codable, Identifiable, RaceModel {
     var race : String = "SRD"
     var birthDate : Date
     var weigth : Double
-    var castraded : Bool
+    var castrated : Bool
     //TO-DO
     func getRaces() -> [String]? {
         return nil

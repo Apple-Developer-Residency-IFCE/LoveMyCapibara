@@ -10,7 +10,7 @@ import SwiftUI
 struct AdicionalInfo: View {
     
     var pet : PetModel
-    var isCastreded: String
+    var isCastreted: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20){
@@ -25,7 +25,7 @@ struct AdicionalInfo: View {
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryText"))
                 Spacer()
-                Text("\(isCastreded)")
+                Text("\(isCastreted)")
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryText"))
             }
@@ -35,6 +35,6 @@ struct AdicionalInfo: View {
 
 struct AdicionalInfo_Previews: PreviewProvider {
     static var previews: some View {
-        AdicionalInfo(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: .dog, birthDate: Date(), weigth: 12.0, castraded: true), isCastreded: "Sim")
+        AdicionalInfo(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: .dog, birthDate: Date(), weigth: 12.0, castrated: true), isCastreted: "Sim")
     }
 }

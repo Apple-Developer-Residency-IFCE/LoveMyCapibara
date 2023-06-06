@@ -2,8 +2,8 @@ import SwiftUI
 
 struct PetDetailsView: View {
     var pet: PetModel
-    var isCastreded: String{
-        if pet.castraded == true{
+    var isCastreted: String{
+        if pet.castrated == true{
             return "Sim"
         }else{
             return "Não"
@@ -12,7 +12,7 @@ struct PetDetailsView: View {
     
     var body: some View {
         VStack{
-            Image("PetTestImage")
+            Image(pet.imageName)
                 .resizable()
                 .aspectRatio( contentMode: .fill)
                 .frame(width: 394, height: 194)
@@ -22,13 +22,13 @@ struct PetDetailsView: View {
                 Spacer()
                 PetAttributes(pet: pet)
             }
-            AdicionalInfo(pet: pet, isCastreded: isCastreded)
+            AdicionalInfo(pet: pet, isCastreted: isCastreted)
         }
     }
 }
 
 struct PetDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PetDetailsView(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: .dog, birthDate: Date(), weigth: 12.0, castraded: true))
+        PetDetailsView(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: .dog, birthDate: Date(), weigth: 12.0, castrated: true))
     }
 }

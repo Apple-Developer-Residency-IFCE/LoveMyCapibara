@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct InputPicker: View {
+struct InputPicker<T>: View where T: Hashable {
     var label: String
-    @Binding var value: String
-    var options: [String]
+    @Binding var value: T
+    var options: [T]
     
     var body: some View {
         HStack{
@@ -20,14 +20,24 @@ struct InputPicker: View {
             Spacer()
             Picker(label, selection: $value) {
                 ForEach(options, id: \.self){ option in
-                    Text(option)
+                    buildOption(option)
                 }
             }
             .tint(Color("SecondaryText"))
         }
-        .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
-        .background(Color("FieldBackgroundColor"))
-        .font(FontManager.poppinsRegular(size: 16))
+    }
+    
+    @ViewBuilder
+    func buildOption(_ option: T) -> some View{
+        if let boolValue = option as? Bool{
+            if boolValue{
+                Text("Sim").tag(true)
+            }else{
+                Text("Não").tag(false)
+            }
+        }else{
+            Text(String(describing: option))
+        }
     }
 }
 

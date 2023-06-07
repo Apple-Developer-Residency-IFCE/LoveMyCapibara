@@ -13,7 +13,6 @@
 		642241DB2A296792006B3634 /* AddPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642241DA2A296792006B3634 /* AddPetViewModel.swift */; };
 		642241DD2A296E23006B3634 /* InputText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642241DC2A296E23006B3634 /* InputText.swift */; };
 		642241DF2A296F2C006B3634 /* InputPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642241DE2A296F2C006B3634 /* InputPicker.swift */; };
-		643077852A2A9AE500174262 /* InputDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643077842A2A9AE500174262 /* InputDate.swift */; };
 		64473F372A218117000B5967 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F322A218117000B5967 /* GenderModel.swift */; };
 		64473F382A218117000B5967 /* SpecieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F332A218117000B5967 /* SpecieModel.swift */; };
 		64473F392A218117000B5967 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F342A218117000B5967 /* PetModel.swift */; };
@@ -28,6 +27,8 @@
 		64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A86CDE2A20056B000F9AA0 /* ContentView.swift */; };
 		64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE02A20056C000F9AA0 /* Assets.xcassets */; };
 		64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */; };
+		F5338F8B2A2FDE3800164841 /* specie.json in Resources */ = {isa = PBXBuildFile; fileRef = F5338F8A2A2FDE3800164841 /* specie.json */; };
+		F5338F8D2A2FEACE00164841 /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = F5338F8C2A2FEACE00164841 /* race.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,6 @@
 		642241DA2A296792006B3634 /* AddPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewModel.swift; sourceTree = "<group>"; };
 		642241DC2A296E23006B3634 /* InputText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputText.swift; sourceTree = "<group>"; };
 		642241DE2A296F2C006B3634 /* InputPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPicker.swift; sourceTree = "<group>"; };
-		643077842A2A9AE500174262 /* InputDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDate.swift; sourceTree = "<group>"; };
 		64473F322A218117000B5967 /* GenderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderModel.swift; sourceTree = "<group>"; };
 		64473F332A218117000B5967 /* SpecieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecieModel.swift; sourceTree = "<group>"; };
 		64473F342A218117000B5967 /* PetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		64A86CDE2A20056B000F9AA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		64A86CE02A20056C000F9AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5338F8A2A2FDE3800164841 /* specie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = specie.json; sourceTree = "<group>"; };
+		F5338F8C2A2FEACE00164841 /* race.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = race.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,8 @@
 			children = (
 				64A86CE02A20056C000F9AA0 /* Assets.xcassets */,
 				646D84442A202EFF00884CC2 /* Fonts */,
+				F5338F8A2A2FDE3800164841 /* specie.json */,
+				F5338F8C2A2FEACE00164841 /* race.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -158,7 +162,6 @@
 				646D84412A20208000884CC2 /* PetCardView.swift */,
 				642241DC2A296E23006B3634 /* InputText.swift */,
 				642241DE2A296F2C006B3634 /* InputPicker.swift */,
-				643077842A2A9AE500174262 /* InputDate.swift */,
 			);
 			path = ReusableComponents;
 			sourceTree = "<group>";
@@ -232,9 +235,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5338F8B2A2FDE3800164841 /* specie.json in Resources */,
 				64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */,
 				646D84482A202F9100884CC2 /* Poppins-Bold.ttf in Resources */,
 				646D844A2A202F9E00884CC2 /* Poppins-SemiBold.ttf in Resources */,
+				F5338F8D2A2FEACE00164841 /* race.json in Resources */,
 				64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */,
 				646D844E2A20316A00884CC2 /* Poppins-Medium.ttf in Resources */,
 				646D84462A202F6C00884CC2 /* Poppins-Regular.ttf in Resources */,
@@ -259,7 +264,6 @@
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
 				642241D92A2966BD006B3634 /* AddPetView.swift in Sources */,
 				642241DF2A296F2C006B3634 /* InputPicker.swift in Sources */,
-				643077852A2A9AE500174262 /* InputDate.swift in Sources */,
 				64473F382A218117000B5967 /* SpecieModel.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,

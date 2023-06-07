@@ -13,9 +13,7 @@ struct InputText: View {
     
     var body: some View {
         TextField(placeholder, text: $value)
-            .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
-            .background(Color("FieldBackgroundColor"))
-            .font(FontManager.poppinsRegular(size: 16))
+        
     }
 }
 

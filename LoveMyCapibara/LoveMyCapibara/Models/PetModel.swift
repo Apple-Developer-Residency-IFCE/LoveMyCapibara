@@ -11,21 +11,16 @@
 import Foundation
 import SwiftUI
 
-struct PetModel: Codable, Identifiable, RaceModel {
+struct PetModel: Codable, Identifiable {
     
     var imageName: String
     
     var id : Int
     var name : String
     var gender : GenderModel
-    var specie : SpecieModel
-    var race : String = "SRD"
+    var specie : String
+    var race : String
     var birthDate : Date
     var weigth : Double
-    var castraded : Bool
-    //TO-DO
-    func getRaces() -> [String]? {
-        return nil
-    }
-    
+    var castrated : Bool
 }

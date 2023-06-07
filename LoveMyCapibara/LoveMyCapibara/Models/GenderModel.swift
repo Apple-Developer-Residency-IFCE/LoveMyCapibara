@@ -8,10 +8,20 @@
 import Foundation
 
 
-enum GenderModel : String, Codable {
+enum GenderModel : String, Codable, CaseIterable {
     
+    case none = "Nenhum"
     case male = "Macho"
     case female = "Fêmea"
-    case none = "Nenhum"
     
+    var description: String{
+        switch self{
+        case .male:
+            return "Macho"
+        case .female:
+            return "Fêmea"
+        case .none:
+            return "Nenhum"
+        }
+    }
 }

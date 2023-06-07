@@ -9,9 +9,6 @@ import Foundation
 
 class HomeViewModel: ObservableObject{
     @Published var pets : [PetModel]
-    var noPets : Bool {
-        pets.isEmpty
-    }
     
     init(){
         let formatter = DateFormatter()

@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var homeViewModel = HomeViewModel()
     
+    @StateObject var homeViewModel = HomeViewModel()
+    var body: some View {
+        if homeViewModel.pets.isEmpty{
+            HomeViewWithoutPets()
+        }
+        else{
+            HomeViewWithPets()
+        }
+        
+    }
+    
+    struct HomeView_Previews: PreviewProvider {
+        static var previews: some View {
+            HomeView()
+        }
+    }
+}
+
+struct HomeViewWithPets: View {
+    @StateObject var homeViewModel = HomeViewModel()
     let columns = [GridItem()]
     var body: some View {
         NavigationView(){
@@ -38,13 +57,6 @@ struct HomeView: View {
             }
             .padding(.top)
             .background(Color("BackgroundColor"))
-        }
-        
-    }
-    
-    struct HomeView_Previews: PreviewProvider {
-        static var previews: some View {
-            HomeView()
         }
     }
 }

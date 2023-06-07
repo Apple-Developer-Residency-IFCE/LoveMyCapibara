@@ -12,9 +12,9 @@ struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
     @Environment(\.colorScheme) var colorScheme
     
-    var theme: ColorScheme {
+    var theme: ColorScheme? {
         if selectedOption == 1 {
-            return colorScheme
+            return nil
         } else if selectedOption == 2 {
             return .light
         } else {
@@ -26,6 +26,9 @@ struct LoveMyCapibaraApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(theme)
+                .onChange(of: colorScheme) { newValue in
+                    print("changed")
+                }
         }
     }
 }

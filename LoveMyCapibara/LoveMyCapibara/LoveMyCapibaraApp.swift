@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
-    @Environment(\.colorScheme) var colorScheme
     
     var theme: ColorScheme? {
         if selectedOption == 1 {
@@ -26,9 +25,6 @@ struct LoveMyCapibaraApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(theme)
-                .onChange(of: colorScheme) { newValue in
-                    print("changed")
-                }
         }
     }
 }

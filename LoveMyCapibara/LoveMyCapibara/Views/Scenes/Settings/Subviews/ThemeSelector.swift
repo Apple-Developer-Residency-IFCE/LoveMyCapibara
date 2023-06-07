@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct ThemeSelector: View {
-    @SceneStorage("preferredColorScheme") var selectedOption = 1
+    @AppStorage("preferredColorScheme") var selectedOption = 1
     @Environment(\.colorScheme) var colorScheme
     
     var theme: ColorScheme {
@@ -21,7 +21,6 @@ struct ThemeSelector: View {
             return .dark
         }
     }
-    
     
     var body: some View {
         HStack(alignment: .center, spacing: 40) {

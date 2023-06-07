@@ -10,12 +10,8 @@ import SwiftUI
 struct DataPickerView: View {
     @State var birthdayDate : Date = Date.now
     var body: some View {
-        DatePicker("Nascimento",selection: $birthdayDate, displayedComponents: .date)
-            .padding()
-            .background {
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(Color("SelectionFieldBackground"))
-            }
+        DatePicker("Nascimento",selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
+            .padding([.horizontal],16)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color("PrimaryText"))
     }
@@ -24,6 +20,6 @@ struct DataPickerView: View {
 struct DataPickerView_Previews: PreviewProvider {
     static var previews: some View {
         DataPickerView()
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
     }
 }

@@ -25,8 +25,10 @@ struct PetAttributes: View {
     var genderImage: String{
         if pet.gender == .male{
             return "Icon Macho _ Default"
-        }else{
+        }else if pet.gender == .female{
             return "Icon Fêmea _ Default"
+        }else{
+            return "Icon Nenhum _ Default"
         }
     }
     

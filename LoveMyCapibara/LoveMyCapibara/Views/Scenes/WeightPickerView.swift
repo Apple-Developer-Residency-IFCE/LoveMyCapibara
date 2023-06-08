@@ -25,6 +25,10 @@ struct WeightPickerView: View {
                             Text("\($0)")
                         }
                     }
+                    .overlay{
+                        Text("kg")
+                            .offset(x:50)
+                    }
                 }
                 .labelsHidden()
                 .fixedSize(horizontal: true, vertical: true)
@@ -32,9 +36,7 @@ struct WeightPickerView: View {
                 .clipped()
                 .pickerStyle(.wheel)
             }
-            .overlay{
-                Text(",KG")
-            }
+            .overlay(Text(","))
         }
         .frame(height: 160)
         .mask(Rectangle())

@@ -24,6 +24,7 @@
 		64A86CE12A20056C000F9AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE02A20056C000F9AA0 /* Assets.xcassets */; };
 		64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */; };
 		C08DB1CD2A2FDA0900636AEF /* DataPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1CC2A2FDA0900636AEF /* DataPickerView.swift */; };
+		C08DB1D22A2FF5A400636AEF /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		64A86CE02A20056C000F9AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C08DB1CC2A2FDA0900636AEF /* DataPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerView.swift; sourceTree = "<group>"; };
+		C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				6418348C2A20385900825BA8 /* HomeView.swift */,
 				6418348E2A20387100825BA8 /* SettingsView.swift */,
 				C08DB1CC2A2FDA0900636AEF /* DataPickerView.swift */,
+				C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64473F3B2A218117000B5967 /* RaceModel.swift in Sources */,
+				C08DB1D22A2FF5A400636AEF /* WeightPickerView.swift in Sources */,
 				64473F372A218117000B5967 /* GenderModel.swift in Sources */,
 				6418348D2A20385900825BA8 /* HomeView.swift in Sources */,
 				6418348F2A20387100825BA8 /* SettingsView.swift in Sources */,

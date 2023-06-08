@@ -13,7 +13,7 @@ struct InputText: View {
     
     var body: some View {
         TextField(placeholder, text: $value)
-        
+            .padding(.vertical, 4)
     }
 }
 

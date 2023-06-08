@@ -1,18 +1,21 @@
 //
-//  AddPetViewModel.swift
+//  FormViewModel.swift
 //  LoveMyCapibara
 //
-//  Created by userext on 01/06/23.
+//  Created by Maurício de Moura on 12/06/23.
 //
 
 import Foundation
+import SwiftUI
 
-class AddPetViewModel: ObservableObject{
+class FormViewModel: RaceModel, ObservableObject {
     @Published var pet: PetModel
+    @Published var dataImage: Data? = nil
+    
     var speciesOptions: [String]
     var raceBySpecies: Dictionary<String, [String]>
     
-    var raceOptions: [String]{
+    func getRaces() -> [String] {
         guard let races = raceBySpecies[pet.specie] else{
             return ["Não escolhida"]
         }
@@ -23,10 +26,22 @@ class AddPetViewModel: ObservableObject{
         return options
     }
     
-    init() {
-        self.pet = PetModel(imageName: "", id: 0, name: "", gender: .none, specie: "", race: "", birthDate: Date.now, weigth: 0.0, castrated: false)
+    init(_ pet: PetModel? = nil) {
+        if let petValue = pet {
+            self.pet = petValue
+            
+            if let uiImage = UIImage(named: petValue.imageName) {
+                if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
+                    self.dataImage = imageData
+                }
+            }
+        }else{
+            self.pet = PetModel(imageName: "", id: 0, name: "", gender: GenderModel.none, specie: "", race: "", birthDate: Date.now, weigth: 0.0, castrated: false)
+        }
+        
         self.speciesOptions = load("specie.json")
         self.raceBySpecies = load("race.json")
+        
     }
 }
 
@@ -51,3 +66,5 @@ func load<T: Decodable>(_ fileName: String) -> T {
         fatalError("Não foi possível decodificar o arquivo \(fileName)")
     }
 }
+
+

@@ -35,6 +35,8 @@ struct InputPicker<T>: View where T: Hashable {
             }else{
                 Text("Não").tag(false)
             }
+        }else if let rawValue = (option as? (any RawRepresentable))?.rawValue as? String {
+            Text(String(describing: rawValue))
         }else{
             Text(String(describing: option))
         }

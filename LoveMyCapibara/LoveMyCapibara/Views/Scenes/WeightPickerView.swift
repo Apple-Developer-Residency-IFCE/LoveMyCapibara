@@ -13,27 +13,25 @@ struct WeightPickerView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                Picker("kilogram", selection: $kg) {
-                    ForEach(0..<200) {
-                        Text("\($0%10)")
+                Group {
+                    Picker("kilogram", selection: $kg) {
+                        ForEach(0..<200) {
+                            Text("\($0%10)")
+                        }
+                    }
+
+                    Picker("gram", selection: $gram) {
+                        ForEach(0..<10) {
+                            Text("\($0)")
+                        }
                     }
                 }
-//                .labelsHidden()
+                .labelsHidden()
                 .fixedSize(horizontal: true, vertical: true)
                 .frame(width: geometry.size.width / 2, height: 160)
                 .clipped()
-                
-                Picker("gram", selection: $gram) {
-                    ForEach(0..<10) {
-                        Text("\($0)")
-                    }
-                }
-//                .labelsHidden()
-                .fixedSize(horizontal: true, vertical: true)
-                .frame(width: geometry.size.width / 2, height: 160)
-                .clipped()
+                .pickerStyle(.wheel)
             }
-            .pickerStyle(.wheel)
             .overlay{
                 Text(",KG")
             }
@@ -44,14 +42,14 @@ struct WeightPickerView: View {
 }
     struct WeightPickerView_Previews: PreviewProvider {
         static var previews: some View {
-            List{
-                DataPickerView()
-                HStack {
-                    Spacer()
-                    Text("Testando")
-                    Spacer()
-                }
+//            List{
+//                DataPickerView()
+//                HStack {
+//                    Spacer()
+//                    Text("Testando")
+//                    Spacer()
+//                }
                 WeightPickerView()
-            }
+//            }
     }
 }

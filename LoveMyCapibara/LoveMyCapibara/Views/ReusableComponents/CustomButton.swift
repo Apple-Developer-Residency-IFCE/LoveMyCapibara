@@ -18,9 +18,10 @@ struct CustomButton: View {
             buttonAction()
             
         }
+        .frame(width: 327)
         .foregroundColor(Color("ButtonLabelColor"))
         .font(FontManager.poppinsBold(size: 16))
-        .padding(EdgeInsets(top:15, leading: 98, bottom: 15, trailing: 98))
+        .padding(EdgeInsets(top:15, leading: 0, bottom: 15, trailing: 0))
         .background(Color("DeleteButtonColor"))
         .cornerRadius(8)
     }

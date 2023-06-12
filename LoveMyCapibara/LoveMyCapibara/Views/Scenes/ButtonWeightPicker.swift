@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct ButtonWeightPicker: View {
-    @Binding var kg : Int
+    @State var kg : Int
+    @State var gram : Int
     @State var buttonState : Bool = false
     var body: some View {
         VStack {
-            Button("\(kg) kg"){
-                buttonState.toggle()
-            }.buttonStyle(.bordered)
+            HStack {
+                Text("Peso")
+                Spacer()
+                Button("\(kg) kg"){
+                    buttonState.toggle()
+                }.buttonStyle(.bordered)
+            }
             if(buttonState){
-                WeightPickerView()
+                WeightPickerView(kg: $kg, gram: $gram)
             }
         }
+        .padding(.horizontal,16)
+        .font(Font.custom("Poppins-Regular", size: 16))
+        .foregroundColor(Color("PrimaryText"))
     }
 }
 
 struct ButtonWeightPicker_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonWeightPicker(kg: .constant(1))
+        ButtonWeightPicker(kg: 0, gram: 0)
     }
 }
 

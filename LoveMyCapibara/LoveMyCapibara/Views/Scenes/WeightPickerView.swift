@@ -30,6 +30,7 @@ struct WeightPickerView: View {
                             .offset(x:50)
                     }
                 }
+                .frame(width: geometry.size.width / 2 + 30 )
                 .labelsHidden()
                 .fixedSize(horizontal: true, vertical: true)
                 .frame(width: geometry.size.width / 2, height: 160)

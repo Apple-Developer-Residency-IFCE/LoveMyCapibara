@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct WeightPickerView: View {
-    @State var kg : Int = 0
-    @State var gram : Int = 100
+    @Binding var kg : Int
+    @Binding var gram : Int
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
@@ -22,7 +22,7 @@ struct WeightPickerView: View {
 
                     Picker("gram", selection: $gram) {
                         ForEach(0..<200) {
-                            Text("\($0 % 10)")
+                            Text("\($0 % 10)").tag($0 % 10)
                         }
                     }
                     .overlay{
@@ -51,7 +51,7 @@ struct WeightPickerView: View {
 //                    Text("Testando")
 //                    Spacer()
 //                }
-                WeightPickerView()
+            WeightPickerView(kg: .constant(0), gram: .constant(100))
 //            }
     }
 }

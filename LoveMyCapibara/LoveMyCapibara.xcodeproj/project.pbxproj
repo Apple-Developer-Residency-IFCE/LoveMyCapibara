@@ -25,6 +25,7 @@
 		64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */; };
 		C08DB1CD2A2FDA0900636AEF /* DataPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1CC2A2FDA0900636AEF /* DataPickerView.swift */; };
 		C08DB1D22A2FF5A400636AEF /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */; };
+		C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		64A86CE32A20056C000F9AA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C08DB1CC2A2FDA0900636AEF /* DataPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerView.swift; sourceTree = "<group>"; };
 		C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
+		C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWeightPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				6418348E2A20387100825BA8 /* SettingsView.swift */,
 				C08DB1CC2A2FDA0900636AEF /* DataPickerView.swift */,
 				C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */,
+				C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
 				64473F382A218117000B5967 /* SpecieModel.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
+				C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

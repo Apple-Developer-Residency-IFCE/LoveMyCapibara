@@ -35,21 +35,19 @@ struct PetAttributes: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: 16){
             Image(genderImage)
-            Text("\(pet.name)")
-                .font(FontManager.poppinsRegular(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(pet.specie.rawValue)")
-                .font(FontManager.poppinsRegular(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(formattedDate)")
-                .font(FontManager.poppinsRegular(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(pet.race)")
-                .font(FontManager.poppinsRegular(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(formattedWeight) Kg")
-                .font(FontManager.poppinsRegular(size: 16))
-                .foregroundColor(Color("PrimaryText"))
+            Group {
+                Text("\(pet.name)")
+                
+                Text("\(pet.specie.rawValue)")
+                
+                Text("\(formattedDate)")
+                
+                Text("\(pet.race)")
+                
+                Text("\(formattedWeight) Kg")
+            }
+            .font(FontManager.poppinsRegular(size: 16))
+            .foregroundColor(Color("PrimaryText"))
         }.padding(EdgeInsets(top: 32, leading: 0, bottom: 0, trailing: 24))
     }
 }

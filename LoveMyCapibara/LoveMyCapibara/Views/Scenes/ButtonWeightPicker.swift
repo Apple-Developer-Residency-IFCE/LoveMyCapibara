@@ -13,15 +13,18 @@ struct ButtonWeightPicker: View {
     @State var buttonState : Bool = false
     var body: some View {
         VStack {
-            HStack {
-                Text("Peso")
-                Spacer()
-                Button("\(kg) kg"){
-                    buttonState.toggle()
-                }.buttonStyle(.bordered)
-            }
+                HStack {
+                    Text("Peso")
+                    Spacer()
+                        Button("\(kg) kg"){
+                            withAnimation {
+                                buttonState.toggle()
+                            }
+                        }.buttonStyle(.bordered)
+                }
             if(buttonState){
                 WeightPickerView(kg: $kg, gram: $gram)
+                    .transition(.scale)
             }
         }
         .padding(.horizontal,16)

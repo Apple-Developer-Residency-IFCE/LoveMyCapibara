@@ -31,25 +31,25 @@ struct FormView: View {
                         get: { viewModel.pet.name },
                         set: { viewModel.pet.name = $0 }
                     ))
-                    //renderLine()
+                    renderLine()
                     
                     InputPicker(label: "Gênero", value: Binding<GenderModel>(
                         get: { viewModel.pet.gender },
                         set: { viewModel.pet.gender = $0 }
                     ), options: GenderModel.allCases)
-                    //renderLine()
+                    renderLine()
                     
                     InputPicker(label: "Espécie", value: Binding<String>(
                         get: { viewModel.pet.specie },
                         set: {viewModel.pet.specie = $0 }
                     ), options: viewModel.speciesOptions)
-                    //renderLine()
+                    renderLine()
                     
                     InputPicker(label: "Raça", value: Binding<String>(
                         get: { viewModel.pet.race },
                         set: { viewModel.pet.race = $0 }
                     ), options: viewModel.getRaces())
-                    //renderLine()
+                    renderLine()
                     
                     // Esse componente está sendo produzido pelo Winni e deverá ser substituído
                     DatePicker("Nascimento", selection: Binding<Date>(

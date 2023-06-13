@@ -11,8 +11,13 @@ struct EditPetView: View {
     @ObservedObject var formViewModel = FormViewModel(PetModel(imageName: "PetTestImage", id: 1, name: "Kaioni", gender: GenderModel.male, specie: "Cachorro", race: "Labrador Retriever", birthDate: Date.now, weigth: 23.7, castrated: true))
     
     var body: some View {
-        FormView()
-            .environmentObject(formViewModel)
+        VStack{
+            FormView()
+                .environmentObject(formViewModel)
+            
+            Spacer()
+        }
+        .padding(.top)
     }
 }
 

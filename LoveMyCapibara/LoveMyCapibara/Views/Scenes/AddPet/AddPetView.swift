@@ -11,8 +11,13 @@ struct AddPetView: View {
     @ObservedObject var formViewModel = FormViewModel()
     
     var body: some View {
-        FormView()
-            .environmentObject(formViewModel)
+        VStack{
+            FormView()
+                .environmentObject(formViewModel)
+            
+            Spacer()
+        }
+        .padding(.top)
     }
 }
 

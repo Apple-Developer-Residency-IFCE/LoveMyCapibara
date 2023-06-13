@@ -19,7 +19,6 @@ struct WeightPickerView: View {
                             Text("\($0)")
                         }
                     }
-
                     Picker("gram", selection: $gram) {
                         ForEach(0..<200) {
                             Text("\($0 % 10)").tag($0 % 10)
@@ -27,13 +26,13 @@ struct WeightPickerView: View {
                     }
                     .overlay{
                         Text("kg")
-                            .offset(x:50)
+                            .offset(x: 50)
                     }
                 }
-                .frame(width: geometry.size.width / 2 + 30 )
+                .frame(width: geometry.size.width / 2 + 30)
                 .labelsHidden()
                 .fixedSize(horizontal: true, vertical: true)
-                .frame(width: geometry.size.width / 2, height: 160)
+                .frame(width: geometry.size.width / 2 , height: 160)
                 .clipped()
                 .pickerStyle(.wheel)
             }

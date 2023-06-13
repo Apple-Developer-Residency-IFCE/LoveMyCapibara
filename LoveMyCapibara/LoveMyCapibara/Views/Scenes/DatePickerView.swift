@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DataPickerView: View {
+struct DatePickerView: View {
     @State var birthdayDate : Date = Date.now
     var body: some View {
         DatePicker("Nascimento",selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
@@ -19,7 +19,7 @@ struct DataPickerView: View {
 
 struct DataPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        DataPickerView()
+        DatePickerView()
 //            .preferredColorScheme(.dark)
     }
 }

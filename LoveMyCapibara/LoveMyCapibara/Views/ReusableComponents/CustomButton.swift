@@ -14,16 +14,18 @@ struct CustomButton: View {
     var buttonColor: String
     
     var body: some View {
-        Button(buttonLabel){
+        Button {
             buttonAction()
-            
+        } label: {
+            Text(buttonLabel)
+                .foregroundColor(Color("ButtonLabelColor"))
+                .font(FontManager.poppinsBold(size: 16))
+                .padding(EdgeInsets(top:15, leading: 0, bottom: 15, trailing: 0))
+                .frame(width: 327)
+                .background(Color("DeleteButtonColor"))
+                .cornerRadius(8)
+                .contentShape(Rectangle())
         }
-        .frame(width: 327)
-        .foregroundColor(Color("ButtonLabelColor"))
-        .font(FontManager.poppinsBold(size: 16))
-        .padding(EdgeInsets(top:15, leading: 0, bottom: 15, trailing: 0))
-        .background(Color("DeleteButtonColor"))
-        .cornerRadius(8)
     }
 }
 

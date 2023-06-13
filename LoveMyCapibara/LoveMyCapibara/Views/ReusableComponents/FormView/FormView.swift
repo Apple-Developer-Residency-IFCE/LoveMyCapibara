@@ -27,35 +27,20 @@ struct FormView: View {
             
             Group{
                 VStack{
-                    InputText(placeholder: "Nome do pet", value: Binding<String>(
-                        get: { viewModel.pet.name },
-                        set: { viewModel.pet.name = $0 }
-                    ))
+                    InputText(placeholder: "Nome do pet", value: $viewModel.pet.name)
                     renderLine()
                     
-                    InputPicker(label: "Gênero", value: Binding<GenderModel>(
-                        get: { viewModel.pet.gender },
-                        set: { viewModel.pet.gender = $0 }
-                    ), options: GenderModel.allCases)
+                    InputPicker(label: "Gênero", value: $viewModel.pet.gender, options: GenderModel.allCases)
                     renderLine()
                     
-                    InputPicker(label: "Espécie", value: Binding<String>(
-                        get: { viewModel.pet.specie },
-                        set: {viewModel.pet.specie = $0 }
-                    ), options: viewModel.speciesOptions)
+                    InputPicker(label: "Espécie", value: $viewModel.pet.specie, options: viewModel.speciesOptions)
                     renderLine()
                     
-                    InputPicker(label: "Raça", value: Binding<String>(
-                        get: { viewModel.pet.race },
-                        set: { viewModel.pet.race = $0 }
-                    ), options: viewModel.getRaces())
+                    InputPicker(label: "Raça", value: $viewModel.pet.race, options: viewModel.getRaces())
                     renderLine()
                     
                     // Esse componente está sendo produzido pelo Winni e deverá ser substituído
-                    DatePicker("Nascimento", selection: Binding<Date>(
-                        get: { viewModel.pet.birthDate },
-                        set: { viewModel.pet.birthDate = $0 }
-                    ), displayedComponents: .date)
+                    DatePicker("Nascimento", selection: $viewModel.pet.birthDate, displayedComponents: .date)
                     // ----------------------------------------------
                 }
                 
@@ -67,9 +52,9 @@ struct FormView: View {
                         Spacer()
                         
                         Button {
-                            viewModel.pet.weigth += 1.0
+                            viewModel.pet.weight += 1.0
                         } label: {
-                            Text("\(viewModel.pet.weigth.formatted()) Kg")
+                            Text("\(viewModel.pet.weight.formatted()) Kg")
                                 .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
                                 .background(Color("PickerBackgroundColor"))
                                 .cornerRadius(4)
@@ -80,10 +65,7 @@ struct FormView: View {
                     // ----------------------------------------------
                     renderLine()
                     
-                    InputPicker(label: "Castrado(a)?", value: Binding<Bool>(
-                        get: { viewModel.pet.castrated },
-                        set: { viewModel.pet.castrated = $0 }
-                    ), options: [false, true])
+                    InputPicker(label: "Castrado(a)?", value: $viewModel.pet.castrated, options: [false, true])
                     
                 }
             }

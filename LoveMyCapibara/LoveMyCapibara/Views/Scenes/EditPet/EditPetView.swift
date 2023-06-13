@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+// State > Binding (struct)
+
+// StateObject > ObservedObject (class)
+
 struct EditPetView: View {
-    @ObservedObject var formViewModel = FormViewModel(PetModel(imageName: "PetTestImage", id: 1, name: "Kaioni", gender: GenderModel.male, specie: "Cachorro", race: "Labrador Retriever", birthDate: Date.now, weigth: 23.7, castrated: true))
+    
+    var petInstance: PetModel
+    @StateObject var formViewModel: FormViewModel
+
+    init(petInstance: PetModel) {
+        self.petInstance = petInstance
+        _formViewModel = StateObject(wrappedValue: FormViewModel(petInstance))
+    }
     
     var body: some View {
         VStack{
@@ -22,7 +33,9 @@ struct EditPetView: View {
 }
 
 struct EditPetView_Previews: PreviewProvider {
+    static private var petTest = PetModel(imageName: "PetTestImage", id: 1, name: "Spack", gender: .male, specie: "Gato", race: "Siamês", birthDate: Date.now, weight: 5.6, castrated: true)
+    
     static var previews: some View {
-        EditPetView()
+        EditPetView(petInstance: petTest)
     }
 }

@@ -36,7 +36,7 @@ class FormViewModel: RaceModel, ObservableObject {
                 }
             }
         }else{
-            self.pet = PetModel(imageName: "", id: 0, name: "", gender: GenderModel.none, specie: "", race: "", birthDate: Date.now, weigth: 0.0, castrated: false)
+            self.pet = PetModel()
         }
         
         self.speciesOptions = load("specie.json")

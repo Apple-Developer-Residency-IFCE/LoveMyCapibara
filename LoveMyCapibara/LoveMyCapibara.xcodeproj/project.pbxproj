@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DE5A4BD2A391B580039F609 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5A4BC2A391B580039F609 /* SettingsView.swift */; };
-		1DE5A4BB2A39137E0039F609 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5A4BA2A39137E0039F609 /* SettingsView.swift */; };
 		6418348D2A20385900825BA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348C2A20385900825BA8 /* HomeView.swift */; };
 		642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */; };
 		642442542A2952100052E0C8 /* SelectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442532A2952100052E0C8 /* SelectedRadioIcon.swift */; };
@@ -35,11 +33,13 @@
 		64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */; };
 		F5333CD32A37E5930073594B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CD22A37E5930073594B /* SettingsView.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
+		F5C649D42A3A5C5300B4F3CB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */; };
+		F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */; };
+		F5C649D62A3A665D00B4F3CB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5A4BC2A391B580039F609 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DE5A4BC2A391B580039F609 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1DE5A4BA2A39137E0039F609 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
 		642442532A2952100052E0C8 /* SelectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRadioIcon.swift; sourceTree = "<group>"; };
@@ -66,7 +66,9 @@
 		64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionalInfo.swift; sourceTree = "<group>"; };
 		64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsOfPet.swift; sourceTree = "<group>"; };
 		F5333CD22A37E5930073594B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewWithPets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,6 @@
 			children = (
 				F5333CD22A37E5930073594B /* SettingsView.swift */,
 				1DE5A4BC2A391B580039F609 /* SettingsView.swift */,
-				1DE5A4BA2A39137E0039F609 /* SettingsView.swift */,
 				64397C582A2811F400991539 /* Subviews */,
 			);
 			path = Settings;
@@ -213,10 +214,28 @@
 				64DE71A12A2E88BF00B2CF26 /* PetDetailsView */,
 				64397C572A28113400991539 /* Settings */,
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
-				6418348C2A20385900825BA8 /* HomeView.swift */,
-				6483B5922A2806A2001915D5 /* HomeViewWithoutPets.swift */,
+				64F7737A2A26AB62006384C2 /* Home */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		64F7737A2A26AB62006384C2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */,
+				6418348C2A20385900825BA8 /* HomeView.swift */,
+				C0EA9D332A313EFF0007DD27 /* SubView */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C0EA9D332A313EFF0007DD27 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */,
+				6483B5922A2806A2001915D5 /* HomeViewWithoutPets.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,8 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DE5A4BD2A391B580039F609 /* SettingsView.swift in Sources */,
-				1DE5A4BB2A39137E0039F609 /* SettingsView.swift in Sources */,
+				F5C649D62A3A665D00B4F3CB /* SettingsView.swift in Sources */,
+				F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */,
+				F5C649D42A3A5C5300B4F3CB /* HomeViewModel.swift in Sources */,
 				642442582A2955630052E0C8 /* ThemeSelector.swift in Sources */,
 				64473F3B2A218117000B5967 /* RaceModel.swift in Sources */,
 				642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */,

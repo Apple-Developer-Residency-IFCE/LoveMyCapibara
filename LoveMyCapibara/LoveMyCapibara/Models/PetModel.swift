@@ -5,7 +5,6 @@
 //  Created by userext on 25/05/23.
 //
 //
-// Na viewModel -> var image: Image {Image(imageName)}
 
 
 import Foundation

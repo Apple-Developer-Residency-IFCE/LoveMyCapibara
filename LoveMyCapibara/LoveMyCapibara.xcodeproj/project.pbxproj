@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DE5A4BD2A391B580039F609 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5A4BC2A391B580039F609 /* SettingsView.swift */; };
+		1DE5A4BB2A39137E0039F609 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5A4BA2A39137E0039F609 /* SettingsView.swift */; };
 		6418348D2A20385900825BA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348C2A20385900825BA8 /* HomeView.swift */; };
 		642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */; };
 		642442542A2952100052E0C8 /* SelectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642442532A2952100052E0C8 /* SelectedRadioIcon.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1DE5A4BC2A391B580039F609 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1DE5A4BA2A39137E0039F609 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
 		642442532A2952100052E0C8 /* SelectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRadioIcon.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				1DE5A4BC2A391B580039F609 /* SettingsView.swift */,
+				1DE5A4BA2A39137E0039F609 /* SettingsView.swift */,
 				64397C582A2811F400991539 /* Subviews */,
 			);
 			path = Settings;
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE5A4BD2A391B580039F609 /* SettingsView.swift in Sources */,
+				1DE5A4BB2A39137E0039F609 /* SettingsView.swift in Sources */,
 				642442582A2955630052E0C8 /* ThemeSelector.swift in Sources */,
 				64473F3B2A218117000B5967 /* RaceModel.swift in Sources */,
 				642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */,
@@ -435,7 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveMyCapibara/Preview Content\"";
-				DEVELOPMENT_TEAM = L74KXV492D;
+				DEVELOPMENT_TEAM = 67CS5JS69U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoveMyCapibara/Info.plist;
@@ -467,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveMyCapibara/Preview Content\"";
-				DEVELOPMENT_TEAM = L74KXV492D;
+				DEVELOPMENT_TEAM = 67CS5JS69U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoveMyCapibara/Info.plist;

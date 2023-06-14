@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-// State > Binding (struct)
-
-// StateObject > ObservedObject (class)
-
 struct EditPetView: View {
     
     var petInstance: PetModel

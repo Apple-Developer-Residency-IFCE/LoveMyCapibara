@@ -28,6 +28,7 @@ struct FormView: View {
             Group{
                 VStack{
                     InputText(placeholder: "Nome do pet", value: $viewModel.pet.name)
+                        .foregroundColor(Color("SecondaryText"))
                     renderLine()
                     
                     InputPicker(label: "Gênero", value: $viewModel.pet.gender, options: GenderModel.allCases)

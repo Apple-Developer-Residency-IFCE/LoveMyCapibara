@@ -32,7 +32,7 @@ struct AdicionalInfo: View {
                     .foregroundColor(Color("PrimaryText"))
                 Spacer()
                 Text("\(isCastreted)")
-                    .font(FontManager.poppinsBold(size: 16))
+                    .font(FontManager.poppinsRegular(size: 16))
                     .foregroundColor(Color("PrimaryText"))
             }
         }.padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))

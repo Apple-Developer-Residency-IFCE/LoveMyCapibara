@@ -40,13 +40,13 @@
 		F5354DCF2A3158230057F11F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5354DCE2A3158230057F11F /* ImagePicker.swift */; };
 		F5C649D42A3A5C5300B4F3CB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */; };
 		F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */; };
-		F5C649D62A3A665D00B4F3CB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5A4BC2A391B580039F609 /* SettingsView.swift */; };
 		F5F6CEE42A3A8C2A00458BC2 /* InputPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6CEE22A3A8C2A00458BC2 /* InputPicker.swift */; };
 		F5F6CEE52A3A8C2A00458BC2 /* InputText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6CEE32A3A8C2A00458BC2 /* InputText.swift */; };
+		F5F6CEE72A3A8DC800458BC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6CEE62A3A8DC800458BC2 /* SettingsView.swift */; };
+		F5F6CEE92A3A8DE700458BC2 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6CEE82A3A8DE700458BC2 /* AddPetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1DE5A4BC2A391B580039F609 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
 		642442532A2952100052E0C8 /* SelectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRadioIcon.swift; sourceTree = "<group>"; };
@@ -83,6 +83,8 @@
 		F5354DCE2A3158230057F11F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F5F6CEE22A3A8C2A00458BC2 /* InputPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPicker.swift; sourceTree = "<group>"; };
 		F5F6CEE32A3A8C2A00458BC2 /* InputText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputText.swift; sourceTree = "<group>"; };
+		F5F6CEE62A3A8DC800458BC2 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F5F6CEE82A3A8DE700458BC2 /* AddPetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		642241D72A29669B006B3634 /* AddPet */ = {
 			isa = PBXGroup;
 			children = (
+				F5F6CEE82A3A8DE700458BC2 /* AddPetView.swift */,
 			);
 			path = AddPet;
 			sourceTree = "<group>";
@@ -106,7 +109,7 @@
 		64397C572A28113400991539 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				1DE5A4BC2A391B580039F609 /* SettingsView.swift */,
+				F5F6CEE62A3A8DC800458BC2 /* SettingsView.swift */,
 				64397C582A2811F400991539 /* Subviews */,
 			);
 			path = Settings;
@@ -234,11 +237,11 @@
 		64ED6EF22A200AED00E428F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
 				64DE71A12A2E88BF00B2CF26 /* PetDetailsView */,
 				64397C572A28113400991539 /* Settings */,
 				F5333CCF2A37CDBA0073594B /* EditPet */,
 				642241D72A29669B006B3634 /* AddPet */,
-				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
 				64F7737A2A26AB62006384C2 /* Home */,
 			);
 			path = Scenes;
@@ -367,12 +370,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5C649D62A3A665D00B4F3CB /* SettingsView.swift in Sources */,
 				F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */,
 				F5C649D42A3A5C5300B4F3CB /* HomeViewModel.swift in Sources */,
 				642442582A2955630052E0C8 /* ThemeSelector.swift in Sources */,
 				64473F3B2A218117000B5967 /* RaceModel.swift in Sources */,
 				642442522A2951FC0052E0C8 /* UnselectedRadioIcon.swift in Sources */,
+				F5F6CEE92A3A8DE700458BC2 /* AddPetView.swift in Sources */,
 				64DE71A62A2E894300B2CF26 /* AdicionalInfo.swift in Sources */,
 				F5F6CEE52A3A8C2A00458BC2 /* InputText.swift in Sources */,
 				64473F372A218117000B5967 /* GenderModel.swift in Sources */,
@@ -389,6 +392,7 @@
 				64473F382A218117000B5967 /* SpecieModel.swift in Sources */,
 				F5354DCD2A3155E40057F11F /* FormView.swift in Sources */,
 				F5354DCF2A3158230057F11F /* ImagePicker.swift in Sources */,
+				F5F6CEE72A3A8DC800458BC2 /* SettingsView.swift in Sources */,
 				F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,

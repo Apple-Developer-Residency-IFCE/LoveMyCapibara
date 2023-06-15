@@ -22,24 +22,32 @@ struct PetAttributes: View {
         return numberFormatter.string(from: NSNumber(value: pet.weight)) ?? ""
     }
     
+    var genderImage: String{
+        if pet.gender == .male{
+            return "Icon Macho _ Default"
+        }else if pet.gender == .female{
+            return "Icon Fêmea _ Default"
+        }else{
+            return "Icon Nenhum _ Default"
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .trailing, spacing: 16){
-            Image("Icon Macho _ Default")
-            Text("\(pet.name)")
-                .font(FontManager.poppinsBold(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(pet.specie)")
-                .font(FontManager.poppinsBold(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(formattedDate)")
-                .font(FontManager.poppinsBold(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(pet.race)")
-                .font(FontManager.poppinsBold(size: 16))
-                .foregroundColor(Color("PrimaryText"))
-            Text("\(formattedWeight) Kg")
-                .font(FontManager.poppinsBold(size: 16))
-                .foregroundColor(Color("PrimaryText"))
+            Image(genderImage)
+            Group {
+                Text("\(pet.name)")
+                
+                Text("\(pet.specie)")
+                
+                Text("\(formattedDate)")
+                
+                Text("\(pet.race)")
+                
+                Text("\(formattedWeight) Kg")
+            }
+            .font(FontManager.poppinsRegular(size: 16))
+            .foregroundColor(Color("PrimaryText"))
         }.padding(EdgeInsets(top: 32, leading: 0, bottom: 0, trailing: 24))
     }
 }

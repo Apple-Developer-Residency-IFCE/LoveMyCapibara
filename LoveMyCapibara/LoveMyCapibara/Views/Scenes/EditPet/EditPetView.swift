@@ -22,7 +22,7 @@ struct EditPetView: View {
             FormView()
                 .environmentObject(formViewModel)
             
-            CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { print("oi") },buttonColor: "DeleteButtonColor")
+            CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { },buttonColor: "DeleteButtonColor")
                 .padding(.top)
             Spacer()
         }

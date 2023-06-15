@@ -10,7 +10,7 @@ import SwiftUI
 
 class FormViewModel: RaceModel, ObservableObject {
     @Published var pet: PetModel
-    @Published var dataImage: Data? = nil
+    @Published var dataImage: Data?
     
     var speciesOptions: [String]
     var raceBySpecies: Dictionary<String, [String]>

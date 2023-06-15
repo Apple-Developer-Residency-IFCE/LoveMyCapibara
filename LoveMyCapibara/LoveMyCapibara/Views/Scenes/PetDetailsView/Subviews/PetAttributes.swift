@@ -19,7 +19,7 @@ struct PetAttributes: View {
     var formattedWeight: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = 1
-        return numberFormatter.string(from: NSNumber(value: pet.weigth)) ?? ""
+        return numberFormatter.string(from: NSNumber(value: pet.weight)) ?? ""
     }
     
     var genderImage: String{
@@ -38,7 +38,7 @@ struct PetAttributes: View {
             Group {
                 Text("\(pet.name)")
                 
-                Text("\(pet.specie.rawValue)")
+                Text("\(pet.specie)")
                 
                 Text("\(formattedDate)")
                 
@@ -54,6 +54,6 @@ struct PetAttributes: View {
 
 struct PetAttributes_Previews: PreviewProvider {
     static var previews: some View {
-        PetAttributes(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: .dog, birthDate: Date(), weigth: 12.3, castrated: true))
+        PetAttributes(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.3, castrated: true))
     }
 }

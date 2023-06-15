@@ -23,6 +23,6 @@ struct PetDetailsView: View {
 
 struct PetDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PetDetailsView(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: .dog, birthDate: Date(), weigth: 12.0, castrated: true))
+        PetDetailsView(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.0, castrated: true))
     }
 }

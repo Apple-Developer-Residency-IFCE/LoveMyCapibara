@@ -18,16 +18,9 @@ struct HomeViewWithPets: View {
                         ForEach (homeViewModel.pets){
                             pet in
                             NavigationLink{
-                                // This VStack should be remove by Pet View
-                                VStack(alignment: .center){
-                                    Image(pet.imageName)
-                                        .resizable()
-                                        .frame(width: 300, height: 300)
-                                        .clipShape(Circle())
-                                    Text(pet.name)
-                                }
+                                PetDetailsView(pet: pet)
                             }label: {
-                                PetCardView(petName: pet.name, petSpecies: pet.specie.rawValue, petImage: pet.imageName)
+                                PetCardView(petName: pet.name, petSpecies: pet.specie, petImage: pet.imageName)
                             }
                         }
                     }

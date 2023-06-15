@@ -13,11 +13,13 @@ struct PetCardView: View {
     var petImage: String
     
     var body: some View {
-        GeometryReader{ geometry in
             HStack(){
                 Image(petImage)
+                    .resizable()
                     .clipShape(Circle())
                     .padding(.trailing,4)
+                    .frame(width: 80, height: 80)
+                    
                 VStack(alignment: .leading){
                     Text(petName)
                         .font(FontManager.poppinsBold(size: 16))
@@ -26,19 +28,19 @@ struct PetCardView: View {
                         .font(FontManager.poppinsRegular(size: 13))
                         .foregroundColor(Color("PrimaryText"))
                 }
+                
+                Spacer()
+                
+                Image("ArrowRight")
             }
-            .frame(width: geometry.size.width * 0.8,alignment: .leading)
+            .frame(alignment: .leading)
             .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color("CardBorderColor"), lineWidth: 2)
-            )
+            .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color("CardBorderColor"), lineWidth: 2))
             .background(
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color("CardBackgroundColor"))
             )
-        }
-        
     }
 }
 

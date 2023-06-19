@@ -10,6 +10,7 @@ import SwiftUI
 struct AddPetView: View {
     @ObservedObject var formViewModel = FormViewModel()
     @Environment(\.managedObjectContext) private var viewContext
+    //@Environment(\.dismiss) private var dismiss
     
     private func saveToCoreData(){
         let newPet = Pet(context: viewContext)
@@ -36,6 +37,7 @@ struct AddPetView: View {
                 .environmentObject(formViewModel)
             Button(action: {
                 saveToCoreData()
+                
             }, label: {
                 Text("Aperte aqui para salvar")
             })

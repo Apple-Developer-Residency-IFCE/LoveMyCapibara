@@ -6,27 +6,8 @@ struct PetDetailsView: View {
     @State var isPopUpActive: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
-
-    private func deletePetById(_ id: UUID) {
-            let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-            print(fetchRequest)
-        
-            do {
-                let result = try viewContext.fetch(fetchRequest)
-                let playerEntity = result.first
-
-                if let playerEntity = playerEntity {
-                    // Remover o petEntity do contexto e salvar as mudanças
-                    viewContext.delete(playerEntity)
-                    try viewContext.save()
-                    print("deletou")
-                    dismiss()
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+    @StateObject var viewModel = PetDetailedViewModel()
+    
     
     var body: some View {
         VStack{
@@ -55,7 +36,8 @@ struct PetDetailsView: View {
                     }),
                     secondaryButton: .destructive(Text("Excluir"), action: {
                         print("O id é = \(pet.id)")
-                        deletePetById(pet.id)
+                        viewModel.deleteById(pet.id)
+                        dismiss()
                     })
                 )
             }

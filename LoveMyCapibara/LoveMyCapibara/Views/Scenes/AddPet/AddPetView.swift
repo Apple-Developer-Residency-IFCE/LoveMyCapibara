@@ -11,35 +11,15 @@ struct AddPetView: View {
     @ObservedObject var formViewModel = FormViewModel()
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
-    
-    private func saveToCoreData(){
-        let newPet = Pet(context: viewContext)
-        newPet.image = formViewModel.pet.imageName
-        newPet.name = formViewModel.pet.name
-        newPet.gender = formViewModel.pet.gender.description
-        newPet.specie = formViewModel.pet.specie
-        newPet.race = formViewModel.pet.race
-        newPet.birthdate = formViewModel.pet.birthDate
-        newPet.weight = formViewModel.pet.weight
-        newPet.castrated = formViewModel.pet.castrated
-        newPet.id = UUID()
-        
-        do{
-            try viewContext.save()
-            dismiss()
-        }
-        catch{
-            print(error.localizedDescription)
-        }
-    }
+    @StateObject var viewModel = AddPetViewModel()
     
     var body: some View {
         VStack{
             FormView()
                 .environmentObject(formViewModel)
             Button(action: {
-                saveToCoreData()
-                
+                viewModel.add(pet: formViewModel.pet)
+                dismiss()
             }, label: {
                 Text("Aperte aqui para salvar")
             })

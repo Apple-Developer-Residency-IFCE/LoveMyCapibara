@@ -19,7 +19,7 @@ class coreDataManager{
         return persistentContainer.viewContext
     }
     
-    //Funções do manager
+    // MARK: Funções
     func save(){
         do{
             try viewContext.save()

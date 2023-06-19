@@ -8,7 +8,6 @@
 import PhotosUI
 import SwiftUI
 
-@MainActor
 struct ImagePicker: View {
     @State var selectedItems: [PhotosPickerItem] = []
     @Binding var currentImage: Data?
@@ -43,7 +42,9 @@ struct ImagePicker: View {
                     switch result{
                     case .success(let data):
                         if let data = data{
-                            self.currentImage = data
+                            DispatchQueue.main.async {
+                                self.currentImage = data
+                            }
                         }else{
                             print("Data is nil")
                         }

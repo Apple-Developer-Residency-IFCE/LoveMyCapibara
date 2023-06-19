@@ -30,16 +30,6 @@ class coreDataManager{
         }
     }
     
-    func getAllTasks() -> [Pet]{
-        let request: NSFetchRequest<Pet> = Pet.fetchRequest()
-        
-        do{
-            return try viewContext.fetch(request)
-        } catch{
-            return []
-        }
-    }
-    
     //Private init para ninguem ter acesso ao init e ser obrigado a utilizar o singleton para acessar a classe
     private init() {
         persistentContainer = NSPersistentContainer(name: "PetCoreData")

@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     @StateObject var homeViewModel = HomeViewModel()
+    
     var body: some View {
-        if homeViewModel.pets.isEmpty{
+        if homeViewModel.pets.isEmpty {
             HomeViewWithoutPets()
                 .onAppear{
                     homeViewModel.updateList()
                 }
         }
         else{
-            HomeViewWithPets()
+            HomeViewWithPets(homeViewModel: homeViewModel)
                 .onAppear{
                     homeViewModel.updateList()
                 }
@@ -30,6 +30,14 @@ struct HomeView: View {
         static var previews: some View {
             HomeView()
         }
+    }
+}
+
+
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }
 

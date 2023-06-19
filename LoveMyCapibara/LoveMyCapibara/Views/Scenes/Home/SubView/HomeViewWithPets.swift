@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeViewWithPets: View {
-    @StateObject var homeViewModel = HomeViewModel()
-    
+    @StateObject var homeViewModel: HomeViewModel
     
     let columns = [GridItem()]
     var body: some View {
@@ -32,11 +31,5 @@ struct HomeViewWithPets: View {
             .padding(.top)
             .background(Color("BackgroundColor"))
         }
-    }
-}
-
-struct HomeViewWithPets_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeViewWithPets()
     }
 }

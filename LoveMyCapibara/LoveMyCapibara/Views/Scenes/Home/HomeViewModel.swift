@@ -24,16 +24,26 @@ class HomeViewModel: ObservableObject{
             return petModel
         } 
 
-    init(){
+//    func deletePet(_ pet: PetModel){
+//        let petToDelete = HomeViewModel.convertToPetModel(pet)
+//        do{
+//            coreDataManager.shared.viewContext.delete(pet)
+//            try coreDataManager.shared.viewContext.save()
+//        }catch{
+//            print("Nao foi possivel deletar essa task \(error.localizedDescription)")
+//        }
+//    }
+    
+    func updateList(){
         let lista = coreDataManager.shared.getAllTasks()
         
         let resultList = lista.map { item in
             return HomeViewModel.convertToPetModel(item)
         }
-        self.pets = resultList
+        pets = resultList
     }
     
-    func updateList(){
+    init(){
         let lista = coreDataManager.shared.getAllTasks()
         
         let resultList = lista.map { item in

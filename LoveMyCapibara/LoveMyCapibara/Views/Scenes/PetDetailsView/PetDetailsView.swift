@@ -2,6 +2,8 @@ import SwiftUI
 
 struct PetDetailsView: View {
     var pet: PetModel
+    @State var isPopUpActive: Bool = false
+    
     
     var body: some View {
         VStack{

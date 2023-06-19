@@ -41,6 +41,6 @@ struct AdicionalInfo: View {
 
 struct AdicionalInfo_Previews: PreviewProvider {
     static var previews: some View {
-        AdicionalInfo(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.0, castrated: true))
+        AdicionalInfo(pet: PetModel(imageName: "PetTestImage", id: UUID(), name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.0, castrated: true))
     }
 }

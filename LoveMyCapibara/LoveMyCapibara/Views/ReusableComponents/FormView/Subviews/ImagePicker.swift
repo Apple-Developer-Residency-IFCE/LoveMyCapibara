@@ -47,7 +47,7 @@ struct ImagePicker: View {
                             print("Data is nil")
                         }
                     case .failure(let failure):
-                        fatalError("\(failure)")
+                        print("\(failure)")
                     }
                 }
             }

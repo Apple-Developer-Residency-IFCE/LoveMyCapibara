@@ -15,11 +15,17 @@ struct ContentView: View {
                     Label("Pets", systemImage: "pawprint")
                 }
                 .toolbarBackground(.visible, for: .tabBar)
+                .onAppear()
 
             SettingsView()
                 .tabItem {
                     Label("Configurações", systemImage: "gearshape")
                 }
+                .toolbarBackground(.visible, for: .tabBar)
+            AddPetView()
+                .tabItem({
+                    Label("Adicionar", systemImage: "plus")
+                })
                 .toolbarBackground(.visible, for: .tabBar)
         }
     }

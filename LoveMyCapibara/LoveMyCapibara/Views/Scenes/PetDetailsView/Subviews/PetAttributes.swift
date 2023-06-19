@@ -54,6 +54,6 @@ struct PetAttributes: View {
 
 struct PetAttributes_Previews: PreviewProvider {
     static var previews: some View {
-        PetAttributes(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.3, castrated: true))
+        PetAttributes(pet: PetModel(imageName: "PetTestImage", id: UUID(), name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.3, castrated: true))
     }
 }

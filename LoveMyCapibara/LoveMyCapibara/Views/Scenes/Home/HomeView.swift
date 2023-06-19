@@ -13,9 +13,15 @@ struct HomeView: View {
     var body: some View {
         if homeViewModel.pets.isEmpty{
             HomeViewWithoutPets()
+                .onAppear{
+                    homeViewModel.updateList()
+                }
         }
         else{
             HomeViewWithPets()
+                .onAppear{
+                    homeViewModel.updateList()
+                }
         }
         
     }

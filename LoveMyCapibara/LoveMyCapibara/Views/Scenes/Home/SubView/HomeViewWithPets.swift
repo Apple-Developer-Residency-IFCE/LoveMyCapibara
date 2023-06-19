@@ -9,14 +9,15 @@ import SwiftUI
 
 struct HomeViewWithPets: View {
     @StateObject var homeViewModel = HomeViewModel()
+    
+    
     let columns = [GridItem()]
     var body: some View {
         NavigationView(){
             ScrollView{
                 LazyVGrid(columns: columns, spacing: 10){
                     Group{
-                        ForEach (homeViewModel.pets){
-                            pet in
+                        ForEach (homeViewModel.pets, id: \.id){ pet in
                             NavigationLink{
                                 PetDetailsView(pet: pet)
                             }label: {

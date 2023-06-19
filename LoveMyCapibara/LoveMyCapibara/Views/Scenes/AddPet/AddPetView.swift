@@ -10,10 +10,11 @@ import SwiftUI
 struct AddPetView: View {
     @ObservedObject var formViewModel = FormViewModel()
     @Environment(\.managedObjectContext) private var viewContext
-    //@Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     private func saveToCoreData(){
         let newPet = Pet(context: viewContext)
+        newPet.image = formViewModel.pet.imageName
         newPet.name = formViewModel.pet.name
         newPet.gender = formViewModel.pet.gender.description
         newPet.specie = formViewModel.pet.specie
@@ -25,6 +26,7 @@ struct AddPetView: View {
         
         do{
             try viewContext.save()
+            dismiss()
         }
         catch{
             print(error.localizedDescription)

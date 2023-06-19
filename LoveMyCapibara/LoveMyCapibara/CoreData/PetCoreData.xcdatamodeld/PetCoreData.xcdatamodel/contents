@@ -5,7 +5,7 @@
         <attribute name="castrated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="gender" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="imagename" optional="YES" attributeType="Binary"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="race" optional="YES" attributeType="String"/>
         <attribute name="specie" optional="YES" attributeType="String"/>

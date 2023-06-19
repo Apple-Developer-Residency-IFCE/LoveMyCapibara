@@ -8,6 +8,7 @@
 import PhotosUI
 import SwiftUI
 
+@MainActor
 struct ImagePicker: View {
     @State var selectedItems: [PhotosPickerItem] = []
     @Binding var currentImage: Data?

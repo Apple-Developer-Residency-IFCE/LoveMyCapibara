@@ -12,7 +12,7 @@ import SwiftUI
 
 struct PetModel: Codable, Identifiable {
     
-    var imageName: String = ""
+    var imageName: Data? = Data()
     var id : UUID = UUID()
     var name : String = ""
     var gender : GenderModel = GenderModel.none

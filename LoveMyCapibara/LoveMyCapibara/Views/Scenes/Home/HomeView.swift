@@ -19,6 +19,7 @@ struct HomeView: View {
                 HomeViewWithPets(homeViewModel: homeViewModel)
             }
         }.onAppear{
+            print(homeViewModel.pets)
             homeViewModel.updateList()
         }
     }

@@ -11,28 +11,19 @@ class HomeViewModel: ObservableObject{
     @Published var pets : [PetModel]
     
     static private func convertToPetModel(_ petEntity: Pet) -> PetModel {
-            var petModel = PetModel()
-            petModel.id = UUID()
-            petModel.name = petEntity.name ?? ""
-            petModel.gender = GenderModel(rawValue: petEntity.gender ?? "") ?? .none
-            petModel.specie = petEntity.specie ?? ""
-            petModel.race = petEntity.race ?? ""
-            petModel.birthDate = petEntity.birthdate ?? Date.now
-            petModel.weight = petEntity.weight
-            petModel.castrated = petEntity.castrated
+        var petModel = PetModel()
+        petModel.id = petEntity.id ?? UUID()
+        petModel.name = petEntity.name ?? ""
+        petModel.gender = GenderModel(rawValue: petEntity.gender ?? "") ?? .none
+        petModel.specie = petEntity.specie ?? ""
+        petModel.race = petEntity.race ?? ""
+        petModel.birthDate = petEntity.birthdate ?? Date.now
+        petModel.weight = petEntity.weight
+        petModel.castrated = petEntity.castrated
+        petModel.imageName = petEntity.image ?? Data()
 
-            return petModel
-        } 
-
-//    func deletePet(_ pet: PetModel){
-//        let petToDelete = HomeViewModel.convertToPetModel(pet)
-//        do{
-//            coreDataManager.shared.viewContext.delete(pet)
-//            try coreDataManager.shared.viewContext.save()
-//        }catch{
-//            print("Nao foi possivel deletar essa task \(error.localizedDescription)")
-//        }
-//    }
+        return petModel
+    }
     
     func updateList(){
         let lista = coreDataManager.shared.getAllTasks()

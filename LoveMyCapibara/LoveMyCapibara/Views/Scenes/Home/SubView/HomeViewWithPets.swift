@@ -26,6 +26,9 @@ struct HomeViewWithPets: View {
                     }
                     .frame(height: 100)
                     .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
+                }.onAppear{
+                    print(homeViewModel.pets)
+                    homeViewModel.updateList()
                 }
             }
             .padding(.top)

@@ -31,9 +31,9 @@
 		64DE71A42A2E88EE00B2CF26 /* PetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A32A2E88EE00B2CF26 /* PetAttributes.swift */; };
 		64DE71A62A2E894300B2CF26 /* AdicionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */; };
 		64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */; };
-		809D295B2A3D2C74005BAE02 /* PetCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 809D29592A3D2C74005BAE02 /* PetCoreData.xcdatamodeld */; };
 		809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
+		80A7C0202A40F99200AC7769 /* PetCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */; };
 		F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CCD2A37B5E60073594B /* FormViewModel.swift */; };
 		F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CD02A37CDDA0073594B /* EditPetView.swift */; };
 		F5338F8B2A2FDE3800164841 /* specie.json in Resources */ = {isa = PBXBuildFile; fileRef = F5338F8A2A2FDE3800164841 /* specie.json */; };
@@ -75,9 +75,9 @@
 		64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionalInfo.swift; sourceTree = "<group>"; };
 		64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsOfPet.swift; sourceTree = "<group>"; };
 		64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		809D295A2A3D2C74005BAE02 /* PetCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetCoreData.xcdatamodel; sourceTree = "<group>"; };
 		809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetCoreData.xcdatamodel; sourceTree = "<group>"; };
 		C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewWithPets.swift; sourceTree = "<group>"; };
 		F5333CCD2A37B5E60073594B /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		F5333CD02A37CDDA0073594B /* EditPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetView.swift; sourceTree = "<group>"; };
@@ -265,8 +265,8 @@
 		809D29582A3D2C57005BAE02 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				809D29592A3D2C74005BAE02 /* PetCoreData.xcdatamodeld */,
 				809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */,
+				80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -392,6 +392,7 @@
 				F5F6CEE92A3A8DE700458BC2 /* AddPetView.swift in Sources */,
 				64DE71A62A2E894300B2CF26 /* AdicionalInfo.swift in Sources */,
 				F5F6CEE52A3A8C2A00458BC2 /* InputText.swift in Sources */,
+				80A7C0202A40F99200AC7769 /* PetCoreData.xcdatamodeld in Sources */,
 				64473F372A218117000B5967 /* GenderModel.swift in Sources */,
 				80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */,
 				6483B5932A2806A2001915D5 /* HomeViewWithoutPets.swift in Sources */,
@@ -405,7 +406,6 @@
 				64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */,
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,
 				64473F382A218117000B5967 /* SpecieModel.swift in Sources */,
-				809D295B2A3D2C74005BAE02 /* PetCoreData.xcdatamodeld in Sources */,
 				F5354DCD2A3155E40057F11F /* FormView.swift in Sources */,
 				F5354DCF2A3158230057F11F /* ImagePicker.swift in Sources */,
 				F5F6CEE72A3A8DC800458BC2 /* SettingsView.swift in Sources */,
@@ -623,12 +623,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		809D29592A3D2C74005BAE02 /* PetCoreData.xcdatamodeld */ = {
+		80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				809D295A2A3D2C74005BAE02 /* PetCoreData.xcdatamodel */,
+				80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */,
 			);
-			currentVersion = 809D295A2A3D2C74005BAE02 /* PetCoreData.xcdatamodel */;
+			currentVersion = 80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */;
 			path = PetCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

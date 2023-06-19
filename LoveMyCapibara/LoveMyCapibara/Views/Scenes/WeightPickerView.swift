@@ -44,14 +44,6 @@ struct WeightPickerView: View {
 }
     struct WeightPickerView_Previews: PreviewProvider {
         static var previews: some View {
-//            List{
-//                DataPickerView()
-//                HStack {
-//                    Spacer()
-//                    Text("Testando")
-//                    Spacer()
-//                }
             WeightPickerView(kg: .constant(0), gram: .constant(100))
-//            }
     }
 }

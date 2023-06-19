@@ -20,6 +20,5 @@ struct DatePickerView: View {
 struct DataPickerView_Previews: PreviewProvider {
     static var previews: some View {
         DatePickerView()
-//            .preferredColorScheme(.dark)
     }
 }

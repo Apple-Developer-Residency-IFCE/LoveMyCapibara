@@ -5,7 +5,6 @@
 //  Created by José Winny on 16/06/23.
 //
 
-//This modifiers need to be use in the NavigationView.
 
 import SwiftUI
 
@@ -40,9 +39,6 @@ struct NavBarViewInfoPet: ViewModifier {
         content
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Pets")
-                }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()
@@ -53,6 +49,9 @@ struct NavBarViewInfoPet: ViewModifier {
                         }
                     }
                     
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("Informações do pet")
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Editar"){
@@ -72,13 +71,13 @@ struct NavBarViewAddPet: ViewModifier {
         content
             .navigationBarBackButtonHidden(false)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Adicionar Pet")
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancelar"){
                         isShowingSheet.toggle()
                     }
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("Adicionar Pet")
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Adicionar"){
@@ -95,13 +94,13 @@ struct NavBarViewEditPet: ViewModifier {
         content
             .navigationBarBackButtonHidden(false)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Adicionar Pet")
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancelar"){
                         isShowingSheet.toggle()
                     }
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("Editar Pet")
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Salvar"){
@@ -114,15 +113,23 @@ struct NavBarViewEditPet: ViewModifier {
 
 
 extension View {
+    ///This modifiers need to be use in the last line of NavigationView.
+    ///- Important This modifier needs a NavigationView
     func navBarPet() -> some View{
         self.modifier(NavBarViewPet())
     }
+    ///This modifiers need to be use in the last line of NavigationView.
+    ///- Important This modifier needs a NavigationView
     func navBarInfoPet() -> some View{
         self.modifier(NavBarViewInfoPet())
     }
+    ///This modifiers need to be use in the last line of NavigationView.
+    ///- Important This modifier needs a NavigationView
     func navBarAddPet() -> some View{
         self.modifier(NavBarViewAddPet())
     }
+    ///This modifiers need to be use in the last line of NavigationView.
+    ///- Important This modifier needs a NavigationView
     func navBarEditPet() -> some View{
         self.modifier(NavBarViewEditPet())
     }

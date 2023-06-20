@@ -13,16 +13,16 @@ struct HomeViewWithoutPets: View {
             VStack {
                 Image("Pet Card Placeholder")
                     .padding()
-                
                 Text("Você não possui nenhum pet cadastrado :(")
                     .font(FontManager.poppinsMedium(size: 18))
                     .multilineTextAlignment(.center)
                     .frame(width: 328)
-                
                 Spacer()
             }
             .foregroundColor(Color("SecondaryText"))
-            .navBarPet()
+            .navBarPet(){
+                AddPetView()
+            }
         }
     }
 }

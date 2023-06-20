@@ -11,7 +11,7 @@ struct EditPetView: View {
     
     var petInstance: PetModel
     @StateObject var formViewModel: FormViewModel
-
+    @Environment(\.dismiss) var dismiss
     init(petInstance: PetModel) {
         self.petInstance = petInstance
         _formViewModel = StateObject(wrappedValue: FormViewModel(petInstance))
@@ -23,12 +23,17 @@ struct EditPetView: View {
                 FormView()
                     .environmentObject(formViewModel)
                 
-                CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { },buttonColor: "DeleteButtonColor")
+                CustomButton(buttonLabel: "Excluir cadastro", buttonAction: {
+//                  TO-DO: add coredata action to delete
+                    dismiss()
+                },buttonColor: "DeleteButtonColor")
                     .padding(.top)
                 Spacer()
             }
             .padding(.top)
-            .navBarEditPet()
+            .navBarEditPet(){
+                
+            }
         }
         .navigationBarBackButtonHidden(true)
     }

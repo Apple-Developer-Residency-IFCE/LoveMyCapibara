@@ -31,7 +31,9 @@ struct HomeViewWithPets: View {
             }
             .padding(.top)
             .background(Color("BackgroundColor"))
-            .navBarPet()
+            .navBarPet(){
+                AddPetView()
+            }
         }
     }
 }

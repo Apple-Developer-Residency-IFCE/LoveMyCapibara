@@ -66,9 +66,9 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
 }
 
 struct NavBarViewAddPet: ViewModifier {
-    var action : () -> Void
     @State var isShowingSheet = true
     @Environment(\.dismiss) var dismiss
+    var action: () -> Void
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden(false)

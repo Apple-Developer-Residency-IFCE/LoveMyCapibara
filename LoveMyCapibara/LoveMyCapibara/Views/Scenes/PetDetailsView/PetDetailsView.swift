@@ -4,20 +4,16 @@ struct PetDetailsView: View {
     var pet: PetModel
     
     var body: some View {
-        NavigationView {
-            VStack{
-                Image(pet.imageName)
-                    .resizable()
-                    .aspectRatio( contentMode: .fill)
-                    .frame(width: 394, height: 194)
-                    .clipped()
-                HStack{
-                    LabelsOfPet()
-                    Spacer()
-                    PetAttributes(pet: pet)
-                }
-                AdicionalInfo(pet: pet)
+        VStack{
+            Image(pet.imageName)
+                .resizable()
+                .aspectRatio( contentMode: .fill)
+                .frame(width: 394, height: 194)
+                .clipped()
+            HStack{
+                LabelsOfPet()
                 Spacer()
+                PetAttributes(pet: pet)
             }
             .navBarInfoPet() {
                 EditPetView(petInstance: pet)

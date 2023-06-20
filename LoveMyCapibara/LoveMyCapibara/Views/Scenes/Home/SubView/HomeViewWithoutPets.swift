@@ -24,6 +24,7 @@ struct HomeViewWithoutPets: View {
                 AddPetView()
             }
         }
+        .foregroundColor(Color("SecondaryText"))
     }
 }
 

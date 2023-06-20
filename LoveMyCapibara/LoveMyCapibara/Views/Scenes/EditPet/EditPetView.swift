@@ -35,7 +35,7 @@ struct EditPetView: View {
                 
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .padding(.top)
     }
 }
 

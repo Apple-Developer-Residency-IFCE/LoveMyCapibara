@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RaceModel {
-    func getRaces () -> [String]?
+    func getRaces () -> [String]
 }
 
 

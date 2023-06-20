@@ -29,6 +29,24 @@ class PetDataManager{
         }
     }
     
+    func getPetById(_ id: UUID) -> PetModel? {
+        let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            guard let petEntity = result.first else{
+                return nil
+            }
+            
+            return convertToPetModel(petEntity)
+        }
+        catch{
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     func createPet(_ pet: PetModel){
         let newPet = Pet(context: context)
         newPet.image = pet.imageName

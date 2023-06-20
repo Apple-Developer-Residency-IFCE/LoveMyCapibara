@@ -2,10 +2,9 @@ import SwiftUI
 import CoreData
 
 struct PetDetailsView: View {
-    var pet: PetModel
+    @State var pet: PetModel
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject var viewModel = PetDetailedViewModel()
-    
     
     var body: some View {
         VStack{
@@ -30,6 +29,10 @@ struct PetDetailsView: View {
                 Text("Editar")
             }
             Spacer()
+        }.onAppear{
+            if let petResult = viewModel.getUpdatedPet(pet.id){
+                pet = petResult
+            }
         }
     }
 }

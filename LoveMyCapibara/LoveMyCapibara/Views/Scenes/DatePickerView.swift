@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-
 struct DatePickerView: View {
-    @State var birthdayDate : Date = Date.now
+    @Binding var birthdayDate : Date
     var body: some View {
         DatePicker("Nascimento",selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
             .padding([.horizontal],16)
@@ -19,6 +18,6 @@ struct DatePickerView: View {
 
 struct DataPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        DatePickerView()
+        DatePickerView(birthdayDate: .constant(Date.now))
     }
 }

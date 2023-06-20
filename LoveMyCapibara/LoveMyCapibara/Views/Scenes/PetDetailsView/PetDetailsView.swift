@@ -3,9 +3,7 @@ import CoreData
 
 struct PetDetailsView: View {
     var pet: PetModel
-    @State var isPopUpActive: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel = PetDetailedViewModel()
     
     
@@ -24,22 +22,12 @@ struct PetDetailsView: View {
                 PetAttributes(pet: pet)
             }
             AdicionalInfo(pet: pet)
-            CustomButton(buttonLabel: "Deletar", buttonAction: {
-                isPopUpActive = !isPopUpActive
-            }, buttonColor: "DeleteButtonColor")
-            .alert(isPresented: $isPopUpActive){
-                Alert(
-                    title: Text("Deseja excluir o cadastro?"),
-                    message: Text("Uma vez excluída, essa ação não pode ser desfeita."),
-                    primaryButton: .cancel(Text("Cancelar"), action: {
-                        isPopUpActive = false
-                    }),
-                    secondaryButton: .destructive(Text("Excluir"), action: {
-                        print("O id é = \(pet.id)")
-                        viewModel.deleteById(pet.id)
-                        dismiss()
-                    })
-                )
+            
+            // Link Temporário
+            NavigationLink{
+                EditPetView(petInstance: pet)
+            }label: {
+                Text("Editar")
             }
             Spacer()
         }

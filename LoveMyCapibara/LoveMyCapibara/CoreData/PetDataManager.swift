@@ -16,6 +16,19 @@ class PetDataManager{
         self.context = coreDataManager.shared.viewContext
     }
     
+    func getAllPets() -> [PetModel]{
+        let request: NSFetchRequest<Pet> = Pet.fetchRequest()
+        
+        do{
+            let result = try context.fetch(request)
+            return result.map { pet in
+                convertToPetModel(pet)
+            }
+        } catch{
+            return []
+        }
+    }
+    
     func createPet(_ pet: PetModel){
         let newPet = Pet(context: context)
         newPet.image = pet.imageName
@@ -36,6 +49,31 @@ class PetDataManager{
         }
     }
     
+    func updatePet(_ pet: PetModel) {
+        let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", pet.id as CVarArg)
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            let petEntity = result.first
+            
+            if let petEntity = petEntity {
+                petEntity.name = pet.name
+                petEntity.gender = pet.gender.rawValue
+                petEntity.specie = pet.specie
+                petEntity.race = pet.race
+                petEntity.birthdate = pet.birthDate
+                petEntity.weight = pet.weight
+                petEntity.castrated = pet.castrated
+                petEntity.image = pet.imageName
+                
+                try context.save()
+            }
+        } catch {
+            print("Erro ao atualizar pet do CoreData: \(error.localizedDescription)")
+        }
+    }
+    
     func deletePetById(_ id: UUID) {
         let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -51,20 +89,6 @@ class PetDataManager{
             }
         } catch {
             print(error.localizedDescription)
-        }
-    }
-    
-    
-    func getAllPets() -> [PetModel]{
-        let request: NSFetchRequest<Pet> = Pet.fetchRequest()
-        
-        do{
-            let result = try context.fetch(request)
-            return result.map { pet in
-                convertToPetModel(pet)
-            }
-        } catch{
-            return []
         }
     }
     

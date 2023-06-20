@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct EditPetView: View {
-    
     var petInstance: PetModel
+    @State var isPopUpActive: Bool = false
     @StateObject var formViewModel: FormViewModel
+    @StateObject var viewModel = EditPetViewModel()
+    
+    @Environment(\.dismiss) private var dismiss
 
     init(petInstance: PetModel) {
         self.petInstance = petInstance
@@ -22,8 +25,32 @@ struct EditPetView: View {
             FormView()
                 .environmentObject(formViewModel)
             
-            CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { },buttonColor: "DeleteButtonColor")
+            CustomButton(buttonLabel: "Excluir cadastro", buttonAction: {
+                isPopUpActive = !isPopUpActive
+            }, buttonColor: "DeleteButtonColor")
+            .alert(isPresented: $isPopUpActive){
+                Alert(
+                    title: Text("Deseja excluir o cadastro?"),
+                    message: Text("Uma vez excluída, essa ação não pode ser desfeita."),
+                    primaryButton: .cancel(Text("Cancelar"), action: {
+                        isPopUpActive = false
+                    }),
+                    secondaryButton: .destructive(Text("Excluir"), action: {
+                        viewModel.deleteById(petInstance.id)
+                        dismiss()
+                    })
+                )
+            }
                 .padding(.top)
+            
+            // Botão temporário
+            Button(action: {
+                viewModel.edit(formViewModel.pet)
+                dismiss()
+            }, label: {
+                Text("Aperte aqui para editar")
+            })
+            
             Spacer()
         }
         .padding(.top)

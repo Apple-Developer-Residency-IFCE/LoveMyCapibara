@@ -18,15 +18,19 @@ struct EditPetView: View {
     }
     
     var body: some View {
-        VStack{
-            FormView()
-                .environmentObject(formViewModel)
-            
-            CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { },buttonColor: "DeleteButtonColor")
-                .padding(.top)
-            Spacer()
+        NavigationView {
+            VStack{
+                FormView()
+                    .environmentObject(formViewModel)
+                
+                CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { },buttonColor: "DeleteButtonColor")
+                    .padding(.top)
+                Spacer()
+            }
+            .padding(.top)
+            .navBarEditPet()
         }
-        .padding(.top)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

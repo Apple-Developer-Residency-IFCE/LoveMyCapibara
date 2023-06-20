@@ -19,6 +19,7 @@ struct HomeViewWithPets: View {
                             pet in
                             NavigationLink{
                                 PetDetailsView(pet: pet)
+                                    .navigationBarBackButtonHidden(true)
                             }label: {
                                 PetCardView(petName: pet.name, petSpecies: pet.specie, petImage: pet.imageName)
                             }
@@ -30,6 +31,7 @@ struct HomeViewWithPets: View {
             }
             .padding(.top)
             .background(Color("BackgroundColor"))
+            .navBarPet()
         }
     }
 }

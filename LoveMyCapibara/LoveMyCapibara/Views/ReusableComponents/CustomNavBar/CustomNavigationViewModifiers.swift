@@ -57,8 +57,8 @@ struct NavBarViewInfoPet: ViewModifier {
                     Button("Editar"){
                         isShowingSheet.toggle()
                     }.sheet(isPresented: $isShowingSheet) {
-                        //TO-DO adicionar sheet do edit form.
-                        Text("Bora editar")
+//                        EditPetView()
+                        Text("HI")
                     }
                 }
             }
@@ -66,6 +66,7 @@ struct NavBarViewInfoPet: ViewModifier {
 }
 
 struct NavBarViewAddPet: ViewModifier {
+    var action : () -> Void
     @State var isShowingSheet = true
     func body(content: Content) -> some View {
         content
@@ -81,7 +82,7 @@ struct NavBarViewAddPet: ViewModifier {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Adicionar"){
-                        //TO-DO: Colocar a funçao de Add do Core Data
+                        action()
                     }
                 }
             }
@@ -125,8 +126,8 @@ extension View {
     }
     ///This modifiers need to be use in the last line of NavigationView.
     ///- Important This modifier needs a NavigationView
-    func navBarAddPet() -> some View{
-        self.modifier(NavBarViewAddPet())
+    func navBarAddPet(action: @escaping ()->Void) -> some View{
+        self.modifier(NavBarViewAddPet(action: action))
     }
     ///This modifiers need to be use in the last line of NavigationView.
     ///- Important This modifier needs a NavigationView

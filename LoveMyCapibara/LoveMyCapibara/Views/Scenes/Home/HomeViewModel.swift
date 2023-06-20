@@ -15,8 +15,8 @@ class HomeViewModel: ObservableObject{
         formatter.dateFormat = "dd/MM/yyyy"
         
         self.pets = [
-            PetModel(imageName: "tortinhaImage", id: 1, name: "Tortinha" , gender:.female, specie: .cat, birthDate: formatter.date(from: "28/05/2002") ?? .now, weigth: 7.0, castrated: true),
-            PetModel(imageName: "PetTestImage", id: 2, name: "Katio, o Grande" , gender:.male, specie: .dog, birthDate: formatter.date(from: "13/03/2000") ?? .now, weigth: 17.0, castrated: false)
+            PetModel(imageName: "tortinhaImage", id: 1, name: "Tortinha" , gender:.female, specie: "Cachorro", birthDate: formatter.date(from: "28/05/2002") ?? .now, weight: 7.0, castrated: true),
+            PetModel(imageName: "PetTestImage", id: 2, name: "Katio, o Grande" , gender:.male, specie: "Cachorro", birthDate: formatter.date(from: "13/03/2000") ?? .now, weight: 17.0, castrated: false)
         ]
     }
 }

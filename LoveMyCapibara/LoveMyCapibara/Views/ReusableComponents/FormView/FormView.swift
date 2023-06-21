@@ -37,34 +37,14 @@ struct FormView: View {
                     InputPicker(label: "Raça", value: $viewModel.pet.race, options: viewModel.getRaces())
                     renderLine()
                     
-                    // Esse componente está sendo produzido pelo Winni e deverá ser substituído
-                    DatePicker("Nascimento", selection: $viewModel.pet.birthDate, displayedComponents: .date)
-                    // ----------------------------------------------
+                    DatePickerView(birthdayDate: $viewModel.pet.birthDate)
                 }
                 
                 VStack{
-                    // Esse componente está sendo produzido pelo Winni e deverá ser substituído
-                    HStack{
-                        Text("Peso")
-                        
-                        Spacer()
-                        
-                        Button {
-                            viewModel.pet.weight += 1.0
-                        } label: {
-                            Text("\(viewModel.pet.weight.formatted()) Kg")
-                                .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
-                                .background(Color("PickerBackgroundColor"))
-                                .cornerRadius(4)
-                            
-                        }
-                        
-                    }
-                    // ----------------------------------------------
+                    ButtonWeightPicker(weight: $viewModel.pet.weight)
                     renderLine()
-                    
+    
                     InputPicker(label: "Castrado(a)?", value: $viewModel.pet.castrated, options: [false, true])
-                    
                 }
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))

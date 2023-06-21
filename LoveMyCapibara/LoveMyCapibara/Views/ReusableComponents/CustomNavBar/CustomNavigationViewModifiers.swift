@@ -15,15 +15,21 @@ struct NavBarViewPet<Destination : View>: ViewModifier {
     var destination: () -> Destination
     func body(content: Content) -> some View {
         content
+            .navigationBarTitle("Pets", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Pets")
-                }
+//                ToolbarItem(placement: .principal) {
+//                    Text("Pets")
+//                        .font(FontManager.poppinsBold(size: 16))
+//                        .foregroundColor(Color("PrimaryText"))
+//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Adicionar"){
                         isShowingSheet.toggle()
-                    }.sheet(isPresented: $isShowingSheet,onDismiss: {
+                    }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    .sheet(isPresented: $isShowingSheet,onDismiss: {
                         action()
                     }) {
                         destination()
@@ -36,31 +42,39 @@ struct NavBarViewPet<Destination : View>: ViewModifier {
 
 
 struct NavBarViewInfoPet<Destination : View>: ViewModifier {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     var action: () -> Void
     @State var isShowingSheet = false
     var destination: () -> Destination
     func body(content: Content) -> some View {
         content
+            .navigationBarTitle("Informações do Pet", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     } label: {
                         HStack{
                             Image("BackArrow")
                             Text("Pets")
+                                .font(FontManager.poppinsRegular(size: 16))
+                                .foregroundColor(Color("PrimaryColor"))
                         }
                     }
                 }
-                ToolbarItem(placement: .principal) {
-                    Text("Informações do pet")
-                }
+//                ToolbarItem(placement: .principal) {
+//                    Text("Informações do pet")
+//                        .font(FontManager.poppinsBold(size: 16))
+//                        .foregroundColor(Color("PrimaryText"))
+//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Editar"){
                         isShowingSheet.toggle()
-                    }.sheet(isPresented: $isShowingSheet,onDismiss: {action()}) {
+                    }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    .sheet(isPresented: $isShowingSheet,onDismiss: {action()}) {
                         destination()
                     }
                 }
@@ -74,46 +88,62 @@ struct NavBarViewAddPet: ViewModifier {
     var action: () -> Void
     func body(content: Content) -> some View {
         content
+            .navigationBarTitle("Adicionar Pet", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancelar"){
-                        dismiss()
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancelar"){
+                            dismiss()
+                        }
+                        .font(FontManager.poppinsRegular(size: 16))
+                        .foregroundColor(Color("PrimaryColor"))
+                        
                     }
-                }
-                ToolbarItem(placement: .principal) {
-                    Text("Adicionar Pet")
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Adicionar"){
-                        action()
-                        dismiss()
+//                ToolbarItem(placement: .principal) {
+//                    Text("Adicionar Pet")
+//                        .font(FontManager.poppinsBold(size: 16))
+//                        .foregroundColor(Color("PrimaryText"))
+//                }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Adicionar"){
+                            action()
+                            dismiss()
+                        }
+                        .font(FontManager.poppinsBold(size: 16))
+                        .foregroundColor(Color("PrimaryColor"))
                     }
                 }
             }
     }
-}
 
 struct NavBarViewEditPet: ViewModifier {
     var action : () -> Void
     @Environment(\.dismiss) var dismiss
     func body(content: Content) -> some View {
         content
+            .navigationBarTitle("Editar Pet", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancelar"){
                         dismiss()
                     }
+                    .font(FontManager.poppinsRegular(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
                 }
-                ToolbarItem(placement: .principal) {
-                    Text("Editar Pet")
-                }
+//                ToolbarItem(placement: .principal) {
+//                    Text("Editar Pet")
+//                        .font(FontManager.poppinsBold(size: 16))
+//                        .foregroundColor(Color("PrimaryText"))
+//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Salvar"){
                         action()
                         dismiss()
                     }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    
                 }
             }
     }

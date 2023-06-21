@@ -9,8 +9,11 @@ import Foundation
 import SwiftUI
 
 class FormViewModel: RaceModel, ObservableObject {
-    @Published var pet: PetModel
-    @Published var dataImage: Data?
+    @Published var pet: PetModel {
+        didSet {
+            
+        }
+    }
     
     var speciesOptions: [String]
     var raceBySpecies: Dictionary<String, [String]>
@@ -30,11 +33,6 @@ class FormViewModel: RaceModel, ObservableObject {
         if let petValue = pet {
             self.pet = petValue
             
-            if let uiImage = UIImage(named: petValue.imageName) {
-                if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
-                    self.dataImage = imageData
-                }
-            }
         }else{
             self.pet = PetModel()
         }

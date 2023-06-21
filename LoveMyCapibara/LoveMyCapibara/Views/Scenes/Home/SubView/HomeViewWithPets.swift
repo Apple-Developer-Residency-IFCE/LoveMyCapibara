@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct HomeViewWithPets: View {
-    @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var homeViewModel: HomeViewModel
+    
     let columns = [GridItem()]
     var body: some View {
         NavigationView(){
             ScrollView{
                 LazyVGrid(columns: columns, spacing: 10){
                     Group{
-                        ForEach (homeViewModel.pets){
-                            pet in
+                        ForEach (homeViewModel.pets, id: \.id){ pet in
                             NavigationLink{
                                 PetDetailsView(pet: pet)
                             }label: {
@@ -26,19 +26,17 @@ struct HomeViewWithPets: View {
                     }
                     .frame(height: 100)
                     .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
+                }.onAppear{
+                    homeViewModel.updateList()
                 }
             }
             .padding(.top)
             .background(Color("BackgroundColor"))
-            .navBarPet(){
+            .navBarPet(destination: {
                 AddPetView()
-            }
+            }, action: {
+                homeViewModel.updateList()
+            })
         }
-    }
-}
-
-struct HomeViewWithPets_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeViewWithPets()
     }
 }

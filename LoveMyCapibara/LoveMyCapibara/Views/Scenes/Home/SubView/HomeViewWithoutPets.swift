@@ -20,9 +20,11 @@ struct HomeViewWithoutPets: View {
                 Spacer()
             }
             .foregroundColor(Color("SecondaryText"))
-            .navBarPet(){
+            .navBarPet(destination: {
                 AddPetView()
-            }
+            }, action: {
+                
+            })
         }
         .foregroundColor(Color("SecondaryText"))
     }

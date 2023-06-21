@@ -10,16 +10,21 @@ import SwiftUI
 struct PetCardView: View {
     var petName: String
     var petSpecies: String
-    var petImage: String
+    var petImage: Data?
     
     var body: some View {
             HStack(){
-                Image(petImage)
-                    .resizable()
-                    .clipShape(Circle())
-                    .padding(.trailing,4)
-                    .frame(width: 80, height: 80)
-                    
+                if let data = petImage, let uiImage = UIImage(data: data){
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .clipShape(Circle())
+                        .padding(.trailing,4)
+                        .frame(width: 80, height: 80)
+                }else{
+                    Circle()
+                        .frame(width:80, height: 80)
+                        .foregroundColor(.gray)
+                }
                 VStack(alignment: .leading){
                     Text(petName)
                         .font(FontManager.poppinsBold(size: 16))
@@ -46,6 +51,6 @@ struct PetCardView: View {
 
 struct PetCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PetCardView(petName: "Bud", petSpecies: "Husky Siberiano", petImage: "PetTestImage")
+        PetCardView(petName: "Bud", petSpecies: "Husky Siberiano", petImage: Data())
     }
 }

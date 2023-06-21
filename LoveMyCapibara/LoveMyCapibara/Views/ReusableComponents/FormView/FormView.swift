@@ -19,10 +19,7 @@ struct FormView: View {
     var body: some View {
         VStack{
             
-            ImagePicker(currentImage: Binding<Data?>(
-                get: { viewModel.dataImage },
-                set: { viewModel.dataImage = $0 }
-            ))
+            ImagePicker(currentImage: $viewModel.pet.imageName)
                 .padding(.bottom, 36)
             
             Group{

@@ -26,9 +26,9 @@ struct PetAttributes: View {
         if pet.gender == .male{
             return "Icon Macho _ Default"
         }else if pet.gender == .female{
-            return "Icon Fêmea _ Default"
+            return "Icon Femea _ Default"
         }else{
-            return "Icon Nenhum _ Default"
+            return "Icon No Gender _ Default"
         }
     }
     
@@ -54,6 +54,6 @@ struct PetAttributes: View {
 
 struct PetAttributes_Previews: PreviewProvider {
     static var previews: some View {
-        PetAttributes(pet: PetModel(imageName: "PetTestImage", id: 1, name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.3, castrated: true))
+        PetAttributes(pet: PetModel(imageName: Data(), id: UUID(), name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.3, castrated: true))
     }
 }

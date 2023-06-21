@@ -27,6 +27,7 @@
 		64DE71A42A2E88EE00B2CF26 /* PetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A32A2E88EE00B2CF26 /* PetAttributes.swift */; };
 		64DE71A62A2E894300B2CF26 /* AdicionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */; };
 		64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */; };
+		809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
 		C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D7372A4263C1007013A2 /* SettingsView.swift */; };
 		C030D73E2A4263C1007013A2 /* ThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D7392A4263C1007013A2 /* ThemeOption.swift */; };
@@ -36,6 +37,11 @@
 		C08DB1CD2A2FDA0900636AEF /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1CC2A2FDA0900636AEF /* DatePickerView.swift */; };
 		C08DB1D22A2FF5A400636AEF /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */; };
 		C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */; };
+		80A7C0202A40F99200AC7769 /* PetCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */; };
+		80A7C0222A410B0C00AC7769 /* PetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0212A410B0C00AC7769 /* PetDataManager.swift */; };
+		80A7C0242A410CB100AC7769 /* AddPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0232A410CB100AC7769 /* AddPetViewModel.swift */; };
+		80A7C0262A410DFB00AC7769 /* PetDetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */; };
+		80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7E46A2A41251C00B2DF61 /* EditPetViewModel.swift */; };
 		C0F72D7C2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */; };
 		F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CCD2A37B5E60073594B /* FormViewModel.swift */; };
 		F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CD02A37CDDA0073594B /* EditPetView.swift */; };
@@ -77,6 +83,7 @@
 		64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionalInfo.swift; sourceTree = "<group>"; };
 		64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsOfPet.swift; sourceTree = "<group>"; };
 		64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C030D7372A4263C1007013A2 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C030D7392A4263C1007013A2 /* ThemeOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeOption.swift; sourceTree = "<group>"; };
@@ -86,6 +93,10 @@
 		C08DB1CC2A2FDA0900636AEF /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
 		C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWeightPicker.swift; sourceTree = "<group>"; };
+		80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetCoreData.xcdatamodel; sourceTree = "<group>"; };
+		80A7C0212A410B0C00AC7769 /* PetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDataManager.swift; sourceTree = "<group>"; };
+		80A7C0232A410CB100AC7769 /* AddPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewModel.swift; sourceTree = "<group>"; };
+		80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailedViewModel.swift; sourceTree = "<group>"; };
 		C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewWithPets.swift; sourceTree = "<group>"; };
 		C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewModifiers.swift; sourceTree = "<group>"; };
 		F5333CCD2A37B5E60073594B /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
@@ -94,6 +105,7 @@
 		F5338F8C2A2FEACE00164841 /* race.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = race.json; sourceTree = "<group>"; };
 		F5354DCC2A3155E40057F11F /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		F5354DCE2A3158230057F11F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F5A7E46A2A41251C00B2DF61 /* EditPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetViewModel.swift; sourceTree = "<group>"; };
 		F5F6CEE22A3A8C2A00458BC2 /* InputPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPicker.swift; sourceTree = "<group>"; };
 		F5F6CEE32A3A8C2A00458BC2 /* InputText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputText.swift; sourceTree = "<group>"; };
 		F5F6CEE62A3A8DC800458BC2 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -115,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				F5F6CEE82A3A8DE700458BC2 /* AddPetView.swift */,
+				80A7C0232A410CB100AC7769 /* AddPetViewModel.swift */,
 			);
 			path = AddPet;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 		64A86CDB2A20056B000F9AA0 /* LoveMyCapibara */ = {
 			isa = PBXGroup;
 			children = (
+				809D29582A3D2C57005BAE02 /* CoreData */,
 				64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */,
 				64ED6EEE2A20097A00E428F1 /* Resources */,
 				64ED6EEA2A2008F100E428F1 /* Models */,
@@ -172,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				647231942A2A973900857CA3 /* PetDetailsView.swift */,
+				80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */,
 				64DE71A22A2E88CC00B2CF26 /* Subviews */,
 			);
 			path = PetDetailsView;
@@ -252,6 +267,16 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		809D29582A3D2C57005BAE02 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */,
+				80A7C0212A410B0C00AC7769 /* PetDataManager.swift */,
+				80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		C030D7332A4262A6007013A2 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				F5333CD02A37CDDA0073594B /* EditPetView.swift */,
+				F5A7E46A2A41251C00B2DF61 /* EditPetViewModel.swift */,
 			);
 			path = EditPet;
 			sourceTree = "<group>";
@@ -409,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C030D73F2A4263C1007013A2 /* UnselectedRadioIcon.swift in Sources */,
+				80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */,
 				F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */,
 				C0F72D7C2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift in Sources */,
 				F5C649D42A3A5C5300B4F3CB /* HomeViewModel.swift in Sources */,
@@ -418,10 +445,14 @@
 				C030D73E2A4263C1007013A2 /* ThemeOption.swift in Sources */,
 				F5F6CEE52A3A8C2A00458BC2 /* InputText.swift in Sources */,
 				C08DB1D22A2FF5A400636AEF /* WeightPickerView.swift in Sources */,
+				80A7C0202A40F99200AC7769 /* PetCoreData.xcdatamodeld in Sources */,
 				64473F372A218117000B5967 /* GenderModel.swift in Sources */,
 				80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */,
 				6483B5932A2806A2001915D5 /* HomeViewWithoutPets.swift in Sources */,
 				C030D7412A4263C1007013A2 /* ThemeSelector.swift in Sources */,
+				80A7C0242A410CB100AC7769 /* AddPetViewModel.swift in Sources */,
+				809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */,
+				80A7C0222A410B0C00AC7769 /* PetDataManager.swift in Sources */,
 				F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */,
 				6418348D2A20385900825BA8 /* HomeView.swift in Sources */,
 				C08DB1CD2A2FDA0900636AEF /* DatePickerView.swift in Sources */,
@@ -433,6 +464,7 @@
 				64473F382A218117000B5967 /* SpecieModel.swift in Sources */,
 				F5354DCD2A3155E40057F11F /* FormView.swift in Sources */,
 				F5354DCF2A3158230057F11F /* ImagePicker.swift in Sources */,
+				80A7C0262A410DFB00AC7769 /* PetDetailedViewModel.swift in Sources */,
 				F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */,
 				C030D7402A4263C1007013A2 /* SelectedRadioIcon.swift in Sources */,
 				C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */,
@@ -647,6 +679,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */,
+			);
+			currentVersion = 80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */;
+			path = PetCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 64A86CD12A20056B000F9AA0 /* Project object */;
 }

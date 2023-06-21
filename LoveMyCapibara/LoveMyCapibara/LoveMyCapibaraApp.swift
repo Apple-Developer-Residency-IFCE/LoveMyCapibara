@@ -11,6 +11,9 @@ import SwiftUI
 struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
     
+    //Instancia da classe controladora do core data
+    let persistenceManager = coreDataManager.shared
+    
     var theme: ColorScheme? {
         if selectedOption == 1 {
             return nil
@@ -25,6 +28,7 @@ struct LoveMyCapibaraApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(theme)
+                .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
         }
     }
 }

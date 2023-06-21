@@ -42,12 +42,14 @@ struct ImagePicker: View {
                     switch result{
                     case .success(let data):
                         if let data = data{
-                            self.currentImage = data
+                            DispatchQueue.main.async {
+                                self.currentImage = data
+                            }
                         }else{
                             print("Data is nil")
                         }
                     case .failure(let failure):
-                        fatalError("\(failure)")
+                        print("\(failure)")
                     }
                 }
             }

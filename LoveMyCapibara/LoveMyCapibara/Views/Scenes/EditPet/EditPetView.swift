@@ -8,39 +8,54 @@
 import SwiftUI
 
 struct EditPetView: View {
-    
     var petInstance: PetModel
+    @State var isPopUpActive: Bool = false
     @StateObject var formViewModel: FormViewModel
-    @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel = EditPetViewModel()
+    
+    @Environment(\.dismiss) private var dismiss
+    
     init(petInstance: PetModel) {
         self.petInstance = petInstance
         _formViewModel = StateObject(wrappedValue: FormViewModel(petInstance))
     }
     
     var body: some View {
-        NavigationView {
+        NavigationView{
             VStack{
                 FormView()
                     .environmentObject(formViewModel)
                 
                 CustomButton(buttonLabel: "Excluir cadastro", buttonAction: {
-//                  TO-DO: add coredata action to delete
-                    dismiss()
-                },buttonColor: "DeleteButtonColor")
-                    .padding(.top)
+                    isPopUpActive = !isPopUpActive
+                }, buttonColor: "DeleteButtonColor")
+                .alert(isPresented: $isPopUpActive){
+                    Alert(
+                        title: Text("Deseja excluir o cadastro?"),
+                        message: Text("Uma vez excluída, essa ação não pode ser desfeita."),
+                        primaryButton: .cancel(Text("Cancelar"), action: {
+                            isPopUpActive = false
+                        }),
+                        secondaryButton: .destructive(Text("Excluir"), action: {
+                            viewModel.deleteById(petInstance.id)
+                            dismiss()
+                        })
+                    )
+                }
+                .padding(.top)
                 Spacer()
             }
             .padding(.top)
-            .navBarEditPet(){
-                
+            .navBarEditPet() {
+                viewModel.edit(formViewModel.pet)
+                dismiss()
             }
         }
-        .padding(.top)
     }
 }
 
 struct EditPetView_Previews: PreviewProvider {
-    static private var petTest = PetModel(imageName: "PetTestImage", id: 1, name: "Spack", gender: .male, specie: "Gato", race: "Siamês", birthDate: Date.now, weight: 5.6, castrated: true)
+    static private var petTest = PetModel(imageName: Data(), id: UUID(), name: "Spack", gender: .male, specie: "Gato", race: "Siamês", birthDate: Date.now, weight: 5.6, castrated: true)
     
     static var previews: some View {
         EditPetView(petInstance: petTest)

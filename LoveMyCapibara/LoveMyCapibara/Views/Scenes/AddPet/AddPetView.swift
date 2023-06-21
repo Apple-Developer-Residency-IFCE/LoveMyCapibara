@@ -9,19 +9,22 @@ import SwiftUI
 
 struct AddPetView: View {
     @ObservedObject var formViewModel = FormViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.dismiss) private var dismiss
+    @StateObject var viewModel = AddPetViewModel()
     
     var body: some View {
         NavigationView{
             VStack{
                 FormView()
                     .environmentObject(formViewModel)
-                
                 Spacer()
             }
-            .padding(.top)
             .navBarAddPet {
-                print("Botao apertado")
+                viewModel.add(pet: formViewModel.pet)
+                dismiss()
             }
+            .padding(.top)
         }
     }
 }

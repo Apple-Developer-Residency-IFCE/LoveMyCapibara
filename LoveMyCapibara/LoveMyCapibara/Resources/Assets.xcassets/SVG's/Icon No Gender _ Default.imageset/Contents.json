@@ -1,12 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Icon Fêmea _ Default 1 2.svg",
+      "filename" : "Icon No Gender _ Default.svg",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }

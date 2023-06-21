@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ButtonWeightPicker: View {
-    @State var kg : Int = 0
-    @State var gram : Int = 0
+
+    @State var kg: Int = 0
+    @State var gram: Int = 0
     var weight: Double {
-        Double(kg) + Double(gram)/10
+        Double(kg) + Double(gram%10)/10
+    }
+    init() {
+        self.kg = weight.separate()?.kg ?? 0
+        self.gram = weight.separate()?.gm ?? 0
     }
     @State var buttonIsActive : Bool = false
     var body: some View {
@@ -19,7 +24,7 @@ struct ButtonWeightPicker: View {
                 HStack {
                     Text("Peso")
                     Spacer()
-                        Button("\(kg) \(gram % 10) kg"){
+                    Button("\(kg).\(gram)kg"){
                             withAnimation {
                                 buttonIsActive.toggle()
                             }
@@ -42,12 +47,12 @@ struct ButtonWeightPicker_Previews: PreviewProvider {
 }
 
 extension Double {
-    func separate() -> (Int, Int)? {
+    func separate() -> (kg: Int,gm: Int)? {
         let (integerPart, fractionalPart) = modf(self)
         guard let integer = Int(exactly: integerPart),
               let fractional = Int(exactly: fractionalPart * 10) else {
             return nil
         }
-        return (integer, fractional)
+        return (kg: integer,gm: fractional)
     }
 }

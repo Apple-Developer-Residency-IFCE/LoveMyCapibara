@@ -14,46 +14,43 @@ struct EditPetView: View {
     @StateObject var viewModel = EditPetViewModel()
     
     @Environment(\.dismiss) private var dismiss
-
+    
     init(petInstance: PetModel) {
         self.petInstance = petInstance
         _formViewModel = StateObject(wrappedValue: FormViewModel(petInstance))
     }
     
     var body: some View {
-        VStack{
-            FormView()
-                .environmentObject(formViewModel)
-            
-            CustomButton(buttonLabel: "Excluir cadastro", buttonAction: {
-                isPopUpActive = !isPopUpActive
-            }, buttonColor: "DeleteButtonColor")
-            .alert(isPresented: $isPopUpActive){
-                Alert(
-                    title: Text("Deseja excluir o cadastro?"),
-                    message: Text("Uma vez excluída, essa ação não pode ser desfeita."),
-                    primaryButton: .cancel(Text("Cancelar"), action: {
-                        isPopUpActive = false
-                    }),
-                    secondaryButton: .destructive(Text("Excluir"), action: {
-                        viewModel.deleteById(petInstance.id)
-                        dismiss()
-                    })
-                )
-            }
+        NavigationView{
+            VStack{
+                FormView()
+                    .environmentObject(formViewModel)
+                
+                CustomButton(buttonLabel: "Excluir cadastro", buttonAction: {
+                    isPopUpActive = !isPopUpActive
+                }, buttonColor: "DeleteButtonColor")
+                .alert(isPresented: $isPopUpActive){
+                    Alert(
+                        title: Text("Deseja excluir o cadastro?"),
+                        message: Text("Uma vez excluída, essa ação não pode ser desfeita."),
+                        primaryButton: .cancel(Text("Cancelar"), action: {
+                            isPopUpActive = false
+                        }),
+                        secondaryButton: .destructive(Text("Excluir"), action: {
+                            viewModel.deleteById(petInstance.id)
+                            dismiss()
+                        })
+                    )
+                }
                 .padding(.top)
-            
-            // Botão temporário
-            Button(action: {
+                Spacer()
+            }
+            .padding(.top)
+            .navBarEditPet() {
                 viewModel.edit(formViewModel.pet)
                 dismiss()
-            }, label: {
-                Text("Aperte aqui para editar")
-            })
-            
-            Spacer()
+            }
         }
-        .padding(.top)
     }
 }
 

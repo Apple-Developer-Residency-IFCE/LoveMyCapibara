@@ -5,6 +5,7 @@ struct PetDetailsView: View {
     @State var pet: PetModel
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject var viewModel = PetDetailedViewModel()
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack{
@@ -21,19 +22,17 @@ struct PetDetailsView: View {
                 PetAttributes(pet: pet)
             }
             AdicionalInfo(pet: pet)
-            
-            // Link Temporário
-            NavigationLink{
-                EditPetView(petInstance: pet)
-            }label: {
-                Text("Editar")
-            }
             Spacer()
-        }.onAppear{
+        }
+        .navBarInfoPet(destination: {
+            EditPetView(petInstance: pet)
+        }, action: {
             if let petResult = viewModel.getUpdatedPet(pet.id){
                 pet = petResult
+            }else{
+                dismiss()
             }
-        }
+        })
     }
 }
 

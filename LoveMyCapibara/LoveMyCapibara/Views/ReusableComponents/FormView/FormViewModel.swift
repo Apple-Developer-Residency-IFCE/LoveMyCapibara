@@ -9,7 +9,11 @@ import Foundation
 import SwiftUI
 
 class FormViewModel: RaceModel, ObservableObject {
-    @Published var pet: PetModel
+    @Published var pet: PetModel {
+        didSet {
+            
+        }
+    }
     
     var speciesOptions: [String]
     var raceBySpecies: Dictionary<String, [String]>

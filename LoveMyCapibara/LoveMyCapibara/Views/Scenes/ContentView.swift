@@ -22,11 +22,6 @@ struct ContentView: View {
                     Label("Configurações", systemImage: "gearshape")
                 }
                 .toolbarBackground(.visible, for: .tabBar)
-            AddPetView()
-                .tabItem({
-                    Label("Adicionar", systemImage: "plus")
-                })
-                .toolbarBackground(.visible, for: .tabBar)
         }
     }
 }

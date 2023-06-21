@@ -14,20 +14,18 @@ struct AddPetView: View {
     @StateObject var viewModel = AddPetViewModel()
     
     var body: some View {
-        VStack{
-            FormView()
-                .environmentObject(formViewModel)
-            
-            // Botão temporário
-            Button(action: {
+        NavigationView{
+            VStack{
+                FormView()
+                    .environmentObject(formViewModel)
+                Spacer()
+            }
+            .navBarAddPet {
                 viewModel.add(pet: formViewModel.pet)
                 dismiss()
-            }, label: {
-                Text("Aperte aqui para salvar")
-            })
-            Spacer()
+            }
+            .padding(.top)
         }
-        .padding(.top)
     }
 }
 

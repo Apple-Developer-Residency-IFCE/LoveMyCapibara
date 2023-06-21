@@ -15,8 +15,9 @@ struct PetDetailsView: View {
                 Spacer()
                 PetAttributes(pet: pet)
             }
-            AdicionalInfo(pet: pet)
-            Spacer()
+            .navBarInfoPet() {
+                EditPetView(petInstance: pet)
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ struct FormView: View {
                 }
                 
                 VStack{
-                    ButtonWeightPicker()
+                    ButtonWeightPicker(weight: $viewModel.pet.weight)
                     renderLine()
     
                     InputPicker(label: "Castrado(a)?", value: $viewModel.pet.castrated, options: [false, true])

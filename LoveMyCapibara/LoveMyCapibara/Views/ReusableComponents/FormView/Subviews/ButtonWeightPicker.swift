@@ -9,15 +9,16 @@ import SwiftUI
 
 struct ButtonWeightPicker: View {
 
+    @Binding var weight: Double
     @State var kg: Int = 0
     @State var gram: Int = 0
-    var weight: Double {
-        Double(kg) + Double(gram%10)/10
+
+    init(weight: Binding<Double>) {
+            _weight = weight
+            _kg = State(initialValue: weight.wrappedValue.separate()?.kg ?? 0)
+            _gram = State(initialValue: weight.wrappedValue.separate()?.gram ?? 0)
     }
-    init() {
-        self.kg = weight.separate()?.kg ?? 0
-        self.gram = weight.separate()?.gm ?? 0
-    }
+    
     @State var buttonIsActive : Bool = false
     var body: some View {
         VStack {
@@ -28,6 +29,7 @@ struct ButtonWeightPicker: View {
                             withAnimation {
                                 buttonIsActive.toggle()
                             }
+                        weight = Double(kg) + Double(gram)/10.0
                         }.buttonStyle(.bordered)
                 }
             if(buttonIsActive){
@@ -41,18 +43,20 @@ struct ButtonWeightPicker: View {
 }
 
 struct ButtonWeightPicker_Previews: PreviewProvider {
+    @State static private var pesoFake = 10.0
+    
     static var previews: some View {
-        ButtonWeightPicker()
+        ButtonWeightPicker(weight: $pesoFake)
     }
 }
 
 extension Double {
-    func separate() -> (kg: Int,gm: Int)? {
+    func separate() -> (kg: Int,gram: Int)? {
         let (integerPart, fractionalPart) = modf(self)
         guard let integer = Int(exactly: integerPart),
               let fractional = Int(exactly: fractionalPart * 10) else {
             return nil
         }
-        return (kg: integer,gm: fractional)
+        return (kg: integer,gram: fractional)
     }
 }

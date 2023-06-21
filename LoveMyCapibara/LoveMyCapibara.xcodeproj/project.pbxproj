@@ -28,7 +28,6 @@
 		64DE71A62A2E894300B2CF26 /* AdicionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */; };
 		64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
-		C0F72D7C2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */; };
 		C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D7372A4263C1007013A2 /* SettingsView.swift */; };
 		C030D73E2A4263C1007013A2 /* ThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D7392A4263C1007013A2 /* ThemeOption.swift */; };
 		C030D73F2A4263C1007013A2 /* UnselectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D73A2A4263C1007013A2 /* UnselectedRadioIcon.swift */; };
@@ -37,6 +36,7 @@
 		C08DB1CD2A2FDA0900636AEF /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1CC2A2FDA0900636AEF /* DatePickerView.swift */; };
 		C08DB1D22A2FF5A400636AEF /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */; };
 		C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */; };
+		C0F72D7C2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */; };
 		F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CCD2A37B5E60073594B /* FormViewModel.swift */; };
 		F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CD02A37CDDA0073594B /* EditPetView.swift */; };
 		F5338F8B2A2FDE3800164841 /* specie.json in Resources */ = {isa = PBXBuildFile; fileRef = F5338F8A2A2FDE3800164841 /* specie.json */; };
@@ -87,6 +87,7 @@
 		C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
 		C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWeightPicker.swift; sourceTree = "<group>"; };
 		C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewWithPets.swift; sourceTree = "<group>"; };
+		C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewModifiers.swift; sourceTree = "<group>"; };
 		F5333CCD2A37B5E60073594B /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		F5333CD02A37CDDA0073594B /* EditPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetView.swift; sourceTree = "<group>"; };
 		F5338F8A2A2FDE3800164841 /* specie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = specie.json; sourceTree = "<group>"; };
@@ -97,8 +98,6 @@
 		F5F6CEE32A3A8C2A00458BC2 /* InputText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputText.swift; sourceTree = "<group>"; };
 		F5F6CEE62A3A8DC800458BC2 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F5F6CEE82A3A8DE700458BC2 /* AddPetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
-		C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewModifiers.swift; sourceTree = "<group>"; };
-		F5333CD22A37E5930073594B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,9 +238,6 @@
 				F5333CCF2A37CDBA0073594B /* EditPet */,
 				642241D72A29669B006B3634 /* AddPet */,
 				64F7737A2A26AB62006384C2 /* Home */,
-				C08DB1CC2A2FDA0900636AEF /* DatePickerView.swift */,
-				C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */,
-				C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -297,11 +293,22 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		C0F72D782A3BDCB3003AE92C /* CustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */,
+			);
+			path = CustomNavBar;
+			sourceTree = "<group>";
+		};
 		F52ADBDA2A392634009AA823 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				F5F6CEE22A3A8C2A00458BC2 /* InputPicker.swift */,
 				F5F6CEE32A3A8C2A00458BC2 /* InputText.swift */,
+				C08DB1D12A2FF5A400636AEF /* WeightPickerView.swift */,
+				C08DB1CC2A2FDA0900636AEF /* DatePickerView.swift */,
+				C0AAD5522A37A23100054836 /* ButtonWeightPicker.swift */,
 				F5354DCE2A3158230057F11F /* ImagePicker.swift */,
 			);
 			path = Subviews;
@@ -323,14 +330,6 @@
 				F5333CD02A37CDDA0073594B /* EditPetView.swift */,
 			);
 			path = EditPet;
-			sourceTree = "<group>";
-		};
-		C0F72D782A3BDCB3003AE92C /* CustomNavBar */ = {
-			isa = PBXGroup;
-			children = (
-				C0F72D7B2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift */,
-			);
-			path = CustomNavBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

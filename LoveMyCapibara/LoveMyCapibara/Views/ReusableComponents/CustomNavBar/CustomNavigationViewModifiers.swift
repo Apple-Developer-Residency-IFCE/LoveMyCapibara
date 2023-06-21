@@ -18,11 +18,6 @@ struct NavBarViewPet<Destination : View>: ViewModifier {
             .navigationBarTitle("Pets", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
-//                ToolbarItem(placement: .principal) {
-//                    Text("Pets")
-//                        .font(FontManager.poppinsBold(size: 16))
-//                        .foregroundColor(Color("PrimaryText"))
-//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Adicionar"){
                         isShowingSheet.toggle()
@@ -63,11 +58,6 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
                         }
                     }
                 }
-//                ToolbarItem(placement: .principal) {
-//                    Text("Informações do pet")
-//                        .font(FontManager.poppinsBold(size: 16))
-//                        .foregroundColor(Color("PrimaryText"))
-//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Editar"){
                         isShowingSheet.toggle()
@@ -99,11 +89,6 @@ struct NavBarViewAddPet: ViewModifier {
                         .foregroundColor(Color("PrimaryColor"))
                         
                     }
-//                ToolbarItem(placement: .principal) {
-//                    Text("Adicionar Pet")
-//                        .font(FontManager.poppinsBold(size: 16))
-//                        .foregroundColor(Color("PrimaryText"))
-//                }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Adicionar"){
                             action()
@@ -131,11 +116,6 @@ struct NavBarViewEditPet: ViewModifier {
                     .font(FontManager.poppinsRegular(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
                 }
-//                ToolbarItem(placement: .principal) {
-//                    Text("Editar Pet")
-//                        .font(FontManager.poppinsBold(size: 16))
-//                        .foregroundColor(Color("PrimaryText"))
-//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Salvar"){
                         action()

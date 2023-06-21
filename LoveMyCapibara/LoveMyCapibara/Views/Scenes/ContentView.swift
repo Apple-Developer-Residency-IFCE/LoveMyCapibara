@@ -9,19 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Pets", systemImage: "pawprint")
-                }
-                .toolbarBackground(.visible, for: .tabBar)
-                .onAppear()
-
-            SettingsView()
-                .tabItem {
-                    Label("Configurações", systemImage: "gearshape")
-                }
-                .toolbarBackground(.visible, for: .tabBar)
+        NavigationStack {
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Pets", systemImage: "pawprint")
+                    }
+                    .toolbarBackground(.visible, for: .tabBar)
+                
+                SettingsView()
+                    .tabItem {
+                        Label("Configurações", systemImage: "gearshape")
+                    }
+                    .toolbarBackground(.visible, for: .tabBar)
+            }
         }
     }
 }

@@ -10,7 +10,6 @@ struct DatePickerView: View {
     @Binding var birthdayDate : Date
     var body: some View {
         DatePicker("Nascimento",selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
-            .padding([.horizontal],16)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color("PrimaryText"))
     }

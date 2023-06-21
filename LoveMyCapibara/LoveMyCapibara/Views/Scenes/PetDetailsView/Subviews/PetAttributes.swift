@@ -26,9 +26,9 @@ struct PetAttributes: View {
         if pet.gender == .male{
             return "Icon Macho _ Default"
         }else if pet.gender == .female{
-            return "Icon Fêmea _ Default"
+            return "Icon Femea _ Default"
         }else{
-            return "Icon Nenhum _ Default"
+            return "Icon No Gender _ Default"
         }
     }
     

@@ -14,7 +14,17 @@ struct ContentView: View {
                 HomeView()
                     .tabItem {
                         Label("Pets", systemImage: "pawprint")
+                        
+//                        Label {
+//                            Text("Pets")
+//                        } icon: {
+//                            Image("Icon Pet _ Outline")
+//                                .resizable()
+//                                .frame(width: 20,height: 20)
+//                                .border(.red)
+//                        }
                     }
+                    
                     .toolbarBackground(.visible, for: .tabBar)
                 
                 SettingsView()

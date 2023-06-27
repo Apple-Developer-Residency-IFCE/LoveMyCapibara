@@ -12,7 +12,7 @@ struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
     
     //Instancia da classe controladora do core data
-    let persistenceManager = coreDataManager.shared
+    let persistenceManager = CoreDataManager.shared
     
     var theme: ColorScheme? {
         if selectedOption == 1 {

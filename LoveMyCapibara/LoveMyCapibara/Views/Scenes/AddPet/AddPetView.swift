@@ -14,8 +14,8 @@ struct AddPetView: View {
     @StateObject var viewModel = AddPetViewModel()
     
     var body: some View {
-        NavigationView{
-            VStack{
+        NavigationView {
+            VStack {
                 FormView()
                     .environmentObject(formViewModel)
                 Spacer()

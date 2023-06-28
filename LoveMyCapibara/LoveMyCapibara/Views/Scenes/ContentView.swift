@@ -40,6 +40,7 @@ struct ContentView: View {
                     }
                     .toolbarBackground(.visible, for: .tabBar)
             }
+            .tint(Color("DarkColor"))
         }
     }
 }

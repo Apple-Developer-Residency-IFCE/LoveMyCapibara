@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         Group{
             if homeViewModel.pets.isEmpty {
-                HomeViewWithoutPets()
+                HomeViewWithoutPets(homeViewModel: homeViewModel)
             }
             else{
                 HomeViewWithPets(homeViewModel: homeViewModel)

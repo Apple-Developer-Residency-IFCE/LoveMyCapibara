@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeViewWithoutPets: View {
+    @StateObject var homeViewModel: HomeViewModel
     var body: some View {
         NavigationView {
             VStack {
@@ -23,15 +24,10 @@ struct HomeViewWithoutPets: View {
             .navBarPet(destination: {
                 AddPetView()
             }, action: {
-                
+                homeViewModel.updateList()
             })
         }
         .foregroundColor(Color("SecondaryText"))
     }
 }
 
-struct HomeViewWithoutPets_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeViewWithoutPets()
-    }
-}

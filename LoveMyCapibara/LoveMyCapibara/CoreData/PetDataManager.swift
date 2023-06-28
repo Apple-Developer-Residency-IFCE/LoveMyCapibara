@@ -38,8 +38,7 @@ class PetDataManager {
                 return nil
             }
             return convertToPetModel(petEntity)
-        }
-        catch {
+        } catch {
             print(error.localizedDescription)
             return nil
         }

@@ -12,12 +12,12 @@ struct HomeViewWithPets: View {
     
     let columns = [GridItem()]
     var body: some View {
-        NavigationView(){
-            ScrollView{
-                LazyVGrid(columns: columns, spacing: 10){
-                    Group{
-                        ForEach (homeViewModel.pets, id: \.id){ pet in
-                            NavigationLink{
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    Group {
+                        ForEach(homeViewModel.pets, id: \.id) { pet in
+                            NavigationLink {
                                 PetDetailsView(pet: pet)
                             }label: {
                                 PetCardView(petName: pet.name, petSpecies: pet.specie, petImage: pet.imageName)
@@ -26,7 +26,7 @@ struct HomeViewWithPets: View {
                     }
                     .frame(height: 100)
                     .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
-                }.onAppear{
+                }.onAppear {
                     homeViewModel.updateList()
                 }
             }

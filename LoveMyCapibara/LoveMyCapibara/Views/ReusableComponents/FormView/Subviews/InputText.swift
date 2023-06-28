@@ -19,6 +19,6 @@ struct InputText: View {
 
 struct InputText_Previews: PreviewProvider {
     static var previews: some View {
-        InputText(placeholder: "Nome do Pet" ,value: .constant(""))
+        InputText(placeholder: "Nome do Pet", value: .constant(""))
     }
 }

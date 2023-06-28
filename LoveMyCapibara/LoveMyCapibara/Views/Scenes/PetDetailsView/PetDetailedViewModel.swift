@@ -7,10 +7,10 @@
 
 import Foundation
 
-class PetDetailedViewModel: ObservableObject{
+class PetDetailedViewModel: ObservableObject {
     var petManager: PetDataManager = PetDataManager()
 
-    func getUpdatedPet(_ id : UUID) -> PetModel?{
+    func getUpdatedPet(_ id: UUID) -> PetModel? {
         return petManager.getPetById(id)
     }
 }

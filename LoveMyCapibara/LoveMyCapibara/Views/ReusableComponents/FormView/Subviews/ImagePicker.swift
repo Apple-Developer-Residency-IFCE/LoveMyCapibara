@@ -13,17 +13,17 @@ struct ImagePicker: View {
     @Binding var currentImage: Data?
     
     var body: some View {
-        VStack{
+        VStack {
             PhotosPicker(selection: $selectedItems, maxSelectionCount: 1, matching: .images) {
-                VStack{
-                    if let data = currentImage, let uiImage = UIImage(data: data){
+                VStack {
+                    if let data = currentImage, let uiImage = UIImage(data: data) {
                         Image(uiImage: uiImage)
                             .resizable()
                             .frame(width: 64, height: 64)
                             .clipShape(Circle())
                         
                         Text("Trocar foto")
-                    }else{
+                    } else {
                         Circle()
                             .frame(width: 64, height: 64)
                         
@@ -33,19 +33,19 @@ struct ImagePicker: View {
                 }
                 .foregroundColor(Color("PhotoPickerColor"))
             }
-            .onChange(of: selectedItems) { newValue in
-                guard let item = selectedItems.first else{
+            .onChange(of: selectedItems) { _ in
+                guard let item = selectedItems.first else {
                     return
                 }
                 
                 item.loadTransferable(type: Data.self) { result in
-                    switch result{
+                    switch result {
                     case .success(let data):
-                        if let data = data{
+                        if let data = data {
                             DispatchQueue.main.async {
                                 self.currentImage = data
                             }
-                        }else{
+                        } else {
                             print("Data is nil")
                         }
                     case .failure(let failure):

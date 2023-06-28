@@ -10,20 +10,20 @@ import SwiftUI
 struct FormView: View {
     @EnvironmentObject var viewModel: FormViewModel
     
-    func renderLine() -> some View{
+    func renderLine() -> some View {
         Divider()
             .padding(EdgeInsets(top: 0, leading: -16, bottom: 0, trailing: -16))
             .offset(y: -2)
     }
     
     var body: some View {
-        VStack{
+        VStack {
             
             ImagePicker(currentImage: $viewModel.pet.imageName)
                 .padding(.bottom, 36)
             
-            Group{
-                VStack{
+            Group {
+                VStack {
                     InputText(placeholder: "Nome do pet", value: $viewModel.pet.name)
                         .foregroundColor(Color("SecondaryText"))
                     renderLine()
@@ -40,7 +40,7 @@ struct FormView: View {
                     DatePickerView(birthdayDate: $viewModel.pet.birthDate)
                 }
                 
-                VStack{
+                VStack {
                     ButtonWeightPicker(weight: $viewModel.pet.weight)
                     renderLine()
     

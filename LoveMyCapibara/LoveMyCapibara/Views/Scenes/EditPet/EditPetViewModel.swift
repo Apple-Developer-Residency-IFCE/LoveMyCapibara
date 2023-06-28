@@ -7,14 +7,14 @@
 
 import Foundation
 
-class EditPetViewModel: ObservableObject{
+class EditPetViewModel: ObservableObject {
     var petManager: PetDataManager = PetDataManager()
 
-    func deleteById(_ id : UUID){
+    func deleteById(_ id: UUID) {
         petManager.deletePetById(id)
     }
     
-    func edit(_ pet: PetModel){
+    func edit(_ pet: PetModel) {
         petManager.updatePet(pet)
     }
 }

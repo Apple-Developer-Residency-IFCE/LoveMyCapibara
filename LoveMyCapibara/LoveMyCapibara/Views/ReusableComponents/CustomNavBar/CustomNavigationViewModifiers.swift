@@ -5,11 +5,9 @@
 //  Created by José Winny on 16/06/23.
 //
 
-
 import SwiftUI
 
-
-struct NavBarViewPet<Destination : View>: ViewModifier {
+struct NavBarViewPet<Destination: View>: ViewModifier {
     @State var isShowingSheet = false
     var action: () -> Void
     var destination: () -> Destination
@@ -19,17 +17,16 @@ struct NavBarViewPet<Destination : View>: ViewModifier {
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Adicionar"){
+                    Button("Adicionar") {
                         isShowingSheet.toggle()
                     }
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
-                    .sheet(isPresented: $isShowingSheet,onDismiss: {
+                    .sheet(isPresented: $isShowingSheet, onDismiss: {
                         action()
                     }) {
                         destination()
                     }
-                    
                 }
             }
     }
@@ -71,7 +68,7 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
                     Button {
                         dismiss()
                     } label: {
-                        HStack{
+                        HStack {
                             Image("BackArrow")
                                 .resizable()
                                 .frame(width: 12, height: 21)
@@ -83,12 +80,12 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Editar"){
+                    Button("Editar") {
                         isShowingSheet.toggle()
                     }
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
-                    .sheet(isPresented: $isShowingSheet,onDismiss: {action()}) {
+                    .sheet(isPresented: $isShowingSheet, onDismiss: {action()}) {
                         destination()
                     }
                 }
@@ -126,7 +123,7 @@ struct NavBarViewAddPet: ViewModifier {
 }
 
 struct NavBarViewEditPet: ViewModifier {
-    var action : () -> Void
+    var action: () -> Void
     @Environment(\.dismiss) var dismiss
     func body(content: Content) -> some View {
         content
@@ -134,14 +131,14 @@ struct NavBarViewEditPet: ViewModifier {
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancelar"){
+                    Button("Cancelar") {
                         dismiss()
                     }
                     .font(FontManager.poppinsRegular(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Salvar"){
+                    Button("Salvar") {
                         action()
                         dismiss()
                     }
@@ -153,33 +150,32 @@ struct NavBarViewEditPet: ViewModifier {
     }
 }
 
-
 extension View {
-    ///This modifiers need to be use in the last line of NavigationView.
-    ///- Important This modifier needs a NavigationView
-    ///- need to put a destination to the add buton
-    func navBarPet(destination: @escaping() -> some View, action: @escaping () -> Void) -> some View{
+    /// This modifiers need to be use in the last line of NavigationView.
+    /// Important This modifier needs a NavigationView
+    /// need to put a destination to the add buton
+    func navBarPet(destination: @escaping() -> some View, action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewPet(action: action, destination: destination))
     }
-    ///This modifiers need to be use in the last line of NavigationView.
-    ///- Important This modifier needs a NavigationView
-    ///- need to put a destination to the edit button
-    func navBarInfoPet(destination: @escaping() -> some View,action: @escaping () -> Void) -> some View{
-        self.modifier(NavBarViewInfoPet(action: action, destination:destination))
+    /// This modifiers need to be use in the last line of NavigationView.
+    /// Important This modifier needs a NavigationView
+    /// need to put a destination to the edit button
+    func navBarInfoPet(destination: @escaping() -> some View, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewInfoPet(action: action, destination: destination))
     }
-    ///This modifiers need to be use in the last line of NavigationView.
-    ///- Important This modifier needs a NavigationView
-    ///- need to put a action to the save button
-    func navBarAddPet(action: @escaping () -> Void) -> some View{
-        self.modifier(NavBarViewAddPet(){
+    /// This modifiers need to be use in the last line of NavigationView.
+    /// Important This modifier needs a NavigationView
+    /// need to put a action to the save button
+    func navBarAddPet(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddPet {
             action()
         })
     }
-    ///This modifiers need to be use in the last line of NavigationView.
-    ///- Important This modifier needs a NavigationView
-    ///- need to put a action to the add / save button
-    func navBarEditPet(action: @escaping () -> Void) -> some View{
-        self.modifier(NavBarViewEditPet(){
+    /// This modifiers need to be use in the last line of NavigationView.
+    /// Important This modifier needs a NavigationView
+    /// need to put a action to the add / save button
+    func navBarEditPet(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewEditPet {
             action()
         })
     }

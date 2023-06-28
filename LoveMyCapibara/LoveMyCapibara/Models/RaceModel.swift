@@ -10,5 +10,3 @@ import Foundation
 protocol RaceModel {
     func getRaces () -> [String]
 }
-
-

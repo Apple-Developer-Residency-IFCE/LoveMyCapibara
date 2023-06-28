@@ -7,10 +7,10 @@
 
 import Foundation
 
-class AddPetViewModel: ObservableObject{
+class AddPetViewModel: ObservableObject {
     var petManager: PetDataManager = PetDataManager()
     
-    func add(pet: PetModel){
+    func add(pet: PetModel) {
         petManager.createPet(pet)
     }
 }

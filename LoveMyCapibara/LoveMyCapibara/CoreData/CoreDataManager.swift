@@ -8,33 +8,33 @@
 import Foundation
 import CoreData
 
-class coreDataManager{
-    //Inicialização do container do coreData
+class CoreDataManager {
+    // Inicialização do container do coreData
     let persistentContainer: NSPersistentContainer
-    
-    //Inicialização do singleton que vai coordenar a classe
-    static let shared = coreDataManager()
-    
-    var viewContext: NSManagedObjectContext{
+
+    // Inicialização do singleton que vai coordenar a classe
+    static let shared = CoreDataManager()
+
+    var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
+
     // MARK: Funções
-    func save(){
-        do{
+    func save() {
+        do {
             try viewContext.save()
-            
-        } catch{
+
+        } catch {
             viewContext.rollback()
             print(error.localizedDescription)
         }
     }
-    
-    //Private init para ninguem ter acesso ao init e ser obrigado a utilizar o singleton para acessar a classe
+
+    // Private init para ninguem ter acesso ao init e ser obrigado a utilizar o singleton para acessar a classe
     private init() {
         persistentContainer = NSPersistentContainer(name: "PetCoreData")
-        persistentContainer.loadPersistentStores { (description, error) in
-            if let error = error{
+        persistentContainer.loadPersistentStores { ( _, error ) in
+            if let error = error {
                print("Falha na inicialização do core data \(error)")
             }
         }

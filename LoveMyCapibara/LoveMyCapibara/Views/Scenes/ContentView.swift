@@ -8,37 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedItem = 1
+    
     var body: some View {
         NavigationStack {
-            TabView {
+            TabView (selection: $selectedItem){
                 Text("")
                     .tabItem {
                         Label {
                             Text("Tarefas")
                         } icon: {
-                            Image("task")
+                            Image(selectedItem == 0 ? "task_filled" : "task_outlined")
                         }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
+                    .tag(0)
                 HomeView()
                     .tabItem {
                         Label {
                             Text("Pets")
                         } icon: {
-                            Image("pawprint 1")
+                            Image(selectedItem == 1 ? "pawprint_filled" : "pawprint_outlined")
                         }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
-                
+                    .tag(1)
                 SettingsView()
                     .tabItem {
                         Label {
                             Text("Configurações")
                         } icon: {
-                            Image("settings 1")
+                            Image(selectedItem == 2 ? "settings_filled" : "settings_outlined")
                         }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
+                    .tag(2)
             }
             .tint(Color("DarkColor"))
         }

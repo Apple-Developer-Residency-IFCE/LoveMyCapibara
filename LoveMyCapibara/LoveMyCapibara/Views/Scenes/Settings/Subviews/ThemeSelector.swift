@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ThemeSelector: View {
     @AppStorage("preferredColorScheme") var selectedOption = 1
     

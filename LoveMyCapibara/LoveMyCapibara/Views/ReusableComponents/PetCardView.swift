@@ -13,19 +13,19 @@ struct PetCardView: View {
     var petImage: Data?
     
     var body: some View {
-            HStack(){
-                if let data = petImage, let uiImage = UIImage(data: data){
+            HStack {
+                if let data = petImage, let uiImage = UIImage(data: data) {
                     Image(uiImage: uiImage)
                         .resizable()
                         .clipShape(Circle())
-                        .padding(.trailing,4)
+                        .padding(.trailing, 4)
                         .frame(width: 80, height: 80)
-                }else{
+                } else {
                     Circle()
-                        .frame(width:80, height: 80)
+                        .frame(width: 80, height: 80)
                         .foregroundColor(.gray)
                 }
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text(petName)
                         .font(FontManager.poppinsBold(size: 16))
                         .foregroundColor(Color("PrimaryText"))

@@ -22,7 +22,7 @@ struct CustomButton: View {
                 .font(FontManager.poppinsBold(size: 16))
                 .padding(EdgeInsets(top:15, leading: 0, bottom: 15, trailing: 0))
                 .frame(width: 327)
-                .background(Color("DeleteButtonColor"))
+                .background(Color(buttonColor))
                 .cornerRadius(8)
                 .contentShape(Rectangle())
         }

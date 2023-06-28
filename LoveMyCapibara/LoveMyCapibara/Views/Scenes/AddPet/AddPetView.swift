@@ -20,6 +20,7 @@ struct AddPetView: View {
                     .environmentObject(formViewModel)
                 Spacer()
             }
+            .background(Color("BackgroundColor"))
             .navBarAddPet {
                 viewModel.add(pet: formViewModel.pet)
                 dismiss()

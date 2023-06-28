@@ -17,43 +17,45 @@ struct FormView: View {
     }
     
     var body: some View {
-        VStack{
-            
-            ImagePicker(currentImage: $viewModel.pet.imageName)
-                .padding(.bottom, 36)
-            
-            Group{
-                VStack{
-                    InputText(placeholder: "Nome do pet", value: $viewModel.pet.name)
-                        .foregroundColor(Color("SecondaryText"))
-                    renderLine()
-                    
-                    InputPicker(label: "Gênero", value: $viewModel.pet.gender, options: GenderModel.allCases)
-                    renderLine()
-                    
-                    InputPicker(label: "Espécie", value: $viewModel.pet.specie, options: viewModel.speciesOptions)
-                    renderLine()
-                    
-                    InputPicker(label: "Raça", value: $viewModel.pet.race, options: viewModel.getRaces())
-                    renderLine()
-                    
-                    DatePickerView(birthdayDate: $viewModel.pet.birthDate)
-                }
+        ScrollView{
+            VStack{
                 
-                VStack{
-                    ButtonWeightPicker(weight: $viewModel.pet.weight)
-                    renderLine()
-    
-                    InputPicker(label: "Castrado(a)?", value: $viewModel.pet.castrated, options: [false, true])
+                ImagePicker(currentImage: $viewModel.pet.imageName)
+                    .padding(.bottom, 36)
+                
+                Group{
+                    VStack{
+                        InputText(placeholder: "Nome do pet", value: $viewModel.pet.name)
+                            .foregroundColor(Color("SecondaryText"))
+                        renderLine()
+                        
+                        InputPicker(label: "Gênero", value: $viewModel.pet.gender, options: GenderModel.allCases)
+                        renderLine()
+                        
+                        InputPicker(label: "Espécie", value: $viewModel.pet.specie, options: viewModel.speciesOptions)
+                        renderLine()
+                        
+                        InputPicker(label: "Raça", value: $viewModel.pet.race, options: viewModel.getRaces())
+                        renderLine()
+                        
+                        DatePickerView(birthdayDate: $viewModel.pet.birthDate)
+                    }
+                    
+                    VStack{
+                        ButtonWeightPicker(weight: $viewModel.pet.weight)
+                        renderLine()
+        
+                        InputPicker(label: "Castrado(a)?", value: $viewModel.pet.castrated, options: [false, true])
+                    }
                 }
+                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .background(Color("FieldBackgroundColor"))
+                .font(FontManager.poppinsRegular(size: 16))
+                .foregroundColor(Color("PrimaryText"))
+                .cornerRadius(16)
             }
-            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-            .background(Color("FieldBackgroundColor"))
-            .font(FontManager.poppinsRegular(size: 16))
-            .foregroundColor(Color("PrimaryText"))
-            .cornerRadius(16)
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
 

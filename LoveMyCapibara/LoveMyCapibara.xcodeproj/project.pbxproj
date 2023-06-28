@@ -25,6 +25,7 @@
 		64DE71A42A2E88EE00B2CF26 /* PetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A32A2E88EE00B2CF26 /* PetAttributes.swift */; };
 		64DE71A62A2E894300B2CF26 /* AdicionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */; };
 		64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */; };
+		80939CC42A4BABF100C8267D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 80939CC32A4BABF100C8267D /* .swiftlint.yml */; };
 		809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
 		80A7C0202A40F99200AC7769 /* PetCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		64DE71A52A2E894300B2CF26 /* AdicionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionalInfo.swift; sourceTree = "<group>"; };
 		64DE71A72A2E899A00B2CF26 /* LabelsOfPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsOfPet.swift; sourceTree = "<group>"; };
 		64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		80939CC32A4BABF100C8267D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		80A7C01F2A40F99200AC7769 /* PetCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetCoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -166,8 +168,9 @@
 		64A86CDB2A20056B000F9AA0 /* LoveMyCapibara */ = {
 			isa = PBXGroup;
 			children = (
-				809D29582A3D2C57005BAE02 /* CoreData */,
 				64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */,
+				80939CC32A4BABF100C8267D /* .swiftlint.yml */,
+				809D29582A3D2C57005BAE02 /* CoreData */,
 				64ED6EEE2A20097A00E428F1 /* Resources */,
 				64ED6EEA2A2008F100E428F1 /* Models */,
 				64ED6EED2A20094B00E428F1 /* Views */,
@@ -379,6 +382,7 @@
 				64A86CD52A20056B000F9AA0 /* Sources */,
 				64A86CD62A20056B000F9AA0 /* Frameworks */,
 				64A86CD72A20056B000F9AA0 /* Resources */,
+				80939CC22A4BA48100C8267D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -427,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80939CC42A4BABF100C8267D /* .swiftlint.yml in Resources */,
 				F5338F8B2A2FDE3800164841 /* specie.json in Resources */,
 				64A86CE42A20056C000F9AA0 /* Preview Assets.xcassets in Resources */,
 				646D84482A202F9100884CC2 /* Poppins-Bold.ttf in Resources */,
@@ -439,6 +444,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80939CC22A4BA48100C8267D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n    \nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		64A86CD52A20056B000F9AA0 /* Sources */ = {

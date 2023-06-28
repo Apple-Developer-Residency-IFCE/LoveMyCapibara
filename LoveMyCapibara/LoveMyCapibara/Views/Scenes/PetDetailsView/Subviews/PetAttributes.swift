@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PetAttributes: View {
-    var pet : PetModel
+    var pet: PetModel
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()
@@ -22,18 +22,18 @@ struct PetAttributes: View {
         return numberFormatter.string(from: NSNumber(value: pet.weight)) ?? ""
     }
     
-    var genderImage: String{
-        if pet.gender == .male{
+    var genderImage: String {
+        if pet.gender == .male {
             return "Icon Macho _ Default"
-        }else if pet.gender == .female{
+        } else if pet.gender == .female {
             return "Icon Femea _ Default"
-        }else{
+        } else {
             return "Icon No Gender _ Default"
         }
     }
     
     var body: some View {
-        VStack(alignment: .trailing, spacing: 16){
+        VStack(alignment: .trailing, spacing: 16) {
             Image(genderImage)
             Group {
                 Text("\(pet.name)")
@@ -54,6 +54,15 @@ struct PetAttributes: View {
 
 struct PetAttributes_Previews: PreviewProvider {
     static var previews: some View {
-        PetAttributes(pet: PetModel(imageName: Data(), id: UUID(), name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.3, castrated: true))
+        PetAttributes(pet: PetModel(
+            imageName: Data(),
+            id: UUID(),
+            name: "Diego",
+            gender: .female,
+            specie: "Cachorro",
+            birthDate: Date(),
+            weight: 12.3,
+            castrated: true
+        ))
     }
 }

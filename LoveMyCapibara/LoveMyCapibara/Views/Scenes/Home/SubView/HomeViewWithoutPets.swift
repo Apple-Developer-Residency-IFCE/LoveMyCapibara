@@ -32,4 +32,3 @@ struct HomeViewWithoutPets: View {
         .foregroundColor(Color("SecondaryText"))
     }
 }
-

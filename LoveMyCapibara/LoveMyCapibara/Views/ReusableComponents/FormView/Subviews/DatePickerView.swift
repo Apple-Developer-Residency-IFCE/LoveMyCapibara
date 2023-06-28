@@ -7,9 +7,9 @@
 
 import SwiftUI
 struct DatePickerView: View {
-    @Binding var birthdayDate : Date
+    @Binding var birthdayDate: Date
     var body: some View {
-        DatePicker("Nascimento",selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
+        DatePicker("Nascimento", selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color("PrimaryText"))
     }

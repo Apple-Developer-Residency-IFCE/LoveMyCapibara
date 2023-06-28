@@ -8,15 +8,15 @@ struct PetDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack{
-            if let data = pet.imageName, let uiImage = UIImage(data: data){
+        VStack {
+            if let data = pet.imageName, let uiImage = UIImage(data: data) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio( contentMode: .fill)
                     .frame(width: 394, height: 194)
                     .clipped()
             }
-            HStack{
+            HStack {
                 LabelsOfPet()
                 Spacer()
                 PetAttributes(pet: pet)
@@ -28,9 +28,9 @@ struct PetDetailsView: View {
         .navBarInfoPet(destination: {
             EditPetView(petInstance: pet)
         }, action: {
-            if let petResult = viewModel.getUpdatedPet(pet.id){
+            if let petResult = viewModel.getUpdatedPet(pet.id) {
                 pet = petResult
-            }else{
+            } else {
                 dismiss()
             }
         })
@@ -39,6 +39,15 @@ struct PetDetailsView: View {
 
 struct PetDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PetDetailsView(pet: PetModel(imageName: Data(), id: UUID(), name: "Diego", gender: .female, specie: "Cachorro", birthDate: Date(), weight: 12.0, castrated: true))
+        PetDetailsView(pet: PetModel(
+            imageName: Data(),
+            id: UUID(),
+            name: "Diego",
+            gender: .female,
+            specie: "Cachorro",
+            birthDate: Date(),
+            weight: 12.0,
+            castrated: true
+        ))
     }
 }

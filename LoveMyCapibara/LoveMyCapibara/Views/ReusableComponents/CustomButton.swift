@@ -20,7 +20,7 @@ struct CustomButton: View {
             Text(buttonLabel)
                 .foregroundColor(Color("ButtonLabelColor"))
                 .font(FontManager.poppinsBold(size: 16))
-                .padding(EdgeInsets(top:15, leading: 0, bottom: 15, trailing: 0))
+                .padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
                 .frame(width: 327)
                 .background(Color(buttonColor))
                 .cornerRadius(8)
@@ -31,6 +31,10 @@ struct CustomButton: View {
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton(buttonLabel: "Excluir cadastro", buttonAction: { print("oi") },buttonColor: "DeleteButtonColor")
+        CustomButton(
+            buttonLabel: "Excluir cadastro",
+            buttonAction: { print("oi") },
+            buttonColor: "DeleteButtonColor"
+        )
     }
 }

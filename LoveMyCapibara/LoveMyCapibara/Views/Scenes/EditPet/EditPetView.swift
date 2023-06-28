@@ -21,15 +21,15 @@ struct EditPetView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
+        NavigationView {
+            VStack {
                 FormView()
                     .environmentObject(formViewModel)
                 
                 CustomButton(buttonLabel: "Excluir cadastro", buttonAction: {
                     isPopUpActive = !isPopUpActive
                 }, buttonColor: "DeleteButtonColor")
-                .alert(isPresented: $isPopUpActive){
+                .alert(isPresented: $isPopUpActive) {
                     Alert(
                         title: Text("Deseja excluir o cadastro?"),
                         message: Text("Uma vez excluída, essa ação não pode ser desfeita."),
@@ -56,7 +56,17 @@ struct EditPetView: View {
 }
 
 struct EditPetView_Previews: PreviewProvider {
-    static private var petTest = PetModel(imageName: Data(), id: UUID(), name: "Spack", gender: .male, specie: "Gato", race: "Siamês", birthDate: Date.now, weight: 5.6, castrated: true)
+    static private var petTest = PetModel(
+        imageName: Data(),
+        id: UUID(),
+        name: "Spack",
+        gender: .male,
+        specie: "Gato",
+        race: "Siamês",
+        birthDate: Date.now,
+        weight: 5.6,
+        castrated: true
+    )
     
     static var previews: some View {
         EditPetView(petInstance: petTest)

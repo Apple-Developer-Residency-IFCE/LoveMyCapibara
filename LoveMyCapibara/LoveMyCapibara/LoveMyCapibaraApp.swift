@@ -11,8 +11,8 @@ import SwiftUI
 struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
     
-    //Instancia da classe controladora do core data
-    let persistenceManager = coreDataManager.shared
+    // Instancia da classe controladora do core data
+    let persistenceManager = CoreDataManager.shared
     
     var theme: ColorScheme? {
         if selectedOption == 1 {
@@ -32,5 +32,3 @@ struct LoveMyCapibaraApp: App {
         }
     }
 }
-
-

@@ -19,7 +19,7 @@ class FormViewModel: ObservableObject {
     var raceBySpecies: Dictionary<String, [String]>
     
     func getRaces() -> [String] {
-        guard let races = raceBySpecies[pet.specie] else{
+        guard let races = raceBySpecies[pet.specie] else {
             return ["Não escolhida"]
         }
         
@@ -33,7 +33,7 @@ class FormViewModel: ObservableObject {
         if let petValue = pet {
             self.pet = petValue
             
-        }else{
+        } else {
             self.pet = PetModel()
         }
         
@@ -47,22 +47,20 @@ func load<T: Decodable>(_ fileName: String) -> T {
     let data: Data
     
     guard let file = Bundle.main.url(forResource: fileName, withExtension: nil)
-    else{
+    else {
         fatalError("Não foi possível encontrar o arquivo \(fileName)")
     }
     
-    do{
+    do {
         data = try Data(contentsOf: file)
-    }catch{
+    } catch {
         fatalError("Não foi possível carregar o arquivo \(fileName)")
     }
     
-    do{
+    do {
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
-    }catch{
+    } catch {
         fatalError("Não foi possível decodificar o arquivo \(fileName)")
     }
 }
-
-

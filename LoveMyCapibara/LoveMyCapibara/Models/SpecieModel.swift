@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SpecieModel : String, Codable {
+enum SpecieModel: String, Codable {
     
     case dog = "Cachorro"
     case cat = "Gato"

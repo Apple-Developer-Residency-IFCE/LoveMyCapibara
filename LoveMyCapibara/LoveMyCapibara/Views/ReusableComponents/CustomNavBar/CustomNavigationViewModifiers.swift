@@ -72,6 +72,9 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
                     } label: {
                         HStack{
                             Image("BackArrow")
+                                .resizable()
+                                .frame(width: 12, height: 21)
+                                                            
                             Text("Pets")
                                 .font(FontManager.poppinsRegular(size: 16))
                                 .foregroundColor(Color("PrimaryColor"))

@@ -29,8 +29,13 @@ struct ButtonWeightPicker: View {
                             withAnimation {
                                 buttonIsActive.toggle()
                             }
-                        weight = Double(kg) + Double(gram)/10.0
                         }.buttonStyle(.bordered)
+                }
+                .onChange(of: kg) { _ in
+                    weight = Double(kg) + Double(gram)/10.0
+                }
+                .onChange(of: gram) { _ in
+                    weight = Double(kg) + Double(gram)/10.0
                 }
             if(buttonIsActive){
                 WeightPickerView(kg: $kg, gram: $gram)
@@ -51,12 +56,9 @@ struct ButtonWeightPicker_Previews: PreviewProvider {
 }
 
 extension Double {
-    func separate() -> (kg: Int,gram: Int)? {
-        let (integerPart, fractionalPart) = modf(self)
-        guard let integer = Int(exactly: integerPart),
-              let fractional = Int(exactly: fractionalPart * 10) else {
-            return nil
-        }
-        return (kg: integer,gram: fractional)
+    func separate() -> (kg: Int, gram: Int)? {
+        let integerPart = Int(self)
+        let fractionalPart = Int((self - Double(integerPart)) * 10)
+        return (kg: integerPart, gram: fractionalPart)
     }
 }

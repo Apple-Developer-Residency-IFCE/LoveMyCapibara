@@ -11,25 +11,32 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             TabView {
+                Text("")
+                    .tabItem {
+                        Label {
+                            Text("Tarefas")
+                        } icon: {
+                            Image("task")
+                        }
+                    }
+                    .toolbarBackground(.visible, for: .tabBar)
                 HomeView()
                     .tabItem {
-                        Label("Pets", systemImage: "pawprint")
-                        
-//                        Label {
-//                            Text("Pets")
-//                        } icon: {
-//                            Image("Icon Pet _ Outline")
-//                                .resizable()
-//                                .frame(width: 20,height: 20)
-//                                .border(.red)
-//                        }
+                        Label {
+                            Text("Pets")
+                        } icon: {
+                            Image("pawprint 1")
+                        }
                     }
-                    
                     .toolbarBackground(.visible, for: .tabBar)
                 
                 SettingsView()
                     .tabItem {
-                        Label("Configurações", systemImage: "gearshape")
+                        Label {
+                            Text("Configurações")
+                        } icon: {
+                            Image("settings 1")
+                        }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
             }

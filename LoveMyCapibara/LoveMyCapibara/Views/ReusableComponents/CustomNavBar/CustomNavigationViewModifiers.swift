@@ -29,7 +29,27 @@ struct NavBarViewPet<Destination : View>: ViewModifier {
                     }) {
                         destination()
                     }
-                    
+
+                }
+            }
+    }
+}
+
+struct NavBarViewTasks: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}, label: {Image("love_label")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {Image("calendar")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {Image("plus")})
+                        .foregroundColor(Color("PrimaryColor"))
                 }
             }
     }
@@ -158,5 +178,9 @@ extension View {
         self.modifier(NavBarViewEditPet(){
             action()
         })
+    }
+    
+    func navBarTask() -> some View {
+        self.modifier(NavBarViewTasks())
     }
 }

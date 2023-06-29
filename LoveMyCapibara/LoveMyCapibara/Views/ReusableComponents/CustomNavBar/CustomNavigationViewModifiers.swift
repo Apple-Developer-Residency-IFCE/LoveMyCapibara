@@ -32,7 +32,29 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
     }
 }
 
-struct NavBarViewInfoPet<Destination: View>: ViewModifier {
+struct NavBarViewTasks: ViewModifier {
+    @State private var selected = false
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}, label: {Image("love_label")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {selected = !selected}, label: {Image(selected ? "calendar_filled" : "calendar_outlined")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {Image("plus")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+            }
+    }
+}
+
+
+struct NavBarViewInfoPet<Destination : View>: ViewModifier {
     @Environment(\.dismiss) var dismiss
     var action: () -> Void
     @State var isShowingSheet = false
@@ -50,7 +72,7 @@ struct NavBarViewInfoPet<Destination: View>: ViewModifier {
                             Image("BackArrow")
                                 .resizable()
                                 .frame(width: 12, height: 21)
-                                                            
+                            
                             Text("Pets")
                                 .font(FontManager.poppinsRegular(size: 16))
                                 .foregroundColor(Color("PrimaryColor"))
@@ -80,25 +102,25 @@ struct NavBarViewAddPet: ViewModifier {
             .navigationBarTitle("Adicionar Pet", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Cancelar") {
-                            dismiss()
-                        }
-                        .font(FontManager.poppinsRegular(size: 16))
-                        .foregroundColor(Color("PrimaryColor"))
-                        
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancelar"){
+                        dismiss()
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Adicionar") {
-                            action()
-                            dismiss()
-                        }
-                        .font(FontManager.poppinsBold(size: 16))
-                        .foregroundColor(Color("PrimaryColor"))
+                    .font(FontManager.poppinsRegular(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Adicionar"){
+                        action()
+                        dismiss()
                     }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
                 }
             }
     }
+}
 
 struct NavBarViewEditPet: ViewModifier {
     var action: () -> Void
@@ -156,5 +178,9 @@ extension View {
         self.modifier(NavBarViewEditPet {
             action()
         })
+    }
+    
+    func navBarTask() -> some View {
+        self.modifier(NavBarViewTasks())
     }
 }

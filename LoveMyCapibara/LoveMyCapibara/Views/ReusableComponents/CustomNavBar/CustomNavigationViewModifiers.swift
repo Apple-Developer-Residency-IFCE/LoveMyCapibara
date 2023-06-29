@@ -63,9 +63,7 @@ struct NavBarViewInfoPet<Destination: View>: ViewModifier {
                     }
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
-                    .sheet(isPresented: $isShowingSheet, onDismiss: {action()}) {
-                        destination()
-                    }
+                    .sheet(isPresented: $isShowingSheet, onDismiss: action, content: destination)
                 }
             }
     }

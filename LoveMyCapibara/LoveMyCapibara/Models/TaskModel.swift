@@ -1,16 +1,18 @@
 //
-//  Task.swift
+//  TaskModel.swift
 //  LoveMyCapibara
 //
-//  Created by Maurício de Moura on 27/06/23.
+//  Created by Ravi on 28/06/23.
 //
 
 import Foundation
 
 struct TaskModel {
-    var pet: PetModel = PetModel()
-    var title: String = ""
-    var description: String = ""
-    var isFinished: Bool = false
-    var date: Date = Date.now
+    var title: String?
+    var type: TaskTypeModel?
+    var pet: PetModel?
+    var date: Date?
+    var frequency: FrequencyModel?
+    var text: String?
 }
+

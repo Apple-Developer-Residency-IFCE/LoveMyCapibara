@@ -13,6 +13,6 @@ struct TaskModel {
     var pet: PetModel?
     var date: Date?
     var frequency: FrequencyModel?
-    var description: String?
+    var text: String?
 }
 

@@ -11,14 +11,13 @@ struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     
     var body: some View {
-        Group{
+        Group {
             if homeViewModel.pets.isEmpty {
                 HomeViewWithoutPets(homeViewModel: homeViewModel)
-            }
-            else{
+            } else {
                 HomeViewWithPets(homeViewModel: homeViewModel)
             }
-        }.onAppear{
+        }.onAppear {
             homeViewModel.updateList()
         }
     }
@@ -29,5 +28,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-
-

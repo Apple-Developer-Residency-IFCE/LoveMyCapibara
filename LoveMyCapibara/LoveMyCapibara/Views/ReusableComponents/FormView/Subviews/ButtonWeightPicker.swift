@@ -10,35 +10,35 @@ import SwiftUI
 struct ButtonWeightPicker: View {
 
     @Binding var weight: Double
-    @State var kg: Int = 0
+    @State var kilogram: Int = 0
     @State var gram: Int = 0
 
     init(weight: Binding<Double>) {
             _weight = weight
-            _kg = State(initialValue: weight.wrappedValue.separate()?.kg ?? 0)
+            _kilogram = State(initialValue: weight.wrappedValue.separate()?.kg ?? 0)
             _gram = State(initialValue: weight.wrappedValue.separate()?.gram ?? 0)
     }
     
-    @State var buttonIsActive : Bool = false
+    @State var buttonIsActive: Bool = false
     var body: some View {
         VStack {
                 HStack {
                     Text("Peso")
                     Spacer()
-                    Button("\(kg).\(gram)kg"){
+                    Button("\(kilogram).\(gram)kg") {
                             withAnimation {
                                 buttonIsActive.toggle()
                             }
                         }.buttonStyle(.bordered)
                 }
-                .onChange(of: kg) { _ in
-                    weight = Double(kg) + Double(gram)/10.0
+                .onChange(of: kilogram) { _ in
+                    weight = Double(kilogram) + Double(gram)/10.0
                 }
                 .onChange(of: gram) { _ in
-                    weight = Double(kg) + Double(gram)/10.0
+                    weight = Double(kilogram) + Double(gram)/10.0
                 }
-            if(buttonIsActive){
-                WeightPickerView(kg: $kg, gram: $gram)
+            if buttonIsActive {
+                WeightPickerView(kilogram: $kilogram, gram: $gram)
                     .transition(.scale)
             }
         }

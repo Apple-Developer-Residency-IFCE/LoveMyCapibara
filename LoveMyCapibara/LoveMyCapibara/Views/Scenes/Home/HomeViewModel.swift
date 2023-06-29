@@ -7,13 +7,11 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject{
-    @Published var pets : [PetModel] = []
+class HomeViewModel: ObservableObject {
+    @Published var pets: [PetModel] = []
     let petManager = PetDataManager()
     
     func updateList() {
         self.pets = petManager.getAllPets()
     }
 }
-
-

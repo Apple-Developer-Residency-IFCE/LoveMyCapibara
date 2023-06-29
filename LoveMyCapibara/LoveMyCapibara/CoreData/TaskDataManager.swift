@@ -1,32 +1,32 @@
 //
-//  PetDataManager.swift
+//  TaskDataManager.swift
 //  LoveMyCapibara
 //
-//  Created by Gustavo Holzmann on 19/06/23.
+//  Created by Ravi on 29/06/23.
 //
 
 import Foundation
 import CoreData
 
-class PetDataManager {
+class TaskDataManager {
     var context: NSManagedObjectContext
 
     init() {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllPets() -> [PetModel] {
-        let request: NSFetchRequest<Pet> = Pet.fetchRequest()
-        
-        do {
-            let result = try context.fetch(request)
-            return result.map { pet in
-                convertToPetModel(pet)
-            }
-        } catch {
-            return []
-        }
-    }
+//    func getAllTasks() -> [TaskModel] {
+//        let request: NSFetchRequest<Task> = Task.fetchRequest()
+//
+//        do {
+//            let result = try context.fetch(request)
+//            return result.map { task in
+//                convertToPetModel(pet)
+//            }
+//        } catch {
+//            return []
+//        }
+//    }
 
     func getPetById(_ id: UUID) -> PetModel? {
         let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()

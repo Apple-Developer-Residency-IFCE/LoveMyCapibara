@@ -9,12 +9,12 @@ import SwiftUI
 
 struct LabelsOfPet: View {
     var body: some View {
-        VStack(alignment: .leading,spacing: 16){
+        VStack(alignment: .leading, spacing: 16) {
             Text("Informações")
                 .font(FontManager.poppinsBold(size: 20))
                 .foregroundColor(Color("PrimaryText"))
                 .padding(.bottom, 4)
-            Group{
+            Group {
                 Text("Nome")
                 Text("Espécie")
                 Text("Nascimento")

@@ -12,7 +12,7 @@ struct PetCardView: View {
     var petSpecies: String
     var petImage: Data?
     
-    var body: any View {
+    var body: some View {
             HStack {
                 if let data = petImage, let uiImage = UIImage(data: data) {
                     Image(uiImage: uiImage)

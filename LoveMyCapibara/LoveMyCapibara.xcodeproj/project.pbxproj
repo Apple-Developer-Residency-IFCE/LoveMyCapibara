@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41294DF42A4E29AB00037A66 /* TaskTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF32A4E29AB00037A66 /* TaskTypeModel.swift */; };
+		41294DF82A4E2D1E00037A66 /* TaskDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */; };
 		4185C2E92A4CE62800B921BC /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2E82A4CE62800B921BC /* CreateTaskView.swift */; };
 		4185C2EB2A4CE6E600B921BC /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2EA2A4CE6E600B921BC /* TaskModel.swift */; };
 		4185C2ED2A4CEC8F00B921BC /* FrequencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2EC2A4CEC8F00B921BC /* FrequencyModel.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		41294DF32A4E29AB00037A66 /* TaskTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeModel.swift; sourceTree = "<group>"; };
+		41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataManager.swift; sourceTree = "<group>"; };
 		4185C2E82A4CE62800B921BC /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		4185C2EA2A4CE6E600B921BC /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		4185C2EC2A4CEC8F00B921BC /* FrequencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyModel.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			children = (
 				809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */,
 				80A7C0212A410B0C00AC7769 /* PetDataManager.swift */,
+				41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */,
 				80A7C01E2A40F99200AC7769 /* PetCoreData.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -534,6 +537,7 @@
 				80A7C0262A410DFB00AC7769 /* PetDetailedViewModel.swift in Sources */,
 				F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */,
 				C030D7402A4263C1007013A2 /* SelectedRadioIcon.swift in Sources */,
+				41294DF82A4E2D1E00037A66 /* TaskDataManager.swift in Sources */,
 				C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				4185C2EF2A4CECB800B921BC /* RememberAtModel.swift in Sources */,

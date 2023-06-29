@@ -24,22 +24,22 @@ struct TaskCardView: View {
                 Text(taskDescription)
                     .font(FontManager.poppinsRegular(size: 16))
                     .foregroundColor(Color("PrimaryText"))
-                HStack{
+                HStack {
                     Image("ClockIcon")
                     Text(time, style: .time)
                 }
             }
             Spacer()
             VStack(spacing: 8) {
-                if let data = petImage, let uiImage = UIImage(data: data){
+                if let data = petImage, let uiImage = UIImage(data: data) {
                     Image(uiImage: uiImage)
                         .resizable()
                         .clipShape(Circle())
-                        .padding(.trailing,4)
+                        .padding(.trailing, 4)
                         .frame(width: 64, height: 64)
                 } else {
                     Circle()
-                        .frame(width:80, height: 80)
+                        .frame(width: 80, height: 80)
                         .foregroundColor(.gray)
                     
                 }

@@ -12,7 +12,7 @@ struct TasksListView: View {
     let columns = [GridItem()]
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack(alignment: .leading) {
                 Text("Tarefas pendentes")
                     .font(FontManager.poppinsBold(size: 20))
@@ -31,7 +31,7 @@ struct TasksListView: View {
                     TaskCardView(taskTitle: "Comprar comida", taskDescription: "comprar o pacote grande", petName: "Theobaldo", time: .now)
                     TaskCardView(taskTitle: "Vacinar o leozin", taskDescription: "levar no posto de vacinação", petName: "Leozin", time: .now)
                 }
-                HStack{
+                HStack {
                     Image("IconFinished")
                         .resizable()
                         .frame(width: 24, height: 24)

@@ -17,6 +17,8 @@ struct SettingsView: View {
             
             Spacer()
         }
+        .frame(width: UIScreen.main.bounds.width)
+        .background(Color("BackgroundColor"))
     }
 }
 

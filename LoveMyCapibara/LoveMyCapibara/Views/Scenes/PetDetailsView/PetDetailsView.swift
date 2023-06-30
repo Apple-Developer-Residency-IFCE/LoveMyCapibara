@@ -24,6 +24,7 @@ struct PetDetailsView: View {
             AdicionalInfo(pet: pet)
             Spacer()
         }
+        .background(Color("BackgroundColor"))
         .navBarInfoPet(destination: {
             EditPetView(petInstance: pet)
         }, action: {

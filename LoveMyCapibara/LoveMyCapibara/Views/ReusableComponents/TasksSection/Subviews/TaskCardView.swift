@@ -13,7 +13,15 @@ struct TaskCardView: View {
     var taskDescription: String
     var petName: String
     var petImage: Data?
-    var time: Date
+    var time: String
+    
+    init(task: TaskModel, time: String) {
+        self.taskTitle = task.title ?? "Sem titulo"
+        self.taskDescription = task.text ?? "Sem descrição"
+        self.petName = task.pet?.name ?? "Pet"
+        self.petImage = task.pet?.imageName
+        self.time = time
+    }
     
     var body: some View {
         HStack {
@@ -26,7 +34,7 @@ struct TaskCardView: View {
                     .foregroundColor(Color("PrimaryText"))
                 HStack {
                     Image("ClockIcon")
-                    Text(time, style: .time)
+                    Text(time)
                 }
             }
             Spacer()
@@ -59,7 +67,9 @@ struct TaskCardView: View {
 }
 
 struct TaskCardView_Previews: PreviewProvider {
+
     static var previews: some View {
-        TaskCardView(taskTitle: "Dar banho na carol", taskDescription: "Ela ta muito sujinha", petName: "Carol", time: .now)
+        
+        TaskCardView(task: TaskModel.mock, time: "18:50")
     }
 }

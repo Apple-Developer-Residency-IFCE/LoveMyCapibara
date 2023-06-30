@@ -21,4 +21,10 @@ class TasksListViewModel: ObservableObject {
         // self.completedTasks = taskManager.getAllCompleteTasks
     }
     
+    func timeFormatter(task: TaskModel) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        return dateFormatter.string(from: task.date ?? .now)
+    }
 }

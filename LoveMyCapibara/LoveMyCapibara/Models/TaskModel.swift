@@ -35,4 +35,7 @@ struct TaskModel {
         self.text = taskCoreData.text
         self.id = UUID()
     }
+    
+    static var mock: TaskModel = .init(title: "Piedro", type: TaskTypeModel.leisure, pet: PetModel(), date: .now, frequency: FrequencyModel.daily, id: UUID())
 }
+

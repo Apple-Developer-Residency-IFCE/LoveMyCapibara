@@ -22,12 +22,10 @@ struct TasksListView: View {
                     ForEach(tasksListViewModel.tasks, id: \.id) { task in
                         NavigationLink {
                             // TaskDetailedView()
-                        }label: {
+                        } label: {
                             TaskCardView(
-                                taskTitle: task.title ?? "Sem titulo",
-                                taskDescription: task.text ?? "Sem descrição",
-                                petName: task.pet?.name ?? "Pet",
-                                time: task.date ?? .now
+                                task: task,
+                                time: tasksListViewModel.timeFormatter(task: task)
                             )
                         }
                     }
@@ -47,10 +45,8 @@ struct TasksListView: View {
                             // TaskDetailedView()
                         }label: {
                             TaskCardView(
-                                taskTitle: task.title ?? "Sem titulo",
-                                taskDescription: task.text ?? "Sem descrição",
-                                petName: task.pet?.name ?? "Pet",
-                                time: task.date ?? .now
+                                task: task,
+                                time: tasksListViewModel.timeFormatter(task: task)
                             )
                         }
                     }

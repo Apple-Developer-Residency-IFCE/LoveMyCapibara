@@ -12,9 +12,16 @@ class TasksListViewModel: ObservableObject {
     @Published var completedTasks: [TaskModel] = []
     
     let taskManager = TaskDataManager()
-
+    
     func updateList() {
         // self.tasks = taskManager.getAllTasks
+    }
+    
+    func updateCompletedTasks() {
+        for task in tasks where task.completed == true {
+            completedTasks.append(task)
+            tasks.removeAll { $0.id == task.id }
+        }
     }
     
     func completeTask() {

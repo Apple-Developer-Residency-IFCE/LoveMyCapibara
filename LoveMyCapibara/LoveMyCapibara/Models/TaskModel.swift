@@ -44,7 +44,7 @@ struct TaskModel {
         id: UUID(),
         title: "Piedro",
         type: TaskTypeModel.leisure,
-        pet: PetModel(),
+        pet: PetModel(imageName: Data(), id: UUID(), name: "David", gender: .male, birthDate: .now, castrated: true),
         date: .now,
         frequency: FrequencyModel.daily
     )

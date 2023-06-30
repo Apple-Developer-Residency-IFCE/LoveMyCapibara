@@ -35,6 +35,8 @@ struct TaskCardView: View {
                 HStack {
                     Image("ClockIcon")
                     Text(time)
+                        .font(FontManager.poppinsRegular(size: 16))
+                        .foregroundColor(Color("PrimaryText"))
                 }
             }
             Spacer()

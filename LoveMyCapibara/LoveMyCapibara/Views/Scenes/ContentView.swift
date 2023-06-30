@@ -22,6 +22,11 @@ struct ContentView: View {
                         Label("Configurações", systemImage: "gearshape")
                     }
                     .toolbarBackground(.visible, for: .tabBar)
+                
+                TaskDetailsView()
+                    .tabItem {
+                        Text("Texto")
+                    }
             }
             .tint(Color("DarkColor"))
         }

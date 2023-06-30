@@ -55,7 +55,6 @@
 		F5338F8D2A2FEACE00164841 /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = F5338F8C2A2FEACE00164841 /* race.json */; };
 		F5354DCD2A3155E40057F11F /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5354DCC2A3155E40057F11F /* FormView.swift */; };
 		F5354DCF2A3158230057F11F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5354DCE2A3158230057F11F /* ImagePicker.swift */; };
-		F5412C592A4BAE1400A72EA2 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5412C582A4BAE1400A72EA2 /* TaskModel.swift */; };
 		F5412C5C2A4BAFC400A72EA2 /* TaskDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5412C5B2A4BAFC400A72EA2 /* TaskDetailsView.swift */; };
 		F5C649D42A3A5C5300B4F3CB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7737B2A26AB9B006384C2 /* HomeViewModel.swift */; };
 		F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA9D342A31404F0007DD27 /* HomeViewWithPets.swift */; };
@@ -232,8 +231,6 @@
 			children = (
 				64473F322A218117000B5967 /* GenderModel.swift */,
 				64473F342A218117000B5967 /* PetModel.swift */,
-				64473F362A218117000B5967 /* RaceModel.swift */,
-				64473F332A218117000B5967 /* SpecieModel.swift */,
 				4185C2EA2A4CE6E600B921BC /* TaskModel.swift */,
 				4185C2EC2A4CEC8F00B921BC /* FrequencyModel.swift */,
 				4185C2EE2A4CECB800B921BC /* RememberAtModel.swift */,
@@ -317,6 +314,7 @@
 				642442552A29541C0052E0C8 /* ThemeOption.swift */,
 				F5F6CEE62A3A8DC800458BC2 /* SettingsView.swift */,
 				642442532A2952100052E0C8 /* SelectedRadioIcon.swift */,
+				F5412C582A4BAE1400A72EA2 /* TaskModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -531,7 +529,6 @@
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,
 				F52964222A4CE0EC002D6BB0 /* TaskDetailsViewModel.swift in Sources */,
 				F5412C5C2A4BAFC400A72EA2 /* TaskDetailsView.swift in Sources */,
-				F5412C592A4BAE1400A72EA2 /* TaskModel.swift in Sources */,
 				F5354DCD2A3155E40057F11F /* FormView.swift in Sources */,
 				F5354DCF2A3158230057F11F /* ImagePicker.swift in Sources */,
 				80A7C0262A410DFB00AC7769 /* PetDetailedViewModel.swift in Sources */,

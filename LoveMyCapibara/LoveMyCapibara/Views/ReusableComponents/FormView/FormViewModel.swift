@@ -16,7 +16,7 @@ class FormViewModel: ObservableObject {
     }
     
     var speciesOptions: [String]
-    var raceBySpecies: Dictionary<String, [String]>
+    var raceBySpecies: [String: [String]]
     
     func getRaces() -> [String] {
         guard let races = raceBySpecies[pet.specie] else {

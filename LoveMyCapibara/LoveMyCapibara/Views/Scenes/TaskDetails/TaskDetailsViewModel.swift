@@ -11,20 +11,26 @@ class TaskDetailsViewModel: ObservableObject {
     @Published var task: TaskModel
     
     init() {
-        self.task = TaskModel(pet: PetModel(name: "Tortinha"), title: "Dar o remédio para vermes", description: "Teste teste teste teste teeeeeste teeeeeste teste.", date: Date.now)
+        self.task = TaskModel(
+            title: "Dar o remédio para vermes",
+            type: .medicine,
+            pet: PetModel(name: "Tortinha"),
+            date: Date.now,
+            frequency: .monthly,
+            text: "Teste teste teste teste teeeeeste teeeeeste teste.")
     }
     
-    var dateFormatted: String{
+    var dateFormatted: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        return dateFormatter.string(from: task.date)
+        return dateFormatter.string(from: task.date ?? .now)
     }
     
-    var timeFormatted: String{
+    var timeFormatted: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         
-        return dateFormatter.string(from: task.date)
+        return dateFormatter.string(from: task.date ?? .now)
     }
 }

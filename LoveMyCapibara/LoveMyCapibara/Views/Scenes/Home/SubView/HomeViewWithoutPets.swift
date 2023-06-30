@@ -21,6 +21,8 @@ struct HomeViewWithoutPets: View {
                 Spacer()
             }
             .foregroundColor(Color("SecondaryText"))
+            .frame(width: UIScreen.main.bounds.width)
+            .background(Color("BackgroundColor"))
             .navBarPet(destination: {
                 AddPetView()
             }, action: {

@@ -46,7 +46,8 @@ struct EditPetView: View {
                 Spacer()
             }
             .padding(.top)
-            .navBarEditPet {
+            .background(Color("BackgroundColor"))
+            .navBarEditPet() {
                 viewModel.edit(formViewModel.pet)
                 dismiss()
             }

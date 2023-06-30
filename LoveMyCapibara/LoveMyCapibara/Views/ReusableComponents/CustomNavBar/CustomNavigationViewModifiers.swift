@@ -24,7 +24,7 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
                     .foregroundColor(Color("PrimaryColor"))
                     .sheet(isPresented: $isShowingSheet, onDismiss: {
                         action()
-                    }) {
+                    }){
                         destination()
                     }
                 }
@@ -85,9 +85,7 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
                     }
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
-                    .sheet(isPresented: $isShowingSheet, onDismiss: {action()}) {
-                        destination()
-                    }
+                    .sheet(isPresented: $isShowingSheet, onDismiss: action, content: destination)
                 }
             }
     }
@@ -150,6 +148,46 @@ struct NavBarViewEditPet: ViewModifier {
     }
 }
 
+struct NavBarViewInfoTask<Destination: View>: ViewModifier {
+    var title: String
+    var destination: () -> Destination
+    var action: () -> Void
+    @Environment(\.dismiss) var dismiss
+    @State var isShowingSheet = false
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle(title, displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Image("BackArrow")
+                                .resizable()
+                                .frame(width: 12, height: 21)
+                                                            
+                            Text("Tarefas")
+                                .font(FontManager.poppinsRegular(size: 16))
+                                .foregroundColor(Color("PrimaryColor"))
+                        }
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Editar") {
+                        isShowingSheet.toggle()
+                    }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    .sheet(isPresented: $isShowingSheet, onDismiss: action, content: destination)
+                }
+            }
+    }
+}
+
 extension View {
     /// This modifiers need to be use in the last line of NavigationView.
     /// Important This modifier needs a NavigationView
@@ -182,5 +220,12 @@ extension View {
     
     func navBarTask() -> some View {
         self.modifier(NavBarViewTasks())
+    }
+    
+    /// This modifiers need to be use in the last line of NavigationView.
+    /// Important This modifier needs a NavigationView
+    /// need to put a destination to the edit button
+    func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewInfoTask(title: title, destination: destination, action: action))
     }
 }

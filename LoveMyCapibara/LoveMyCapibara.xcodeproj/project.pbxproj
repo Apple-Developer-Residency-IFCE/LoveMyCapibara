@@ -261,7 +261,6 @@
 		64ED6EEF2A200ABA00E428F1 /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
-				80AEE9252A4CE58200E65DAC /* TasksSection */,
 				F5333CCA2A37B5900073594B /* FormView */,
 				C0F72D782A3BDCB3003AE92C /* CustomNavBar */,
 				646D84412A20208000884CC2 /* PetCardView.swift */,
@@ -274,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
+				80AE70842A4F877A00D7F5D9 /* HomeTask */,
 				C030D7362A4263C1007013A2 /* Settings */,
 				64DE71A12A2E88BF00B2CF26 /* PetDetailsView */,
 				F5333CCF2A37CDBA0073594B /* EditPet */,
@@ -303,6 +303,14 @@
 				D4CCA24F4D5FAA73D9C880AC /* TaskDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		80AE70842A4F877A00D7F5D9 /* HomeTask */ = {
+			isa = PBXGroup;
+			children = (
+				80AEE9252A4CE58200E65DAC /* TasksSection */,
+			);
+			path = HomeTask;
 			sourceTree = "<group>";
 		};
 		80AEE9252A4CE58200E65DAC /* TasksSection */ = {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TasksListView: View {
     
+    @StateObject var tasksListViewModel = TasksListViewModel()
     let columns = [GridItem()]
     
     var body: some View {
@@ -18,18 +19,18 @@ struct TasksListView: View {
                     .font(FontManager.poppinsBold(size: 20))
                     .foregroundColor(Color("PrimaryText"))
                 LazyVGrid(columns: columns, spacing: 8) {
-                    
-                    // Stub para quando a taskListViewModel for criada
-                    //                ForEach (taskListModel.tasks, id: \.id){ task in
-                    //                    NavigationLink{
-                    //                        TaskDetailedView()
-                    //                    }label: {
-                    //                        TaskCardView()
-                    //                    }
-                    //                }
-                    
-                    TaskCardView(taskTitle: "Comprar comida", taskDescription: "comprar o pacote grande", petName: "Theobaldo", time: .now)
-                    TaskCardView(taskTitle: "Vacinar o leozin", taskDescription: "levar no posto de vacinação", petName: "Leozin", time: .now)
+                    ForEach(tasksListViewModel.tasks, id: \.id) { task in
+                        NavigationLink {
+                            // TaskDetailedView()
+                        }label: {
+                            TaskCardView(
+                                taskTitle: task.title ?? "Sem titulo",
+                                taskDescription: task.text ?? "Sem descrição",
+                                petName: task.pet?.name ?? "Pet",
+                                time: task.date ?? .now
+                            )
+                        }
+                    }
                 }
                 HStack {
                     Image("IconFinished")
@@ -41,19 +42,18 @@ struct TasksListView: View {
                 }
                 .padding(.top)
                 LazyVGrid(columns: columns, spacing: 8) {
-                    
-                    // Stub para quando a taskListViewModel for criada
-                    //                ForEach (taskListModel.finishedTasks, id: \.id){ task in
-                    //                    NavigationLink{
-                    //                        TaskDetailedView()
-                    //                    }label: {
-                    //                        TaskCardView()
-                    //                    }
-                    //                }
-                    
-                    TaskCardView(taskTitle: "Comprar comida", taskDescription: "comprar o pacote grande", petName: "Theobaldo", time: .now)
-                    TaskCardView(taskTitle: "Vacinar o leozin", taskDescription: "levar no posto de vacinação", petName: "Leozin", time: .now)
-                    TaskCardView(taskTitle: "Comprar comida", taskDescription: "comprar o pacote grande", petName: "Theobaldo", time: .now)
+                    ForEach(tasksListViewModel.completedTasks, id: \.id) { task in
+                        NavigationLink {
+                            // TaskDetailedView()
+                        }label: {
+                            TaskCardView(
+                                taskTitle: task.title ?? "Sem titulo",
+                                taskDescription: task.text ?? "Sem descrição",
+                                petName: task.pet?.name ?? "Pet",
+                                time: task.date ?? .now
+                            )
+                        }
+                    }
                 }
             }
             .padding(.horizontal)

@@ -14,14 +14,16 @@ struct TaskModel {
     var date: Date?
     var frequency: FrequencyModel?
     var text: String?
+    var id: UUID?
     
-    init(title: String? = nil, type: TaskTypeModel? = nil, pet: PetModel? = nil, date: Date? = nil, frequency: FrequencyModel? = nil, text: String? = nil) {
+    init(title: String? = nil, type: TaskTypeModel? = nil, pet: PetModel? = nil, date: Date? = nil, frequency: FrequencyModel? = nil, text: String? = nil, id: UUID? = nil) {
         self.title = title
         self.type = type
         self.pet = pet
         self.date = date
         self.frequency = frequency
         self.text = text
+        self.id = id
     }
     
     init(taskCoreData: Task, pet: PetModel) {
@@ -31,5 +33,6 @@ struct TaskModel {
         self.date = taskCoreData.date
         self.frequency = FrequencyModel(rawValue: taskCoreData.frequency ?? "") ?? .none
         self.text = taskCoreData.text
+        self.id = UUID()
     }
 }

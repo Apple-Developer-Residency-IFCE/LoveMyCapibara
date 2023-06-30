@@ -43,11 +43,13 @@ class TaskDataManager {
     }
 
     func createTask(_ task: TaskModel) {
+        let petManager = PetDataManager()
+        
         let newTask = Task(context: context)
         newTask.id = task.id
         newTask.title = task.title
         newTask.date = task.date
-        newTask.petID = task.petId
+        newTask.pet = petManager.getCoreDataPet(task.pet?.id ?? UUID())
         newTask.frequency = task.frequency?.rawValue
         newTask.type = task.type?.rawValue
         newTask.text = task.text
@@ -59,6 +61,7 @@ class TaskDataManager {
     }
     
     func updateTask(_ task: TaskModel) {
+        let petManager = PetDataManager()
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "id == %@", task.id as? CVarArg ?? [0])
@@ -71,7 +74,7 @@ class TaskDataManager {
                 taskEntity.date = task.date
                 taskEntity.title = task.title
                 taskEntity.frequency = task.frequency?.rawValue
-                taskEntity.petID = task.petId
+                taskEntity.pet = petManager.getCoreDataPet(task.pet?.id ?? UUID())
                 taskEntity.type = task.type?.rawValue
                 taskEntity.text = task.text
                 try context.save()

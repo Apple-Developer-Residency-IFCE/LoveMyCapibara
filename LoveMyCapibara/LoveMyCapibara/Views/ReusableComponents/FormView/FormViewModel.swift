@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class FormViewModel: RaceModel, ObservableObject {
+class FormViewModel: ObservableObject {
     @Published var pet: PetModel {
         didSet {
             

@@ -28,6 +28,27 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
     }
 }
 
+struct NavBarViewTasks: ViewModifier {
+    @State private var selected = false
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}, label: {Image("love_label")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {selected = !selected}, label: {Image(selected ? "calendar_filled" : "calendar_outlined")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {Image("plus")})
+                        .foregroundColor(Color("PrimaryColor"))
+                }
+            }
+    }
+}
+
 struct NavBarViewInfoPet<Destination: View>: ViewModifier {
     @Environment(\.dismiss) var dismiss
     var action: () -> Void
@@ -46,7 +67,7 @@ struct NavBarViewInfoPet<Destination: View>: ViewModifier {
                             Image("BackArrow")
                                 .resizable()
                                 .frame(width: 12, height: 21)
-                                                            
+                            
                             Text("Pets")
                                 .font(FontManager.poppinsRegular(size: 16))
                                 .foregroundColor(Color("PrimaryColor"))
@@ -74,25 +95,25 @@ struct NavBarViewAddPet: ViewModifier {
             .navigationBarTitle("Adicionar Pet", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Cancelar") {
-                            dismiss()
-                        }
-                        .font(FontManager.poppinsRegular(size: 16))
-                        .foregroundColor(Color("PrimaryColor"))
-                        
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancelar") {
+                        dismiss()
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Adicionar") {
-                            action()
-                            dismiss()
-                        }
-                        .font(FontManager.poppinsBold(size: 16))
-                        .foregroundColor(Color("PrimaryColor"))
+                    .font(FontManager.poppinsRegular(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Adicionar") {
+                        action()
+                        dismiss()
                     }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
                 }
             }
     }
+}
 
 struct NavBarViewEditPet: ViewModifier {
     var action: () -> Void
@@ -117,6 +138,46 @@ struct NavBarViewEditPet: ViewModifier {
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
                     
+                }
+            }
+    }
+}
+
+struct NavBarViewInfoTask<Destination: View>: ViewModifier {
+    var title: String
+    var destination: () -> Destination
+    var action: () -> Void
+    @Environment(\.dismiss) var dismiss
+    @State var isShowingSheet = false
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle(title, displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Image("BackArrow")
+                                .resizable()
+                                .frame(width: 12, height: 21)
+                                                            
+                            Text("Tarefas")
+                                .font(FontManager.poppinsRegular(size: 16))
+                                .foregroundColor(Color("PrimaryColor"))
+                        }
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Editar") {
+                        isShowingSheet.toggle()
+                    }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    .sheet(isPresented: $isShowingSheet, onDismiss: action, content: destination)
                 }
             }
     }
@@ -150,5 +211,16 @@ extension View {
         self.modifier(NavBarViewEditPet {
             action()
         })
+    }
+    
+    func navBarTask() -> some View {
+        self.modifier(NavBarViewTasks())
+    }
+    
+    /// This modifiers need to be use in the last line of NavigationView.
+    /// Important This modifier needs a NavigationView
+    /// need to put a destination to the edit button
+    func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewInfoTask(title: title, destination: destination, action: action))
     }
 }

@@ -44,8 +44,8 @@ class TaskDataManager {
 
     func createTask(_ task: TaskModel) {
         let petManager = PetDataManager()
-        
         let newTask = Task(context: context)
+        
         newTask.id = task.id
         newTask.title = task.title
         newTask.date = task.date

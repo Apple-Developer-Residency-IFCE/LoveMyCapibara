@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct CreateTaskView: View {
+    
+    @StateObject var viewModel = CreateTaskViewModel()
+    @ObservedObject var taskFormViewModel = CreateTaskViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        FormCreateTask()
     }
 }
 
 struct CreateTaskView_Previews: PreviewProvider {
     static var previews: some View {
         CreateTaskView()
+    }
+}
+
+struct FormCreateTask: View {
+    
+    @EnvironmentObject var viewModel: CreateTaskViewModel
+    
+    var body: some View {
+        Text("")
     }
 }

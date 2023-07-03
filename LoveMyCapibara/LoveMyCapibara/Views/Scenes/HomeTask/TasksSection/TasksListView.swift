@@ -14,7 +14,7 @@ struct TasksListView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 24) {
                 Text("Tarefas pendentes")
                     .font(FontManager.poppinsBold(size: 20))
                     .foregroundColor(Color("PrimaryText"))
@@ -31,12 +31,11 @@ struct TasksListView: View {
                     }
                 }
                 .padding(.top)
-                if tasksListViewModel.tasks.isEmpty {
-                    EmptyToDoList(tasksListViewModel: tasksListViewModel)
-                } else {
-                    if !tasksListViewModel.completedTasks.isEmpty {
-                        CompletedToDoList(tasksListViewModel: tasksListViewModel)
-                    }
+                if !tasksListViewModel.showToDoTasks {
+                    EmptyToDoList()
+                }
+                if tasksListViewModel.showCompletedTasks {
+                    CompletedToDoList(tasksListViewModel: tasksListViewModel)
                 }
             }
             .padding(.horizontal)
@@ -50,34 +49,25 @@ struct TasksListView_Previews: PreviewProvider {
         viewModel.tasks = [
             TaskModel(
                 id: UUID(),
-                title: "Levar no veterinario",
-                type: TaskTypeModel.medicine,
-                pet: PetModel(),
-                date: .now,
-                text: "no benfica",
-                completed: false
-            ),
-            TaskModel(
-                id: UUID(),
-                title: "Levar pra passear",
-                type: TaskTypeModel.leisure,
-                pet: PetModel(),
-                date: .now,
-                text: "na praça",
-                completed: false
-            )
-        ]
-        viewModel.completedTasks = [
-            TaskModel(
-                id: UUID(),
-                title: "Comprar Comida",
+                title: "Comprar brinquedo",
                 type: TaskTypeModel.others,
                 pet: PetModel(),
                 date: .now,
-                text: "no supermercado",
+                text: "no pet shop",
                 completed: true
             )
         ]
+//        viewModel.completedTasks = [
+//            TaskModel(
+//                id: UUID(),
+//                title: "Comprar Comida",
+//                type: TaskTypeModel.others,
+//                pet: PetModel(),
+//                date: .now,
+//                text: "no supermercado",
+//                completed: true
+//            )
+//        ]
         return VStack {
             TasksListView(tasksListViewModel: viewModel)
         }

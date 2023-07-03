@@ -13,6 +13,22 @@ class TasksListViewModel: ObservableObject {
     
     let taskManager = TaskDataManager()
     
+    var showToDoTasks: Bool {
+        if tasks.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    var showCompletedTasks: Bool {
+        if completedTasks.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func updateList() {
         // self.tasks = taskManager.getAllTasks
     }
@@ -34,4 +50,5 @@ class TasksListViewModel: ObservableObject {
         
         return dateFormatter.string(from: task.date ?? .now)
     }
+    
 }

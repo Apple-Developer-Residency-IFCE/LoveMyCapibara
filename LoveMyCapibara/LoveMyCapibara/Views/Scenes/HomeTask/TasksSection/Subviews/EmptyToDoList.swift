@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EmptyToDoList: View {
     
-    var tasksListViewModel: TasksListViewModel
     let columns = [GridItem()]
     
     var body: some View {
@@ -35,10 +34,7 @@ struct EmptyToDoList: View {
 }
 
 struct EmptyToDoList_Previews: PreviewProvider {
-    
-    static var viewModel = TasksListViewModel()
-    
     static var previews: some View {
-        EmptyToDoList(tasksListViewModel: viewModel)
+        EmptyToDoList()
     }
 }

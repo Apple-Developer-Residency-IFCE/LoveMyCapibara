@@ -32,60 +32,14 @@ struct TasksListView: View {
                 }
                 .padding(.top)
                 if tasksListViewModel.tasks.isEmpty {
-                    emptyToDoList
+                    EmptyToDoList(tasksListViewModel: tasksListViewModel)
                 } else {
                     if !tasksListViewModel.completedTasks.isEmpty {
-                        emptyToDoCompletedList
+                        CompletedToDoList(tasksListViewModel: tasksListViewModel)
                     }
                 }
             }
             .padding(.horizontal)
-        }
-    }
-    
-    var emptyToDoList: some View {
-        VStack(alignment: .center, spacing: 8) {
-            Image("Task Card Placeholder")
-                .padding()
-            Group {
-                Text("Você não possui nenhuma tarefa pendente :)")
-                    .font(FontManager.poppinsBold(size: 16))
-                    .foregroundColor(Color("PrimaryText"))
-                Text("Ao adicionar tarefas, elas aparecerão aqui")
-                    .font(FontManager.poppinsRegular(size: 13))
-                    .foregroundColor(Color("PrimaryText"))
-            }
-            .multilineTextAlignment(.center)
-            CustomButton(buttonLabel: "Adicionar Tarefa", buttonAction: {
-                print("Botao apertado")
-            }, buttonColor: "PrimaryColor")
-            .padding(.top)
-        }
-        .frame(maxWidth: .infinity)
-    }
-    
-    var emptyToDoCompletedList: some View {
-        Group {
-            HStack {
-                Image("IconFinished")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                Text("Tarefas concluídas")
-                    .font(FontManager.poppinsBold(size: 20))
-                    .foregroundColor(Color("PrimaryText"))
-            }
-            LazyVGrid(columns: columns, spacing: 8) {
-                ForEach(tasksListViewModel.completedTasks, id: \.id) { task in
-                    NavigationLink {
-                        // TaskDetailedView()
-                    }label: {
-                        TaskCardView(
-                            task: task,
-                            time: tasksListViewModel.timeFormatter(task: task)
-                        )
-                    }
-                }
-            }
         }
     }
 }

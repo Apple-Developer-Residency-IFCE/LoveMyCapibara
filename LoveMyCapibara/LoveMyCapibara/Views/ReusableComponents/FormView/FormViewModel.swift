@@ -9,11 +9,7 @@ import Foundation
 import SwiftUI
 
 class FormViewModel: ObservableObject {
-    @Published var pet: PetModel {
-        didSet {
-            
-        }
-    }
+    @Published var pet: PetModel
     
     var speciesOptions: [String]
     var raceBySpecies: [String: [String]]
@@ -39,7 +35,6 @@ class FormViewModel: ObservableObject {
         
         self.speciesOptions = load("specie.json")
         self.raceBySpecies = load("race.json")
-        
     }
 }
 

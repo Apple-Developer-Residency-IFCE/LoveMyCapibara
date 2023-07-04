@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RememberAtModel: String {
+enum RememberAtModel: String, CaseIterable {
     case empty = "Nenhum"
     case now = "Na hora da tarefa"
     case fiveMinutes = "5 minutos antes"

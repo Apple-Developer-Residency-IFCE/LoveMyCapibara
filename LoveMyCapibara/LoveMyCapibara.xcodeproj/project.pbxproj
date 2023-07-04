@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D46C17E81C70EB64E8C9759 /* TaskDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCA24F4D5FAA73D9C880AC /* TaskDataManager.swift */; };
+		41294DFA2A4F9E4C00037A66 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */; };
+		4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532192A537D1E00A2AF39 /* RenderLineView.swift */; };
 		437BA1C6435AC08C51560D9F /* RememberAtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C681DA15AEAD2BF0DF5FC3 /* RememberAtModel.swift */; };
 		6418348D2A20385900825BA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348C2A20385900825BA8 /* HomeView.swift */; };
 		64473F372A218117000B5967 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F322A218117000B5967 /* GenderModel.swift */; };
@@ -70,9 +72,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D438854F679BF68CE2CFC1B /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
-		5445A6F02CB530FEA9C53B5E /* TaskTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeModel.swift; sourceTree = "<group>"; };
-		60D2180F9C01D9E465A3D762 /* FrequencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyModel.swift; sourceTree = "<group>"; };
+		41294DF32A4E29AB00037A66 /* TaskTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeModel.swift; sourceTree = "<group>"; };
+		41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataManager.swift; sourceTree = "<group>"; };
+		41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
+		417532192A537D1E00A2AF39 /* RenderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLineView.swift; sourceTree = "<group>"; };
+		4185C2E82A4CE62800B921BC /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
+		4185C2EA2A4CE6E600B921BC /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		4185C2EC2A4CEC8F00B921BC /* FrequencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyModel.swift; sourceTree = "<group>"; };
+		4185C2EE2A4CECB800B921BC /* RememberAtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberAtModel.swift; sourceTree = "<group>"; };
 		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
 		642442532A2952100052E0C8 /* SelectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRadioIcon.swift; sourceTree = "<group>"; };
@@ -150,6 +157,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		417532182A537CFA00A2AF39 /* RenderLine */ = {
+			isa = PBXGroup;
+			children = (
+				417532192A537D1E00A2AF39 /* RenderLineView.swift */,
+			);
+			path = RenderLine;
+			sourceTree = "<group>";
+		};
+		4185C2E52A4CE58700B921BC /* CreateTask */ = {
+			isa = PBXGroup;
+			children = (
+				4185C2E82A4CE62800B921BC /* CreateTaskView.swift */,
+				41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */,
+			);
+			path = CreateTask;
+			sourceTree = "<group>";
+		};
 		642241D72A29669B006B3634 /* AddPet */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,8 +259,6 @@
 			children = (
 				64473F322A218117000B5967 /* GenderModel.swift */,
 				64473F342A218117000B5967 /* PetModel.swift */,
-				64473F362A218117000B5967 /* RaceModel.swift */,
-				64473F332A218117000B5967 /* SpecieModel.swift */,
 				A37DD1CC2A4E3703000697C5 /* FactModel.swift */,
 				4D438854F679BF68CE2CFC1B /* TaskModel.swift */,
 				60D2180F9C01D9E465A3D762 /* FrequencyModel.swift */,
@@ -269,6 +291,7 @@
 		64ED6EEF2A200ABA00E428F1 /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
+				417532182A537CFA00A2AF39 /* RenderLine */,
 				F5333CCA2A37B5900073594B /* FormView */,
 				C0F72D782A3BDCB3003AE92C /* CustomNavBar */,
 				646D84412A20208000884CC2 /* PetCardView.swift */,
@@ -542,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C030D73F2A4263C1007013A2 /* UnselectedRadioIcon.swift in Sources */,
+				4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */,
 				80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */,
 				F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */,
 				C0F72D7C2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift in Sources */,
@@ -568,6 +592,7 @@
 				80AEE9242A4CDC4400E65DAC /* TasksListView.swift in Sources */,
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
 				64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */,
+				41294DFA2A4F9E4C00037A66 /* CreateTaskViewModel.swift in Sources */,
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,
 				80A13C862A4E37580038CBED /* TasksListViewModel.swift in Sources */,
 				F52964222A4CE0EC002D6BB0 /* TaskDetailsViewModel.swift in Sources */,

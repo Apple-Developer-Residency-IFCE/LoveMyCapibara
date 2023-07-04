@@ -17,6 +17,7 @@ class CatFactApi: ObservableObject {
     @Published var fact: Fact = Fact(fact: "", length: 0)
     
     func newFact(maxLength: Int, completion: @escaping (Fact) -> Void) {
+    func newFact(maxLength: Int, completion: @escaping (Fact) -> Void) {
         guard let url = URL(string: "https://catfact.ninja/fact?max_length=\(maxLength)") else {
             return
         }
@@ -33,7 +34,6 @@ class CatFactApi: ObservableObject {
             } catch let error {
                 print("[ERROR]", error)
             }
-            
         }.resume()
     }
 }

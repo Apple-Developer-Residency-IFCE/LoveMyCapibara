@@ -15,6 +15,7 @@
     <entity name="Task" representedClassName="Task" parentEntity="Pet" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="frequency" optional="YES" attributeType="String"/>
+        <attribute name="rememberAt" optional="YES" attributeType="String"/>
         <attribute name="taskId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>

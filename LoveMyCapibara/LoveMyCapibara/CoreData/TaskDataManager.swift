@@ -53,6 +53,7 @@ class TaskDataManager {
         newTask.frequency = task.frequency?.rawValue
         newTask.type = task.type?.rawValue
         newTask.text = task.text
+        newTask.rememberAt = task.rememberAt?.rawValue
         do {
             try context.save()
         } catch {
@@ -77,6 +78,7 @@ class TaskDataManager {
                 taskEntity.pet = petManager.getCoreDataPet(task.pet?.id ?? UUID())
                 taskEntity.type = task.type?.rawValue
                 taskEntity.text = task.text
+                taskEntity.rememberAt = task.rememberAt?.rawValue
                 try context.save()
             }
         } catch {

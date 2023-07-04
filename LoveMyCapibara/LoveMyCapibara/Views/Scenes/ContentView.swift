@@ -12,7 +12,6 @@ struct ContentView: View {
     @State private var fact = Fact(fact: "", length: 0)
     
     var body: some View {
-        NavigationStack {
             TabView(selection: $selectedItem) {
                 TasksListView()
                     .tabItem {
@@ -54,7 +53,6 @@ struct ContentView: View {
                     .tag(2)
             }
             .tint(Color("DarkColor"))
-        }
     }
 }
 

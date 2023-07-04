@@ -40,6 +40,8 @@ struct TasksListView: View {
             }
             .padding(.horizontal)
         }
+        .frame(width: UIScreen.main.bounds.width)
+        .background(Color("BackgroundColor"))
     }
 }
 

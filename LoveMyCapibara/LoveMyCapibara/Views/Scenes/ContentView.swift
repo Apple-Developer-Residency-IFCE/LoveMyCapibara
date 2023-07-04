@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedItem) {
-                Text(fact.fact)
+                TasksListView()
                     .tabItem {
                         Label {
                             Text("Tarefas")

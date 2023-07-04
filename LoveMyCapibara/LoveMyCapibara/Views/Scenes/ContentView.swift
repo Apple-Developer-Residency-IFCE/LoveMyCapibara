@@ -13,8 +13,8 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            TabView (selection: $selectedItem){
-                Text(fact.fact)
+            TabView(selection: $selectedItem) {
+                TasksListView()
                     .tabItem {
                         Label {
                             Text("Tarefas")
@@ -23,8 +23,8 @@ struct ContentView: View {
                         }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
-                    .onAppear() {
-                        if fact.fact == ""{
+                    .onAppear {
+                        if fact.fact.isEmpty {
                             CatFactApi().newFact(maxLength: 120, completion: { fact in
                                 self.fact = fact
                                 print(self.fact)

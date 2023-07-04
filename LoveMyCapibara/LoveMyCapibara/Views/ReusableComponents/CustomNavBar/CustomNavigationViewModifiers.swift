@@ -24,7 +24,7 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
                     .foregroundColor(Color("PrimaryColor"))
                     .sheet(isPresented: $isShowingSheet, onDismiss: {
                         action()
-                    }){
+                    }) {
                         destination()
                     }
                 }
@@ -53,8 +53,7 @@ struct NavBarViewTasks: ViewModifier {
     }
 }
 
-
-struct NavBarViewInfoPet<Destination : View>: ViewModifier {
+struct NavBarViewInfoPet<Destination: View>: ViewModifier {
     @Environment(\.dismiss) var dismiss
     var action: () -> Void
     @State var isShowingSheet = false
@@ -101,7 +100,7 @@ struct NavBarViewAddPet: ViewModifier {
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancelar"){
+                    Button("Cancelar") {
                         dismiss()
                     }
                     .font(FontManager.poppinsRegular(size: 16))
@@ -109,7 +108,7 @@ struct NavBarViewAddPet: ViewModifier {
                     
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Adicionar"){
+                    Button("Adicionar") {
                         action()
                         dismiss()
                     }

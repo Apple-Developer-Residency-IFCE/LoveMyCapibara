@@ -13,35 +13,38 @@ struct TasksListView: View {
     let columns = [GridItem()]
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                Text("Tarefas pendentes")
-                    .font(FontManager.poppinsBold(size: 20))
-                    .foregroundColor(Color("PrimaryText"))
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(tasksListViewModel.tasks, id: \.id) { task in
-                        NavigationLink {
-                            // TaskDetailedView()
-                        } label: {
-                            TaskCardView(
-                                task: task,
-                                time: tasksListViewModel.timeFormatter(task: task)
-                            )
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    Text("Tarefas pendentes")
+                        .font(FontManager.poppinsBold(size: 20))
+                        .foregroundColor(Color("PrimaryText"))
+                    LazyVGrid(columns: columns, spacing: 8) {
+                        ForEach(tasksListViewModel.tasks, id: \.id) { task in
+                            NavigationLink {
+                                // TaskDetailedView()
+                            } label: {
+                                TaskCardView(
+                                    task: task,
+                                    time: tasksListViewModel.timeFormatter(task: task)
+                                )
+                            }
                         }
                     }
+                    .padding(.top)
+                    if !tasksListViewModel.showToDoTasks {
+                        EmptyToDoList()
+                    }
+                    if tasksListViewModel.showCompletedTasks {
+                        CompletedToDoList(tasksListViewModel: tasksListViewModel)
+                    }
                 }
-                .padding(.top)
-                if !tasksListViewModel.showToDoTasks {
-                    EmptyToDoList()
-                }
-                if tasksListViewModel.showCompletedTasks {
-                    CompletedToDoList(tasksListViewModel: tasksListViewModel)
-                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .frame(width: UIScreen.main.bounds.width)
+            .background(Color("BackgroundColor"))
+            .navBarTask()
         }
-        .frame(width: UIScreen.main.bounds.width)
-        .background(Color("BackgroundColor"))
     }
 }
 

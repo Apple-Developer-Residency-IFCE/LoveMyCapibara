@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class FormViewModel: RaceModel, ObservableObject {
+class FormViewModel: ObservableObject {
     @Published var pet: PetModel {
         didSet {
             
@@ -16,7 +16,7 @@ class FormViewModel: RaceModel, ObservableObject {
     }
     
     var speciesOptions: [String]
-    var raceBySpecies: Dictionary<String, [String]>
+    var raceBySpecies: [String: [String]]
     
     func getRaces() -> [String] {
         guard let races = raceBySpecies[pet.specie] else {

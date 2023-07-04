@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Icon Alarm _ Filled.pdf",
+      "filename" : "Group 6.pdf",
       "idiom" : "universal"
     },
     {
@@ -11,12 +11,15 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Icon Alarm _ Filled 1.pdf",
+      "filename" : "Group 7.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

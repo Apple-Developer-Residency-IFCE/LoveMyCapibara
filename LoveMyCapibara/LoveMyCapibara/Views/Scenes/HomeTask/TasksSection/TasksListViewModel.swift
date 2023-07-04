@@ -30,14 +30,12 @@ class TasksListViewModel: ObservableObject {
     }
     
     func updateList() {
-        // self.tasks = taskManager.getAllTasks
+        self.tasks = taskManager.getAllTasks()
     }
     
     func updateCompletedTasks() {
-        for task in tasks where task.completed == true {
-            completedTasks.append(task)
-            tasks.removeAll { $0.id == task.id }
-        }
+        completedTasks = tasks.filter({ $0.completed ?? false })
+        tasks = tasks.filter({ !($0.completed ?? false) })
     }
     
     func completeTask() {
@@ -48,7 +46,7 @@ class TasksListViewModel: ObservableObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         
-        return dateFormatter.string(from: task.date ?? .now)
+        return dateFormatter.string(from: task.date)
     }
     
 }

@@ -61,7 +61,7 @@ struct CreateTaskView: View {
                 .cornerRadius(16)
                 
                 .navBarAddTask {
-                    viewModel.add()
+                    viewModel.createTaskForPet()
                     dismiss()
                 }
             }

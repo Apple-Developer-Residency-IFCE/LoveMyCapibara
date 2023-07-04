@@ -23,7 +23,7 @@ struct TasksListView: View {
                     LazyVGrid(columns: columns, spacing: 8) {
                         ForEach(tasksListViewModel.tasks, id: \.id) { task in
                             NavigationLink {
-                                // TaskDetailedView()
+                                TaskDetailsView()
                             } label: {
                                 TaskCardView(
                                     task: task,
@@ -51,6 +51,7 @@ struct TasksListView: View {
                 CreateTaskView()
             })
         }
+        .onAppear(perform: {tasksListViewModel.updateList()})
     }
 }
 

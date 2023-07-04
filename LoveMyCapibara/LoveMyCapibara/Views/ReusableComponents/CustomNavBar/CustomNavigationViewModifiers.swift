@@ -30,6 +30,8 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
 
 struct NavBarViewTasks: ViewModifier {
     @State private var selected = false
+    var action: () -> Void
+    
     func body(content: Content) -> some View {
         content
             .toolbar {
@@ -42,7 +44,7 @@ struct NavBarViewTasks: ViewModifier {
                         .foregroundColor(Color("PrimaryColor"))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}, label: {Image("plus")})
+                    Button(action: action, label: {Image("plus")})
                         .foregroundColor(Color("PrimaryColor"))
                 }
             }
@@ -93,6 +95,36 @@ struct NavBarViewAddPet: ViewModifier {
     func body(content: Content) -> some View {
         content
             .navigationBarTitle("Adicionar Pet", displayMode: .inline)
+            .navigationBarBackButtonHidden(false)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancelar") {
+                        dismiss()
+                    }
+                    .font(FontManager.poppinsRegular(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Adicionar") {
+                        action()
+                        dismiss()
+                    }
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                }
+            }
+    }
+}
+
+struct NavBarViewAddTask: ViewModifier {
+    @State var isShowingSheet = true
+    @Environment(\.dismiss) var dismiss
+    var action: () -> Void
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle("Adicionar Tarefa", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -213,8 +245,12 @@ extension View {
         })
     }
     
-    func navBarTask() -> some View {
-        self.modifier(NavBarViewTasks())
+    func navBarAddTask(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddTask(action: action))
+    }
+    
+    func navBarTask(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewTasks(action: action))
     }
     
     /// This modifiers need to be use in the last line of NavigationView.

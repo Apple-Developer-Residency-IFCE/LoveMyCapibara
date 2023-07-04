@@ -10,6 +10,7 @@ import SwiftUI
 struct EmptyToDoList: View {
     
     let columns = [GridItem()]
+    @State private var showCreateTask: Bool = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
@@ -25,8 +26,11 @@ struct EmptyToDoList: View {
             }
             .multilineTextAlignment(.center)
             CustomButton(buttonLabel: "Adicionar Tarefa", buttonAction: {
-                print("Botao apertado")
+                showCreateTask.toggle()
             }, buttonColor: "PrimaryColor")
+            .sheet(isPresented: $showCreateTask, content: {
+                CreateTaskView()
+            })
             .padding(.top)
         }
         .frame(maxWidth: .infinity)

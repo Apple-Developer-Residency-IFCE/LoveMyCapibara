@@ -10,6 +10,7 @@ import SwiftUI
 struct TasksListView: View {
     
     @StateObject var tasksListViewModel = TasksListViewModel()
+    @State private var showCreateTask = false
     let columns = [GridItem()]
     
     var body: some View {
@@ -43,7 +44,12 @@ struct TasksListView: View {
             }
             .frame(width: UIScreen.main.bounds.width)
             .background(Color("BackgroundColor"))
-            .navBarTask()
+            .navBarTask {
+                showCreateTask.toggle()
+            }
+            .sheet(isPresented: $showCreateTask, content: {
+                CreateTaskView()
+            })
         }
     }
 }

@@ -19,7 +19,7 @@ final class CreateTaskViewModel: ObservableObject {
     @Published var petNameList: [String] = []
     @Published var selectedPet: String = ""
     
-    func add(task: TaskModel) {
+    func add() {
         taskManager.createTask(task)
     }
     

@@ -55,6 +55,7 @@
 		F52C394F2A53782600493A62 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52C394B2A53782600493A62 /* Inter-Medium.ttf */; };
 		F52C39502A53782600493A62 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52C394C2A53782600493A62 /* Inter-SemiBold.ttf */; };
 		F53053142A54B0480079E073 /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53053132A54B0480079E073 /* CalendarItem.swift */; };
+		F53053162A54D06B0079E073 /* CalendarInlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53053152A54D06B0079E073 /* CalendarInlineViewModel.swift */; };
 		F5315E0B2A4FA97D00CDE298 /* CalendarInline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5315E0A2A4FA97D00CDE298 /* CalendarInline.swift */; };
 		F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CCD2A37B5E60073594B /* FormViewModel.swift */; };
 		F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CD02A37CDDA0073594B /* EditPetView.swift */; };
@@ -125,6 +126,7 @@
 		F52C394B2A53782600493A62 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		F52C394C2A53782600493A62 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		F53053132A54B0480079E073 /* CalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
+		F53053152A54D06B0079E073 /* CalendarInlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInlineViewModel.swift; sourceTree = "<group>"; };
 		F5315E0A2A4FA97D00CDE298 /* CalendarInline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInline.swift; sourceTree = "<group>"; };
 		F5333CCD2A37B5E60073594B /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		F5333CD02A37CDDA0073594B /* EditPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetView.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			children = (
 				F53053122A54ADCF0079E073 /* Subviews */,
 				F5315E0A2A4FA97D00CDE298 /* CalendarInline.swift */,
+				F53053152A54D06B0079E073 /* CalendarInlineViewModel.swift */,
 			);
 			path = CalendarInline;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				C08DB1CD2A2FDA0900636AEF /* DatePickerView.swift in Sources */,
 				64A86CDF2A20056B000F9AA0 /* ContentView.swift in Sources */,
 				646D84422A20208000884CC2 /* PetCardView.swift in Sources */,
+				F53053162A54D06B0079E073 /* CalendarInlineViewModel.swift in Sources */,
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
 				64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */,
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,

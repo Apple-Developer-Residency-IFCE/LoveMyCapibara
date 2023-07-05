@@ -46,7 +46,7 @@ class TaskDataManager {
         let petManager = PetDataManager()
         let newTask = Task(context: context)
         
-        newTask.id = task.id
+        newTask.taskId = task.id
         newTask.title = task.title
         newTask.date = task.date
         newTask.pet = petManager.getCoreDataPet(task.pet?.id ?? UUID())
@@ -54,6 +54,7 @@ class TaskDataManager {
         newTask.type = task.type?.rawValue
         newTask.text = task.text
         newTask.rememberAt = task.rememberAt?.rawValue
+        
         do {
             try context.save()
         } catch {

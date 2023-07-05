@@ -37,11 +37,7 @@ class TasksListViewModel: ObservableObject {
         completedTasks = tasks.filter({ $0.completed ?? false })
         tasks = tasks.filter({ !($0.completed ?? false) })
     }
-    
-    func completeTask() {
-        // self.completedTasks = taskManager.getAllCompleteTasks
-    }
-    
+
     func timeFormatter(task: TaskModel) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"

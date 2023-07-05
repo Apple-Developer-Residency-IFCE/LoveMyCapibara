@@ -32,10 +32,10 @@ struct TaskModel {
     }
     
     init(taskCoreData: Task) {
-        self.id = UUID()
+        self.id = taskCoreData.taskId
         self.title = taskCoreData.title
         self.type = TaskTypeModel(rawValue: taskCoreData.type ?? "") ?? .empty
-        self.pet = .init()
+        self.pet = .init(petEntity: taskCoreData.pet)
         self.date = taskCoreData.date ?? .now
         self.frequency = FrequencyModel(rawValue: taskCoreData.frequency ?? "") ?? .none
         self.text = taskCoreData.text

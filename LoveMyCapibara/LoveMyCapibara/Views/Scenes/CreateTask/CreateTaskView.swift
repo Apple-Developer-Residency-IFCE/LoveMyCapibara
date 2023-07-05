@@ -23,7 +23,7 @@ struct CreateTaskView: View {
                         LineView.make()
                         
                         InputPicker(label: "Tipo de tarefa",
-                                    value: $viewModel.task.type,
+                                    value: $viewModel.type,
                                     options: TaskTypeModel.allCases)
                         
                         LineView.make()
@@ -33,14 +33,14 @@ struct CreateTaskView: View {
                                     options: viewModel.petNameList)
                     }
                     VStack {
-                        DatePickerView(selectedDate: $viewModel.task.date, title: "Data")
+                        DatePickerView(selectedDate: $viewModel.date, title: "Data")
                         LineView.make()
                         InputPicker(label: "Repetir",
-                                    value: $viewModel.task.frequency,
+                                    value: $viewModel.frequency,
                                     options: FrequencyModel.allCases)
                         LineView.make()
                         InputPicker(label: "Lembrete",
-                                    value: $viewModel.task.rememberAt,
+                                    value: $viewModel.rememberAt,
                                     options: RememberAtModel.allCases)
                     }
                 }

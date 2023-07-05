@@ -13,10 +13,16 @@ final class CreateTaskViewModel: ObservableObject {
     let petManager = PetDataManager()
     
     @Published var task: TaskModel = .init()
+    @Published var selectedPet: String = ""
+    
+    // Task Form
     @Published var txtTitle: String = ""
     @Published var text: String = ""
     @Published var petNameList: [String] = []
-    @Published var selectedPet: String = ""
+    @Published var type: TaskTypeModel = .empty
+    @Published var frequency: FrequencyModel = .never
+    @Published var date: Date = .now
+    @Published var rememberAt: RememberAtModel = .empty
     
     private func add() {
         taskManager.createTask(task)
@@ -28,6 +34,13 @@ final class CreateTaskViewModel: ObservableObject {
     
     func createTaskForPet() {
         task.pet = petManager.getAllPets().filter({ $0.name == selectedPet }).first
+        task.completed = false
+        task.title = txtTitle
+        task.text = text
+        task.id = UUID()
+        task.date = date
+        task.rememberAt = rememberAt
+        task.frequency = frequency
         add()
     }
 }

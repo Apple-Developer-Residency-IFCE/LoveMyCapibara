@@ -24,13 +24,13 @@ class TaskDetailsViewModel: ObservableObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        return dateFormatter.string(from: task.date ?? .now)
+        return dateFormatter.string(from: task.date)
     }
     
     var timeFormatted: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         
-        return dateFormatter.string(from: task.date ?? .now)
+        return dateFormatter.string(from: task.date)
     }
 }

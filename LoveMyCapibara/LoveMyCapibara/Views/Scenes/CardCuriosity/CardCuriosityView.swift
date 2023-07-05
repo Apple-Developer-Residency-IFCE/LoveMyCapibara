@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CardCuriosityView: View {
+    
     @State var morph = false
-    @State var test = false
     var body: some View {
         VStack {
             HStack {

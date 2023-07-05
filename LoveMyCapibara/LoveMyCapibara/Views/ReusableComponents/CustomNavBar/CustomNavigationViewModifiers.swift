@@ -190,6 +190,7 @@ struct NavBarViewInfoTask<Destination: View>: ViewModifier {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
+                        print("apertei")
                     } label: {
                         HStack {
                             Image("BackArrow")
@@ -228,6 +229,7 @@ extension View {
     func navBarInfoPet(destination: @escaping() -> some View, action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewInfoPet(action: action, destination: destination))
     }
+    
     /// This modifiers need to be use in the last line of NavigationView.
     /// Important This modifier needs a NavigationView
     /// need to put a action to the save button
@@ -252,10 +254,7 @@ extension View {
     func navBarTask(action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewTasks(action: action))
     }
-    
-    /// This modifiers need to be use in the last line of NavigationView.
-    /// Important This modifier needs a NavigationView
-    /// need to put a destination to the edit button
+
     func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewInfoTask(title: title, destination: destination, action: action))
     }

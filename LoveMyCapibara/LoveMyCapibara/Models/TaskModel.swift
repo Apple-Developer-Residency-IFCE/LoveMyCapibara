@@ -39,7 +39,7 @@ struct TaskModel {
         self.date = taskCoreData.date ?? .now
         self.frequency = FrequencyModel(rawValue: taskCoreData.frequency ?? "") ?? .none
         self.text = taskCoreData.text
-        self.completed = false
+        self.completed = taskCoreData.completed
         self.rememberAt = RememberAtModel(rawValue: taskCoreData.rememberAt ?? "") ?? .empty
     }
     

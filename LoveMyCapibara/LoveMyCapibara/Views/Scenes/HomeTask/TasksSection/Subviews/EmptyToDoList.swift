@@ -10,8 +10,9 @@ import SwiftUI
 struct EmptyToDoList: View {
     
     let columns = [GridItem()]
-    @State private var showCreateTask: Bool = false
-    
+    @State var showCreateTask: Bool
+    var action: () -> Void
+
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             Image("Task Card Placeholder")
@@ -28,7 +29,9 @@ struct EmptyToDoList: View {
             CustomButton(buttonLabel: "Adicionar Tarefa", buttonAction: {
                 showCreateTask.toggle()
             }, buttonColor: "PrimaryColor")
-            .sheet(isPresented: $showCreateTask, content: {
+            .sheet(isPresented: $showCreateTask, onDismiss: {
+                action()
+            }, content: {
                 CreateTaskView()
             })
             .padding(.top)
@@ -39,6 +42,6 @@ struct EmptyToDoList: View {
 
 struct EmptyToDoList_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyToDoList()
+        EmptyToDoList(showCreateTask: false) {}
     }
 }

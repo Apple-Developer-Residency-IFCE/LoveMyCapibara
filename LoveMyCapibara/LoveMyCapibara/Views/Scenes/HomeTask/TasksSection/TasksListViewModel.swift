@@ -9,12 +9,19 @@ import Foundation
 
 class TasksListViewModel: ObservableObject {
     @Published var tasks: [TaskModel] = []
-    @Published var completedTasks: [TaskModel] = []
+   
+    var completedTasks: [TaskModel] {
+        return tasks.filter({ $0.completed ?? false })
+    }
+
+    var unfinishedTasks: [TaskModel] {
+        return tasks.filter({ !($0.completed ?? false)})
+    }
     
     let taskManager = TaskDataManager()
     
     var showToDoTasks: Bool {
-        if tasks.isEmpty {
+        if unfinishedTasks.isEmpty {
             return false
         } else {
             return true
@@ -31,11 +38,6 @@ class TasksListViewModel: ObservableObject {
     
     func updateList() {
         self.tasks = taskManager.getAllTasks()
-    }
-    
-    func updateCompletedTasks() {
-        completedTasks = tasks.filter({ $0.completed ?? false })
-        tasks = tasks.filter({ !($0.completed ?? false) })
     }
 
     func timeFormatter(task: TaskModel) -> String {

@@ -9,9 +9,12 @@ import SwiftUI
 
 struct TaskDetailsView: View {
     @StateObject var viewModel: TaskDetailsViewModel
+    @Environment(\.dismiss) private var dismiss
+    var action: () -> Void
     
-    init(task: TaskModel) {
+    init(task: TaskModel, action: @escaping () -> Void ) {
         self._viewModel = StateObject(wrappedValue: TaskDetailsViewModel(task: task))
+        self.action = action
     }
     
     var body: some View {
@@ -60,6 +63,8 @@ struct TaskDetailsView: View {
                     
                     CustomButton(buttonLabel: "Marcar como concluída", buttonAction: {
                         viewModel.completeTask()
+                        action()
+                        dismiss()
                     }, buttonColor: "DarkColor")
                 }
                 .padding(.horizontal, 24)
@@ -67,18 +72,17 @@ struct TaskDetailsView: View {
                 
                 Spacer()
             }
-            .background(Color("BackgroundColor"))
             .navBarViewInfoTask(title: viewModel.task.type?.rawValue ?? "") {
                 Text("Edicao")
             } action: {
                 print("Salvar edicao")
             }
-        }
+        }.background(Color("BackgroundColor"))
     }
 }
 
 struct TaskDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetailsView(task: TaskModel())
+        TaskDetailsView(task: TaskModel()) { }
     }
 }

@@ -25,7 +25,9 @@ struct CompletedToDoList: View {
             LazyVGrid(columns: columns, spacing: 8) {
                 ForEach(tasksListViewModel.completedTasks, id: \.id) { task in
                     NavigationLink {
-                        // TaskDetailedView()
+                        TaskDetailsView(task: task) {
+                            tasksListViewModel.updateList()
+                        }
                     }label: {
                         TaskCardView(
                             task: task,
@@ -35,34 +37,5 @@ struct CompletedToDoList: View {
                 }
             }
         }
-    }
-}
-
-struct CompletedToDoList_Previews: PreviewProvider {
-
-    static var previews: some View {
-        
-        let viewModel = TasksListViewModel()
-        viewModel.completedTasks = [ TaskModel(
-                id: UUID(),
-                title: "Levar no veterinario",
-                type: TaskTypeModel.medicine,
-                pet: PetModel(),
-                date: .now,
-                text: "no benfica",
-                completed: false
-            ),
-            TaskModel(
-                id: UUID(),
-                title: "Levar pra passear",
-                type: TaskTypeModel.leisure,
-                pet: PetModel(),
-                date: .now,
-                text: "na praça",
-                completed: false
-            )
-        ]
-        
-        return CompletedToDoList(tasksListViewModel: viewModel)
     }
 }

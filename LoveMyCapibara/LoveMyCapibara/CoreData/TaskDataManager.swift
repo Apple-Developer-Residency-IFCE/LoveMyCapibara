@@ -54,6 +54,7 @@ class TaskDataManager {
         newTask.type = task.type?.rawValue
         newTask.text = task.text
         newTask.rememberAt = task.rememberAt?.rawValue
+        newTask.completed = false
         
         do {
             try context.save()
@@ -80,6 +81,7 @@ class TaskDataManager {
                 taskEntity.type = task.type?.rawValue
                 taskEntity.text = task.text
                 taskEntity.rememberAt = task.rememberAt?.rawValue
+                taskEntity.completed = task.completed ?? true
                 try context.save()
             }
         } catch {
@@ -89,7 +91,7 @@ class TaskDataManager {
     
     func deleteTaskById(_ id: UUID) {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
         
         do {
             let result = try context.fetch(fetchRequest)

@@ -21,9 +21,11 @@ struct TasksListView: View {
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))
                     LazyVGrid(columns: columns, spacing: 8) {
-                        ForEach(tasksListViewModel.tasks, id: \.id) { task in
+                        ForEach(tasksListViewModel.unfinishedTasks, id: \.id) { task in
                             NavigationLink {
-                                TaskDetailsView(task: task)
+                                TaskDetailsView(task: task) {
+                                    tasksListViewModel.updateList()
+                                }
                             } label: {
                                 TaskCardView(
                                     task: task,
@@ -34,7 +36,10 @@ struct TasksListView: View {
                     }
                     .padding(.top)
                     if !tasksListViewModel.showToDoTasks {
-                        EmptyToDoList()
+                        EmptyToDoList(showCreateTask: showCreateTask) { tasksListViewModel.updateList() }
+                            .onAppear {
+                                tasksListViewModel.updateList()
+                            }
                     }
                     if tasksListViewModel.showCompletedTasks {
                         CompletedToDoList(tasksListViewModel: tasksListViewModel)
@@ -50,14 +55,12 @@ struct TasksListView: View {
             .sheet(isPresented: $showCreateTask, content: {
                 CreateTaskView()
             })
-            .onChange(of: showCreateTask) { _ in
-                tasksListViewModel.updateList()
-            }
         }
+        .onChange(of: showCreateTask, perform: { _ in
+            tasksListViewModel.updateList()
+        })
         .onAppear(perform: {
             tasksListViewModel.updateList()
-            tasksListViewModel.updateCompletedTasks()
-            print(tasksListViewModel.tasks)
         })
     }
 }
@@ -65,28 +68,6 @@ struct TasksListView: View {
 struct TasksListView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = TasksListViewModel()
-        viewModel.tasks = [
-            TaskModel(
-                id: UUID(),
-                title: "Comprar brinquedo",
-                type: TaskTypeModel.others,
-                pet: PetModel(),
-                date: .now,
-                text: "no pet shop",
-                completed: true
-            )
-        ]
-//        viewModel.completedTasks = [
-//            TaskModel(
-//                id: UUID(),
-//                title: "Comprar Comida",
-//                type: TaskTypeModel.others,
-//                pet: PetModel(),
-//                date: .now,
-//                text: "no supermercado",
-//                completed: true
-//            )
-//        ]
         return VStack {
             TasksListView(tasksListViewModel: viewModel)
         }

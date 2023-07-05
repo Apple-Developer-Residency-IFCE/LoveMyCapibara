@@ -31,6 +31,6 @@ class TaskDetailsViewModel: ObservableObject {
     
     func completeTask() {
         self.task.completed = true
-        taskManager.updateTask(task)
+        taskManager.updateTask(self.task)
     }
 }

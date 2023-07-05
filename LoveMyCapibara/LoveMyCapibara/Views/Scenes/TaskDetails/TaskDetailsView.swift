@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct TaskDetailsView: View {
-    @StateObject var viewModel = TaskDetailsViewModel()
+    @StateObject var viewModel: TaskDetailsViewModel
+    
+    init(task: TaskModel) {
+        self._viewModel = StateObject(wrappedValue: TaskDetailsViewModel(task: task))
+    }
     
     var body: some View {
         NavigationView {
@@ -75,6 +79,6 @@ struct TaskDetailsView: View {
 
 struct TaskDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetailsView()
+        TaskDetailsView(task: TaskModel())
     }
 }

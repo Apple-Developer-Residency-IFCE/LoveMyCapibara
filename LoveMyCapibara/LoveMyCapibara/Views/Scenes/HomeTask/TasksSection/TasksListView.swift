@@ -23,7 +23,7 @@ struct TasksListView: View {
                     LazyVGrid(columns: columns, spacing: 8) {
                         ForEach(tasksListViewModel.tasks, id: \.id) { task in
                             NavigationLink {
-                                TaskDetailsView()
+                                TaskDetailsView(task: task)
                             } label: {
                                 TaskCardView(
                                     task: task,

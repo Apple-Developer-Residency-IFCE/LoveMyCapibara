@@ -9,6 +9,7 @@ import Foundation
 
 class TaskDetailsViewModel: ObservableObject {
     @Published var task: TaskModel
+    let taskManager = TaskDataManager()
 
     init(task: TaskModel) {
         self.task = task
@@ -26,5 +27,10 @@ class TaskDetailsViewModel: ObservableObject {
         dateFormatter.dateFormat = "HH:mm"
         
         return dateFormatter.string(from: task.date)
+    }
+    
+    func completeTask() {
+        self.task.completed = true
+        taskManager.updateTask(task)
     }
 }

@@ -190,7 +190,6 @@ struct NavBarViewInfoTask<Destination: View>: ViewModifier {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
-                        print("apertei")
                     } label: {
                         HStack {
                             Image("BackArrow")

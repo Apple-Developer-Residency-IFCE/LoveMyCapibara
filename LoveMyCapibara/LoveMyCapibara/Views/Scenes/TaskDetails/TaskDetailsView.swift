@@ -59,9 +59,7 @@ struct TaskDetailsView: View {
                         .padding(.vertical, 24)
                     
                     CustomButton(buttonLabel: "Marcar como concluída", buttonAction: {
-                        // Mudar o status do task pra concluido
-                        print("Check task")
-                        
+                        viewModel.completeTask()
                     }, buttonColor: "DarkColor")
                 }
                 .padding(.horizontal, 24)
@@ -71,7 +69,6 @@ struct TaskDetailsView: View {
             }
             .background(Color("BackgroundColor"))
             .navBarViewInfoTask(title: viewModel.task.type?.rawValue ?? "") {
-                // Adicionar tela de edição
                 Text("Edicao")
             } action: {
                 print("Salvar edicao")

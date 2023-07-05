@@ -50,8 +50,15 @@ struct TasksListView: View {
             .sheet(isPresented: $showCreateTask, content: {
                 CreateTaskView()
             })
+            .onChange(of: showCreateTask) { _ in
+                tasksListViewModel.updateList()
+            }
         }
-        .onAppear(perform: {tasksListViewModel.updateList()})
+        .onAppear(perform: {
+            tasksListViewModel.updateList()
+            tasksListViewModel.updateCompletedTasks()
+            print(tasksListViewModel.tasks)
+        })
     }
 }
 

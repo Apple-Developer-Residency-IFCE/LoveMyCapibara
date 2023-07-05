@@ -66,7 +66,7 @@ class TaskDataManager {
         let petManager = PetDataManager()
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
-        fetchRequest.predicate = NSPredicate(format: "id == %@", task.id as? CVarArg ?? [0])
+        fetchRequest.predicate = NSPredicate(format: "taskId == %@", task.id?.uuidString as? CVarArg ?? [0])
         
         do {
             let result = try context.fetch(fetchRequest)

@@ -26,9 +26,7 @@ struct LoveMyCapibaraApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(theme)
-                .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+            CardCuriosityView()
         }
     }
 }

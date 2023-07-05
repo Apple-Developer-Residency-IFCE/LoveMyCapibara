@@ -11,6 +11,7 @@
 		41294DF82A4E2D1E00037A66 /* TaskDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */; };
 		41294DFA2A4F9E4C00037A66 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */; };
 		4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532192A537D1E00A2AF39 /* RenderLineView.swift */; };
+		4175321D2A56149400A2AF39 /* CardCuriosityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4175321C2A56149400A2AF39 /* CardCuriosityView.swift */; };
 		4185C2E92A4CE62800B921BC /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2E82A4CE62800B921BC /* CreateTaskView.swift */; };
 		4185C2EB2A4CE6E600B921BC /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2EA2A4CE6E600B921BC /* TaskModel.swift */; };
 		4185C2ED2A4CEC8F00B921BC /* FrequencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2EC2A4CEC8F00B921BC /* FrequencyModel.swift */; };
@@ -71,6 +72,7 @@
 		41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataManager.swift; sourceTree = "<group>"; };
 		41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		417532192A537D1E00A2AF39 /* RenderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLineView.swift; sourceTree = "<group>"; };
+		4175321C2A56149400A2AF39 /* CardCuriosityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCuriosityView.swift; sourceTree = "<group>"; };
 		4185C2E82A4CE62800B921BC /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		4185C2EA2A4CE6E600B921BC /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		4185C2EC2A4CEC8F00B921BC /* FrequencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 				417532192A537D1E00A2AF39 /* RenderLineView.swift */,
 			);
 			path = RenderLine;
+			sourceTree = "<group>";
+		};
+		4175321B2A56147B00A2AF39 /* CardCuriosity */ = {
+			isa = PBXGroup;
+			children = (
+				4175321C2A56149400A2AF39 /* CardCuriosityView.swift */,
+			);
+			path = CardCuriosity;
 			sourceTree = "<group>";
 		};
 		4185C2E52A4CE58700B921BC /* CreateTask */ = {
@@ -290,6 +300,7 @@
 		64ED6EF22A200AED00E428F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4175321B2A56147B00A2AF39 /* CardCuriosity */,
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
 				F5412C5A2A4BAF8700A72EA2 /* TaskDetails */,
 				C030D7362A4263C1007013A2 /* Settings */,
@@ -515,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C030D73F2A4263C1007013A2 /* UnselectedRadioIcon.swift in Sources */,
+				4175321D2A56149400A2AF39 /* CardCuriosityView.swift in Sources */,
 				4185C2E92A4CE62800B921BC /* CreateTaskView.swift in Sources */,
 				4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */,
 				80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */,

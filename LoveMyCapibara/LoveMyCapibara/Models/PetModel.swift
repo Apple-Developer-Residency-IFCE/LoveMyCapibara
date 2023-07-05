@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct PetModel: Codable, Identifiable {
+struct PetModel: Codable, Identifiable, Equatable {
     
     var imageName: Data? = Data()
     var id: UUID = UUID()
@@ -20,4 +20,19 @@ struct PetModel: Codable, Identifiable {
     var birthDate: Date = Date.now
     var weight: Double = 0.0
     var castrated: Bool = false
+    
+    static func == (lhs: PetModel, rhs: PetModel) -> Bool {
+        return lhs.imageName == rhs.imageName &&
+        lhs.name == rhs.name &&
+        lhs.gender == rhs.gender &&
+        lhs.specie == rhs.specie &&
+        lhs.race == rhs.race &&
+        lhs.birthDate == rhs.birthDate &&
+        lhs.weight == rhs.weight &&
+        lhs.castrated == rhs.castrated
+    }
+    
+    static func != (lhs: PetModel, rhs: PetModel) -> Bool {
+        return !(lhs == rhs)
+    }
 }

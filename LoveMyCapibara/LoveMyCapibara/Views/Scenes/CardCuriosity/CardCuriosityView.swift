@@ -29,15 +29,16 @@ struct CardCuriosityView: View {
                     ScrollView {
                         Text(text)
                             .font(.system(size: 16, weight: .regular))
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("PrimaryText"))
                             .multilineTextAlignment(.leading)
                             .animation(.spring(dampingFraction: 1), value: morph)
                             .padding(.horizontal, 4)
                         
                     }
-                    .frame(height: 140)
+                    .frame(height: 123)
                     .padding(.trailing, -2)
                 }
+                Spacer()
             }
         }
         .clipped()
@@ -54,6 +55,6 @@ struct CardCuriosityView: View {
 
 struct CardCuriosityView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCuriosityView(text: "ply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .")
+        CardCuriosityView(text: "awdawdawdawdpdawdadwdawdawdawdawddawdawdawdawdaw.")
     }
 }

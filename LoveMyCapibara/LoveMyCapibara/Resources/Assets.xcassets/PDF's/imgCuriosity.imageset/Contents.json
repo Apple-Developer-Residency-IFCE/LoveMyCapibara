@@ -1,17 +1,18 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
       "filename" : "imgCuriosity.pdf",
-      "idiom" : "universal",
-      "scale" : "2x"
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "imgCardCuriosity2.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

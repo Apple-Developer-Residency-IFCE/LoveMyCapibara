@@ -10,9 +10,8 @@ import SwiftUI
 struct CreateTaskView: View {
     
     @ObservedObject var viewModel = CreateTaskViewModel()
-    @State var hideTextFieldTitle: Bool = false
     @Environment(\.dismiss) private var dismiss
-    
+  
     var body: some View {
         NavigationStack {
             VStack {

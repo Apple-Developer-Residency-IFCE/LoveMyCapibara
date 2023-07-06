@@ -16,7 +16,7 @@ struct UnselectedRadioIcon: View {
                     .stroke(lineWidth: 1)
                     .foregroundColor(Color("PrimaryColor"))
             )
-            .foregroundColor(.clear)
+            .foregroundColor(Color("BackgroundColor"))
     }
 }
 

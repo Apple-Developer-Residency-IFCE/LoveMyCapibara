@@ -11,13 +11,14 @@ struct EditPetView: View {
     var petInstance: PetModel
     @State var isPopUpActive: Bool = false
     @StateObject var formViewModel: FormViewModel
-    @StateObject var viewModel = EditPetViewModel()
+    @StateObject var viewModel: EditPetViewModel
     
     @Environment(\.dismiss) private var dismiss
     
     init(petInstance: PetModel) {
         self.petInstance = petInstance
         _formViewModel = StateObject(wrappedValue: FormViewModel(petInstance))
+        _viewModel = StateObject(wrappedValue: EditPetViewModel(currentPet: petInstance))
     }
     
     var body: some View {
@@ -47,7 +48,7 @@ struct EditPetView: View {
             }
             .padding(.top)
             .background(Color("BackgroundColor"))
-            .navBarEditPet {
+            .navBarEditPet(isDisabled: !viewModel.petIsValid(pet: formViewModel.pet)) {
                 viewModel.edit(formViewModel.pet)
                 dismiss()
             }

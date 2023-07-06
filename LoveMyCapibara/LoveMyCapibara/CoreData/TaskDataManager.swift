@@ -29,7 +29,7 @@ class TaskDataManager {
 
     func getTaskById(_ id: UUID) -> TaskModel? {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
         do {
             let result = try context.fetch(fetchRequest)
             guard let taskEntity = result.first else {
@@ -46,7 +46,7 @@ class TaskDataManager {
         let petManager = PetDataManager()
         let newTask = Task(context: context)
         
-        newTask.id = task.id
+        newTask.taskId = task.id
         newTask.title = task.title
         newTask.date = task.date
         newTask.pet = petManager.getCoreDataPet(task.pet?.id ?? UUID())
@@ -54,6 +54,8 @@ class TaskDataManager {
         newTask.type = task.type?.rawValue
         newTask.text = task.text
         newTask.rememberAt = task.rememberAt?.rawValue
+        newTask.completed = false
+        
         do {
             try context.save()
         } catch {
@@ -65,7 +67,7 @@ class TaskDataManager {
         let petManager = PetDataManager()
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
-        fetchRequest.predicate = NSPredicate(format: "id == %@", task.id as? CVarArg ?? [0])
+        fetchRequest.predicate = NSPredicate(format: "taskId == %@", task.id?.uuidString as? CVarArg ?? [0])
         
         do {
             let result = try context.fetch(fetchRequest)
@@ -79,6 +81,7 @@ class TaskDataManager {
                 taskEntity.type = task.type?.rawValue
                 taskEntity.text = task.text
                 taskEntity.rememberAt = task.rememberAt?.rawValue
+                taskEntity.completed = task.completed ?? true
                 try context.save()
             }
         } catch {
@@ -88,7 +91,7 @@ class TaskDataManager {
     
     func deleteTaskById(_ id: UUID) {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
         
         do {
             let result = try context.fetch(fetchRequest)

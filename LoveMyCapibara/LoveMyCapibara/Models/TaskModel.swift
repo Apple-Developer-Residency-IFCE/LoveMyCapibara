@@ -32,14 +32,23 @@ struct TaskModel {
     }
     
     init(taskCoreData: Task) {
-        self.id = UUID()
+        self.id = taskCoreData.taskId
         self.title = taskCoreData.title
         self.type = TaskTypeModel(rawValue: taskCoreData.type ?? "") ?? .empty
-        self.pet = .init()
+        self.pet = .init(petEntity: taskCoreData.pet)
         self.date = taskCoreData.date ?? .now
         self.frequency = FrequencyModel(rawValue: taskCoreData.frequency ?? "") ?? .none
         self.text = taskCoreData.text
-        self.completed = false
+        self.completed = taskCoreData.completed
         self.rememberAt = RememberAtModel(rawValue: taskCoreData.rememberAt ?? "") ?? .empty
     }
+    
+    static var mock: TaskModel = .init(
+        id: UUID(),
+        title: "Piedro",
+        type: TaskTypeModel.leisure,
+        pet: PetModel(imageName: Data(), id: UUID(), name: "David", gender: .male, birthDate: .now, castrated: true),
+        date: .now,
+        frequency: FrequencyModel.daily
+    )
 }

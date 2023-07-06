@@ -12,9 +12,8 @@ struct ContentView: View {
     @State private var fact = Fact(fact: "", length: 0)
     
     var body: some View {
-        NavigationStack {
             TabView(selection: $selectedItem) {
-                Text(fact.fact)
+                TasksListView()
                     .tabItem {
                         Label {
                             Text("Tarefas")
@@ -27,7 +26,6 @@ struct ContentView: View {
                         if fact.fact.isEmpty {
                             CatFactApi().newFact(maxLength: 120, completion: { fact in
                                 self.fact = fact
-                                print(self.fact)
                             })
                         }
                     }
@@ -54,7 +52,6 @@ struct ContentView: View {
                     .tag(2)
             }
             .tint(Color("DarkColor"))
-        }
     }
 }
 

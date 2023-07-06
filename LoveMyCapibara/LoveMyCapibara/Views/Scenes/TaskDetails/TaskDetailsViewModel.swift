@@ -9,15 +9,10 @@ import Foundation
 
 class TaskDetailsViewModel: ObservableObject {
     @Published var task: TaskModel
-    
-    init() {
-        self.task = TaskModel(
-            title: "Dar o remédio para vermes",
-            type: .medicine,
-            pet: PetModel(name: "Tortinha"),
-            date: Date.now,
-            frequency: .monthly,
-            text: "Teste teste teste teste teeeeeste teeeeeste teste.")
+    let taskManager = TaskDataManager()
+
+    init(task: TaskModel) {
+        self.task = task
     }
     
     var dateFormatted: String {
@@ -32,5 +27,10 @@ class TaskDetailsViewModel: ObservableObject {
         dateFormatter.dateFormat = "HH:mm"
         
         return dateFormatter.string(from: task.date)
+    }
+    
+    func completeTask() {
+        self.task.completed = true
+        taskManager.updateTask(self.task)
     }
 }

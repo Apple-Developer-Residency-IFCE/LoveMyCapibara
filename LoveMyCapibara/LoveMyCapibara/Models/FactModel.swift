@@ -21,7 +21,8 @@ class CatFactApi: ObservableObject {
             return
         }
         URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {return}
+            guard let data else { return }
+
             print(String(data: data, encoding: .utf8)!)
             do {
                 let fact = try JSONDecoder().decode(Fact.self, from: data)
@@ -33,7 +34,6 @@ class CatFactApi: ObservableObject {
             } catch let error {
                 print("[ERROR]", error)
             }
-            
         }.resume()
     }
 }

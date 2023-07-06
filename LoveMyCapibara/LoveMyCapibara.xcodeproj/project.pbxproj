@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		41294DF42A4E29AB00037A66 /* TaskTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF32A4E29AB00037A66 /* TaskTypeModel.swift */; };
 		41294DF82A4E2D1E00037A66 /* TaskDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */; };
+		41294DFA2A4F9E4C00037A66 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */; };
+		4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532192A537D1E00A2AF39 /* RenderLineView.swift */; };
 		417532232A56395C00A2AF39 /* CardCuriosityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532222A56395C00A2AF39 /* CardCuriosityView.swift */; };
 		4185C2E92A4CE62800B921BC /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2E82A4CE62800B921BC /* CreateTaskView.swift */; };
 		4185C2EB2A4CE6E600B921BC /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4185C2EA2A4CE6E600B921BC /* TaskModel.swift */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		41294DF32A4E29AB00037A66 /* TaskTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeModel.swift; sourceTree = "<group>"; };
 		41294DF72A4E2D1E00037A66 /* TaskDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataManager.swift; sourceTree = "<group>"; };
+		41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
+		417532192A537D1E00A2AF39 /* RenderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLineView.swift; sourceTree = "<group>"; };
 		417532222A56395C00A2AF39 /* CardCuriosityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCuriosityView.swift; sourceTree = "<group>"; };
 		4185C2E82A4CE62800B921BC /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		4185C2EA2A4CE6E600B921BC /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -142,6 +146,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		417532182A537CFA00A2AF39 /* RenderLine */ = {
+			isa = PBXGroup;
+			children = (
+				417532192A537D1E00A2AF39 /* RenderLineView.swift */,
+			);
+			path = RenderLine;
+      	sourceTree = "<group>";
+		};
 		417532212A56394600A2AF39 /* CardCuriosity */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				4185C2E82A4CE62800B921BC /* CreateTaskView.swift */,
+				41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */,
 			);
 			path = CreateTask;
 			sourceTree = "<group>";
@@ -275,6 +288,7 @@
 		64ED6EEF2A200ABA00E428F1 /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
+				417532182A537CFA00A2AF39 /* RenderLine */,
 				F5333CCA2A37B5900073594B /* FormView */,
 				C0F72D782A3BDCB3003AE92C /* CustomNavBar */,
 				646D84412A20208000884CC2 /* PetCardView.swift */,
@@ -513,6 +527,7 @@
 			files = (
 				C030D73F2A4263C1007013A2 /* UnselectedRadioIcon.swift in Sources */,
 				4185C2E92A4CE62800B921BC /* CreateTaskView.swift in Sources */,
+				4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */,
 				80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */,
 				F5C649D52A3A5C6E00B4F3CB /* HomeViewWithPets.swift in Sources */,
 				C0F72D7C2A3D2A48003AE92C /* CustomNavigationViewModifiers.swift in Sources */,
@@ -540,6 +555,7 @@
 				646D84422A20208000884CC2 /* PetCardView.swift in Sources */,
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
 				64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */,
+				41294DFA2A4F9E4C00037A66 /* CreateTaskViewModel.swift in Sources */,
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,
 				F52964222A4CE0EC002D6BB0 /* TaskDetailsViewModel.swift in Sources */,
 				F5412C5C2A4BAFC400A72EA2 /* TaskDetailsView.swift in Sources */,

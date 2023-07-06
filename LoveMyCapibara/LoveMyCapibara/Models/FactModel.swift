@@ -29,11 +29,6 @@ class CatFactApi: ObservableObject {
                 print(fact)
                 DispatchQueue.main.async {
                     completion(fact)
-                    print(fact)
-                    DispatchQueue.main.async {
-                        completion(fact)
-                        print(fact)
-                    }
                 } catch let error {
                     print("[ERROR]", error)
                 }

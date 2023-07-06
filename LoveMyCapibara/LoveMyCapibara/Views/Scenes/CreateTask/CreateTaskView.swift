@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateTaskView: View {
     
     @ObservedObject var viewModel = CreateTaskViewModel()
-    @State var hideTextFieldTitle: Bool = false
+    
     var body: some View {
         VStack {
             Group {

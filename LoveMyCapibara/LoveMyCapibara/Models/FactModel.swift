@@ -16,11 +16,11 @@ struct Fact: Codable {
 class CatFactApi: ObservableObject {
     @Published var fact: Fact = Fact(fact: "", length: 0)
     
-    func newFact(maxLength: Int, completion: @escaping (Fact) -> ()) {
+    func newFact(maxLength: Int, completion: @escaping (Fact) -> Void) {
         guard let url = URL(string: "https://catfact.ninja/fact?max_length=\(maxLength)") else {
             return
         }
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {return}
             print(String(data: data, encoding: .utf8)!)
             do {

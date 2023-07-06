@@ -27,7 +27,7 @@ struct CardCuriosityView: View {
                         .padding(.trailing, 4)
                         .foregroundColor(Color("PrimaryColor"))
                     ScrollView {
-                        Text("ply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .")
+                        Text(text)
                             .font(.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.leading)
@@ -54,6 +54,6 @@ struct CardCuriosityView: View {
 
 struct CardCuriosityView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCuriosityView(text: "")
+        CardCuriosityView(text: "ply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .")
     }
 }

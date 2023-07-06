@@ -48,11 +48,7 @@ struct EditPetView: View {
             }
             .padding(.top)
             .background(Color("BackgroundColor"))
-<<<<<<< HEAD
-            .navBarEditPet {
-=======
             .navBarEditPet(isDisabled: !viewModel.petIsValid(pet: formViewModel.pet)) {
->>>>>>> develop
                 viewModel.edit(formViewModel.pet)
                 dismiss()
             }

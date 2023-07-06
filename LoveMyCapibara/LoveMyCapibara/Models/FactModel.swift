@@ -22,22 +22,16 @@ class CatFactApi: ObservableObject {
         }
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else { return }
-
+            
             print(String(data: data, encoding: .utf8)!)
             do {
                 let fact = try JSONDecoder().decode(Fact.self, from: data)
-                print(fact)
                 DispatchQueue.main.async {
                     completion(fact)
-                    print(fact)
-                    DispatchQueue.main.async {
-                        completion(fact)
-                        print(fact)
-                    }
-                } catch let error {
-                    print("[ERROR]", error)
                 }
-            }.resume()
-        }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
 }

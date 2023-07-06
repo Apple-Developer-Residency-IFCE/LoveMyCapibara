@@ -26,7 +26,6 @@ struct ContentView: View {
                         if fact.fact.isEmpty {
                             CatFactApi().newFact(maxLength: 120, completion: { fact in
                                 self.fact = fact
-                                print(self.fact)
                             })
                         }
                     }

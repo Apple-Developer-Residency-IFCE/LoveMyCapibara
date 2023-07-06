@@ -29,7 +29,7 @@ class TaskDataManager {
 
     func getTaskById(_ id: UUID) -> TaskModel? {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
         do {
             let result = try context.fetch(fetchRequest)
             guard let taskEntity = result.first else {

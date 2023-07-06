@@ -23,6 +23,7 @@ struct InputPicker<T>: View where T: Hashable {
                     buildOption(option)
                 }
             }
+            .labelsHidden()
             .tint(Color("SecondaryText"))
         }
     }
@@ -49,7 +50,8 @@ struct InputPicker_Previews: PreviewProvider {
             InputPicker(label: "Gênero", value: .constant(""), options: ["Nenhum", "Macho", "Fêmea"])
             InputPicker(label: "Espécie", value: .constant(""), options: ["Não escolhida", "Teste1", "Teste2", "Teste3"])
             InputPicker(label: "Raça", value: .constant(""), options: ["Não escolhida", "Teste1", "Teste2", "Teste3"])
-            InputPicker(label: "Castrado", value: .constant(""), options: ["Não", "Sim"])
+            InputPicker(label: "Castrado", value: .constant(2023), options: Array(Range(1900...2100)))
+            
         }
     }
 }

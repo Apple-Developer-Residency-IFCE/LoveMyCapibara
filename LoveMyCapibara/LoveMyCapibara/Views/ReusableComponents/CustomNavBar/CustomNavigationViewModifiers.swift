@@ -94,6 +94,7 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
 struct NavBarViewAddPet: ViewModifier {
     @State var isShowingSheet = true
     @Environment(\.dismiss) var dismiss
+    var isDisabled: Bool
     var action: () -> Void
     func body(content: Content) -> some View {
         content
@@ -113,14 +114,16 @@ struct NavBarViewAddPet: ViewModifier {
                         action()
                         dismiss()
                     }
+                    .disabled(isDisabled)
                     .font(FontManager.poppinsBold(size: 16))
-                    .foregroundColor(Color("PrimaryColor"))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
                 }
             }
     }
 }
 
 struct NavBarViewEditPet: ViewModifier {
+    var isDisabled: Bool
     var action: () -> Void
     @Environment(\.dismiss) var dismiss
     func body(content: Content) -> some View {
@@ -140,8 +143,9 @@ struct NavBarViewEditPet: ViewModifier {
                         action()
                         dismiss()
                     }
+                    .disabled(isDisabled)
                     .font(FontManager.poppinsBold(size: 16))
-                    .foregroundColor(Color("PrimaryColor"))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
                     
                 }
             }
@@ -204,18 +208,14 @@ extension View {
     /// This modifiers need to be use in the last line of NavigationView.
     /// Important This modifier needs a NavigationView
     /// need to put a action to the save button
-    func navBarAddPet(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewAddPet {
-            action()
-        })
+    func navBarAddPet(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddPet(isDisabled: isDisabled, action: action))
     }
     /// This modifiers need to be use in the last line of NavigationView.
     /// Important This modifier needs a NavigationView
     /// need to put a action to the add / save button
-    func navBarEditPet(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewEditPet {
-            action()
-        })
+    func navBarEditPet(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewEditPet(isDisabled: isDisabled, action: action))
     }
     
     func navBarTask() -> some View {

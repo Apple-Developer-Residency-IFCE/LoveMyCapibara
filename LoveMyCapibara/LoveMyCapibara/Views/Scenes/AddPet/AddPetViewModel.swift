@@ -13,4 +13,8 @@ class AddPetViewModel: ObservableObject {
     func add(pet: PetModel) {
         petManager.createPet(pet)
     }
+    
+    func petIsValid(pet: PetModel) -> Bool {
+        return !pet.name.isEmpty && !pet.specie.isEmpty && !pet.race.isEmpty && pet.weight != 0.0
+    }
 }

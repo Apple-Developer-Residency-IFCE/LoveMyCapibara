@@ -21,7 +21,7 @@ struct AddPetView: View {
                 Spacer()
             }
             .background(Color("BackgroundColor"))
-            .navBarAddPet {
+            .navBarAddPet(isDisabled: !viewModel.petIsValid(pet: formViewModel.pet)) {
                 viewModel.add(pet: formViewModel.pet)
                 dismiss()
             }

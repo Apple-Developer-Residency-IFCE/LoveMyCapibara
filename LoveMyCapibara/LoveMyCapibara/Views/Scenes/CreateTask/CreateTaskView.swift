@@ -12,11 +12,7 @@ struct CreateTaskView: View {
     @ObservedObject var viewModel = CreateTaskViewModel()
     @Environment(\.dismiss) private var dismiss: DismissAction
     @State var timer: Date = .now
-    
-    init(viewModel: CreateTaskViewModel = CreateTaskViewModel()) {
-        self.viewModel = viewModel
-    }
-    
+
     var body: some View {
         NavigationStack {
             VStack {

@@ -10,8 +10,9 @@ import SwiftUI
 struct CreateTaskView: View {
     
     @ObservedObject var viewModel = CreateTaskViewModel()
-    @Environment(\.dismiss) private var dismiss
-  
+    @Environment(\.dismiss) private var dismiss: DismissAction
+    @State var timer: Date = .now
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -32,7 +33,17 @@ struct CreateTaskView: View {
                                     options: viewModel.petNameList)
                     }
                     VStack {
-                        DatePickerView(selectedDate: $viewModel.date, title: "Data")
+                        HStack {
+                            DatePickerView(selectedDate: $viewModel.date,
+                                           toDate: .distantFuture,
+                                           title: "Data")
+                            
+                            DatePickerView(selectedDate: $timer,
+                                           toDate: .distantFuture,
+                                           component: .hourAndMinute,
+                                           title: "")
+                                .labelsHidden()
+                        }
                         LineView.make()
                         InputPicker(label: "Repetir",
                                     value: $viewModel.frequency,
@@ -69,5 +80,11 @@ struct CreateTaskView: View {
             }
             .padding(.horizontal)
         }
+    }
+}
+
+struct CreateTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        CreateTaskView()
     }
 }

@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct CalendarView: View {
-    // MARK: - PROPERTIES
-    @StateObject var viewModel = CalendarViewModel()
+    @Binding var currentDate: Date
+    @StateObject var viewModel: CalendarViewModel
     
-    // MARK: - BODY
+    init(currentDate: Binding<Date>) {
+        _currentDate = currentDate
+        _viewModel = StateObject(wrappedValue: CalendarViewModel(currentDate.wrappedValue))
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
@@ -56,6 +60,6 @@ struct CalendarView: View {
 // MARK: - PREVIEW
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView()
+        CalendarView(currentDate: .constant(Date.now))
     }
 }

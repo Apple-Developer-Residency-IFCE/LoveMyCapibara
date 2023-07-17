@@ -11,9 +11,12 @@ class CalendarViewModel: ObservableObject {
     
     var calendar = Calendar.current
     @Published var date = Date()
-    
     @Published var firstDate: Date?
     @Published var secondDate: Date?
+    
+    init(_ currentDate: Date) {
+        date = currentDate
+    }
     
     var weeks: [[Date]] {
         calendar.firstWeekday = 2
@@ -50,10 +53,6 @@ class CalendarViewModel: ObservableObject {
             return firstDate...secondDate
         }
         return nil
-    }
-    
-    init(_ currentDate: Date = Date()) {
-        date = currentDate
     }
     
     func selectDay(_ day: Date) {

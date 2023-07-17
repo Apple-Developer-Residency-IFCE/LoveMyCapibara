@@ -41,8 +41,7 @@ struct CalendarDay: View {
             }
             .frame(height: 36)
             .frame(maxWidth: .infinity)
-        }
-        else {
+        } else {
             Rectangle()
                 .foregroundColor(Color.clear)
                 .frame(height: 36)
@@ -50,7 +49,6 @@ struct CalendarDay: View {
         }
     }
     
-    // MARK: - VARS
     @ViewBuilder
     func fillRange(day: Date, week: [Date], index: Int) -> some View {
         HStack(spacing: 0) {

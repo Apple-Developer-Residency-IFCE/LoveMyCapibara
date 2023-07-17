@@ -10,12 +10,6 @@ import SwiftUI
 struct FormView: View {
     @EnvironmentObject var viewModel: FormViewModel
     
-    func renderLine() -> some View {
-        Divider()
-            .padding(EdgeInsets(top: 0, leading: -16, bottom: 0, trailing: -16))
-            .offset(y: -2)
-    }
-    
     var body: some View {
         VStack {
             
@@ -26,25 +20,26 @@ struct FormView: View {
                 VStack {
                     InputText(placeholder: "Nome do pet", value: $viewModel.pet.name)
                         .foregroundColor(Color("SecondaryText"))
-                    renderLine()
+                    LineView.make()
                     
                     InputPicker(label: "Gênero", value: $viewModel.pet.gender, options: GenderModel.allCases)
-                    renderLine()
+                    LineView.make()
                     
                     InputPicker(label: "Espécie", value: $viewModel.pet.specie, options: viewModel.speciesOptions)
-                    renderLine()
+                    LineView.make()
                     
                     InputPicker(label: "Raça", value: $viewModel.pet.race, options: viewModel.getRaces())
-                    renderLine()
+                    LineView.make()
                     
-                    DatePickerView(birthdayDate: $viewModel.pet.birthDate)
+                    DatePickerView(selectedDate: $viewModel.pet.birthDate)
                 }
                 
                 VStack {
                     ButtonWeightPicker(weight: $viewModel.pet.weight)
-                    renderLine()
+                    LineView.make()
     
                     InputPicker(label: "Castrado(a)?", value: $viewModel.pet.castrated, options: [false, true])
+              
                 }
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FrequencyModel: String {
+enum FrequencyModel: String, CaseIterable {
     case daily = "Todo dia"
     case weekly = "Toda semana"
     case twoWeeks = "A cada 2 semanas"

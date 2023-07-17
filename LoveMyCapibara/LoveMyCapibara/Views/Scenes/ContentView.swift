@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedItem = 1
-    @State private var fact = Fact(fact: "", length: 0)
     
     var body: some View {
-        NavigationStack {
-            TabView (selection: $selectedItem){
-                Text(fact.fact)
+            TabView(selection: $selectedItem) {
+                TasksListView()
                     .tabItem {
                         Label {
                             Text("Tarefas")
@@ -23,14 +21,6 @@ struct ContentView: View {
                         }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
-                    .onAppear() {
-                        if fact.fact == ""{
-                            CatFactApi().newFact(maxLength: 120, completion: { fact in
-                                self.fact = fact
-                                print(self.fact)
-                            })
-                        }
-                    }
                     .tag(0)
                 HomeView()
                     .tabItem {
@@ -54,7 +44,6 @@ struct ContentView: View {
                     .tag(2)
             }
             .tint(Color("DarkColor"))
-        }
     }
 }
 

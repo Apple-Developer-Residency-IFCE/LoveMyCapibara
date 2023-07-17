@@ -45,6 +45,7 @@ struct PetDetailsView_Previews: PreviewProvider {
             name: "Diego",
             gender: .female,
             specie: "Cachorro",
+            race: "Golden",
             birthDate: Date(),
             weight: 12.0,
             castrated: true

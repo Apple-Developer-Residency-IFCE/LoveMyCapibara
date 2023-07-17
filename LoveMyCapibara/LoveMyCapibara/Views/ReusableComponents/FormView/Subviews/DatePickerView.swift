@@ -7,16 +7,15 @@
 
 import SwiftUI
 struct DatePickerView: View {
-    @Binding var birthdayDate: Date
+    
+    @Binding var selectedDate: Date
+    @State var toDate: Date = .now
+    @State var component: DatePickerComponents = .date
+    var title: String?
+    
     var body: some View {
-        DatePicker("Nascimento", selection: $birthdayDate, in: ...Date.now, displayedComponents: .date)
+        DatePicker(title ?? "Nascimento", selection: $selectedDate, in: ...toDate, displayedComponents: component)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color("PrimaryText"))
-    }
-}
-
-struct DataPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        DatePickerView(birthdayDate: .constant(Date.now))
     }
 }

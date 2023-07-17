@@ -22,11 +22,7 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
                     }
                     .font(FontManager.poppinsBold(size: 16))
                     .foregroundColor(Color("PrimaryColor"))
-                    .sheet(isPresented: $isShowingSheet, onDismiss: {
-                        action()
-                    }){
-                        destination()
-                    }
+                    .sheet(isPresented: $isShowingSheet, onDismiss: action, content: destination)
                 }
             }
     }
@@ -34,6 +30,8 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
 
 struct NavBarViewTasks: ViewModifier {
     @State private var selected = false
+    var action: () -> Void
+    
     func body(content: Content) -> some View {
         content
             .toolbar {
@@ -46,15 +44,14 @@ struct NavBarViewTasks: ViewModifier {
                         .foregroundColor(Color("PrimaryColor"))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}, label: {Image("plus")})
+                    Button(action: action, label: {Image("plus")})
                         .foregroundColor(Color("PrimaryColor"))
                 }
             }
     }
 }
 
-
-struct NavBarViewInfoPet<Destination : View>: ViewModifier {
+struct NavBarViewInfoPet<Destination: View>: ViewModifier {
     @Environment(\.dismiss) var dismiss
     var action: () -> Void
     @State var isShowingSheet = false
@@ -94,6 +91,7 @@ struct NavBarViewInfoPet<Destination : View>: ViewModifier {
 struct NavBarViewAddPet: ViewModifier {
     @State var isShowingSheet = true
     @Environment(\.dismiss) var dismiss
+    var isDisabled: Bool
     var action: () -> Void
     func body(content: Content) -> some View {
         content
@@ -101,7 +99,7 @@ struct NavBarViewAddPet: ViewModifier {
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancelar"){
+                    Button("Cancelar") {
                         dismiss()
                     }
                     .font(FontManager.poppinsRegular(size: 16))
@@ -109,7 +107,38 @@ struct NavBarViewAddPet: ViewModifier {
                     
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Adicionar"){
+                    Button("Adicionar") {
+                        action()
+                        dismiss()
+                    }
+                    .disabled(isDisabled)
+                    .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
+                }
+            }
+    }
+}
+
+struct NavBarViewAddTask: ViewModifier {
+    @State var isShowingSheet = true
+    @Environment(\.dismiss) var dismiss
+    var action: () -> Void
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle("Adicionar Tarefa", displayMode: .inline)
+            .navigationBarBackButtonHidden(false)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancelar") {
+                        dismiss()
+                    }
+                    .font(FontManager.poppinsRegular(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                    
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Adicionar") {
                         action()
                         dismiss()
                     }
@@ -121,6 +150,7 @@ struct NavBarViewAddPet: ViewModifier {
 }
 
 struct NavBarViewEditPet: ViewModifier {
+    var isDisabled: Bool
     var action: () -> Void
     @Environment(\.dismiss) var dismiss
     func body(content: Content) -> some View {
@@ -140,8 +170,9 @@ struct NavBarViewEditPet: ViewModifier {
                         action()
                         dismiss()
                     }
+                    .disabled(isDisabled)
                     .font(FontManager.poppinsBold(size: 16))
-                    .foregroundColor(Color("PrimaryColor"))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
                     
                 }
             }
@@ -201,30 +232,28 @@ extension View {
     func navBarInfoPet(destination: @escaping() -> some View, action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewInfoPet(action: action, destination: destination))
     }
+    
     /// This modifiers need to be use in the last line of NavigationView.
     /// Important This modifier needs a NavigationView
     /// need to put a action to the save button
-    func navBarAddPet(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewAddPet {
-            action()
-        })
+    func navBarAddPet(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddPet(isDisabled: isDisabled, action: action))
     }
     /// This modifiers need to be use in the last line of NavigationView.
     /// Important This modifier needs a NavigationView
     /// need to put a action to the add / save button
-    func navBarEditPet(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewEditPet {
-            action()
-        })
+    func navBarEditPet(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewEditPet(isDisabled: isDisabled, action: action))
     }
     
-    func navBarTask() -> some View {
-        self.modifier(NavBarViewTasks())
+    func navBarAddTask(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddTask(action: action))
     }
     
-    /// This modifiers need to be use in the last line of NavigationView.
-    /// Important This modifier needs a NavigationView
-    /// need to put a destination to the edit button
+    func navBarTask(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewTasks(action: action))
+    }
+
     func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewInfoTask(title: title, destination: destination, action: action))
     }

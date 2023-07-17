@@ -19,6 +19,9 @@ struct TasksListView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     CardCuriosityView()
                         .padding(.top)
+                    
+                    CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
+                    
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))
@@ -59,6 +62,9 @@ struct TasksListView: View {
             })
         }
         .onChange(of: showCreateTask, perform: { _ in
+            tasksListViewModel.updateList()
+        })
+        .onChange(of: tasksListViewModel.selectedDate, perform: { _ in
             tasksListViewModel.updateList()
         })
         .onAppear(perform: {

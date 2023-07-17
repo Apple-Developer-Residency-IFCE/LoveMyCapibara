@@ -85,7 +85,7 @@ class TaskDataManager {
                 try context.save()
             }
         } catch {
-            print("Erro ao atualizar pet do CoreData: \(error.localizedDescription)")
+            print("Erro ao atualizar task do CoreData: \(error.localizedDescription)")
         }
     }
     

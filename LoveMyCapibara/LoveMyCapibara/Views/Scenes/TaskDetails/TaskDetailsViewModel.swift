@@ -22,6 +22,12 @@ class TaskDetailsViewModel: ObservableObject {
         return dateFormatter.string(from: task.date)
     }
     
+    func updateTask() {
+        if let taskId = task.id {
+            task = taskManager.getTaskById(taskId) ?? TaskModel()
+        }
+    }
+    
     var timeFormatted: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"

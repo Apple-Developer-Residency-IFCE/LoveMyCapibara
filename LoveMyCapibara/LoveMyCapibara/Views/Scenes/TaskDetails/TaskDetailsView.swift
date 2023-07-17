@@ -73,9 +73,9 @@ struct TaskDetailsView: View {
                 Spacer()
             }
             .navBarViewInfoTask(title: viewModel.task.type?.rawValue ?? "") {
-                Text("Edicao")
+                EditTaskView(taskInstance: viewModel.task)
             } action: {
-                print("Salvar edicao")
+                viewModel.updateTask()
             }
         }.background(Color("BackgroundColor"))
     }

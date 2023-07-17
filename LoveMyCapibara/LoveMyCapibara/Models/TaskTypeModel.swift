@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TaskTypeModel: String {
+enum TaskTypeModel: String, CaseIterable {
     case empty = "Nenhum"
     case vaccine = "Vacina"
     case medicine = "Remédio"

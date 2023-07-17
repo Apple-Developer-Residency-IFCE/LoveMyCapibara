@@ -29,6 +29,7 @@ struct InputPicker<T>: View where T: Hashable {
     
     @ViewBuilder
     func buildOption(_ option: T) -> some View {
+
         if let boolValue = option as? Bool {
             if boolValue {
                 Text("Sim").tag(true)
@@ -37,6 +38,8 @@ struct InputPicker<T>: View where T: Hashable {
             }
         } else if let rawValue = (option as? (any RawRepresentable))?.rawValue as? String {
             Text(String(describing: rawValue))
+        } else if let pet = option as? PetModel {
+            Text(pet.name) 
         } else {
             Text(String(describing: option))
         }

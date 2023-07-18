@@ -9,6 +9,7 @@ import Foundation
 
 class TasksListViewModel: ObservableObject {
     @Published var tasks: [TaskModel] = []
+    @Published var selectedDate: Date = Date.now
    
     var completedTasks: [TaskModel] {
         return tasks.filter({ $0.completed ?? false })
@@ -37,7 +38,7 @@ class TasksListViewModel: ObservableObject {
     }
     
     func updateList() {
-        self.tasks = taskManager.getAllTasks()
+        self.tasks = taskManager.getAllTasks(searchDate: selectedDate)
     }
 
     func timeFormatter(task: TaskModel) -> String {

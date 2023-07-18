@@ -24,4 +24,20 @@ struct FontManager {
     static func poppinsSemiBold(size: CGFloat) -> Font {
         return Font.custom("Poppins-Regular", size: size)
     }
+    
+    static func interBold(size: CGFloat) -> Font {
+        return Font.custom("Inter-Bold", size: size)
+    }
+    
+    static func interMedium(size: CGFloat) -> Font {
+        return Font.custom("Inter-Regular", size: size)
+    }
+    
+    static func interRegular(size: CGFloat) -> Font {
+        return Font.custom("Inter-Regular", size: size)
+    }
+    
+    static func interSemiBold(size: CGFloat) -> Font {
+        return Font.custom("Inter-Regular", size: size)
+    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
+    @State private var splashScreenIsActive: Bool = true
     
     // Instancia da classe controladora do core data
     let persistenceManager = CoreDataManager.shared
@@ -26,9 +27,20 @@ struct LoveMyCapibaraApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(theme)
-                .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+            if splashScreenIsActive {
+                SplashScreenView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                            withAnimation(.easeOut(duration: 1.3)) {
+                                self.splashScreenIsActive = false
+                            }
+                        }
+                    }
+            } else {
+                ContentView()
+                    .preferredColorScheme(theme)
+                    .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+                }
         }
     }
 }

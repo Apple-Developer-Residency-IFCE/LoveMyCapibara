@@ -10,7 +10,7 @@ import SwiftUI
 struct CardCuriosityView: View {
     
     @State var morph = false
-    @State var text: String
+    @State private var fact = Fact(fact: "", length: 0).fact
     
     var body: some View {
         VStack {
@@ -22,13 +22,13 @@ struct CardCuriosityView: View {
                     .animation(.spring(dampingFraction: 2), value: morph)
                 VStack(alignment: .leading) {
                     Text("Curiosidade do dia!")
-                        .font(.system(size: 18, weight: .bold))
+                        .font(FontManager.poppinsSemiBold(size: 18))
                         .padding(2)
                         .padding(.trailing, 4)
                         .foregroundColor(Color("PrimaryColor"))
                     ScrollView {
-                        Text(text)
-                            .font(.system(size: 16, weight: .regular))
+                        Text(fact.isEmpty ? "Carregando..." : fact)
+                            .font(FontManager.poppinsRegular(size: 14))
                             .foregroundColor(Color("PrimaryText"))
                             .multilineTextAlignment(.leading)
                             .animation(.spring(dampingFraction: 1), value: morph)
@@ -49,12 +49,17 @@ struct CardCuriosityView: View {
         })
         .onAppear {
             morph = true
+            if fact.isEmpty {
+                CatFactApi().newFact(maxLength: 120, completion: { fact in
+                    self.fact = fact.fact
+                })
+            }
         }
     }
 }
 
 struct CardCuriosityView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCuriosityView(text: "awdawdawdawdpdawdadwdawdawdawdawddawdawdawdawdaw.")
+        CardCuriosityView()
     }
 }

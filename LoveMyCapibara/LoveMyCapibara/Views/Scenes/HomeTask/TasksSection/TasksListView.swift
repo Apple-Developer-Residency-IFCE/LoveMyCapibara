@@ -17,6 +17,8 @@ struct TasksListView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
+                    CardCuriosityView()
+                        .padding(.top)
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))

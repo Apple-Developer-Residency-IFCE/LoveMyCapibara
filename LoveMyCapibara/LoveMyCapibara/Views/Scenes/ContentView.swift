@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedItem = 1
-    @State private var fact = Fact(fact: "", length: 0)
     
     var body: some View {
             TabView(selection: $selectedItem) {
@@ -22,13 +21,6 @@ struct ContentView: View {
                         }
                     }
                     .toolbarBackground(.visible, for: .tabBar)
-                    .onAppear {
-                        if fact.fact.isEmpty {
-                            CatFactApi().newFact(maxLength: 120, completion: { fact in
-                                self.fact = fact
-                            })
-                        }
-                    }
                     .tag(0)
                 HomeView()
                     .tabItem {

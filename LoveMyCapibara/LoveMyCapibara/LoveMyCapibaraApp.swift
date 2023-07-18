@@ -30,17 +30,15 @@ struct LoveMyCapibaraApp: App {
             if splashScreenIsActive {
                 SplashScreenView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
-                            withAnimation(.easeOut(duration: 1.3)) {
-                                self.splashScreenIsActive = false
-                            }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
+                            self.splashScreenIsActive = false
                         }
                     }
             } else {
                 ContentView()
                     .preferredColorScheme(theme)
                     .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
-                }
+            }
         }
     }
 }

@@ -7,13 +7,22 @@
 
 import SwiftUI
 
-struct CalendarView: View {
-    @Binding var currentDate: Date
+struct CalendarGraphView: View {
+    @Binding var startDate: Date
+    @Binding var endDate: Date
+    var isRangeCalendar: Bool = false
     @StateObject var viewModel: CalendarViewModel
     
-    init(currentDate: Binding<Date>) {
-        _currentDate = currentDate
-        _viewModel = StateObject(wrappedValue: CalendarViewModel(currentDate.wrappedValue))
+    init(_ startDate: Binding<Date>) {
+        _startDate = startDate
+        _endDate = startDate
+        _viewModel = StateObject(wrappedValue: CalendarViewModel(startDate.wrappedValue))
+    }
+    
+    init(_ startDate: Binding<Date>, endDate: Binding<Date>) {
+        _startDate = startDate
+        _endDate = endDate
+        _viewModel = StateObject(wrappedValue: CalendarViewModel(startDate.wrappedValue))
     }
     
     var body: some View {
@@ -54,12 +63,18 @@ struct CalendarView: View {
             }
         }
         .background(Color("CalendarBackground"))
+        .onChange(of: viewModel.firstDate ?? Date.now) { newValue in
+            startDate = newValue
+        }
+        .onChange(of: viewModel.secondDate ?? Date.now) { newValue in
+            endDate = newValue
+        }
     }
 }
 
 // MARK: - PREVIEW
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView(currentDate: .constant(Date.now))
+        CalendarGraphView(.constant(Date.now))
     }
 }

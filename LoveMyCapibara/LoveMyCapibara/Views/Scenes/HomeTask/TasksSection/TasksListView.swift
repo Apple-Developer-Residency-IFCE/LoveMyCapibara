@@ -22,6 +22,8 @@ struct TasksListView: View {
                     
                     CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
                     
+                    CalendarGraphView($tasksListViewModel.selectedDate)
+                    
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))

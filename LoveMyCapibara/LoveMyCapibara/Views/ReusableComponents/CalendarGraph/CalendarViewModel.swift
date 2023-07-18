@@ -13,9 +13,27 @@ class CalendarViewModel: ObservableObject {
     @Published var date = Date()
     @Published var firstDate: Date?
     @Published var secondDate: Date?
+    var isRangeCalendar: Bool
+    var events: [Date] = []
     
-    init(_ currentDate: Date) {
+    init(_ currentDate: Date, isRangeCalendar: Bool = false) {
         date = currentDate
+        self.isRangeCalendar = isRangeCalendar
+        let currentMonth = calendar.component(.month, from: currentDate)
+        let currentYear = calendar.component(.year, from: currentDate)
+        
+        var randomDates: [Date] = []
+        
+        for _ in 1...8 {
+            let day = Int.random(in: 1...28) // Ajuste o limite máximo conforme necessário
+            let randomComponents = DateComponents(year: currentYear, month: currentMonth, day: day)
+            
+            if let randomDate = calendar.date(from: randomComponents) {
+                randomDates.append(randomDate)
+            }
+        }
+        
+        events = randomDates
     }
     
     var weeks: [[Date]] {
@@ -56,7 +74,7 @@ class CalendarViewModel: ObservableObject {
     }
     
     func selectDay(_ day: Date) {
-        if firstDate == nil {
+        if firstDate == nil || !isRangeCalendar {
             firstDate = day
         } else if secondDate == nil {
             if let first = firstDate {
@@ -94,12 +112,15 @@ class CalendarViewModel: ObservableObject {
         if secondDate == nil {
             if let firstDate {
                 return firstDate == day
+            } else {
+                return isToday(day: day)
             }
         } else {
             if let firstDate, let secondDate {
                 return ((firstDate == day) || (secondDate == day))
             }
         }
+        
         return false
     }
     
@@ -147,6 +168,12 @@ class CalendarViewModel: ObservableObject {
     
     func selectForwardYear() {
         date = calendar.date(byAdding: .year, value: 1, to: date) ?? Date()
+    }
+    
+    func hasEvent(day: Date) -> Bool{
+        let isEventDay = events.filter{ $0 == day }.count
+        
+        return isEventDay > 0
     }
 }
 

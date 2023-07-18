@@ -13,6 +13,9 @@ struct CalendarDay: View {
     var day: Date
     var index: Int
     
+    var colorSelected = Color("PrimaryColor")
+    var colorDefault = Color.white
+    
     var body: some View {
         if viewModel.calendar.isDate(day, equalTo: viewModel.date, toGranularity: .month) {
             ZStack {
@@ -24,10 +27,10 @@ struct CalendarDay: View {
                         Text("\(viewModel.calendar.component(.day, from: day))")
                             .padding(.bottom, 5)
                             .font(.system(size: 20, weight: .regular))
-                            .foregroundColor(viewModel.isDateSelected(day: day) ? Color.white : Color("PrimaryColor"))
+                            .foregroundColor(viewModel.isDateSelected(day: day) ? colorDefault : colorSelected)
                         Circle()
                             .frame(width: 6, height: 6)
-                            .foregroundColor(viewModel.isToday(day: day) ? (viewModel.isDateSelected(day: day) ? Color.white : Color("PrimaryColor")) : Color.clear)
+                            .foregroundColor(getCircleStyle())
                             .offset(y: 12)
                     }
                     .padding(.vertical, 10)
@@ -35,9 +38,7 @@ struct CalendarDay: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .background(viewModel.isDateInRange(day: day) ?
-                            (viewModel.isDateSelected(day: day) ? Color("PrimaryColor").cornerRadius(50) : Color.clear.cornerRadius(50))
-                            : Color.clear.cornerRadius(50))
+                .background(getDayBackgroundStyle())
             }
             .frame(height: 36)
             .frame(maxWidth: .infinity)
@@ -101,10 +102,21 @@ struct CalendarDay: View {
             }
         }
     }
-}
+    
+    func getCircleStyle() -> Color {
+        return viewModel.hasEvent(day: day) ? (viewModel.isDateSelected(day: day) ? colorDefault : colorSelected) : Color.clear
+    }
+    
+    func getDayBackgroundStyle() -> some View {
+        if viewModel.isDateSelected(day: day) {
+            return colorSelected.cornerRadius(50)
+        } else {
+            if viewModel.isDateInRange(day: day) {
+                return Color.clear.cornerRadius(50)
+            } else {
+                return Color.clear.cornerRadius(50)
+            }
+        }
+    }
 
-//struct CalendarDay_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CalendarDay()
-//    }
-//}
+}

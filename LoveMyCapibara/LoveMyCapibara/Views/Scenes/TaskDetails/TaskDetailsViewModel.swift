@@ -10,7 +10,7 @@ import Foundation
 class TaskDetailsViewModel: ObservableObject {
     @Published var task: TaskModel
     let taskManager = TaskDataManager()
-
+    
     init(task: TaskModel) {
         self.task = task
     }
@@ -37,6 +37,11 @@ class TaskDetailsViewModel: ObservableObject {
     
     func completeTask() {
         self.task.completed = true
+        taskManager.updateTask(self.task)
+    }
+    
+    func uncompleteTask() {
+        self.task.completed = false
         taskManager.updateTask(self.task)
     }
 }

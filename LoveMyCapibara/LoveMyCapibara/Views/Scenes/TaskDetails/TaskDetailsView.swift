@@ -60,12 +60,19 @@ struct TaskDetailsView: View {
                     
                     Text(viewModel.task.text ?? "")
                         .padding(.vertical, 24)
-                    
-                    CustomButton(buttonLabel: "Marcar como concluída", buttonAction: {
-                        viewModel.completeTask()
-                        action()
-                        dismiss()
-                    }, buttonColor: "DarkColor")
+                    if viewModel.task.completed == false {
+                        CustomButton(buttonLabel: "Marcar como concluída", buttonAction: {
+                            viewModel.completeTask()
+                            action()
+                            dismiss()
+                        }, buttonColor: "DarkColor")
+                    } else {
+                        CustomButton(buttonLabel: "Marcar como não concluída", buttonAction: {
+                            viewModel.uncompleteTask()
+                            action()
+                            dismiss()
+                        }, buttonColor: "DarkColor")
+                    }
                 }
                 .padding(.horizontal, 24)
                 .font(FontManager.poppinsRegular(size: 16))

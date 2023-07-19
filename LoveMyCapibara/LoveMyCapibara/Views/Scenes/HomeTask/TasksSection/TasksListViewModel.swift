@@ -48,4 +48,10 @@ class TasksListViewModel: ObservableObject {
         return dateFormatter.string(from: task.date)
     }
     
+    func deleteTask(id: UUID?) {
+        guard let id else { return }
+        taskManager.deleteTaskById(id)
+        updateList()
+    }
+    
 }

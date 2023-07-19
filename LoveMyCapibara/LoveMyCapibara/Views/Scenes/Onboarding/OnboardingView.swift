@@ -15,7 +15,6 @@ struct OnboardingView: View {
     var nextView: () -> Void
     
     var body: some View {
-        
         VStack {
             TabView(selection: $index) {
                 ForEach(0..<3, id: \.self) { index in
@@ -46,6 +45,7 @@ struct OnboardingView: View {
                     Text("Pular")
                         .fontWeight(.semibold)
                 })
+                .opacity(index == 2 ? 0 : 1)
                 .foregroundColor(Color("PrimaryColor"))
                 Spacer()
                 Button {

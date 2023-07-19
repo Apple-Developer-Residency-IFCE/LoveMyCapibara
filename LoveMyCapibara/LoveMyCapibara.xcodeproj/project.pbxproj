@@ -10,6 +10,8 @@
 		0D46C17E81C70EB64E8C9759 /* TaskDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCA24F4D5FAA73D9C880AC /* TaskDataManager.swift */; };
 		4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532192A537D1E00A2AF39 /* RenderLineView.swift */; };
 		417532232A56395C00A2AF39 /* CardCuriosityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532222A56395C00A2AF39 /* CardCuriosityView.swift */; };
+		417532292A65E80E00A2AF39 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532282A65E80E00A2AF39 /* OnboardingView.swift */; };
+		4175322C2A6609A700A2AF39 /* CardForIndexOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4175322B2A6609A700A2AF39 /* CardForIndexOnboarding.swift */; };
 		437BA1C6435AC08C51560D9F /* RememberAtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C681DA15AEAD2BF0DF5FC3 /* RememberAtModel.swift */; };
 		6418348D2A20385900825BA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348C2A20385900825BA8 /* HomeView.swift */; };
 		64473F372A218117000B5967 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F322A218117000B5967 /* GenderModel.swift */; };
@@ -86,6 +88,8 @@
 		41294DF92A4F9E4C00037A66 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		417532192A537D1E00A2AF39 /* RenderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLineView.swift; sourceTree = "<group>"; };
 		417532222A56395C00A2AF39 /* CardCuriosityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCuriosityView.swift; sourceTree = "<group>"; };
+		417532282A65E80E00A2AF39 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		4175322B2A6609A700A2AF39 /* CardForIndexOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardForIndexOnboarding.swift; sourceTree = "<group>"; };
 		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		642442512A2951FC0052E0C8 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
 		642442532A2952100052E0C8 /* SelectedRadioIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRadioIcon.swift; sourceTree = "<group>"; };
@@ -193,6 +197,22 @@
 			path = CardCuriosity;
 			sourceTree = "<group>";
 		};
+		417532272A65E7F700A2AF39 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				417532282A65E80E00A2AF39 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		4175322A2A66098200A2AF39 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4175322B2A6609A700A2AF39 /* CardForIndexOnboarding.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		642241D72A29669B006B3634 /* AddPet */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +300,7 @@
 		64ED6EEA2A2008F100E428F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4175322A2A66098200A2AF39 /* Enums */,
 				801B10A72A54C62400ED848B /* TaskModel.swift */,
 				801B10A52A54C61400ED848B /* TaskTypeModel.swift */,
 				801B10A32A54C5D300ED848B /* FrequencyModel.swift */,
@@ -327,6 +348,7 @@
 		64ED6EF22A200AED00E428F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				417532272A65E7F700A2AF39 /* Onboarding */,
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
 				8097FCE92A67447800F3881E /* SplashScreen */,
 				417532212A56394600A2AF39 /* CardCuriosity */,
@@ -651,6 +673,7 @@
 				6483B5932A2806A2001915D5 /* HomeViewWithoutPets.swift in Sources */,
 				C030D7412A4263C1007013A2 /* ThemeSelector.swift in Sources */,
 				80A7C0242A410CB100AC7769 /* AddPetViewModel.swift in Sources */,
+				4175322C2A6609A700A2AF39 /* CardForIndexOnboarding.swift in Sources */,
 				809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */,
 				80A7C0222A410B0C00AC7769 /* PetDataManager.swift in Sources */,
 				F53053142A54B0480079E073 /* CalendarItem.swift in Sources */,
@@ -680,6 +703,7 @@
 				A37DD1CD2A4E3703000697C5 /* FactModel.swift in Sources */,
 				C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */,
 				8097FCEB2A6744A400F3881E /* SplashScreenView.swift in Sources */,
+				417532292A65E80E00A2AF39 /* OnboardingView.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,

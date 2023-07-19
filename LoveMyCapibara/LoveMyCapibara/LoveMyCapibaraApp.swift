@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
+    @AppStorage("onboarding") var isOnboarding: Bool = true
     @State private var splashScreenIsActive: Bool = true
     
     // Instancia da classe controladora do core data
@@ -35,9 +36,13 @@ struct LoveMyCapibaraApp: App {
                         }
                     }
             } else {
-                ContentView()
-                    .preferredColorScheme(theme)
-                    .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+                if isOnboarding {
+                    OnboardingView(nextView: { isOnboarding = false })
+                } else {
+                    ContentView()
+                        .preferredColorScheme(theme)
+                        .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+                }
             }
         }
     }

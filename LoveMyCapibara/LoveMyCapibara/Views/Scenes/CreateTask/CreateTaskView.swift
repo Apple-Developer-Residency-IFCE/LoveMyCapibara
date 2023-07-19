@@ -70,7 +70,7 @@ struct CreateTaskView: View {
                 .background(Color("FieldBackgroundColor"))
                 .cornerRadius(16)
                 
-                .navBarAddTask {
+                .navBarAddTask(isDisabled: !viewModel.taskIsValid(task: viewModel.task)) {
                     viewModel.createTaskForPet()
                     dismiss()
                 }

@@ -122,6 +122,7 @@ struct NavBarViewAddPet: ViewModifier {
 struct NavBarViewAddTask: ViewModifier {
     @State var isShowingSheet = true
     @Environment(\.dismiss) var dismiss
+    var isDisabled: Bool
     var action: () -> Void
     
     func body(content: Content) -> some View {
@@ -142,8 +143,9 @@ struct NavBarViewAddTask: ViewModifier {
                         action()
                         dismiss()
                     }
+                    .disabled(isDisabled)
                     .font(FontManager.poppinsBold(size: 16))
-                    .foregroundColor(Color("PrimaryColor"))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
                 }
             }
     }
@@ -269,8 +271,8 @@ extension View {
         self.modifier(NavBarViewEditPet(isDisabled: isDisabled, action: action))
     }
     
-    func navBarAddTask(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewAddTask(action: action))
+    func navBarAddTask(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddTask(isDisabled: isDisabled, action: action))
     }
     
     func navBarTask(action: @escaping () -> Void) -> some View {

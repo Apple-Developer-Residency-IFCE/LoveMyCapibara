@@ -34,6 +34,7 @@ final class CreateTaskViewModel: ObservableObject {
     
     func getPets() {
         petNameList = petManager.getAllPets().compactMap({ $0.name })
+        petNameList.insert("Nenhum", at: 0)
     }
     
     func createTaskForPet() {
@@ -47,5 +48,9 @@ final class CreateTaskViewModel: ObservableObject {
         task.rememberAt = rememberAt
         task.frequency = frequency
         add()
+    }
+    
+    func taskIsValid(task: TaskModel) -> Bool {
+        return !txtTitle.isEmpty && !selectedPet.isEmpty && type != .empty
     }
 }

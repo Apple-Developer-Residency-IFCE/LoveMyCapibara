@@ -14,26 +14,18 @@ class CalendarViewModel: ObservableObject {
     @Published var firstDate: Date?
     @Published var secondDate: Date?
     var isRangeCalendar: Bool
-    var events: [Date] = []
+    @Published var events: [Date] = []
     
-    init(_ currentDate: Date, isRangeCalendar: Bool = false) {
+    init(_ currentDate: Date, endDate: Date? = nil) {
         date = currentDate
-        self.isRangeCalendar = isRangeCalendar
-        let currentMonth = calendar.component(.month, from: currentDate)
-        let currentYear = calendar.component(.year, from: currentDate)
+        firstDate = currentDate
         
-        var randomDates: [Date] = []
-        
-        for _ in 1...8 {
-            let day = Int.random(in: 1...28) // Ajuste o limite máximo conforme necessário
-            let randomComponents = DateComponents(year: currentYear, month: currentMonth, day: day)
-            
-            if let randomDate = calendar.date(from: randomComponents) {
-                randomDates.append(randomDate)
-            }
+        if endDate != nil {
+            isRangeCalendar = true
+            secondDate = endDate
+        } else {
+            isRangeCalendar = false
         }
-        
-        events = randomDates
     }
     
     var weeks: [[Date]] {
@@ -170,8 +162,8 @@ class CalendarViewModel: ObservableObject {
         date = calendar.date(byAdding: .year, value: 1, to: date) ?? Date()
     }
     
-    func hasEvent(day: Date) -> Bool{
-        let isEventDay = events.filter{ $0 == day }.count
+    func hasEvent(day: Date) -> Bool {
+        let isEventDay = events.filter { $0 == day }.count
         
         return isEventDay > 0
     }

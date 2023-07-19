@@ -40,6 +40,12 @@ class TasksListViewModel: ObservableObject {
     func updateList() {
         self.tasks = taskManager.getAllTasks(searchDate: selectedDate)
     }
+    
+    func getDatesWithTaskInMonth(date: Date) -> [Date] {
+        let tasksInMonth = taskManager.getAllTasksInMonth(searchDate: date)
+        
+        return tasksInMonth.map { Calendar.current.startOfDay(for: $0.date) }
+    }
 
     func timeFormatter(task: TaskModel) -> String {
         let dateFormatter = DateFormatter()

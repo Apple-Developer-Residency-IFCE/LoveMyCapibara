@@ -19,7 +19,7 @@ struct CalendarDay: View {
     var body: some View {
         if viewModel.calendar.isDate(day, equalTo: viewModel.date, toGranularity: .month) {
             ZStack {
-                //fillRange(day: day, week: week, index: index)
+                fillRange(day: day, week: week, index: index)
                 Button {
                     viewModel.selectDay(day)
                 } label: {
@@ -51,71 +51,75 @@ struct CalendarDay: View {
     }
     
     @ViewBuilder
-    func fillRange(day: Date, week: [Date], index: Int) -> some View {
-        HStack(spacing: 0) {
-            if viewModel.isDateSelected(day: day) {
-                if day == viewModel.firstDate {
-                    Color.clear
-                } else {
-                    Color.black
-                }
-            } else {
-                if viewModel.isDateInRange(day: day) {
-                    if index == 0 {
+        func fillRange(day: Date, week: [Date], index: Int) -> some View {
+            HStack(spacing: 0) {
+                if viewModel.isDateSelected(day: day) {
+                    if day == viewModel.firstDate {
                         Color.clear
                     } else {
-                        if viewModel.isFirstDayOfMonth(date: day) {
+                        colorSelected.opacity(0.3)
+                    }
+                } else {
+                    if viewModel.isDateInRange(day: day) {
+                        if index == 0 {
                             Color.clear
                         } else {
-                            Color.black
+                            if viewModel.isFirstDayOfMonth(date: day) {
+                                Color.clear
+                            } else {
+                                colorSelected.opacity(0.3)
+                            }
+                        }
+                    } else {
+                        Color.clear
+                    }
+                }
+                
+                if viewModel.isDateSelected(day: day) {
+                    if day == viewModel.secondDate {
+                        Color.clear
+                    } else {
+                        if viewModel.secondDate == nil {
+                            Color.clear
+                        } else {
+                            colorSelected.opacity(0.3)
                         }
                     }
                 } else {
-                    Color.clear
-                }
-            }
-            
-            if viewModel.isDateSelected(day: day) {
-                if day == viewModel.secondDate {
-                    Color.clear
-                } else {
-                    if viewModel.secondDate == nil {
-                        Color.clear
-                    } else {
-                        Color.black
-                    }
-                }
-            } else {
-                if viewModel.isDateInRange(day: day) {
-                    if index == week.count - 1 {
-                        Color.clear
-                    } else {
-                        if viewModel.isLastDayOfMonth(date: day) {
+                    if viewModel.isDateInRange(day: day) {
+                        if index == week.count - 1 {
                             Color.clear
                         } else {
-                            Color.black
+                            if viewModel.isLastDayOfMonth(date: day) {
+                                Color.clear
+                            } else {
+                                colorSelected.opacity(0.3)
+                            }
                         }
+                    } else {
+                        Color.clear
                     }
-                } else {
-                    Color.clear
                 }
             }
         }
-    }
     
     func getCircleStyle() -> Color {
-        return viewModel.hasEvent(day: day) ? (viewModel.isDateSelected(day: day) ? colorDefault : colorSelected) : Color.clear
+        if viewModel.hasEvent(day: day) {
+            if viewModel.isDateSelected(day: day) {
+                return colorDefault
+            } else {
+                return colorSelected
+            }
+        } else {
+            return Color.clear
+        }
     }
     
     func getDayBackgroundStyle() -> some View {
         if viewModel.isDateSelected(day: day) {
             return colorSelected.cornerRadius(50)
         } else {
-            if viewModel.isDateInRange(day: day) {
-                return Color.clear.cornerRadius(50)
-            } else {
-                return Color.clear.cornerRadius(50)
-            }
+            return Color.clear.cornerRadius(50)
         }
     }
 

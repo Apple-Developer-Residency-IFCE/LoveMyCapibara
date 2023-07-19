@@ -11,6 +11,7 @@ struct TasksListView: View {
     
     @StateObject var tasksListViewModel = TasksListViewModel()
     @State private var showCreateTask = false
+    @State var showCalendar = false
     let columns = [GridItem()]
     
     var body: some View {
@@ -20,9 +21,12 @@ struct TasksListView: View {
                     CardCuriosityView()
                         .padding(.top)
                     
-                    CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
-                    
-                    CalendarGraphView($tasksListViewModel.selectedDate)
+                    if showCalendar {
+                        CalendarGraphView(startDate: $tasksListViewModel.selectedDate, updateEvents: tasksListViewModel.getDatesWithTaskInMonth)
+                            .cornerRadius(12)
+                    } else {
+                        CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
+                    }
                     
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
@@ -56,9 +60,9 @@ struct TasksListView: View {
             }
             .frame(width: UIScreen.main.bounds.width)
             .background(Color("BackgroundColor"))
-            .navBarTask {
+            .navBarTask(action: {
                 showCreateTask.toggle()
-            }
+            }, showCalendar: $showCalendar)
             .sheet(isPresented: $showCreateTask, content: {
                 CreateTaskView()
             })

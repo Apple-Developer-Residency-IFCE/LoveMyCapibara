@@ -13,7 +13,7 @@ struct CalendarHeader: View {
     var body: some View {
         HStack {
             Button {
-                viewModel.selectForwardYear()
+                viewModel.selectBackYear()
             } label: {
                 Image("LeftArrow")
                     .resizable()

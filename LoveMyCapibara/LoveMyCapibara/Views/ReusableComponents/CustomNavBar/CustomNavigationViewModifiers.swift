@@ -29,7 +29,7 @@ struct NavBarViewPet<Destination: View>: ViewModifier {
 }
 
 struct NavBarViewTasks: ViewModifier {
-    @State private var selected = false
+    @Binding var showCalendar: Bool
     var action: () -> Void
     
     func body(content: Content) -> some View {
@@ -40,7 +40,7 @@ struct NavBarViewTasks: ViewModifier {
                         .foregroundColor(Color("PrimaryColor"))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {selected = !selected}, label: {Image(selected ? "calendar_filled" : "calendar_outlined")})
+                    Button(action: {showCalendar.toggle()}, label: {Image(showCalendar ? "calendar_filled" : "calendar_outlined")})
                         .foregroundColor(Color("PrimaryColor"))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -250,8 +250,8 @@ extension View {
         self.modifier(NavBarViewAddTask(action: action))
     }
     
-    func navBarTask(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewTasks(action: action))
+    func navBarTask(action: @escaping () -> Void, showCalendar: Binding<Bool>) -> some View {
+        self.modifier(NavBarViewTasks(showCalendar: showCalendar, action: action))
     }
 
     func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {

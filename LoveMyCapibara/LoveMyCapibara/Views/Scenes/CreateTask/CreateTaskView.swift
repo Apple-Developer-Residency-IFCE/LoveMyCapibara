@@ -63,9 +63,8 @@ struct CreateTaskView: View {
                 VStack(alignment: .leading) {
                     TextField("Descrição", text: $viewModel.text, axis: .vertical)
                         .padding(.top, 16)
-                    Spacer()
                 }
-                .frame(height: 200)
+                .frame(height: 200, alignment: .topLeading)
                 .padding(.horizontal, 20)
                 .background(Color("FieldBackgroundColor"))
                 .cornerRadius(16)
@@ -74,6 +73,8 @@ struct CreateTaskView: View {
                     viewModel.createTaskForPet()
                     dismiss()
                 }
+                
+                Spacer()
             }
             .onAppear {
                 viewModel.getPets()

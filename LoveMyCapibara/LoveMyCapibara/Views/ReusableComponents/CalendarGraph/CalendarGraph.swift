@@ -10,19 +10,21 @@ import SwiftUI
 struct CalendarGraphView: View {
     @Binding var startDate: Date
     @Binding var endDate: Date
-    var isRangeCalendar: Bool = false
+    var updateEvents: (_ date: Date) -> [Date]
     @StateObject var viewModel: CalendarViewModel
     
-    init(_ startDate: Binding<Date>) {
+    init(startDate: Binding<Date>, updateEvents: @escaping (_ date: Date) -> [Date] = { _ in return [] }) {
         _startDate = startDate
-        _endDate = startDate
+        _endDate = .constant(Date.now)
         _viewModel = StateObject(wrappedValue: CalendarViewModel(startDate.wrappedValue))
+        self.updateEvents = updateEvents
     }
     
-    init(_ startDate: Binding<Date>, endDate: Binding<Date>) {
+    init(startDate: Binding<Date>, endDate: Binding<Date>, updateEvents: @escaping (_ date: Date) -> [Date] = { _ in return [] }) {
         _startDate = startDate
         _endDate = endDate
-        _viewModel = StateObject(wrappedValue: CalendarViewModel(startDate.wrappedValue))
+        _viewModel = StateObject(wrappedValue: CalendarViewModel(startDate.wrappedValue, endDate: endDate.wrappedValue))
+        self.updateEvents = updateEvents
     }
     
     var body: some View {
@@ -63,11 +65,21 @@ struct CalendarGraphView: View {
             }
         }
         .background(Color("CalendarBackground"))
-        .onChange(of: viewModel.firstDate ?? Date.now) { newValue in
-            startDate = newValue
+        .onChange(of: viewModel.firstDate ?? nil) { _ in
+            if let newDate = viewModel.firstDate {
+                startDate = newDate
+            }
         }
-        .onChange(of: viewModel.secondDate ?? Date.now) { newValue in
-            endDate = newValue
+        .onChange(of: viewModel.secondDate ?? nil) { _ in
+            if let newDate = viewModel.secondDate {
+                endDate = newDate
+            }
+        }
+        .onChange(of: viewModel.date) { newValue in
+            viewModel.events = updateEvents(newValue)
+        }
+        .onAppear {
+            viewModel.events = updateEvents(viewModel.date)
         }
     }
 }
@@ -75,6 +87,6 @@ struct CalendarGraphView: View {
 // MARK: - PREVIEW
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarGraphView(.constant(Date.now))
+        CalendarGraphView(startDate: .constant(Date.now), endDate: .constant(Date.now))
     }
 }

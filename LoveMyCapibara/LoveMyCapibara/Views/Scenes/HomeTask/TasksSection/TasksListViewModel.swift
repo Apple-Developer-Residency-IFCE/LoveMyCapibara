@@ -9,7 +9,10 @@ import Foundation
 
 class TasksListViewModel: ObservableObject {
     @Published var tasks: [TaskModel] = []
-    @Published var selectedDate: Date = Date.now
+    
+    @Published var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
+    
+    let taskManager = TaskDataManager()
    
     var completedTasks: [TaskModel] {
         return tasks.filter({ $0.completed ?? false })
@@ -18,8 +21,6 @@ class TasksListViewModel: ObservableObject {
     var unfinishedTasks: [TaskModel] {
         return tasks.filter({ !($0.completed ?? false)})
     }
-    
-    let taskManager = TaskDataManager()
     
     var showToDoTasks: Bool {
         if unfinishedTasks.isEmpty {
@@ -47,5 +48,4 @@ class TasksListViewModel: ObservableObject {
         
         return dateFormatter.string(from: task.date)
     }
-    
 }

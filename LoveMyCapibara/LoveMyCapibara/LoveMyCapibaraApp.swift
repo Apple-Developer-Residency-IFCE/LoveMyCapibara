@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct LoveMyCapibaraApp: App {
     @AppStorage("preferredColorScheme") var selectedOption = 1
+    @AppStorage("onboarding") var isOnboarding: Bool = true
     
     // Instancia da classe controladora do core data
     let persistenceManager = CoreDataManager.shared
@@ -26,9 +27,15 @@ struct LoveMyCapibaraApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(theme)
-                .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+            NavigationView {
+                if isOnboarding {
+                    OnboardingView(nextView: { isOnboarding = false })
+                } else {
+                    ContentView()
+                        .preferredColorScheme(theme)
+                        .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+                }
+            }
         }
     }
 }

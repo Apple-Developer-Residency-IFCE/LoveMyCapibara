@@ -9,7 +9,6 @@ import Foundation
 
 class TasksListViewModel: ObservableObject {
     @Published var tasks: [TaskModel] = []
-    
     @Published var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
     let taskManager = TaskDataManager()

@@ -12,7 +12,7 @@ struct CreateTaskView: View {
     @ObservedObject var viewModel = CreateTaskViewModel()
     @Environment(\.dismiss) private var dismiss: DismissAction
     @State var timer: Date = .now
-
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -71,7 +71,7 @@ struct CreateTaskView: View {
                     .background(Color("FieldBackgroundColor"))
                     .cornerRadius(16)
                     
-                    .navBarAddTask {
+                    .navBarAddTask(isDisabled: !viewModel.taskIsValid(task: viewModel.task)) {
                         viewModel.createTaskForPet()
                         dismiss()
                     }

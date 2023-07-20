@@ -60,7 +60,7 @@ class EditTaskViewModel: ObservableObject {
         return currentTask
     }
     
-    func taskIsValid(_ task: TaskModel) -> Bool {
-        return !(task.title?.isEmpty ?? false)
+    func taskIsValid(task: TaskModel) -> Bool {
+        return !txtTitle.isEmpty && !selectedPet.isEmpty && selectedPet != "Nenhum" && type != .empty
     }
 }

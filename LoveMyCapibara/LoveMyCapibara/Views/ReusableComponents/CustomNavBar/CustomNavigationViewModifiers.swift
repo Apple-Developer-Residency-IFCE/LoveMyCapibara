@@ -181,6 +181,7 @@ struct NavBarViewEditPet: ViewModifier {
     }
 }
 struct NavBarViewEditTask: ViewModifier {
+    var isDisabled: Bool
     var action: () -> Void
     @Environment(\.dismiss) var dismiss
     func body(content: Content) -> some View {
@@ -199,7 +200,9 @@ struct NavBarViewEditTask: ViewModifier {
                     Button("Salvar") {
                         action()
                     }
+                    .disabled(isDisabled)
                     .font(FontManager.poppinsBold(size: 16))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
                 }
             }
     }
@@ -279,8 +282,8 @@ extension View {
         self.modifier(NavBarViewTasks(action: action))
     }
     
-    func navBarEditTask(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewEditTask(action: action))
+    func navBarEditTask(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewEditTask(isDisabled: isDisabled, action: action))
     }
     
     func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {

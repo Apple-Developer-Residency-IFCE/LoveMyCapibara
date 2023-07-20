@@ -83,7 +83,7 @@ struct EditTaskView: View {
                     Alert(
                         title: Text("Deseja excluir o cadastro?"),
                         message: Text("Uma vez excluída, essa ação não pode ser desfeita"),
-                        primaryButton: .cancel(Text("Cancelar"), action: {
+            g            primaryButton: .cancel(Text("Cancelar"), action: {
                             isPopUpActive = false
                         }),
                         secondaryButton: .destructive(Text("Excluir"), action: {
@@ -94,7 +94,7 @@ struct EditTaskView: View {
                 }
             }
             .padding(.horizontal)
-            .navBarEditTask {
+            .navBarEditTask(isDisabled: !viewModel.taskIsValid(task: viewModel.currentTask)) {
                 let updatedTask = viewModel.updateSelectedTask()
                 viewModel.editTask(updatedTask)
                 dismiss()

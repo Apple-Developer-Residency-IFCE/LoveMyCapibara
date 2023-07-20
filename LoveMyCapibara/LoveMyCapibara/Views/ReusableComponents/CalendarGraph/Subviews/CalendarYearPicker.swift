@@ -35,8 +35,6 @@ struct CalendarYearPicker: View {
     }
 }
 
-
-
 struct CalendarYearPicker_Previews: PreviewProvider {
     static var previews: some View {
         CalendarYearPicker()

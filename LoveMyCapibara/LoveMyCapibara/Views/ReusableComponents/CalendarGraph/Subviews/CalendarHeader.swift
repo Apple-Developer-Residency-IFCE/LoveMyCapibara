@@ -61,9 +61,3 @@ struct CalendarHeader: View {
         }
     }
 }
-
-//struct CalendarHeader_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CalendarHeader()
-//    }
-//}

@@ -14,8 +14,11 @@ struct EditTaskView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    init(taskInstance: TaskModel) {
+    var onDelete: () -> Void
+    
+    init(taskInstance: TaskModel, onDelete: @escaping () -> Void) {
         self.taskInstance = taskInstance
+        self.onDelete = onDelete
         _viewModel = StateObject(wrappedValue: EditTaskViewModel(currentTask: taskInstance))
     }
     
@@ -89,6 +92,7 @@ struct EditTaskView: View {
                         secondaryButton: .destructive(Text("Excluir"), action: {
                             viewModel.deleteById(taskInstance.id ?? UUID())
                             dismiss()
+                            onDelete()
                         })
                     )
                 }
@@ -116,6 +120,6 @@ struct EditTaskView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        EditTaskView(taskInstance: taskTest)
+        EditTaskView(taskInstance: taskTest, onDelete: {})
     }
 }

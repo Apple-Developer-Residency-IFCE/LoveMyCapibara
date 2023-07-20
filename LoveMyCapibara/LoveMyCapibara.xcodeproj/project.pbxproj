@@ -35,6 +35,7 @@
 		801B10A42A54C5D300ED848B /* FrequencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B10A32A54C5D300ED848B /* FrequencyModel.swift */; };
 		801B10A62A54C61400ED848B /* TaskTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B10A52A54C61400ED848B /* TaskTypeModel.swift */; };
 		801B10A82A54C62400ED848B /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B10A72A54C62400ED848B /* TaskModel.swift */; };
+		8097FCEB2A6744A400F3881E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097FCEA2A6744A400F3881E /* SplashScreenView.swift */; };
 		809A640D2A65D874003C060B /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A640C2A65D874003C060B /* EditTaskView.swift */; };
 		809A640F2A65D88C003C060B /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A640E2A65D88C003C060B /* EditTaskViewModel.swift */; };
 		809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */; };
@@ -118,6 +119,7 @@
 		801B10A32A54C5D300ED848B /* FrequencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyModel.swift; sourceTree = "<group>"; };
 		801B10A52A54C61400ED848B /* TaskTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTypeModel.swift; sourceTree = "<group>"; };
 		801B10A72A54C62400ED848B /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		8097FCEA2A6744A400F3881E /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		809A640C2A65D874003C060B /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		809A640E2A65D88C003C060B /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				417532272A65E7F700A2AF39 /* Onboarding */,
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
+				8097FCE92A67447800F3881E /* SplashScreen */,
 				417532212A56394600A2AF39 /* CardCuriosity */,
 				80AE70842A4F877A00D7F5D9 /* HomeTask */,
 				F5412C5A2A4BAF8700A72EA2 /* TaskDetails */,
@@ -370,6 +373,14 @@
 				C0EA9D332A313EFF0007DD27 /* SubView */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8097FCE92A67447800F3881E /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8097FCEA2A6744A400F3881E /* SplashScreenView.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		809A640B2A65D816003C060B /* EditTask */ = {
@@ -691,6 +702,7 @@
 				C030D7402A4263C1007013A2 /* SelectedRadioIcon.swift in Sources */,
 				A37DD1CD2A4E3703000697C5 /* FactModel.swift in Sources */,
 				C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */,
+				8097FCEB2A6744A400F3881E /* SplashScreenView.swift in Sources */,
 				417532292A65E80E00A2AF39 /* OnboardingView.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */,

@@ -40,6 +40,9 @@ struct TasksListView: View {
                                 TaskDetailsView(task: task) {
                                     tasksListViewModel.updateList()
                                 }
+                                .onDisappear {
+                                    tasksListViewModel.updateList()
+                                }
                             } label: {
                                 TaskCardView(
                                     task: task,
@@ -48,7 +51,6 @@ struct TasksListView: View {
                             }
                         }
                     }
-                    .padding(.top)
                     if !tasksListViewModel.showToDoTasks {
                         EmptyToDoList(showCreateTask: showCreateTask) { tasksListViewModel.updateList() }
                             .onAppear {

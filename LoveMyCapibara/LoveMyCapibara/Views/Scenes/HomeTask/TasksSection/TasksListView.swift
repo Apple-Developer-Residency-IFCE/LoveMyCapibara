@@ -21,12 +21,15 @@ struct TasksListView: View {
                     CardCuriosityView()
                         .padding(.top)
                     
-                    if showCalendar {
-                        CalendarGraphView(startDate: $tasksListViewModel.selectedDate, updateEvents: tasksListViewModel.getDatesWithTaskInMonth)
-                            .cornerRadius(12)
-                    } else {
-                        CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
+                    VStack {
+                        if showCalendar {
+                            CalendarGraphView(startDate: $tasksListViewModel.selectedDate, updateEvents: tasksListViewModel.getDatesWithTaskInMonth)
+                                .cornerRadius(12)
+                        } else {
+                            CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
+                        }
                     }
+                    .animation(.easeInOut, value: showCalendar)
                     
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))

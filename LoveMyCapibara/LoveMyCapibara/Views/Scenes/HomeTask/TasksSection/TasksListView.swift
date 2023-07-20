@@ -34,7 +34,7 @@ struct TasksListView: View {
                             } label: {
                                 TaskCardView(
                                     task: task,
-                                    time: tasksListViewModel.timeFormatter(task: task)
+                                    time: tasksListViewModel.timeFormatter(task: task), action: { guard let id = task.id else { return }; tasksListViewModel.deleteTask(id: task.id ) }
                                 )
                             }
                         }

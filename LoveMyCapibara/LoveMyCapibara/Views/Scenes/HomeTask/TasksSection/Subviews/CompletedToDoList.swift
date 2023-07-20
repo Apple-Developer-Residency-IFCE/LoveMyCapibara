@@ -31,8 +31,7 @@ struct CompletedToDoList: View {
                     }label: {
                         TaskCardView(
                             task: task,
-                            time: tasksListViewModel.timeFormatter(task: task)
-                        )
+                            time: tasksListViewModel.timeFormatter(task: task), action: {})
                     }
                 }
             }

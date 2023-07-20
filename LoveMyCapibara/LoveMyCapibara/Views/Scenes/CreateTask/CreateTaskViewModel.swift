@@ -51,6 +51,6 @@ final class CreateTaskViewModel: ObservableObject {
     }
     
     func taskIsValid(task: TaskModel) -> Bool {
-        return !txtTitle.isEmpty && !selectedPet.isEmpty && type != .empty
+        return !txtTitle.isEmpty && !selectedPet.isEmpty && selectedPet != "Nenhum" && type != .empty
     }
 }

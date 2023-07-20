@@ -83,7 +83,7 @@ struct EditTaskView: View {
                     Alert(
                         title: Text("Deseja excluir o cadastro?"),
                         message: Text("Uma vez excluída, essa ação não pode ser desfeita"),
-            g            primaryButton: .cancel(Text("Cancelar"), action: {
+                        primaryButton: .cancel(Text("Cancelar"), action: {
                             isPopUpActive = false
                         }),
                         secondaryButton: .destructive(Text("Excluir"), action: {

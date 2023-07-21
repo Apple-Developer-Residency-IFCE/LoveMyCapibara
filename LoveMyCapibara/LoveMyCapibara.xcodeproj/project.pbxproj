@@ -10,6 +10,8 @@
 		0D46C17E81C70EB64E8C9759 /* TaskDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCA24F4D5FAA73D9C880AC /* TaskDataManager.swift */; };
 		4175321A2A537D1E00A2AF39 /* RenderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532192A537D1E00A2AF39 /* RenderLineView.swift */; };
 		417532232A56395C00A2AF39 /* CardCuriosityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532222A56395C00A2AF39 /* CardCuriosityView.swift */; };
+		417532292A65E80E00A2AF39 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417532282A65E80E00A2AF39 /* OnboardingView.swift */; };
+		4175322C2A6609A700A2AF39 /* CardForIndexOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4175322B2A6609A700A2AF39 /* CardForIndexOnboarding.swift */; };
 		437BA1C6435AC08C51560D9F /* RememberAtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C681DA15AEAD2BF0DF5FC3 /* RememberAtModel.swift */; };
 		6418348D2A20385900825BA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418348C2A20385900825BA8 /* HomeView.swift */; };
 		64473F372A218117000B5967 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64473F322A218117000B5967 /* GenderModel.swift */; };
@@ -33,6 +35,9 @@
 		801B10A42A54C5D300ED848B /* FrequencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B10A32A54C5D300ED848B /* FrequencyModel.swift */; };
 		801B10A62A54C61400ED848B /* TaskTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B10A52A54C61400ED848B /* TaskTypeModel.swift */; };
 		801B10A82A54C62400ED848B /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B10A72A54C62400ED848B /* TaskModel.swift */; };
+		8097FCEB2A6744A400F3881E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097FCEA2A6744A400F3881E /* SplashScreenView.swift */; };
+		809A640D2A65D874003C060B /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A640C2A65D874003C060B /* EditTaskView.swift */; };
+		809A640F2A65D88C003C060B /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A640E2A65D88C003C060B /* EditTaskViewModel.swift */; };
 		809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */; };
 		80A13C862A4E37580038CBED /* TasksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A13C852A4E37580038CBED /* TasksListViewModel.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
@@ -82,6 +87,8 @@
 /* Begin PBXFileReference section */
 		417532192A537D1E00A2AF39 /* RenderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLineView.swift; sourceTree = "<group>"; };
 		417532222A56395C00A2AF39 /* CardCuriosityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCuriosityView.swift; sourceTree = "<group>"; };
+		417532282A65E80E00A2AF39 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		4175322B2A6609A700A2AF39 /* CardForIndexOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardForIndexOnboarding.swift; sourceTree = "<group>"; };
 		6418348C2A20385900825BA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		64473F322A218117000B5967 /* GenderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderModel.swift; sourceTree = "<group>"; };
 		64473F342A218117000B5967 /* PetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
@@ -107,6 +114,9 @@
 		801B10A32A54C5D300ED848B /* FrequencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyModel.swift; sourceTree = "<group>"; };
 		801B10A52A54C61400ED848B /* TaskTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTypeModel.swift; sourceTree = "<group>"; };
 		801B10A72A54C62400ED848B /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		8097FCEA2A6744A400F3881E /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		809A640C2A65D874003C060B /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		809A640E2A65D88C003C060B /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		80A13C852A4E37580038CBED /* TasksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewModel.swift; sourceTree = "<group>"; };
 		80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -178,6 +188,22 @@
 				417532222A56395C00A2AF39 /* CardCuriosityView.swift */,
 			);
 			path = CardCuriosity;
+			sourceTree = "<group>";
+		};
+		417532272A65E7F700A2AF39 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				417532282A65E80E00A2AF39 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		4175322A2A66098200A2AF39 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4175322B2A6609A700A2AF39 /* CardForIndexOnboarding.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		642241D72A29669B006B3634 /* AddPet */ = {
@@ -267,6 +293,7 @@
 		64ED6EEA2A2008F100E428F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4175322A2A66098200A2AF39 /* Enums */,
 				801B10A72A54C62400ED848B /* TaskModel.swift */,
 				801B10A52A54C61400ED848B /* TaskTypeModel.swift */,
 				801B10A32A54C5D300ED848B /* FrequencyModel.swift */,
@@ -314,16 +341,19 @@
 		64ED6EF22A200AED00E428F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				417532272A65E7F700A2AF39 /* Onboarding */,
 				64A86CDE2A20056B000F9AA0 /* ContentView.swift */,
+				8097FCE92A67447800F3881E /* SplashScreen */,
 				417532212A56394600A2AF39 /* CardCuriosity */,
-				F5412C5A2A4BAF8700A72EA2 /* TaskDetails */,
 				80AE70842A4F877A00D7F5D9 /* HomeTask */,
+				F5412C5A2A4BAF8700A72EA2 /* TaskDetails */,
+				B98D82017788948D8B16E0F6 /* CreateTask */,
+				809A640B2A65D816003C060B /* EditTask */,
 				C030D7362A4263C1007013A2 /* Settings */,
 				64DE71A12A2E88BF00B2CF26 /* PetDetailsView */,
 				F5333CCF2A37CDBA0073594B /* EditPet */,
 				642241D72A29669B006B3634 /* AddPet */,
 				64F7737A2A26AB62006384C2 /* Home */,
-				B98D82017788948D8B16E0F6 /* CreateTask */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -336,6 +366,23 @@
 				C0EA9D332A313EFF0007DD27 /* SubView */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8097FCE92A67447800F3881E /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8097FCEA2A6744A400F3881E /* SplashScreenView.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		809A640B2A65D816003C060B /* EditTask */ = {
+			isa = PBXGroup;
+			children = (
+				809A640C2A65D874003C060B /* EditTaskView.swift */,
+				809A640E2A65D88C003C060B /* EditTaskViewModel.swift */,
+			);
+			path = EditTask;
 			sourceTree = "<group>";
 		};
 		809D29582A3D2C57005BAE02 /* CoreData */ = {
@@ -612,6 +659,7 @@
 				6483B5932A2806A2001915D5 /* HomeViewWithoutPets.swift in Sources */,
 				C030D7412A4263C1007013A2 /* ThemeSelector.swift in Sources */,
 				80A7C0242A410CB100AC7769 /* AddPetViewModel.swift in Sources */,
+				4175322C2A6609A700A2AF39 /* CardForIndexOnboarding.swift in Sources */,
 				809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */,
 				80A7C0222A410B0C00AC7769 /* PetDataManager.swift in Sources */,
 				F53053142A54B0480079E073 /* CalendarItem.swift in Sources */,
@@ -624,7 +672,9 @@
 				80AEE9242A4CDC4400E65DAC /* TasksListView.swift in Sources */,
 				F53053162A54D06B0079E073 /* CalendarInlineViewModel.swift in Sources */,
 				646D84502A20367A00884CC2 /* FontManager.swift in Sources */,
+				809A640D2A65D874003C060B /* EditTaskView.swift in Sources */,
 				801B10A62A54C61400ED848B /* TaskTypeModel.swift in Sources */,
+				809A640F2A65D88C003C060B /* EditTaskViewModel.swift in Sources */,
 				64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */,
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,
 				80A13C862A4E37580038CBED /* TasksListViewModel.swift in Sources */,
@@ -638,6 +688,8 @@
 				C030D7402A4263C1007013A2 /* SelectedRadioIcon.swift in Sources */,
 				A37DD1CD2A4E3703000697C5 /* FactModel.swift in Sources */,
 				C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */,
+				8097FCEB2A6744A400F3881E /* SplashScreenView.swift in Sources */,
+				417532292A65E80E00A2AF39 /* OnboardingView.swift in Sources */,
 				64473F392A218117000B5967 /* PetModel.swift in Sources */,
 				C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,

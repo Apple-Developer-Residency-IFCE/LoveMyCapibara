@@ -122,6 +122,7 @@ struct NavBarViewAddPet: ViewModifier {
 struct NavBarViewAddTask: ViewModifier {
     @State var isShowingSheet = true
     @Environment(\.dismiss) var dismiss
+    var isDisabled: Bool
     var action: () -> Void
     
     func body(content: Content) -> some View {
@@ -142,8 +143,9 @@ struct NavBarViewAddTask: ViewModifier {
                         action()
                         dismiss()
                     }
+                    .disabled(isDisabled)
                     .font(FontManager.poppinsBold(size: 16))
-                    .foregroundColor(Color("PrimaryColor"))
+                    .foregroundColor(isDisabled ? Color("SecondaryText") : Color("PrimaryColor"))
                 }
             }
     }
@@ -178,6 +180,30 @@ struct NavBarViewEditPet: ViewModifier {
             }
     }
 }
+struct NavBarViewEditTask: ViewModifier {
+    var action: () -> Void
+    @Environment(\.dismiss) var dismiss
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle("Editar Tarefa", displayMode: .inline)
+            .navigationBarBackButtonHidden(false)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancelar") {
+                        dismiss()
+                    }
+                    .font(FontManager.poppinsRegular(size: 16))
+                    .foregroundColor(Color("PrimaryColor"))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Salvar") {
+                        action()
+                    }
+                    .font(FontManager.poppinsBold(size: 16))
+                }
+            }
+    }
+}
 
 struct NavBarViewInfoTask<Destination: View>: ViewModifier {
     var title: String
@@ -199,7 +225,6 @@ struct NavBarViewInfoTask<Destination: View>: ViewModifier {
                             Image("BackArrow")
                                 .resizable()
                                 .frame(width: 12, height: 21)
-                                                            
                             Text("Tarefas")
                                 .font(FontManager.poppinsRegular(size: 16))
                                 .foregroundColor(Color("PrimaryColor"))
@@ -246,14 +271,18 @@ extension View {
         self.modifier(NavBarViewEditPet(isDisabled: isDisabled, action: action))
     }
     
-    func navBarAddTask(action: @escaping () -> Void) -> some View {
-        self.modifier(NavBarViewAddTask(action: action))
+    func navBarAddTask(isDisabled: Bool, action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewAddTask(isDisabled: isDisabled, action: action))
     }
     
     func navBarTask(action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewTasks(action: action))
     }
-
+    
+    func navBarEditTask(action: @escaping () -> Void) -> some View {
+        self.modifier(NavBarViewEditTask(action: action))
+    }
+    
     func navBarViewInfoTask(title: String, destination: @escaping () -> some View, action: @escaping () -> Void) -> some View {
         self.modifier(NavBarViewInfoTask(title: title, destination: destination, action: action))
     }

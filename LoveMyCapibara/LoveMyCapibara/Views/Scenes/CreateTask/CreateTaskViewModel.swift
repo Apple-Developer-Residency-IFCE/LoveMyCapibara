@@ -24,10 +24,6 @@ final class CreateTaskViewModel: ObservableObject {
     @Published var date: Date = .now
     @Published var rememberAt: RememberAtModel = .empty
     
-    @Published var hour: Int = 0
-    @Published var min: Int = 0
-    @Published var amPm: String = "am"
-    
     private func add() {
         taskManager.createTask(task)
     }

@@ -39,7 +39,7 @@ struct CreateTaskView: View {
                                                toDate: .distantFuture,
                                                title: "Data")
                                 
-                                DatePickerView(selectedDate: $timer,
+                                DatePickerView(selectedDate: $viewModel.date,
                                                toDate: .distantFuture,
                                                component: .hourAndMinute,
                                                title: "")

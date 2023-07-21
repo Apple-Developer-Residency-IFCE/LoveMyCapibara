@@ -80,7 +80,7 @@ struct TaskDetailsView: View {
                 Spacer()
             }
             .navBarViewInfoTask(title: viewModel.task.type?.rawValue ?? "") {
-                EditTaskView(taskInstance: viewModel.task)
+                EditTaskView(taskInstance: viewModel.task, onDelete: { dismiss() })
             } action: {
                 viewModel.updateTask()
             }

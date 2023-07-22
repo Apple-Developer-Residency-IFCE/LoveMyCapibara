@@ -32,10 +32,11 @@ struct TaskCardView: View {
     var body: some View {
         ZStack {
             
-            LinearGradient(gradient: .init(colors: [Color(uiColor: .systemRed), Color.red]), startPoint: .leading, endPoint: .trailing)
+            LinearGradient(gradient: .init(colors: [Color(uiColor: .white), Color.red]), startPoint: .leading, endPoint: .trailing)
             HStack {
                 Spacer()
-                Button(action: { withAnimation(.easeInOut(duration: 0.3), { actionToDelete() }) }, label: {
+                Button(action: { withAnimation(.easeInOut(duration: 0.3), actionToDelete) },
+                       label: {
                     Image(systemName: "trash")
                         .font(.title)
                         .foregroundColor(.white)
@@ -78,11 +79,11 @@ struct TaskCardView: View {
                 }
             }
             .padding()
-            .overlay(RoundedRectangle(cornerRadius: 12)
+            .overlay(RoundedRectangle(cornerRadius: 16)
                 .stroke(Color("CardBorderColor"), lineWidth: 2))
                 .offset(x: offSet)
             .background(
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: 16)
                     .fill(Color("CardBackgroundColor"))
                     .offset(x: offSet)
             )

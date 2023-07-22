@@ -87,12 +87,12 @@ struct TaskCardView: View {
                     .fill(Color("CardBackgroundColor"))
                     .offset(x: offSet)
             )
-            .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
+            .gesture(DragGesture().onChanged(onChanged).onEnded(onEnd))
         }
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
-    func onChanged(value: DragGesture.Value) {
+    func onChanged(_ value: DragGesture.Value) {
         
         if value.translation.width < 0 {
             if isSwipe {
@@ -103,7 +103,7 @@ struct TaskCardView: View {
         }
     }
     
-    func onEnd(value: DragGesture.Value) {
+    func onEnd(_ value: DragGesture.Value) {
         
         withAnimation {
             

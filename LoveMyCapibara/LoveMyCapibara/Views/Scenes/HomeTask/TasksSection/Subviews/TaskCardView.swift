@@ -15,6 +15,8 @@ struct TaskCardView: View {
     var petImage: Data?
     var time: String
     
+    private var image: Image?
+    
     @State var offSet: CGFloat = 0.0
     @State var isSwipe: Bool = false
     
@@ -27,6 +29,12 @@ struct TaskCardView: View {
         self.petImage = task.pet?.imageName
         self.time = time
         self.actionToDelete = action
+        guardImage()
+    }
+    
+    mutating func guardImage() {
+        guard let petImage else { return }
+        self.image = Image(uiImage: .init(data: petImage) ?? .init())
     }
     
     var body: some View {
@@ -61,8 +69,8 @@ struct TaskCardView: View {
                 }
                 Spacer()
                 VStack(spacing: 8) {
-                    if let data = petImage, let uiImage = UIImage(data: data) {
-                        Image(uiImage: uiImage)
+                    if let image {
+                        image
                             .resizable()
                             .clipShape(Circle())
                             .padding(.trailing, 4)
@@ -71,7 +79,6 @@ struct TaskCardView: View {
                         Circle()
                             .frame(width: 80, height: 80)
                             .foregroundColor(.gray)
-                        
                     }
                     Text(petName)
                         .font(FontManager.poppinsBold(size: 13))

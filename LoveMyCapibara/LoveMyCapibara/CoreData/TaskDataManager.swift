@@ -8,10 +8,19 @@
 import Foundation
 import CoreData
 
-class TaskDataManager {
+protocol TaskDataManagerProtocol {
+    func getAllTasks(searchDate: Date?) -> [TaskModel]
+    func getTaskById(_ id: UUID) -> TaskModel?
+    func createTask(_ task: TaskModel)
+    func updateTask(_ task: TaskModel)
+    func deleteTaskById(_ id: UUID)
+}
+
+class TaskDataManager: TaskDataManagerProtocol {
     var context: NSManagedObjectContext
+    static let shared = TaskDataManager()
     
-    init() {
+    private init() {
         self.context = CoreDataManager.shared.viewContext
     }
     
@@ -48,7 +57,7 @@ class TaskDataManager {
     }
 
     func createTask(_ task: TaskModel) {
-        let petManager = PetDataManager()
+        let petManager = PetDataManager.shared
         let newTask = Task(context: context)
         
         newTask.taskId = task.id
@@ -69,7 +78,7 @@ class TaskDataManager {
     }
     
     func updateTask(_ task: TaskModel) {
-        let petManager = PetDataManager()
+        let petManager = PetDataManager.shared
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", task.id?.uuidString as? CVarArg ?? [0])

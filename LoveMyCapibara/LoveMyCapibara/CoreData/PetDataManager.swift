@@ -8,10 +8,20 @@
 import Foundation
 import CoreData
 
-class PetDataManager {
+protocol PetDataManagerProtocol {
+    func getAllPets() -> [PetModel]
+    func getPetById(_ id: UUID) -> PetModel?
+    func getCoreDataPet(_ id: UUID) -> Pet?
+    func createPet(_ pet: PetModel)
+    func updatePet(_ pet: PetModel)
+    func deletePetById(_ id: UUID)
+}
+
+class PetDataManager: PetDataManagerProtocol {
     var context: NSManagedObjectContext
+    static let shared = PetDataManager()
     
-    init() {
+    private init() {
         self.context = CoreDataManager.shared.viewContext
     }
     

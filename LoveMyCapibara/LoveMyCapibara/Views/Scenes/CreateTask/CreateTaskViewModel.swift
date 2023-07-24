@@ -7,10 +7,31 @@
 
 import Foundation
 
+protocol TaskServiceProtocol {
+    func getAllTask()
+}
+
+class TaskViewModel {
+    let dbManager: TaskServiceProtocol
+    
+    init(dbManager: TaskServiceProtocol) {
+        self.dbManager = dbManager
+    }
+    
+    func getTasks() -> Void {
+        return dbManager.getAllTask()
+    }
+}
+
 final class CreateTaskViewModel: ObservableObject {
     
-    let taskManager = TaskDataManager()
-    let petManager = PetDataManager()
+    let taskManager: TaskDataManagerProtocol
+    let petManager: PetDataManagerProtocol
+    
+    init(taskManager: TaskDataManagerProtocol, petManager: PetDataManagerProtocol) {
+        self.taskManager = taskManager
+        self.petManager = petManager
+    }
     
     @Published var task: TaskModel = .init()
     @Published var selectedPet: String = ""

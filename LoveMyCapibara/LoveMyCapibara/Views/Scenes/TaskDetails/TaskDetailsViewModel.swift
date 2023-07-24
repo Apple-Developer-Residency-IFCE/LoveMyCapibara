@@ -9,7 +9,7 @@ import Foundation
 
 class TaskDetailsViewModel: ObservableObject {
     @Published var task: TaskModel
-    let taskManager = TaskDataManager()
+    let taskManager = TaskDataManager.shared
     
     init(task: TaskModel) {
         self.task = task

@@ -8,7 +8,7 @@
 import Foundation
 
 class EditPetViewModel: ObservableObject {
-    var petManager: PetDataManager = PetDataManager()
+    var petManager = PetDataManager.shared
     var currentPet: PetModel
     
     init(currentPet: PetModel) {

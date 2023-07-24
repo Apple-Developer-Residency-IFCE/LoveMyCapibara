@@ -8,8 +8,8 @@
 import Foundation
 
 class EditTaskViewModel: ObservableObject {
-    var taskManager = TaskDataManager()
-    var petManager = PetDataManager()
+    var taskManager = TaskDataManager.shared
+    var petManager = PetDataManager.shared
     @Published var currentTask: TaskModel
     
     init(currentTask: TaskModel) {

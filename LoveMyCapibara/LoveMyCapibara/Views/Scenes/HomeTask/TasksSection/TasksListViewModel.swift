@@ -11,7 +11,7 @@ class TasksListViewModel: ObservableObject {
     @Published var tasks: [TaskModel] = []
     @Published var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
-    let taskManager = TaskDataManager()
+    let taskManager = TaskDataManager.shared
    
     var completedTasks: [TaskModel] {
         return tasks.filter({ $0.completed ?? false })

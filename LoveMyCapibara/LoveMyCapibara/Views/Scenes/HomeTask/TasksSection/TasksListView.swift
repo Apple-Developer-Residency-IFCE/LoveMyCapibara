@@ -22,7 +22,7 @@ struct TasksListView: View {
                         .padding(.top)
                     
                     VStack {
-                        if showCalendar {
+                        if showCalendar && !showCreateTask {
                             CalendarGraphView(startDate: $tasksListViewModel.selectedDate, updateEvents: tasksListViewModel.getDatesWithTaskInMonth)
                                 .cornerRadius(12)
                         } else {

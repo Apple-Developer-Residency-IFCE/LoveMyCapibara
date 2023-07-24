@@ -38,13 +38,80 @@ class TasksListViewModel: ObservableObject {
     }
     
     func updateList() {
-        self.tasks = taskManager.getAllTasks(searchDate: selectedDate)
+        self.tasks = filterTasksByDate(taskManager.getAllTasks(), searchDate: selectedDate)
     }
     
-    func getDatesWithTaskInMonth(date: Date) -> [Date] {
-        let tasksInMonth = taskManager.getAllTasksInMonth(searchDate: date)
+    private func filterTasksByDate(_ tasks: [TaskModel], searchDate: Date) -> [TaskModel] {
+        var filteredTask: [TaskModel] = []
         
-        return tasksInMonth.map { Calendar.current.startOfDay(for: $0.date) }
+        tasks.forEach { task in
+            switch task.frequency {
+            case .daily:
+                filteredTask.append(task)
+            case .weekly:
+                let diff = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
+                
+                if let days = diff.day, days >= 0 && days % 7 == 0 {
+                    filteredTask.append(task)
+                }
+            case .twoWeeks:
+                let diff = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
+                
+                if let days = diff.day, days >= 0 && days % 14 == 0 {
+                    filteredTask.append(task)
+                }
+            case .monthly:
+                let diff = Calendar.current.dateComponents([.month, .day], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
+                
+                if let months = diff.month, months >= 0 {
+                    if let days = diff.day, days == 0 {
+                        filteredTask.append(task)
+                    }
+                }
+            case .annually:
+                let diff = Calendar.current.dateComponents([.month, .day, .year], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
+                
+                if let years = diff.year, years >= 0 {
+                    if let months = diff.month, months >= 0 && months % 12 == 0 {
+                        if let days = diff.day, days == 0 {
+                            filteredTask.append(task)
+                        }
+                    }
+                }
+            default:
+                let diff = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
+                
+                if let days = diff.day, days == 0 {
+                    filteredTask.append(task)
+                }
+            }
+        }
+        
+        return filteredTask
+    }
+    
+    func getDatesWithTaskInMonth(searchDate: Date) -> [Date] {
+        let tasks = taskManager.getAllTasks()
+        var datesWithTask: [Date] = []
+        
+        if let firstDayOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: searchDate)) {
+            var date = firstDayOfMonth
+            
+            while Calendar.current.isDate(date, equalTo: firstDayOfMonth, toGranularity: .month) {
+                guard let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: date) else {
+                    continue
+                }
+                let taskFilter = filterTasksByDate(tasks, searchDate: date)
+                
+                if !taskFilter.isEmpty {
+                    datesWithTask.append(date)
+                }
+                
+                date = nextDate
+            }
+        }
+        
+        return datesWithTask
     }
 
     func timeFormatter(task: TaskModel) -> String {

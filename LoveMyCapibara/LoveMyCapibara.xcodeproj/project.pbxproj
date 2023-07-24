@@ -73,7 +73,6 @@
 		F532E5532A576BB4006D8DA7 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F532E5522A576BB4006D8DA7 /* CalendarViewModel.swift */; };
 		F532E5562A576E83006D8DA7 /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F532E5552A576E83006D8DA7 /* CalendarHeader.swift */; };
 		F532E5582A57719E006D8DA7 /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F532E5572A57719E006D8DA7 /* CalendarDay.swift */; };
-		F532E55A2A57909B006D8DA7 /* CalendarYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F532E5592A57909B006D8DA7 /* CalendarYearPicker.swift */; };
 		F5333CCE2A37B5E60073594B /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CCD2A37B5E60073594B /* FormViewModel.swift */; };
 		F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5333CD02A37CDDA0073594B /* EditPetView.swift */; };
 		F5338F8B2A2FDE3800164841 /* specie.json in Resources */ = {isa = PBXBuildFile; fileRef = F5338F8A2A2FDE3800164841 /* specie.json */; };
@@ -163,7 +162,6 @@
 		F532E5522A576BB4006D8DA7 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		F532E5552A576E83006D8DA7 /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		F532E5572A57719E006D8DA7 /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
-		F532E5592A57909B006D8DA7 /* CalendarYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarYearPicker.swift; sourceTree = "<group>"; };
 		F5333CCD2A37B5E60073594B /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		F5333CD02A37CDDA0073594B /* EditPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetView.swift; sourceTree = "<group>"; };
 		F5338F8A2A2FDE3800164841 /* specie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = specie.json; sourceTree = "<group>"; };
@@ -538,7 +536,6 @@
 			children = (
 				F532E5552A576E83006D8DA7 /* CalendarHeader.swift */,
 				F532E5572A57719E006D8DA7 /* CalendarDay.swift */,
-				F532E5592A57909B006D8DA7 /* CalendarYearPicker.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -710,8 +707,6 @@
 				80A7C0242A410CB100AC7769 /* AddPetViewModel.swift in Sources */,
 				4175322C2A6609A700A2AF39 /* CardForIndexOnboarding.swift in Sources */,
 				809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */,
-				F532E55A2A57909B006D8DA7 /* CalendarYearPicker.swift in Sources */,
-				4185C2ED2A4CEC8F00B921BC /* FrequencyModel.swift in Sources */,
 				80A7C0222A410B0C00AC7769 /* PetDataManager.swift in Sources */,
 				F53053142A54B0480079E073 /* CalendarItem.swift in Sources */,
 				F5333CD12A37CDDA0073594B /* EditPetView.swift in Sources */,

@@ -29,33 +29,11 @@ class CalendarViewModel: ObservableObject {
     }
     
     var weeks: [[Date]] {
-        calendar.firstWeekday = 2
-        var weeks = [[Date]]()
-        let range = calendar.range(of: .weekOfYear, in: .month, for: date)!
-        for week in range {
-            var weekDays = [Date]()
-            for day in 1...7 {
-                let date = calendar.date(byAdding: .day, value: day-1, to: date.startOfMonth(calendar).startOfWeek(week, calendar: calendar))!
-                weekDays.append(date)
-            }
-            weeks.append(weekDays)
-        }
-        
-        if weeks.count == 5 {
-            let startDate = calendar.date(byAdding: .day, value: 1, to: weeks.last!.last!)!
-            var weekDays = [startDate]
-            for day in 1...6 {
-                let date = calendar.date(byAdding: .day, value: day, to: startDate)!
-                weekDays.append(date)
-            }
-            weeks.append(weekDays)
-        }
-        
-        return weeks
+        getWeeks()
     }
     
     var days: [String] {
-        ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB"]
+        ["SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM"]
     }
     
     var selectedDateRange: ClosedRange<Date>? {
@@ -166,6 +144,37 @@ class CalendarViewModel: ObservableObject {
         let isEventDay = events.filter { $0 == day }.count
         
         return isEventDay > 0
+    }
+    
+    func getWeeks() -> [[Date]] {
+        calendar.firstWeekday = 2
+        var weeks = [[Date]]()
+        guard let range = calendar.range(of: .weekOfYear, in: .month, for: date) else { return [] }
+        for week in range {
+            var weekDays = [Date]()
+            for day in 1...7 {
+                if let date = calendar.date(byAdding: .day, value: day-1, to: date.startOfMonth(calendar).startOfWeek(week, calendar: calendar)) {
+                    weekDays.append(date)
+                }
+            }
+            weeks.append(weekDays)
+        }
+        
+        if weeks.count == 5 {
+            if let lastDay = weeks.last?.last {
+                if let startDate = calendar.date(byAdding: .day, value: 1, to: lastDay) {
+                    var weekDays = [startDate]
+                    for day in 1...6 {
+                        if let date = calendar.date(byAdding: .day, value: day, to: startDate) {
+                            weekDays.append(date)
+                        }
+                    }
+                    weeks.append(weekDays)
+                }
+            }
+        }
+        
+        return weeks
     }
 }
 

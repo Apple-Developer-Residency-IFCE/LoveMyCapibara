@@ -15,12 +15,8 @@ class TaskDataManager {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllTasks(searchDate: Date? = nil) -> [TaskModel] {
+    func getAllTasks() -> [TaskModel] {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        if let searchDate = searchDate, let endDate = Calendar.current.date(byAdding: .day, value: 1, to: searchDate) {
-            request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", searchDate as NSDate, endDate as NSDate)
-        }
         
         do {
             let result = try context.fetch(request)

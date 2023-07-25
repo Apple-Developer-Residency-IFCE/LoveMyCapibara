@@ -15,11 +15,28 @@ class TaskDataManager {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllTasks(searchDate: Date? = nil) -> [TaskModel] {
+    func getAllTasks() -> [TaskModel] {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
-        if let searchDate = searchDate, let endDate = Calendar.current.date(byAdding: .day, value: 1, to: searchDate) {
-            request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", searchDate as NSDate, endDate as NSDate)
+        do {
+            let result = try context.fetch(request)
+            return result.map { task in
+                    .init(taskCoreData: task)
+            }
+        } catch {
+            return []
+        }
+    }
+    
+    func getAllTasksInMonth(searchDate: Date) -> [TaskModel] {
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        let calendar = Calendar.current
+        let componentsDate = calendar.dateComponents([.month, .year], from: searchDate)
+        
+        if let firstDayMonth = calendar.date(from: componentsDate),
+           let lastDayMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: firstDayMonth) {
+            request.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", firstDayMonth as NSDate, lastDayMonth as NSDate)
         }
         
         do {

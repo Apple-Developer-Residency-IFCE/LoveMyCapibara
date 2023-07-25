@@ -10,6 +10,7 @@ import CoreData
 
 class PetDataManager {
     var context: NSManagedObjectContext
+    let taskDataManager = TaskDataManager()
     
     init() {
         self.context = CoreDataManager.shared.viewContext
@@ -111,14 +112,21 @@ class PetDataManager {
         do {
             let result = try context.fetch(fetchRequest)
             let playerEntity = result.first
-            
+                     
             if let playerEntity = playerEntity {
-                // Remover o petEntity do contexto e salvar as mudanças
+                deleteAssociatedTasks(.init(petEntity: playerEntity))
                 context.delete(playerEntity)
                 try context.save()
             }
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    func deleteAssociatedTasks(_ pet: PetModel) {
+        for task in taskDataManager.getAllPetTasks(pet) {
+            guard let id = task.id else { return }
+            taskDataManager.deleteTaskById(id)
         }
     }
 }

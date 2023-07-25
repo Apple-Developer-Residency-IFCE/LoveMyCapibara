@@ -81,6 +81,7 @@ struct TasksListView: View {
         .onAppear(perform: {
             tasksListViewModel.updateList()
         })
+        .environmentObject(tasksListViewModel)
     }
 }
 

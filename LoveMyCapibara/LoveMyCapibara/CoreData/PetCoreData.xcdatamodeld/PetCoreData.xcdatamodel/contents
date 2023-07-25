@@ -13,7 +13,7 @@
         <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="pet" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
-        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="completed" optional="YES" attributeType="Transformable"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="frequency" optional="YES" attributeType="String"/>
         <attribute name="rememberAt" optional="YES" attributeType="String"/>

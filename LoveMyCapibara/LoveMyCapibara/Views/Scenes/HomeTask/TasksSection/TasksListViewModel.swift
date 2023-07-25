@@ -14,11 +14,11 @@ class TasksListViewModel: ObservableObject {
     let taskManager = TaskDataManager()
    
     var completedTasks: [TaskModel] {
-        return tasks.filter({ $0.completed ?? false })
+        return tasks.filter({ $0.completed?[selectedDate.description] ?? false })
     }
 
     var unfinishedTasks: [TaskModel] {
-        return tasks.filter({ !($0.completed ?? false)})
+        return tasks.filter({ !($0.completed?[selectedDate.description] ?? false)})
     }
     
     var showToDoTasks: Bool {

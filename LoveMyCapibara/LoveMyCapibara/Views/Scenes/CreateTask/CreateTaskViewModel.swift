@@ -39,7 +39,7 @@ final class CreateTaskViewModel: ObservableObject {
     
     func createTaskForPet() {
         task.pet = petManager.getAllPets().filter({ $0.name == selectedPet }).first
-        task.completed = false
+        task.completed = [String: Bool]()
         task.title = txtTitle
         task.text = text
         task.id = UUID()

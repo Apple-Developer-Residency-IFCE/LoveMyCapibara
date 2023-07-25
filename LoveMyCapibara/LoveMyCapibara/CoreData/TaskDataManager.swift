@@ -127,4 +127,9 @@ class TaskDataManager {
             print(error.localizedDescription)
         }
     }
+    
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel] {
+        let result = TaskDataManager().getAllTasks().filter({ $0.pet?.name == pet.name })
+        return result
+    }
 }

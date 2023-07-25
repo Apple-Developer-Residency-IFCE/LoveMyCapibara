@@ -9,11 +9,12 @@ import Foundation
 import CoreData
 
 protocol TaskDataManagerProtocol {
-    func getAllTasks(searchDate: Date?) -> [TaskModel]?
+    func getAllTasks() -> [TaskModel]?
     func getTaskById(_ id: UUID) -> TaskModel?
     func createTask(_ task: TaskModel) -> Bool
     func updateTask(_ task: TaskModel) -> Bool
     func deleteTaskById(_ id: UUID) -> Bool
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel]?
 }
 
 class TaskDataManager: TaskDataManagerProtocol {
@@ -24,12 +25,8 @@ class TaskDataManager: TaskDataManagerProtocol {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllTasks(searchDate: Date? = nil) -> [TaskModel]? {
+    func getAllTasks() -> [TaskModel]? {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        if let searchDate = searchDate, let endDate = Calendar.current.date(byAdding: .day, value: 1, to: searchDate) {
-            request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", searchDate as NSDate, endDate as NSDate)
-        }
         
         do {
             let result = try context.fetch(request)
@@ -37,11 +34,10 @@ class TaskDataManager: TaskDataManagerProtocol {
                     .init(taskCoreData: task)
             }
         } catch {
-            print(error.localizedDescription)
-            return nil
+            return []
         }
     }
-
+    
     func getTaskById(_ id: UUID) -> TaskModel? {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
@@ -127,5 +123,11 @@ class TaskDataManager: TaskDataManagerProtocol {
             print(error.localizedDescription)
             return false
         }
+    }
+    
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel]? {
+        let result = getAllTasks()?.filter({ $0.pet?.name == pet.name })
+        guard let result = result else { return nil }
+        return result
     }
 }

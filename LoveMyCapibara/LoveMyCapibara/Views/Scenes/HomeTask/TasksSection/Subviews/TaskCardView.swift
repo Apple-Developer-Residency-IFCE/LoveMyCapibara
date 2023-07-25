@@ -15,6 +15,8 @@ struct TaskCardView: View {
     var petImage: Data?
     var time: String
     
+    private var image: Image?
+    
     @State var offSet: CGFloat = 0.0
     @State var isSwipe: Bool = false
     
@@ -27,15 +29,22 @@ struct TaskCardView: View {
         self.petImage = task.pet?.imageName
         self.time = time
         self.actionToDelete = action
+        guardImage()
+    }
+    
+    mutating func guardImage() {
+        guard let petImage else { return }
+        self.image = Image(uiImage: .init(data: petImage) ?? .init())
     }
     
     var body: some View {
         ZStack {
             
-            LinearGradient(gradient: .init(colors: [Color(uiColor: .systemRed), Color.red]), startPoint: .leading, endPoint: .trailing)
+            LinearGradient(gradient: .init(colors: [Color(uiColor: .white), Color.red]), startPoint: .leading, endPoint: .trailing)
             HStack {
                 Spacer()
-                Button(action: { withAnimation(.easeInOut(duration: 0.3), { actionToDelete() }) }, label: {
+                Button(action: { withAnimation(.easeInOut(duration: 0.3), actionToDelete) },
+                       label: {
                     Image(systemName: "trash")
                         .font(.title)
                         .foregroundColor(.white)
@@ -60,8 +69,8 @@ struct TaskCardView: View {
                 }
                 Spacer()
                 VStack(spacing: 8) {
-                    if let data = petImage, let uiImage = UIImage(data: data) {
-                        Image(uiImage: uiImage)
+                    if let image {
+                        image
                             .resizable()
                             .clipShape(Circle())
                             .padding(.trailing, 4)
@@ -70,7 +79,6 @@ struct TaskCardView: View {
                         Circle()
                             .frame(width: 80, height: 80)
                             .foregroundColor(.gray)
-                        
                     }
                     Text(petName)
                         .font(FontManager.poppinsBold(size: 13))
@@ -78,20 +86,20 @@ struct TaskCardView: View {
                 }
             }
             .padding()
-            .overlay(RoundedRectangle(cornerRadius: 12)
+            .overlay(RoundedRectangle(cornerRadius: 16)
                 .stroke(Color("CardBorderColor"), lineWidth: 2))
                 .offset(x: offSet)
             .background(
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: 16)
                     .fill(Color("CardBackgroundColor"))
                     .offset(x: offSet)
             )
-            .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
+            .gesture(DragGesture().onChanged(onChanged).onEnded(onEnd))
         }
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
-    func onChanged(value: DragGesture.Value) {
+    func onChanged(_ value: DragGesture.Value) {
         
         if value.translation.width < 0 {
             if isSwipe {
@@ -102,7 +110,7 @@ struct TaskCardView: View {
         }
     }
     
-    func onEnd(value: DragGesture.Value) {
+    func onEnd(_ value: DragGesture.Value) {
         
         withAnimation {
             

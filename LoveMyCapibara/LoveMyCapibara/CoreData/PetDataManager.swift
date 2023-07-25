@@ -122,14 +122,24 @@ class PetDataManager: PetDataManagerProtocol {
         do {
             let result = try context.fetch(fetchRequest)
             let playerEntity = result.first
-            
+                     
             if let playerEntity = playerEntity {
-                // Remover o petEntity do contexto e salvar as mudanças
+                deleteAssociatedTasks(.init(petEntity: playerEntity))
                 context.delete(playerEntity)
                 try context.save()
             }
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    func deleteAssociatedTasks(_ pet: PetModel) {
+        let dataManager = TaskDataManager.shared
+        guard let result = dataManager.getAllPetTasks(pet) else { return }
+        
+        for task in result {
+            guard let id = task.id else { return }
+            _ = dataManager.deleteTaskById(id)
         }
     }
 }

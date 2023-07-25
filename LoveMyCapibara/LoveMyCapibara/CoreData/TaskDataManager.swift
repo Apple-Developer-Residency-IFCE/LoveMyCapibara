@@ -12,8 +12,8 @@ protocol TaskDataManagerProtocol {
     func getAllTasks(searchDate: Date?) -> [TaskModel]?
     func getTaskById(_ id: UUID) -> TaskModel?
     func createTask(_ task: TaskModel) -> Bool
-    func updateTask(_ task: TaskModel)
-    func deleteTaskById(_ id: UUID)
+    func updateTask(_ task: TaskModel) -> Bool
+    func deleteTaskById(_ id: UUID) -> Bool
 }
 
 class TaskDataManager: TaskDataManagerProtocol {
@@ -80,7 +80,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         }
     }
     
-    func updateTask(_ task: TaskModel) {
+    func updateTask(_ task: TaskModel) -> Bool {
         let petManager = PetDataManager.shared
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
@@ -101,12 +101,15 @@ class TaskDataManager: TaskDataManagerProtocol {
                 taskEntity.completed = task.completed ?? true
                 try context.save()
             }
+            return true
+            
         } catch {
             print("Erro ao atualizar task do CoreData: \(error.localizedDescription)")
+            return false
         }
     }
     
-    func deleteTaskById(_ id: UUID) {
+    func deleteTaskById(_ id: UUID) -> Bool {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
         
@@ -118,8 +121,11 @@ class TaskDataManager: TaskDataManagerProtocol {
                 context.delete(taskEntity)
                 try context.save()
             }
+            return true
+            
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
 }

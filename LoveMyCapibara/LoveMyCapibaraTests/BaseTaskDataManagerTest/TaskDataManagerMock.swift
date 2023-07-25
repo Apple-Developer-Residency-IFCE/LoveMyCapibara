@@ -18,8 +18,10 @@ class TaskDataManagerMock: TaskDataManagerProtocol {
     func createTask(_ task: TaskModel) -> Bool {
         return true
     }
-    func updateTask(_ task: TaskModel) {
+    func updateTask(_ task: TaskModel) -> Bool {
+        return true
     }
-    func deleteTaskById(_ id: UUID) {
+    func deleteTaskById(_ id: UUID) -> Bool {
+        return true
     }
 }

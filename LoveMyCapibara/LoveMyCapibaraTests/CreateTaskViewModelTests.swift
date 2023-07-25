@@ -21,62 +21,68 @@ class CreateTaskViewModelTests: XCTestCase {
         super.tearDown()
     }
 
-    func testSucessfulGetPetsList() {
+    func test_GetPetsList_SucessfulCase() {
         let tasks = viewModel.getPetsList()
         XCTAssertTrue(tasks, "Erro: o retorno da lista foi nulo")
     }
 
-    func testGetPetsListNotNil() {
+    func test_GetPetsList_IsNotNil() {
         let tasks = viewModel.getPetsList()
-        XCTAssertNotNil(tasks)
+        XCTAssertNotNil(tasks, "Erro: o retorno da lista foi nulo")
     }
 
-    func testSucessfulCreateTaskForPet() {
+    func test_GetPetsList_IsNotEmpty() {
+        _ = viewModel.getPetsList()
+        let petsList = viewModel.petNameList
+        XCTAssertTrue(!petsList.isEmpty, "Erro: o retorno da lista foi vazio")
+    }
+
+    func test_CreateTaskForPet_SucessfulCase() {
         let result = viewModel.createTaskForPet()
-        XCTAssertTrue(result)
+        XCTAssertTrue(result, "Erro: a criação da tarefa não foi bem sucedida")
     }
 
-    func testCreatedTaskTitleNotNil() {
+    func test_CreateTaskForPet_TitleIsNotNil() {
         guard let result = viewModel.task.title else { return }
         XCTAssertNotNil(result, "Erro: o título da tarefa criada é nil")
     }
 
-    func testCreatedTaskStatusNotNil() {
+    func test_CreateTaskForPet_StatusIsNotNil() {
         guard let result = viewModel.task.completed else { return }
         XCTAssertNotNil(result, "Erro: a tarefa possui o status nil")
     }
 
-    func testCreatedTaskTypeNotNil() {
+    func test_CreateTaskForPet_TypeIsNotNil() {
         guard let result = viewModel.task.type else { return }
         XCTAssertNotNil(result != .empty, "Erro: a tarefa possui o tipo nil")
     }
 
-    func testCreatedTaskTextNotNil() {
+    func test_CreateTaskForPet_TextIsNotNil() {
         guard let result = viewModel.task.text else { return }
         XCTAssertNotNil(result, "Erro: o texto da tarefa criada é nil")
     }
 
-    func testCreatedTaskIdNotNil() {
+    func test_CreateTaskForPet_IdIsNotNil() {
         guard let result = viewModel.task.id else { return }
         XCTAssertNotNil(result, "Erro: a tarefa possui o id nil")
     }
 
-    func testCreatedTaskPetNotNil() {
+    func test_CreateTaskForPet_PetIsNotNil() {
         guard let result = viewModel.task.pet else { return }
         XCTAssertNotNil(result, "Erro: a tarefa possui o pet nil")
     }
 
-    func testCreatedTaskRememberAtNotNil() {
+    func test_CreateTaskForPet_RememberAtIsNotNil() {
         guard let result = viewModel.task.rememberAt else { return }
         XCTAssertNotNil(result, "Erro: a tarefa possui o rememberAt nil")
     }
 
-    func testCreatedTaskFrequencyNotNil() {
+    func test_CreateTaskForPet_FrequencyIsNotNil() {
         guard let result = viewModel.task.frequency else { return }
         XCTAssertNotNil(result, "Erro: a tarefa possui a frequência nil")
     }
 
-    func testTaskIsValid() {
+    func test_TaskIsValid_SucessfulCase() {
         viewModel.txtTitle = "Teste"
         viewModel.type = .others
         viewModel.selectedPet = "Pietro"
@@ -84,7 +90,7 @@ class CreateTaskViewModelTests: XCTestCase {
         XCTAssertTrue(result, "Erro: a tarefa criada não é valida")
     }
 
-    func testTaskIsNotValidTitleEmpty() {
+    func test_TaskIsValid_UnsucessfulCaseTitleIsEmpty() {
         viewModel.txtTitle = ""
         viewModel.type = .others
         viewModel.selectedPet = "Pietro"
@@ -92,7 +98,7 @@ class CreateTaskViewModelTests: XCTestCase {
         XCTAssertFalse(result, "Erro: a tarefa criada não é valida - título vazio")
     }
 
-    func testTaskIsNotValidTypeEmpty() {
+    func test_TaskIsValid_UnsucessfulCaseTypeIsEmpty() {
         viewModel.txtTitle = "teste"
         viewModel.type = .empty
         viewModel.selectedPet = "Pietro"
@@ -100,11 +106,12 @@ class CreateTaskViewModelTests: XCTestCase {
         XCTAssertFalse(result, "Erro: a tarefa criada não é valida - type empty")
     }
 
-    func testTaskIsNotValidSelectedPetEmpty() {
+    func test_TaskIsValid_UnsucessfulCaseSelectedPetIsEmpty() {
         viewModel.txtTitle = "teste"
         viewModel.type = .others
         viewModel.selectedPet = ""
         let result = viewModel.taskIsValid()
         XCTAssertFalse(result, "Erro: a tarefa criada não é valida - pet vazio")
     }
+
 }

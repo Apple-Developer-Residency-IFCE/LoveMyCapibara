@@ -35,13 +35,13 @@ class TaskDetailsViewModel: ObservableObject {
         return dateFormatter.string(from: task.date)
     }
     
-    func completeTask() {
-        self.task.completed = true
-        taskManager.updateTask(self.task)
+    func completeTask(date: Date) {
+        self.task.completed?[date.description] = true
+        _ = taskManager.updateTask(self.task)
     }
     
-    func uncompleteTask() {
-        self.task.completed = false
-        taskManager.updateTask(self.task)
+    func uncompleteTask(date: Date) {
+        self.task.completed?[date.description] = nil
+        _ = taskManager.updateTask(self.task)
     }
 }

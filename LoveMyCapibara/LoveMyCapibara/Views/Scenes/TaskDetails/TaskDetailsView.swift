@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskDetailsView: View {
     @StateObject var viewModel: TaskDetailsViewModel
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var tasksListViewModel: TasksListViewModel
     var action: () -> Void
     
     init(task: TaskModel, action: @escaping () -> Void ) {
@@ -60,15 +61,15 @@ struct TaskDetailsView: View {
                     
                     Text(viewModel.task.text ?? "")
                         .padding(.vertical, 24)
-                    if viewModel.task.completed == false {
+                    if viewModel.task.completed?[tasksListViewModel.selectedDate.description] == nil {
                         CustomButton(buttonLabel: "Marcar como concluída", buttonAction: {
-                            viewModel.completeTask()
+                            viewModel.completeTask(date: tasksListViewModel.selectedDate)
                             action()
                             dismiss()
                         }, buttonColor: "DarkColor")
                     } else {
                         CustomButton(buttonLabel: "Marcar como não concluída", buttonAction: {
-                            viewModel.uncompleteTask()
+                            viewModel.uncompleteTask(date: tasksListViewModel.selectedDate)
                             action()
                             dismiss()
                         }, buttonColor: "DarkColor")

@@ -65,7 +65,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         newTask.type = task.type?.rawValue
         newTask.text = task.text
         newTask.rememberAt = task.rememberAt?.rawValue
-        newTask.completed = false
+        newTask.completed = [String: Bool]() as NSObject
         
         do {
             try context.save()
@@ -94,7 +94,7 @@ class TaskDataManager: TaskDataManagerProtocol {
                 taskEntity.type = task.type?.rawValue
                 taskEntity.text = task.text
                 taskEntity.rememberAt = task.rememberAt?.rawValue
-                taskEntity.completed = task.completed ?? true
+                taskEntity.completed = task.completed as? NSObject
                 try context.save()
             }
             return true

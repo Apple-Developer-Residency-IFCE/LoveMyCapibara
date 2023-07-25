@@ -16,10 +16,10 @@ struct TaskModel {
     var date: Date = .now
     var frequency: FrequencyModel?
     var text: String?
-    var completed: Bool?
+    var completed: [String: Bool]?
     var rememberAt: RememberAtModel?
     
-    init(id: UUID? = nil, title: String? = nil, type: TaskTypeModel? = nil, pet: PetModel? = nil, date: Date? = nil, frequency: FrequencyModel? = nil, text: String? = nil, completed: Bool? = false, rememberAt: RememberAtModel? = .empty) {
+    init(id: UUID? = nil, title: String? = nil, type: TaskTypeModel? = nil, pet: PetModel? = nil, date: Date? = nil, frequency: FrequencyModel? = nil, text: String? = nil, completed: [String: Bool]? = [String: Bool](), rememberAt: RememberAtModel? = .empty) {
         self.id = id
         self.title = title
         self.type = type
@@ -39,7 +39,7 @@ struct TaskModel {
         self.date = taskCoreData.date ?? .now
         self.frequency = FrequencyModel(rawValue: taskCoreData.frequency ?? "") ?? .none
         self.text = taskCoreData.text
-        self.completed = taskCoreData.completed
+        self.completed = taskCoreData.completed as? [String: Bool]
         self.rememberAt = RememberAtModel(rawValue: taskCoreData.rememberAt ?? "") ?? .empty
     }
     

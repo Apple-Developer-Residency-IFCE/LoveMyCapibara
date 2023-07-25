@@ -115,7 +115,7 @@ struct EditTaskView_Previews: PreviewProvider {
         date: .now,
         frequency: FrequencyModel.monthly,
         text: "Levar no veterinario",
-        completed: false,
+        completed: [String: Bool](),
         rememberAt: RememberAtModel.fiveMinutes
     )
     

@@ -9,6 +9,14 @@ import Foundation
 @testable import LoveMyCapibara
 
 class TaskDataManagerMock: TaskDataManagerProtocol {
+    func getAllTasks() -> [TaskModel]? {
+        return []
+    }
+
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel]? {
+        return []
+    }
+
     func getAllTasks(searchDate: Date?) -> [TaskModel]? {
         return []
     }
@@ -23,5 +31,31 @@ class TaskDataManagerMock: TaskDataManagerProtocol {
     }
     func deleteTaskById(_ id: UUID) -> Bool {
         return true
+    }
+}
+
+class TaskDataManagerUnsucessfulMock: TaskDataManagerProtocol {
+    func getAllTasks() -> [TaskModel]? {
+        return nil
+    }
+
+    func getTaskById(_ id: UUID) -> TaskModel? {
+        return nil
+    }
+
+    func createTask(_ task: TaskModel) -> Bool {
+        return false
+    }
+
+    func updateTask(_ task: TaskModel) -> Bool {
+        return false
+    }
+
+    func deleteTaskById(_ id: UUID) -> Bool {
+        return false
+    }
+
+    func getAllPetTasks(_ pet: LoveMyCapibara.PetModel) -> [TaskModel]? {
+        return nil
     }
 }

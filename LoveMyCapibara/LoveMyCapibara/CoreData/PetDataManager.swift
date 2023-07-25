@@ -12,9 +12,10 @@ protocol PetDataManagerProtocol {
     func getAllPets() -> [PetModel]?
     func getPetById(_ id: UUID) -> PetModel?
     func getCoreDataPet(_ id: UUID) -> Pet?
-    func createPet(_ pet: PetModel)
-    func updatePet(_ pet: PetModel)
-    func deletePetById(_ id: UUID)
+    func createPet(_ pet: PetModel) -> Bool
+    func updatePet(_ pet: PetModel) -> Bool
+    func deletePetById(_ id: UUID) -> Bool
+    func deleteAssociatedTasks(_ pet: PetModel) -> Bool
 }
 
 class PetDataManager: PetDataManagerProtocol {
@@ -71,7 +72,8 @@ class PetDataManager: PetDataManagerProtocol {
         }
     }
     
-    func createPet(_ pet: PetModel) {
+    @discardableResult
+    func createPet(_ pet: PetModel) -> Bool {
         let newPet = Pet(context: context)
         newPet.image = pet.imageName
         newPet.name = pet.name
@@ -85,12 +87,15 @@ class PetDataManager: PetDataManagerProtocol {
         
         do {
             try context.save()
+            return true
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
-    
-    func updatePet(_ pet: PetModel) {
+
+    @discardableResult
+    func updatePet(_ pet: PetModel) -> Bool {
         let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", pet.id as CVarArg)
         
@@ -110,12 +115,15 @@ class PetDataManager: PetDataManagerProtocol {
                 
                 try context.save()
             }
+            return true
         } catch {
             print("Erro ao atualizar pet do CoreData: \(error.localizedDescription)")
+            return false
         }
     }
     
-    func deletePetById(_ id: UUID) {
+    @discardableResult
+    func deletePetById(_ id: UUID) -> Bool {
         let fetchRequest: NSFetchRequest<Pet> = Pet.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
@@ -128,18 +136,24 @@ class PetDataManager: PetDataManagerProtocol {
                 context.delete(playerEntity)
                 try context.save()
             }
+            return true
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
     
-    func deleteAssociatedTasks(_ pet: PetModel) {
+    @discardableResult
+    func deleteAssociatedTasks(_ pet: PetModel) -> Bool {
         let dataManager = TaskDataManager.shared
-        guard let result = dataManager.getAllPetTasks(pet) else { return }
+        guard let result = dataManager.getAllPetTasks(pet) else {
+            return false
+        }
         
         for task in result {
-            guard let id = task.id else { return }
+            guard let id = task.id else { return false }
             _ = dataManager.deleteTaskById(id)
         }
+        return true
     }
 }

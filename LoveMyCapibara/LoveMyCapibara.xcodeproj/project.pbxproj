@@ -39,6 +39,9 @@
 		809A640D2A65D874003C060B /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A640C2A65D874003C060B /* EditTaskView.swift */; };
 		809A640F2A65D88C003C060B /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A640E2A65D88C003C060B /* EditTaskViewModel.swift */; };
 		809D295D2A3D2D13005BAE02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */; };
+		809E1E562A6F1A2400350393 /* CreateTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E1E552A6F1A2400350393 /* CreateTaskViewModelTests.swift */; };
+		809E1E592A6F2AF600350393 /* TaskDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E1E582A6F2AF600350393 /* TaskDataManagerMock.swift */; };
+		809E1E5B2A6F2EFF00350393 /* PetDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E1E5A2A6F2EFF00350393 /* PetDataManagerMock.swift */; };
 		80A13C862A4E37580038CBED /* TasksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A13C852A4E37580038CBED /* TasksListViewModel.swift */; };
 		80A1EA382A3129FB00DF9EB6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */; };
 		80A60AF12A536A1900B66B41 /* CompletedToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A60AF02A536A1900B66B41 /* CompletedToDoList.swift */; };
@@ -88,6 +91,16 @@
 		F5F6CEE92A3A8DE700458BC2 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6CEE82A3A8DE700458BC2 /* AddPetView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		809E1E502A6F157D00350393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64A86CD12A20056B000F9AA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64A86CD82A20056B000F9AA0;
+			remoteInfo = LoveMyCapibara;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		417532192A537D1E00A2AF39 /* RenderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLineView.swift; sourceTree = "<group>"; };
 		417532222A56395C00A2AF39 /* CardCuriosityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCuriosityView.swift; sourceTree = "<group>"; };
@@ -122,6 +135,10 @@
 		809A640C2A65D874003C060B /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		809A640E2A65D88C003C060B /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		809D295C2A3D2D13005BAE02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		809E1E4C2A6F157D00350393 /* LoveMyCapibaraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoveMyCapibaraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		809E1E552A6F1A2400350393 /* CreateTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModelTests.swift; sourceTree = "<group>"; };
+		809E1E582A6F2AF600350393 /* TaskDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataManagerMock.swift; sourceTree = "<group>"; };
+		809E1E5A2A6F2EFF00350393 /* PetDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDataManagerMock.swift; sourceTree = "<group>"; };
 		80A13C852A4E37580038CBED /* TasksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewModel.swift; sourceTree = "<group>"; };
 		80A1EA372A3129FB00DF9EB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		80A60AF02A536A1900B66B41 /* CompletedToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedToDoList.swift; sourceTree = "<group>"; };
@@ -173,6 +190,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		64A86CD62A20056B000F9AA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		809E1E492A6F157D00350393 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				64A86CDB2A20056B000F9AA0 /* LoveMyCapibara */,
+				809E1E4D2A6F157D00350393 /* LoveMyCapibaraTests */,
 				64A86CDA2A20056B000F9AA0 /* Products */,
 				C030D7332A4262A6007013A2 /* Recovered References */,
 			);
@@ -252,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				64A86CD92A20056B000F9AA0 /* LoveMyCapibara.app */,
+				809E1E4C2A6F157D00350393 /* LoveMyCapibaraTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,6 +429,24 @@
 				D4CCA24F4D5FAA73D9C880AC /* TaskDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		809E1E4D2A6F157D00350393 /* LoveMyCapibaraTests */ = {
+			isa = PBXGroup;
+			children = (
+				809E1E572A6F2A9600350393 /* BaseTaskDataManagerTest */,
+				809E1E552A6F1A2400350393 /* CreateTaskViewModelTests.swift */,
+			);
+			path = LoveMyCapibaraTests;
+			sourceTree = "<group>";
+		};
+		809E1E572A6F2A9600350393 /* BaseTaskDataManagerTest */ = {
+			isa = PBXGroup;
+			children = (
+				809E1E582A6F2AF600350393 /* TaskDataManagerMock.swift */,
+				809E1E5A2A6F2EFF00350393 /* PetDataManagerMock.swift */,
+			);
+			path = BaseTaskDataManagerTest;
 			sourceTree = "<group>";
 		};
 		80AE70842A4F877A00D7F5D9 /* HomeTask */ = {
@@ -587,6 +631,25 @@
 			productReference = 64A86CD92A20056B000F9AA0 /* LoveMyCapibara.app */;
 			productType = "com.apple.product-type.application";
 		};
+		809E1E4B2A6F157D00350393 /* LoveMyCapibaraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 809E1E542A6F157D00350393 /* Build configuration list for PBXNativeTarget "LoveMyCapibaraTests" */;
+			buildPhases = (
+				809E1E482A6F157D00350393 /* Sources */,
+				809E1E492A6F157D00350393 /* Frameworks */,
+				809E1E4A2A6F157D00350393 /* Resources */,
+				805AC4EB2A6F52DC00FDE78D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				809E1E512A6F157D00350393 /* PBXTargetDependency */,
+			);
+			name = LoveMyCapibaraTests;
+			productName = LoveMyCapibaraTests;
+			productReference = 809E1E4C2A6F157D00350393 /* LoveMyCapibaraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -594,11 +657,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					64A86CD82A20056B000F9AA0 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					809E1E4B2A6F157D00350393 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 64A86CD82A20056B000F9AA0;
 					};
 				};
 			};
@@ -618,6 +685,7 @@
 			projectRoot = "";
 			targets = (
 				64A86CD82A20056B000F9AA0 /* LoveMyCapibara */,
+				809E1E4B2A6F157D00350393 /* LoveMyCapibaraTests */,
 			);
 		};
 /* End PBXProject section */
@@ -643,6 +711,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		809E1E4A2A6F157D00350393 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -657,6 +732,24 @@
 			inputPaths = (
 			);
 			name = "Run SwifLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n    \nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		805AC4EB2A6F52DC00FDE78D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -741,7 +834,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		809E1E482A6F157D00350393 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				809E1E5B2A6F2EFF00350393 /* PetDataManagerMock.swift in Sources */,
+				809E1E592A6F2AF600350393 /* TaskDataManagerMock.swift in Sources */,
+				809E1E562A6F1A2400350393 /* CreateTaskViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		809E1E512A6F157D00350393 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64A86CD82A20056B000F9AA0 /* LoveMyCapibara */;
+			targetProxy = 809E1E502A6F157D00350393 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		64A86CE52A20056C000F9AA0 /* Debug */ = {
@@ -922,6 +1033,44 @@
 			};
 			name = Release;
 		};
+		809E1E522A6F157D00350393 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 67CS5JS69U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Me.LoveMyCapibaraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoveMyCapibara.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoveMyCapibara";
+			};
+			name = Debug;
+		};
+		809E1E532A6F157D00350393 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 67CS5JS69U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Me.LoveMyCapibaraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoveMyCapibara.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LoveMyCapibara";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -939,6 +1088,15 @@
 			buildConfigurations = (
 				64A86CE82A20056C000F9AA0 /* Debug */,
 				64A86CE92A20056C000F9AA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		809E1E542A6F157D00350393 /* Build configuration list for PBXNativeTarget "LoveMyCapibaraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				809E1E522A6F157D00350393 /* Debug */,
+				809E1E532A6F157D00350393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

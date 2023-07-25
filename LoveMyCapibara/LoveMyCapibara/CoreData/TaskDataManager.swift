@@ -8,14 +8,24 @@
 import Foundation
 import CoreData
 
-class TaskDataManager {
+protocol TaskDataManagerProtocol {
+    func getAllTasks() -> [TaskModel]?
+    func getTaskById(_ id: UUID) -> TaskModel?
+    func createTask(_ task: TaskModel) -> Bool
+    func updateTask(_ task: TaskModel) -> Bool
+    func deleteTaskById(_ id: UUID) -> Bool
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel]?
+}
+
+class TaskDataManager: TaskDataManagerProtocol {
     var context: NSManagedObjectContext
+    static let shared = TaskDataManager()
     
-    init() {
+    private init() {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllTasks() -> [TaskModel] {
+    func getAllTasks() -> [TaskModel]? {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
         do {
@@ -28,27 +38,6 @@ class TaskDataManager {
         }
     }
     
-    func getAllTasksInMonth(searchDate: Date) -> [TaskModel] {
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        let calendar = Calendar.current
-        let componentsDate = calendar.dateComponents([.month, .year], from: searchDate)
-        
-        if let firstDayMonth = calendar.date(from: componentsDate),
-           let lastDayMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: firstDayMonth) {
-            request.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", firstDayMonth as NSDate, lastDayMonth as NSDate)
-        }
-        
-        do {
-            let result = try context.fetch(request)
-            return result.map { task in
-                    .init(taskCoreData: task)
-            }
-        } catch {
-            return []
-        }
-    }
-
     func getTaskById(_ id: UUID) -> TaskModel? {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
@@ -64,8 +53,8 @@ class TaskDataManager {
         }
     }
 
-    func createTask(_ task: TaskModel) {
-        let petManager = PetDataManager()
+    func createTask(_ task: TaskModel) -> Bool {
+        let petManager = PetDataManager.shared
         let newTask = Task(context: context)
         
         newTask.taskId = task.id
@@ -80,13 +69,15 @@ class TaskDataManager {
         
         do {
             try context.save()
+            return true
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
     
-    func updateTask(_ task: TaskModel) {
-        let petManager = PetDataManager()
+    func updateTask(_ task: TaskModel) -> Bool {
+        let petManager = PetDataManager.shared
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", task.id?.uuidString as? CVarArg ?? [0])
@@ -106,12 +97,15 @@ class TaskDataManager {
                 taskEntity.completed = task.completed as? NSObject
                 try context.save()
             }
+            return true
+            
         } catch {
             print("Erro ao atualizar task do CoreData: \(error.localizedDescription)")
+            return false
         }
     }
     
-    func deleteTaskById(_ id: UUID) {
+    func deleteTaskById(_ id: UUID) -> Bool {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)
         
@@ -123,13 +117,17 @@ class TaskDataManager {
                 context.delete(taskEntity)
                 try context.save()
             }
+            return true
+            
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
     
-    func getAllPetTasks(_ pet: PetModel) -> [TaskModel] {
-        let result = TaskDataManager().getAllTasks().filter({ $0.pet?.name == pet.name })
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel]? {
+        let result = getAllTasks()?.filter({ $0.pet?.name == pet.name })
+        guard let result = result else { return nil }
         return result
     }
 }

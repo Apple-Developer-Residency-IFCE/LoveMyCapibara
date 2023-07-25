@@ -11,7 +11,7 @@ class TasksListViewModel: ObservableObject {
     @Published var tasks: [TaskModel] = []
     @Published var selectedDate: Date = Calendar.current.startOfDay(for: Date.now)
     
-    let taskManager = TaskDataManager()
+    let taskManager = TaskDataManager.shared
    
     var completedTasks: [TaskModel] {
         return tasks.filter({ $0.completed?[selectedDate.description] ?? false })
@@ -38,7 +38,7 @@ class TasksListViewModel: ObservableObject {
     }
     
     func updateList() {
-        self.tasks = filterTasksByDate(taskManager.getAllTasks(), searchDate: selectedDate)
+        self.tasks = filterTasksByDate(taskManager.getAllTasks() ?? [], searchDate: selectedDate)
     }
     
     private func filterTasksByDate(_ tasks: [TaskModel], searchDate: Date) -> [TaskModel] {
@@ -47,7 +47,11 @@ class TasksListViewModel: ObservableObject {
         tasks.forEach { task in
             switch task.frequency {
             case .daily:
-                filteredTask.append(task)
+                let diff = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
+                
+                if let days = diff.day, days >= 0 {
+                    filteredTask.append(task)
+                }
             case .weekly:
                 let diff = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: task.date), to: searchDate)
                 
@@ -91,7 +95,7 @@ class TasksListViewModel: ObservableObject {
     }
     
     func getDatesWithTaskInMonth(searchDate: Date) -> [Date] {
-        let tasks = taskManager.getAllTasks()
+        guard let tasks = taskManager.getAllTasks() else { return [] }
         var datesWithTask: [Date] = []
         
         if let firstDayOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: searchDate)) {

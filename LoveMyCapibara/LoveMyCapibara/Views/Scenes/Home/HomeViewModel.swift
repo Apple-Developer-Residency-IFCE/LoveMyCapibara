@@ -9,9 +9,9 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var pets: [PetModel] = []
-    let petManager = PetDataManager()
+    let petManager = PetDataManager.shared
     
     func updateList() {
-        self.pets = petManager.getAllPets()
+        self.pets = petManager.getAllPets() ?? []
     }
 }

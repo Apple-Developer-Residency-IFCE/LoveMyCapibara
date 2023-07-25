@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateTaskView: View {
     
-    @ObservedObject var viewModel = CreateTaskViewModel()
+    @ObservedObject var viewModel = CreateTaskViewModel(taskManager: TaskDataManager.shared, petManager: PetDataManager.shared)
     @Environment(\.dismiss) private var dismiss: DismissAction
     @State var timer: Date = .now
     
@@ -70,15 +70,15 @@ struct CreateTaskView: View {
                     .background(Color("FieldBackgroundColor"))
                     .cornerRadius(16)
                     
-                    .navBarAddTask(isDisabled: !viewModel.taskIsValid(task: viewModel.task)) {
-                        viewModel.createTaskForPet()
+                    .navBarAddTask(isDisabled: !viewModel.taskIsValid()) {
+                        _ = viewModel.createTaskForPet()
                         dismiss()
                     }
                     
                 Spacer()
             }
                 .onAppear {
-                    viewModel.getPets()
+                    _ = viewModel.getPetsList()
                 }
                 .padding(.horizontal)
             }

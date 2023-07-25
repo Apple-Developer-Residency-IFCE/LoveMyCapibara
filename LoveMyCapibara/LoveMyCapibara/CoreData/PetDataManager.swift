@@ -8,15 +8,24 @@
 import Foundation
 import CoreData
 
-class PetDataManager {
+protocol PetDataManagerProtocol {
+    func getAllPets() -> [PetModel]?
+    func getPetById(_ id: UUID) -> PetModel?
+    func getCoreDataPet(_ id: UUID) -> Pet?
+    func createPet(_ pet: PetModel)
+    func updatePet(_ pet: PetModel)
+    func deletePetById(_ id: UUID)
+}
+
+class PetDataManager: PetDataManagerProtocol {
     var context: NSManagedObjectContext
-    let taskDataManager = TaskDataManager()
+    static let shared = PetDataManager()
     
-    init() {
+    private init() {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllPets() -> [PetModel] {
+    func getAllPets() -> [PetModel]? {
         let request: NSFetchRequest<Pet> = Pet.fetchRequest()
         
         do {
@@ -25,7 +34,8 @@ class PetDataManager {
                     .init(petEntity: pet)
             }
         } catch {
-            return []
+            print(error.localizedDescription)
+            return nil
         }
     }
     
@@ -124,9 +134,12 @@ class PetDataManager {
     }
     
     func deleteAssociatedTasks(_ pet: PetModel) {
-        for task in taskDataManager.getAllPetTasks(pet) {
+        let dataManager = TaskDataManager.shared
+        guard let result = dataManager.getAllPetTasks(pet) else { return }
+        
+        for task in result {
             guard let id = task.id else { return }
-            taskDataManager.deleteTaskById(id)
+            _ = dataManager.deleteTaskById(id)
         }
     }
 }

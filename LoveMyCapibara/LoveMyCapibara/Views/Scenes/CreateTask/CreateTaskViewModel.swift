@@ -9,8 +9,13 @@ import Foundation
 
 final class CreateTaskViewModel: ObservableObject {
     
-    let taskManager = TaskDataManager()
-    let petManager = PetDataManager()
+    let taskManager: TaskDataManagerProtocol
+    let petManager: PetDataManagerProtocol
+    
+    init(taskManager: TaskDataManagerProtocol, petManager: PetDataManagerProtocol) {
+        self.taskManager = taskManager
+        self.petManager = petManager
+    }
     
     @Published var task: TaskModel = .init()
     @Published var selectedPet: String = ""
@@ -24,29 +29,37 @@ final class CreateTaskViewModel: ObservableObject {
     @Published var date: Date = .now
     @Published var rememberAt: RememberAtModel = .empty
     
-    private func add() {
-        taskManager.createTask(task)
+    private func add() -> Bool {
+        return taskManager.createTask(task)
     }
     
-    func getPets() {
-        petNameList = petManager.getAllPets().compactMap({ $0.name })
+    private func configPetsList() {
         petNameList.insert("Nenhum", at: 0)
     }
     
-    func createTaskForPet() {
-        task.pet = petManager.getAllPets().filter({ $0.name == selectedPet }).first
+    func getPetsList() -> Bool {
+        guard let pets = petManager.getAllPets() else {
+            return false
+        }
+        petNameList = pets.compactMap({ $0.name })
+        configPetsList()
+        return true
+    }
+    
+    func createTaskForPet() -> Bool {
+        task.pet = petManager.getAllPets()?.filter({ $0.name == selectedPet }).first
         task.completed = false
         task.title = txtTitle
         task.text = text
         task.id = UUID()
         task.date = date
-        task.type = type
+        task.type = .empty
         task.rememberAt = rememberAt
         task.frequency = frequency
-        add()
+        return add()
     }
     
-    func taskIsValid(task: TaskModel) -> Bool {
+    func taskIsValid() -> Bool {
         return !txtTitle.isEmpty && !selectedPet.isEmpty && selectedPet != "Nenhum" && type != .empty
     }
 }

@@ -42,7 +42,7 @@ class EditTaskViewModel: ObservableObject {
     }
     
     func getPets() -> [String] {
-        let result = petManager.getAllPets().compactMap({ $0.name })
+        guard let result = petManager.getAllPets()?.compactMap({ $0.name }) else { return [] }
         return result
     }
     
@@ -50,7 +50,7 @@ class EditTaskViewModel: ObservableObject {
         currentTask.id = currentTask.id
         currentTask.title = txtTitle
         currentTask.type = type
-        currentTask.pet = petManager.getAllPets().filter({ $0.name == selectedPet}).first
+        currentTask.pet = petManager.getAllPets()?.filter({ $0.name == selectedPet}).first
         currentTask.date = date
         currentTask.frequency = frequency
         currentTask.text = text

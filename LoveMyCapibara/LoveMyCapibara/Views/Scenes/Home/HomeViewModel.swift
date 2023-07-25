@@ -12,6 +12,6 @@ class HomeViewModel: ObservableObject {
     let petManager = PetDataManager.shared
     
     func updateList() {
-        self.pets = petManager.getAllPets()
+        self.pets = petManager.getAllPets() ?? []
     }
 }

@@ -71,13 +71,13 @@ struct CreateTaskView: View {
                     .background(Color("FieldBackgroundColor"))
                     .cornerRadius(16)
                     
-                    .navBarAddTask(isDisabled: !viewModel.taskIsValid(task: viewModel.task)) {
-                        viewModel.createTaskForPet()
+                    .navBarAddTask(isDisabled: !viewModel.taskIsValid()) {
+                        _ = viewModel.createTaskForPet()
                         dismiss()
                     }
                 }
                 .onAppear {
-                    viewModel.getPets()
+                    _ = viewModel.getPetsList()
                 }
                 .padding(.horizontal)
             }

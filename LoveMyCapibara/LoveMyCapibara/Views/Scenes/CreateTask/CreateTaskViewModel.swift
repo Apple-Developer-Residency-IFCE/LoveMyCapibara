@@ -7,22 +7,6 @@
 
 import Foundation
 
-protocol TaskServiceProtocol {
-    func getAllTask()
-}
-
-class TaskViewModel {
-    let dbManager: TaskServiceProtocol
-    
-    init(dbManager: TaskServiceProtocol) {
-        self.dbManager = dbManager
-    }
-    
-    func getTasks() -> Void {
-        return dbManager.getAllTask()
-    }
-}
-
 final class CreateTaskViewModel: ObservableObject {
     
     let taskManager: TaskDataManagerProtocol
@@ -45,29 +29,37 @@ final class CreateTaskViewModel: ObservableObject {
     @Published var date: Date = .now
     @Published var rememberAt: RememberAtModel = .empty
     
-    private func add() {
-        taskManager.createTask(task)
+    private func add() -> Bool {
+        return taskManager.createTask(task)
     }
     
-    func getPets() {
-        petNameList = petManager.getAllPets().compactMap({ $0.name })
+    private func configPetsList() {
         petNameList.insert("Nenhum", at: 0)
     }
     
-    func createTaskForPet() {
-        task.pet = petManager.getAllPets().filter({ $0.name == selectedPet }).first
+    func getPetsList() -> Bool {
+        guard let pets = petManager.getAllPets() else {
+            return false
+        }
+        petNameList = pets.compactMap({ $0.name })
+        configPetsList()
+        return true
+    }
+    
+    func createTaskForPet() -> Bool {
+        task.pet = petManager.getAllPets()?.filter({ $0.name == selectedPet }).first
         task.completed = false
         task.title = txtTitle
         task.text = text
         task.id = UUID()
         task.date = date
-        task.type = type
+        task.type = .empty
         task.rememberAt = rememberAt
         task.frequency = frequency
-        add()
+        return add()
     }
     
-    func taskIsValid(task: TaskModel) -> Bool {
+    func taskIsValid() -> Bool {
         return !txtTitle.isEmpty && !selectedPet.isEmpty && selectedPet != "Nenhum" && type != .empty
     }
 }

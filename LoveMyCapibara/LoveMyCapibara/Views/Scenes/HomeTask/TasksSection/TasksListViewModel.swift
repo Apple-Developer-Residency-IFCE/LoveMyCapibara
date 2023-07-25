@@ -38,7 +38,7 @@ class TasksListViewModel: ObservableObject {
     }
     
     func updateList() {
-        self.tasks = taskManager.getAllTasks(searchDate: selectedDate)
+        self.tasks = taskManager.getAllTasks(searchDate: selectedDate) ?? []
     }
 
     func timeFormatter(task: TaskModel) -> String {

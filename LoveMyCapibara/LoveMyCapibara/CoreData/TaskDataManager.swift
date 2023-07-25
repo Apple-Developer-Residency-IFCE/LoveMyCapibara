@@ -9,9 +9,9 @@ import Foundation
 import CoreData
 
 protocol TaskDataManagerProtocol {
-    func getAllTasks(searchDate: Date?) -> [TaskModel]
+    func getAllTasks(searchDate: Date?) -> [TaskModel]?
     func getTaskById(_ id: UUID) -> TaskModel?
-    func createTask(_ task: TaskModel)
+    func createTask(_ task: TaskModel) -> Bool
     func updateTask(_ task: TaskModel)
     func deleteTaskById(_ id: UUID)
 }
@@ -24,7 +24,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllTasks(searchDate: Date? = nil) -> [TaskModel] {
+    func getAllTasks(searchDate: Date? = nil) -> [TaskModel]? {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
         if let searchDate = searchDate, let endDate = Calendar.current.date(byAdding: .day, value: 1, to: searchDate) {
@@ -37,7 +37,8 @@ class TaskDataManager: TaskDataManagerProtocol {
                     .init(taskCoreData: task)
             }
         } catch {
-            return []
+            print(error.localizedDescription)
+            return nil
         }
     }
 
@@ -56,7 +57,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         }
     }
 
-    func createTask(_ task: TaskModel) {
+    func createTask(_ task: TaskModel) -> Bool {
         let petManager = PetDataManager.shared
         let newTask = Task(context: context)
         
@@ -72,8 +73,10 @@ class TaskDataManager: TaskDataManagerProtocol {
         
         do {
             try context.save()
+            return true
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
     

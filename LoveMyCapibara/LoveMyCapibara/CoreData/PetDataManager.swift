@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 protocol PetDataManagerProtocol {
-    func getAllPets() -> [PetModel]
+    func getAllPets() -> [PetModel]?
     func getPetById(_ id: UUID) -> PetModel?
     func getCoreDataPet(_ id: UUID) -> Pet?
     func createPet(_ pet: PetModel)
@@ -25,7 +25,7 @@ class PetDataManager: PetDataManagerProtocol {
         self.context = CoreDataManager.shared.viewContext
     }
     
-    func getAllPets() -> [PetModel] {
+    func getAllPets() -> [PetModel]? {
         let request: NSFetchRequest<Pet> = Pet.fetchRequest()
         
         do {
@@ -34,7 +34,8 @@ class PetDataManager: PetDataManagerProtocol {
                     .init(petEntity: pet)
             }
         } catch {
-            return []
+            print(error.localizedDescription)
+            return nil
         }
     }
     

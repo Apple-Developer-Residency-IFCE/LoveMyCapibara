@@ -37,11 +37,11 @@ class TaskDetailsViewModel: ObservableObject {
     
     func completeTask(date: Date) {
         self.task.completed?[date.description] = true
-        taskManager.updateTask(self.task)
+        _ = taskManager.updateTask(self.task)
     }
     
     func uncompleteTask(date: Date) {
         self.task.completed?[date.description] = nil
-        taskManager.updateTask(self.task)
+        _ = taskManager.updateTask(self.task)
     }
 }

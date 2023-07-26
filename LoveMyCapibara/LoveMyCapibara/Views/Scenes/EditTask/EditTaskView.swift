@@ -103,8 +103,7 @@ struct EditTaskView: View {
             }
             .padding(.horizontal)
             .navBarEditTask(isDisabled: !viewModel.taskIsValid()) {
-                let updatedTask = viewModel.updateSelectedTask()
-                viewModel.editTask(updatedTask)
+                viewModel.editTask()
                 dismiss()
             }
         }

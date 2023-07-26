@@ -41,16 +41,18 @@ class EditTaskViewModel: ObservableObject {
     }
 
     @discardableResult
-    func editTask(_ task: TaskModel) -> Bool {
-        return taskManager.updateTask(task)
+    func editTask() -> Bool {
+        let taskToUpdate = updateSelectedTask()
+        return taskManager.updateTask(taskToUpdate)
     }
     
+    @discardableResult
     func getPets() -> [String]? {
         guard let result = petManager.getAllPets()?.compactMap({ $0.name }) else { return nil }
         return result
     }
     
-    func updateSelectedTask() -> TaskModel {
+    private func updateSelectedTask() -> TaskModel {
         currentTask.id = currentTask.id
         currentTask.title = txtTitle
         currentTask.type = type

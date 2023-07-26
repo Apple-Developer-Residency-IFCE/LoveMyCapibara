@@ -55,13 +55,27 @@ class EditTaskViewModelTests: XCTestCase {
     }
 
     func test_editTask_SucessfulCase() {
-        let result = viewModel.editTask(mockTask)
+        let result = viewModel.editTask()
         XCTAssertTrue(result)
     }
 
     func test_editTask_UnsucessfulCase() {
-        let result = viewModelUnsucessfulCase.editTask(mockTask)
+        let result = viewModelUnsucessfulCase.editTask()
         XCTAssertFalse(result)
+    }
+
+    func test_getPets_SucessfulCase() {
+        guard let result = viewModel.getPets() else {
+            return
+        }
+        XCTAssertNotNil(result, "O resultado do getAllPets foi nulo")
+    }
+
+    func test_getPets_UnsucessfulCase() {
+        guard let result = viewModelUnsucessfulCase.getPets()
+        else { return }
+
+        XCTAssertNil(result, "O resultado do getAllPets não foi nulo")
     }
 
     func test_TaskIsValid_SucessfulCase() {

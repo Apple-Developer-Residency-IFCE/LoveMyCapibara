@@ -53,6 +53,7 @@
 		80A7C0262A410DFB00AC7769 /* PetDetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */; };
 		80ADEB332A71C58D00057E0F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADEB322A71C58D00057E0F /* HomeViewModelTests.swift */; };
 		80ADEB352A71D49900057E0F /* EditPetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADEB342A71D49900057E0F /* EditPetViewModelTests.swift */; };
+		80ADEB372A71E3C800057E0F /* AddPetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADEB362A71E3C800057E0F /* AddPetViewModelTests.swift */; };
 		80AEE9222A4CD98500E65DAC /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AEE9212A4CD98500E65DAC /* TaskCardView.swift */; };
 		80AEE9242A4CDC4400E65DAC /* TasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AEE9232A4CDC4400E65DAC /* TasksListView.swift */; };
 		80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7E46A2A41251C00B2DF61 /* EditPetViewModel.swift */; };
@@ -153,6 +154,7 @@
 		80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailedViewModel.swift; sourceTree = "<group>"; };
 		80ADEB322A71C58D00057E0F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		80ADEB342A71D49900057E0F /* EditPetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetViewModelTests.swift; sourceTree = "<group>"; };
+		80ADEB362A71E3C800057E0F /* AddPetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewModelTests.swift; sourceTree = "<group>"; };
 		80AEE9212A4CD98500E65DAC /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		80AEE9232A4CDC4400E65DAC /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
 		9A45B3EE5FC6DC53C8D7A39D /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				80A3E8062A70941F0055F6B0 /* EditTaskViewModelTests.swift */,
 				80ADEB322A71C58D00057E0F /* HomeViewModelTests.swift */,
 				80ADEB342A71D49900057E0F /* EditPetViewModelTests.swift */,
+				80ADEB362A71E3C800057E0F /* AddPetViewModelTests.swift */,
 			);
 			path = LoveMyCapibaraTests;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80ADEB372A71E3C800057E0F /* AddPetViewModelTests.swift in Sources */,
 				80ADEB332A71C58D00057E0F /* HomeViewModelTests.swift in Sources */,
 				809E1E5B2A6F2EFF00350393 /* PetDataManagerMock.swift in Sources */,
 				80ADEB352A71D49900057E0F /* EditPetViewModelTests.swift in Sources */,

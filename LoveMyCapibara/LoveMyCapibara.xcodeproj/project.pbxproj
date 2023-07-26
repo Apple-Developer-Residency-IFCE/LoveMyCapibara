@@ -51,6 +51,7 @@
 		80A7C0222A410B0C00AC7769 /* PetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0212A410B0C00AC7769 /* PetDataManager.swift */; };
 		80A7C0242A410CB100AC7769 /* AddPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0232A410CB100AC7769 /* AddPetViewModel.swift */; };
 		80A7C0262A410DFB00AC7769 /* PetDetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */; };
+		80ADEB332A71C58D00057E0F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADEB322A71C58D00057E0F /* HomeViewModelTests.swift */; };
 		80AEE9222A4CD98500E65DAC /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AEE9212A4CD98500E65DAC /* TaskCardView.swift */; };
 		80AEE9242A4CDC4400E65DAC /* TasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AEE9232A4CDC4400E65DAC /* TasksListView.swift */; };
 		80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7E46A2A41251C00B2DF61 /* EditPetViewModel.swift */; };
@@ -149,6 +150,7 @@
 		80A7C0212A410B0C00AC7769 /* PetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDataManager.swift; sourceTree = "<group>"; };
 		80A7C0232A410CB100AC7769 /* AddPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewModel.swift; sourceTree = "<group>"; };
 		80A7C0252A410DFB00AC7769 /* PetDetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailedViewModel.swift; sourceTree = "<group>"; };
+		80ADEB322A71C58D00057E0F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		80AEE9212A4CD98500E65DAC /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		80AEE9232A4CDC4400E65DAC /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
 		9A45B3EE5FC6DC53C8D7A39D /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				809E1E572A6F2A9600350393 /* BaseTaskDataManagerTest */,
 				809E1E552A6F1A2400350393 /* CreateTaskViewModelTests.swift */,
 				80A3E8062A70941F0055F6B0 /* EditTaskViewModelTests.swift */,
+				80ADEB322A71C58D00057E0F /* HomeViewModelTests.swift */,
 			);
 			path = LoveMyCapibaraTests;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80ADEB332A71C58D00057E0F /* HomeViewModelTests.swift in Sources */,
 				809E1E5B2A6F2EFF00350393 /* PetDataManagerMock.swift in Sources */,
 				809E1E592A6F2AF600350393 /* TaskDataManagerMock.swift in Sources */,
 				809E1E562A6F1A2400350393 /* CreateTaskViewModelTests.swift in Sources */,

@@ -18,7 +18,7 @@ struct EditPetView: View {
     init(petInstance: PetModel) {
         self.petInstance = petInstance
         _formViewModel = StateObject(wrappedValue: FormViewModel(petInstance))
-        _viewModel = StateObject(wrappedValue: EditPetViewModel(currentPet: petInstance))
+        _viewModel = StateObject(wrappedValue: EditPetViewModel(petManager: PetDataManager.shared, currentPet: petInstance))
     }
     
     var body: some View {

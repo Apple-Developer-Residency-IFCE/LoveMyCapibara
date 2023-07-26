@@ -19,7 +19,11 @@ struct EditTaskView: View {
     init(taskInstance: TaskModel, onDelete: @escaping () -> Void) {
         self.taskInstance = taskInstance
         self.onDelete = onDelete
-        _viewModel = StateObject(wrappedValue: EditTaskViewModel(currentTask: taskInstance))
+        _viewModel = StateObject(wrappedValue: EditTaskViewModel(
+            currentTask: taskInstance,
+            taskManager: TaskDataManager.shared,
+            petManager: PetDataManager.shared
+        ))
     }
     
     var body: some View {

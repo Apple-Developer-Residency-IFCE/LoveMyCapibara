@@ -8,16 +8,18 @@
 import Foundation
 
 class EditTaskViewModel: ObservableObject {
-    var taskManager = TaskDataManager.shared
-    var petManager = PetDataManager.shared
+    var taskManager: TaskDataManagerProtocol
+    var petManager: PetDataManagerProtocol
     @Published var currentTask: TaskModel
     
-    init(currentTask: TaskModel) {
+    init(currentTask: TaskModel, taskManager: TaskDataManagerProtocol, petManager: PetDataManagerProtocol) {
+        self.taskManager = taskManager
+        self.petManager = petManager
         self.currentTask = currentTask
         self.selectedPet = currentTask.pet?.name ?? ""
         self.txtTitle = currentTask.title ?? ""
         self.text = currentTask.text ?? ""
-        self.petNameList = getPets()
+        self.petNameList = getPets() ?? []
         self.type = currentTask.type ?? .empty
         self.frequency = currentTask.frequency ?? .never
         self.date = currentTask.date
@@ -33,16 +35,16 @@ class EditTaskViewModel: ObservableObject {
     @Published var date: Date = .now
     @Published var rememberAt: RememberAtModel = .empty
     
-    func deleteById(_ id: UUID) {
-        taskManager.deleteTaskById(id)
+    func deleteById(_ id: UUID) -> Bool {
+        return taskManager.deleteTaskById(id)
     }
 
-    func editTask(_ task: TaskModel) {
-        taskManager.updateTask(task)
+    func editTask(_ task: TaskModel) -> Bool {
+        return taskManager.updateTask(task)
     }
     
-    func getPets() -> [String] {
-        guard let result = petManager.getAllPets()?.compactMap({ $0.name }) else { return [] }
+    func getPets() -> [String]? {
+        guard let result = petManager.getAllPets()?.compactMap({ $0.name }) else { return nil }
         return result
     }
     

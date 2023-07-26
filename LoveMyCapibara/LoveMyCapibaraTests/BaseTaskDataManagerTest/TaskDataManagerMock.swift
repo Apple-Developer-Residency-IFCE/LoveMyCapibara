@@ -9,9 +9,14 @@ import Foundation
 @testable import LoveMyCapibara
 
 class TaskDataManagerMock: TaskDataManagerProtocol {
-    func getAllTasks(searchDate: Date?) -> [TaskModel]? {
+    func getAllTasks() -> [TaskModel]? {
         return []
     }
+
+    func getAllPetTasks(_ pet: PetModel) -> [TaskModel]? {
+        return []
+    }
+
     func getTaskById(_ id: UUID) -> TaskModel? {
         return TaskModel()
     }

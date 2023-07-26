@@ -35,10 +35,12 @@ class EditTaskViewModel: ObservableObject {
     @Published var date: Date = .now
     @Published var rememberAt: RememberAtModel = .empty
     
+    @discardableResult
     func deleteById(_ id: UUID) -> Bool {
         return taskManager.deleteTaskById(id)
     }
 
+    @discardableResult
     func editTask(_ task: TaskModel) -> Bool {
         return taskManager.updateTask(task)
     }

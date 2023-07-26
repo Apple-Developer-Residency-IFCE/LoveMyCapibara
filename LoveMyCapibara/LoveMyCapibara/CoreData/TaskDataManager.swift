@@ -53,6 +53,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         }
     }
 
+    @discardableResult
     func createTask(_ task: TaskModel) -> Bool {
         let petManager = PetDataManager.shared
         let newTask = Task(context: context)
@@ -76,6 +77,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         }
     }
     
+    @discardableResult
     func updateTask(_ task: TaskModel) -> Bool {
         let petManager = PetDataManager.shared
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
@@ -105,6 +107,7 @@ class TaskDataManager: TaskDataManagerProtocol {
         }
     }
     
+    @discardableResult
     func deleteTaskById(_ id: UUID) -> Bool {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "taskId == %@", id as CVarArg)

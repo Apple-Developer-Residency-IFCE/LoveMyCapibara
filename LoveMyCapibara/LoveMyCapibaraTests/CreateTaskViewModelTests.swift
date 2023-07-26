@@ -10,20 +10,35 @@ import XCTest
 
 class CreateTaskViewModelTests: XCTestCase {
     var viewModel: CreateTaskViewModel!
+    var viewModelUnsucessfulCase: CreateTaskViewModel!
 
     override func setUp() {
         super.setUp()
-        viewModel = .init(taskManager: TaskDataManagerMock(), petManager: PetDataManagerMock())
+        viewModel = .init(
+            taskManager: TaskDataManagerMock(),
+            petManager: PetDataManagerMock()
+        )
+        viewModelUnsucessfulCase = .init(
+            taskManager: TaskDataManagerUnsucessfulMock(),
+            petManager: PetDataManagerUnsucessfulMock()
+        )
+
     }
 
     override func tearDown() {
         viewModel = nil
+        viewModelUnsucessfulCase = nil
         super.tearDown()
     }
 
     func test_GetPetsList_SucessfulCase() {
         let tasks = viewModel.getPetsList()
         XCTAssertTrue(tasks, "Erro: o retorno da lista foi nulo")
+    }
+
+    func test_GetPetsList_UnsucessfulCase() {
+        let tasks = viewModelUnsucessfulCase.getPetsList()
+        XCTAssertFalse(tasks, "Erro: o retorno da lista não foi nulo")
     }
 
     func test_GetPetsList_IsNotNil() {
@@ -40,6 +55,11 @@ class CreateTaskViewModelTests: XCTestCase {
     func test_CreateTaskForPet_SucessfulCase() {
         let result = viewModel.createTaskForPet()
         XCTAssertTrue(result, "Erro: a criação da tarefa não foi bem sucedida")
+    }
+
+    func test_CreateTaskForPet_UnsucessfulCase() {
+        let result = viewModelUnsucessfulCase.createTaskForPet()
+        XCTAssertFalse(result, "Erro: a criação da tarefa não foi bem sucedida")
     }
 
     func test_CreateTaskForPet_TitleIsNotNil() {

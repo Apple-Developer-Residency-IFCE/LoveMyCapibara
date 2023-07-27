@@ -8,10 +8,15 @@
 import Foundation
 
 class AddPetViewModel: ObservableObject {
-    var petManager = PetDataManager.shared
+    var petManager: PetDataManagerProtocol
     
-    func add(pet: PetModel) {
-        petManager.createPet(pet)
+    init(petManager: PetDataManagerProtocol) {
+        self.petManager = petManager
+    }
+    
+    @discardableResult
+    func add(pet: PetModel) -> Bool {
+        return petManager.createPet(pet)
     }
     
     func petIsValid(pet: PetModel) -> Bool {

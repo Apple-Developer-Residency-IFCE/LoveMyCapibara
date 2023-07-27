@@ -19,7 +19,11 @@ struct EditTaskView: View {
     init(taskInstance: TaskModel, onDelete: @escaping () -> Void) {
         self.taskInstance = taskInstance
         self.onDelete = onDelete
-        _viewModel = StateObject(wrappedValue: EditTaskViewModel(currentTask: taskInstance))
+        _viewModel = StateObject(wrappedValue: EditTaskViewModel(
+            currentTask: taskInstance,
+            taskManager: TaskDataManager.shared,
+            petManager: PetDataManager.shared
+        ))
     }
     
     var body: some View {
@@ -98,9 +102,8 @@ struct EditTaskView: View {
                 }
             }
             .padding(.horizontal)
-            .navBarEditTask(isDisabled: !viewModel.taskIsValid(task: viewModel.currentTask)) {
-                let updatedTask = viewModel.updateSelectedTask()
-                viewModel.editTask(updatedTask)
+            .navBarEditTask(isDisabled: !viewModel.taskIsValid()) {
+                viewModel.editTask()
                 dismiss()
             }
         }

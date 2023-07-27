@@ -71,14 +71,14 @@ struct CreateTaskView: View {
                     .cornerRadius(16)
                     
                     .navBarAddTask(isDisabled: !viewModel.taskIsValid()) {
-                        _ = viewModel.createTaskForPet()
+                        viewModel.createTaskForPet()
                         dismiss()
                     }
                     
                 Spacer()
             }
                 .onAppear {
-                    _ = viewModel.getPetsList()
+                    viewModel.getPetsList()
                 }
                 .padding(.horizontal)
             }

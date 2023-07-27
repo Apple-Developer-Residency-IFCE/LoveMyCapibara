@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var homeViewModel = HomeViewModel(petManager: PetDataManager.shared)
     
     var body: some View {
         Group {

@@ -55,7 +55,7 @@ final class CreateTaskViewModel: ObservableObject {
         task.text = text
         task.id = UUID()
         task.date = date
-        task.type = .empty
+        task.type = type
         task.rememberAt = rememberAt
         task.frequency = frequency
         return add()

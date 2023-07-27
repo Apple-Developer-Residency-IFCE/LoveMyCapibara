@@ -18,9 +18,6 @@ struct TasksListView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    CardCuriosityView()
-                        .padding(.top)
-                    
                     VStack {
                         if showCalendar && !showCreateTask {
                             CalendarGraphView(startDate: $tasksListViewModel.selectedDate, updateEvents: tasksListViewModel.getDatesWithTaskInMonth)
@@ -29,8 +26,8 @@ struct TasksListView: View {
                             CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
                         }
                     }
-                    .animation(.easeInOut, value: showCalendar)
-                    
+                    .padding(.top)
+                                        
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))

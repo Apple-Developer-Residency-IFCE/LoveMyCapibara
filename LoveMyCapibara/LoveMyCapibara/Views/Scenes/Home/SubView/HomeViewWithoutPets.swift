@@ -12,6 +12,9 @@ struct HomeViewWithoutPets: View {
     var body: some View {
         NavigationView {
             VStack {
+                CardCuriosityView()
+                    .padding(.top)
+                    .padding(.horizontal)
                 Image("Pet Card Placeholder")
                     .padding()
                 Text("Você não possui nenhum pet cadastrado :(")

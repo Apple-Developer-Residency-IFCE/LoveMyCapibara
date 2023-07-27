@@ -8,19 +8,22 @@
 import Foundation
 
 class EditPetViewModel: ObservableObject {
-    var petManager = PetDataManager.shared
+    var petManager: PetDataManagerProtocol
     var currentPet: PetModel
     
-    init(currentPet: PetModel) {
+    init(petManager: PetDataManagerProtocol, currentPet: PetModel) {
+        self.petManager = petManager
         self.currentPet = currentPet
     }
 
-    func deleteById(_ id: UUID) {
-        petManager.deletePetById(id)
+    @discardableResult
+    func deleteById(_ id: UUID) -> Bool {
+        return petManager.deletePetById(id)
     }
     
-    func edit(_ pet: PetModel) {
-        petManager.updatePet(pet)
+    @discardableResult
+    func edit(_ pet: PetModel) -> Bool {
+        return petManager.updatePet(pet)
     }
     
     func petIsValid(pet: PetModel) -> Bool {

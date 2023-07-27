@@ -7,11 +7,21 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
     @Published var pets: [PetModel] = []
-    let petManager = PetDataManager.shared
+    let petManager: PetDataManagerProtocol
     
-    func updateList() {
-        self.pets = petManager.getAllPets() ?? []
+    init(petManager: PetDataManagerProtocol) {
+        self.petManager = petManager
+    }
+    
+    @discardableResult
+    func updateList() -> Bool {
+        guard let fetchedList = petManager.getAllPets() else {
+            return false
+        }
+        self.pets = fetchedList
+     
+        return true
     }
 }

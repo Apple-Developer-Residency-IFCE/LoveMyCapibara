@@ -30,7 +30,9 @@ struct TasksListView: View {
                         }
                     }
                     .animation(.easeInOut, value: showCalendar)
-                    
+                    Button("Ëita") {
+                        NotificationManager.instance.deleteNotification("notification 1")
+                    }
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))

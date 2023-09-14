@@ -15,4 +15,19 @@ enum FrequencyModel: String, CaseIterable {
     case annually = "Todo ano"
     case custom = "Personalizado"
     case never = "Nunca"
+    
+    var frequencyBla: Set<Calendar.Component> {
+            switch self {
+            case .daily:
+                return [.day, .hour, .minute]
+            case .weekly:
+                return [.weekday, .hour, .minute]
+            case .monthly:
+                return [.month, .day, .hour , .minute]
+            case .annually:
+                return [.year, .month, .day, .hour, .minute]
+            default:
+                return []
+            }
+        }
 }

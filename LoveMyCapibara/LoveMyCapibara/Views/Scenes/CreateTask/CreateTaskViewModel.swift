@@ -56,6 +56,7 @@ final class CreateTaskViewModel: ObservableObject {
         task.type = .empty
         task.rememberAt = rememberAt
         task.frequency = frequency
+        NotificationManager.instance.scheduleNotification(task: task)
         return add()
     }
     

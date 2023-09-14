@@ -55,7 +55,9 @@
 		80C10E222A425C5C001A1A6B /* EditPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7E46A2A41251C00B2DF61 /* EditPetViewModel.swift */; };
 		9397CA90464FFCA6C18732E3 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A45B3EE5FC6DC53C8D7A39D /* CreateTaskView.swift */; };
 		9740BE7D258EB7BF4BE51A46 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EF69A7F432AAADAE473F890D /* .swiftlint.yml */; };
+		A3579F152A7083BC00DBDADF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3579F142A7083BC00DBDADF /* NotificationManager.swift */; };
 		A37DD1CD2A4E3703000697C5 /* FactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DD1CC2A4E3703000697C5 /* FactModel.swift */; };
+		A3EFDA912A71DA8100AD0533 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFDA902A71DA8100AD0533 /* SettingsViewModel.swift */; };
 		C030D73D2A4263C1007013A2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D7372A4263C1007013A2 /* SettingsView.swift */; };
 		C030D73E2A4263C1007013A2 /* ThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D7392A4263C1007013A2 /* ThemeOption.swift */; };
 		C030D73F2A4263C1007013A2 /* UnselectedRadioIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D73A2A4263C1007013A2 /* UnselectedRadioIcon.swift */; };
@@ -150,7 +152,9 @@
 		80AEE9212A4CD98500E65DAC /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		80AEE9232A4CDC4400E65DAC /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
 		9A45B3EE5FC6DC53C8D7A39D /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
+		A3579F142A7083BC00DBDADF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A37DD1CC2A4E3703000697C5 /* FactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactModel.swift; sourceTree = "<group>"; };
+		A3EFDA902A71DA8100AD0533 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C030D7372A4263C1007013A2 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C030D7392A4263C1007013A2 /* ThemeOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeOption.swift; sourceTree = "<group>"; };
 		C030D73A2A4263C1007013A2 /* UnselectedRadioIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnselectedRadioIcon.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 		64A86CDB2A20056B000F9AA0 /* LoveMyCapibara */ = {
 			isa = PBXGroup;
 			children = (
+				A3579F132A70839800DBDADF /* NotificatinoManager */,
 				809D29582A3D2C57005BAE02 /* CoreData */,
 				64A86CDC2A20056B000F9AA0 /* LoveMyCapibaraApp.swift */,
 				64ED6EEE2A20097A00E428F1 /* Resources */,
@@ -477,6 +482,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		A3579F132A70839800DBDADF /* NotificatinoManager */ = {
+			isa = PBXGroup;
+			children = (
+				A3579F142A7083BC00DBDADF /* NotificationManager.swift */,
+			);
+			path = NotificatinoManager;
+			sourceTree = "<group>";
+		};
 		B98D82017788948D8B16E0F6 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +511,7 @@
 			children = (
 				C030D7372A4263C1007013A2 /* SettingsView.swift */,
 				C030D7382A4263C1007013A2 /* Subviews */,
+				A3EFDA902A71DA8100AD0533 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -804,6 +818,7 @@
 				F532E5562A576E83006D8DA7 /* CalendarHeader.swift in Sources */,
 				64DE71A82A2E899A00B2CF26 /* LabelsOfPet.swift in Sources */,
 				647231952A2A973900857CA3 /* PetDetailsView.swift in Sources */,
+				A3579F152A7083BC00DBDADF /* NotificationManager.swift in Sources */,
 				80A13C862A4E37580038CBED /* TasksListViewModel.swift in Sources */,
 				F52964222A4CE0EC002D6BB0 /* TaskDetailsViewModel.swift in Sources */,
 				F5412C5C2A4BAFC400A72EA2 /* TaskDetailsView.swift in Sources */,
@@ -823,6 +838,7 @@
 				C0AAD5532A37A23100054836 /* ButtonWeightPicker.swift in Sources */,
 				64A86CDD2A20056B000F9AA0 /* LoveMyCapibaraApp.swift in Sources */,
 				F5315E0B2A4FA97D00CDE298 /* CalendarInline.swift in Sources */,
+				A3EFDA912A71DA8100AD0533 /* SettingsViewModel.swift in Sources */,
 				64DE71A42A2E88EE00B2CF26 /* PetAttributes.swift in Sources */,
 				801B10A42A54C5D300ED848B /* FrequencyModel.swift in Sources */,
 				80A60AF32A536BA200B66B41 /* EmptyToDoList.swift in Sources */,

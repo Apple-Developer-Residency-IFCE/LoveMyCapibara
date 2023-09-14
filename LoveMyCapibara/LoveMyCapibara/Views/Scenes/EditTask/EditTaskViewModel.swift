@@ -34,11 +34,12 @@ class EditTaskViewModel: ObservableObject {
     @Published var rememberAt: RememberAtModel = .empty
     
     func deleteById(_ id: UUID) {
-        taskManager.deleteTaskById(id)
+        _ = taskManager.deleteTaskById(id)
+        NotificationManager.instance.deleteNotification(id.uuidString)
     }
 
     func editTask(_ task: TaskModel) {
-        taskManager.updateTask(task)
+        _ = taskManager.updateTask(task)
     }
     
     func getPets() -> [String] {

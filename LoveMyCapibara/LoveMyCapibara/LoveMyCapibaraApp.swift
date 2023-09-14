@@ -31,6 +31,7 @@ struct LoveMyCapibaraApp: App {
             if splashScreenIsActive {
                 SplashScreenView()
                     .onAppear {
+                        NotificationManager.instance.askAuthorization()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
                             self.splashScreenIsActive = false
                         }

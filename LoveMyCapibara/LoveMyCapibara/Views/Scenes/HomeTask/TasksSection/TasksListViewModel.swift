@@ -127,7 +127,7 @@ class TasksListViewModel: ObservableObject {
     
     func deleteTask(id: UUID?) {
         guard let id else { return }
-        taskManager.deleteTaskById(id)
+        _ = taskManager.deleteTaskById(id)
         updateList()
     }
 }

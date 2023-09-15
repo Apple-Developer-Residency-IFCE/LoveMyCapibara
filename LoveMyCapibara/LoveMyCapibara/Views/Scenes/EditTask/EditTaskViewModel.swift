@@ -8,16 +8,18 @@
 import Foundation
 
 class EditTaskViewModel: ObservableObject {
-    var taskManager = TaskDataManager.shared
-    var petManager = PetDataManager.shared
+    var taskManager: TaskDataManagerProtocol
+    var petManager: PetDataManagerProtocol
     @Published var currentTask: TaskModel
     
-    init(currentTask: TaskModel) {
+    init(currentTask: TaskModel, taskManager: TaskDataManagerProtocol, petManager: PetDataManagerProtocol) {
+        self.taskManager = taskManager
+        self.petManager = petManager
         self.currentTask = currentTask
         self.selectedPet = currentTask.pet?.name ?? ""
         self.txtTitle = currentTask.title ?? ""
         self.text = currentTask.text ?? ""
-        self.petNameList = getPets()
+        self.petNameList = getPets() ?? []
         self.type = currentTask.type ?? .empty
         self.frequency = currentTask.frequency ?? .never
         self.date = currentTask.date
@@ -33,21 +35,24 @@ class EditTaskViewModel: ObservableObject {
     @Published var date: Date = .now
     @Published var rememberAt: RememberAtModel = .empty
     
-    func deleteById(_ id: UUID) {
-        _ = taskManager.deleteTaskById(id)
-        NotificationManager.instance.deleteNotification(id.uuidString)
+    @discardableResult
+    func deleteById(_ id: UUID) -> Bool {
+        return taskManager.deleteTaskById(id)
     }
 
-    func editTask(_ task: TaskModel) {
-        _ = taskManager.updateTask(task)
+    @discardableResult
+    func editTask() -> Bool {
+        let taskToUpdate = updateSelectedTask()
+        return taskManager.updateTask(taskToUpdate)
     }
     
-    func getPets() -> [String] {
-        guard let result = petManager.getAllPets()?.compactMap({ $0.name }) else { return [] }
+    @discardableResult
+    func getPets() -> [String]? {
+        guard let result = petManager.getAllPets()?.compactMap({ $0.name }) else { return nil }
         return result
     }
     
-    func updateSelectedTask() -> TaskModel {
+    private func updateSelectedTask() -> TaskModel {
         currentTask.id = currentTask.id
         currentTask.title = txtTitle
         currentTask.type = type
@@ -61,7 +66,7 @@ class EditTaskViewModel: ObservableObject {
         return currentTask
     }
     
-    func taskIsValid(task: TaskModel) -> Bool {
+    func taskIsValid() -> Bool {
         return !txtTitle.isEmpty && !selectedPet.isEmpty && selectedPet != "Nenhum" && type != .empty
     }
 }

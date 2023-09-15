@@ -124,20 +124,29 @@ class CalendarViewModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
     
-    func selectBackMonth() {
+    @discardableResult
+    func selectBackMonth() -> Int? {
         date = calendar.date(byAdding: .month, value: -1, to: date) ?? Date()
+        
+        return calendar.component(.month, from: date)
     }
     
-    func selectForwardMonth() {
+    func selectForwardMonth() -> Int? {
         date = calendar.date(byAdding: .month, value: 1, to: date) ?? Date()
+        
+        return calendar.component(.month, from: date)
     }
     
-    func selectBackYear() {
+    func selectBackYear() -> Int? {
         date = calendar.date(byAdding: .year, value: -1, to: date) ?? Date()
+        
+        return calendar.component(.year, from: date)
     }
     
-    func selectForwardYear() {
+    func selectForwardYear() -> Int? {
         date = calendar.date(byAdding: .year, value: 1, to: date) ?? Date()
+        
+        return calendar.component(.yearForWeekOfYear, from: date)
     }
     
     func hasEvent(day: Date) -> Bool {

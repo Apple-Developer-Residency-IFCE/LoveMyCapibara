@@ -14,7 +14,8 @@ struct HomeViewWithPets: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 10) {
+                LazyVGrid(columns: columns, spacing: 20) {
+                    CardCuriosityView()
                     Group {
                         ForEach(homeViewModel.pets, id: \.id) { pet in
                             NavigationLink {
@@ -25,11 +26,11 @@ struct HomeViewWithPets: View {
                         }
                     }
                     .frame(height: 100)
-                    .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
                 }.onAppear {
                     homeViewModel.updateList()
                 }
             }
+            .padding(.horizontal)
             .padding(.top)
             .background(Color("BackgroundColor"))
             .navBarPet(destination: {

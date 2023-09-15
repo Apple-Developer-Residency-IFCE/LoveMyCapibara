@@ -13,7 +13,6 @@ enum FrequencyModel: String, CaseIterable {
     case twoWeeks = "A cada 2 semanas"
     case monthly = "Todo mês"
     case annually = "Todo ano"
-    case custom = "Personalizado"
     case never = "Nunca"
     
     var frequencyBla: Set<Calendar.Component> {

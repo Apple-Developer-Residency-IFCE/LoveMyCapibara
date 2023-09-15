@@ -11,7 +11,7 @@ struct AddPetView: View {
     @ObservedObject var formViewModel = FormViewModel()
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
-    @StateObject var viewModel = AddPetViewModel()
+    @StateObject var viewModel = AddPetViewModel(petManager: PetDataManager.shared)
     
     var body: some View {
         NavigationView {

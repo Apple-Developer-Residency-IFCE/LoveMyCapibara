@@ -37,6 +37,7 @@ final class CreateTaskViewModel: ObservableObject {
         petNameList.insert("Nenhum", at: 0)
     }
     
+    @discardableResult
     func getPetsList() -> Bool {
         guard let pets = petManager.getAllPets() else {
             return false
@@ -46,6 +47,7 @@ final class CreateTaskViewModel: ObservableObject {
         return true
     }
     
+    @discardableResult
     func createTaskForPet() -> Bool {
         task.pet = petManager.getAllPets()?.filter({ $0.name == selectedPet }).first
         task.completed = [String: Bool]()
@@ -53,13 +55,14 @@ final class CreateTaskViewModel: ObservableObject {
         task.text = text
         task.id = UUID()
         task.date = date
-        task.type = .empty
+        task.type = type
         task.rememberAt = rememberAt
         task.frequency = frequency
         NotificationManager.instance.scheduleNotification(task: task)
         return add()
     }
     
+    @discardableResult
     func taskIsValid() -> Bool {
         return !txtTitle.isEmpty && !selectedPet.isEmpty && selectedPet != "Nenhum" && type != .empty
     }

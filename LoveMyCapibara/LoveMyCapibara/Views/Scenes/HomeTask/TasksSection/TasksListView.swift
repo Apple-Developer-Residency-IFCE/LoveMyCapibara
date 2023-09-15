@@ -18,9 +18,6 @@ struct TasksListView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    CardCuriosityView()
-                        .padding(.top)
-                    
                     VStack {
                         if showCalendar && !showCreateTask {
                             CalendarGraphView(startDate: $tasksListViewModel.selectedDate, updateEvents: tasksListViewModel.getDatesWithTaskInMonth)
@@ -33,6 +30,8 @@ struct TasksListView: View {
                     Button("Ëita") {
                         NotificationManager.instance.deleteNotification("notification 1")
                     }
+                    .padding(.top)
+
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))

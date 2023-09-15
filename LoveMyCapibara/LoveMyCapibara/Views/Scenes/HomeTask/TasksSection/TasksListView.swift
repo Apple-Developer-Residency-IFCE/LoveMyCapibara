@@ -26,8 +26,12 @@ struct TasksListView: View {
                             CalendarInline(selectedDate: $tasksListViewModel.selectedDate)
                         }
                     }
+                    .animation(.easeInOut, value: showCalendar)
+                    Button("Ëita") {
+                        NotificationManager.instance.deleteNotification("notification 1")
+                    }
                     .padding(.top)
-                                        
+
                     Text("Tarefas pendentes")
                         .font(FontManager.poppinsBold(size: 20))
                         .foregroundColor(Color("PrimaryText"))

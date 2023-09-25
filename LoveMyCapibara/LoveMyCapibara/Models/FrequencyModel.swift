@@ -15,7 +15,7 @@ enum FrequencyModel: String, CaseIterable {
     case annually = "Todo ano"
     case never = "Nunca"
     
-    var frequencyBla: Set<Calendar.Component> {
+    var frequencyComponents: Set<Calendar.Component> {
             switch self {
             case .daily:
                 return [.day, .hour, .minute]

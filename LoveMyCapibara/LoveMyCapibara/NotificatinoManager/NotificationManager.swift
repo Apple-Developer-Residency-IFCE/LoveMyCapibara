@@ -28,7 +28,7 @@ class NotificationManager {
         if let description = task.text { content.body = description }
         
         // gatilho
-        guard let frequencySchedule = task.frequency?.frequencyBla else { return }
+        guard let frequencySchedule = task.frequency?.frequencyComponents else { return }
         guard let rememberAtTime = task.rememberAt?.rememberAt else { return }
         guard let scheduledDate = Calendar.current.date(byAdding: rememberAtTime, to: task.date) else { return }
         

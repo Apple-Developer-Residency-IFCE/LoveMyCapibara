@@ -131,18 +131,21 @@ class CalendarViewModel: ObservableObject {
         return calendar.component(.month, from: date)
     }
     
+    @discardableResult
     func selectForwardMonth() -> Int? {
         date = calendar.date(byAdding: .month, value: 1, to: date) ?? Date()
         
         return calendar.component(.month, from: date)
     }
     
+    @discardableResult
     func selectBackYear() -> Int? {
         date = calendar.date(byAdding: .year, value: -1, to: date) ?? Date()
         
         return calendar.component(.year, from: date)
     }
     
+    @discardableResult
     func selectForwardYear() -> Int? {
         date = calendar.date(byAdding: .year, value: 1, to: date) ?? Date()
         

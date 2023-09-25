@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @State private var index: Int = 0
+    @State private var index: Int = 2
     private let allCases = CardForIndexOnboarding.allCases
     
     var nextView: () -> Void
@@ -79,7 +79,8 @@ private struct CardView: View {
     var body: some View {
         VStack {
             allCases[index].image
-                .frame(width: UIScreen.main.bounds.width, height: 320)
+                .resizable()
+                .frame(width: UIScreen.main.bounds.width * 0.7)
 
             Text(allCases[index].title)
                 .font(FontManager.poppinsBold(size: 28))
@@ -89,5 +90,11 @@ private struct CardView: View {
         }
         .frame(height: UIScreen.main.bounds.height / 2)
         .padding(.horizontal, 20)
+    }
+}
+
+struct OnboardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView(nextView: { print("End onboarding")})
     }
 }
